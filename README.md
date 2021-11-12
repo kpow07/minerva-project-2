@@ -1,4 +1,13 @@
 # Getting Started with Create React App
+run node v14.18.0
+npm install
+npm run start
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
