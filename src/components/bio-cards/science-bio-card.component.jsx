@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import "./bio-rem.css";
+import "./science-bio-card.component.css";
 
-function BioCardComponent() {
+function ScienceBioCardComponent() {
   const [name, setName] = useState("MARIE CURIE");
-  const [job, setJob] = useState("SCIENTIST");
+  const [job, setJob] = useState("SCIENCE");
   const [description, setDescription] = useState(
     "This is a brief description about so and so "
   );
 
   return (
-    <div className="bio-card">
-      <div className="upper-container">
+    <div className="science-bio-card">
+      <div className="science-upper-container">
         <img
-          className="portrait"
+          className="science-portrait"
           src="stempics/Marie-Curie-1-CROPPED.jpg"
           alt="marie curie"
           height="230px"
           styles={{ backgroundPosition: "center" }}
         />
-        <div className="image-container">
+        <div className="science-image-container">
           <img
             src="images/logos/beaker.png"
             alt="logo"
@@ -27,7 +27,7 @@ function BioCardComponent() {
           />
         </div>
       </div>
-      <div className="lower-container">
+      <div className="science-lower-container">
         <h3>{name}</h3>
         <h4>{job}</h4>
         <p>{description}</p>
@@ -36,4 +36,4 @@ function BioCardComponent() {
   );
 }
 
-export default BioCardComponent;
+export default ScienceBioCardComponent;

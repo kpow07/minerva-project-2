@@ -1,0 +1,104 @@
+.eng-bio-card {
+  height: 350px;
+  width: 210px;
+  background: white;
+  /* border-radius: 10px; */
+  border-color: lightseagreen;
+  border: 3px solid lightseagreen;
+  box-shadow: 1px 0px 20px 1px grey;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transition-duration: 0.9s;
+  animation: ease-in-out;
+  margin: 20px;
+}
+
+.eng-bio-card:hover {
+  transform: scale(1.15);
+}
+
+.eng-upper-container {
+  height: 65%;
+  align-items: center;
+  align-items: top;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-position: center;
+}
+.eng-upper-container img {
+  background-position: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.eng-portrait {
+  align-items: center;
+  border: none;
+  transform: translate(-25%);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.eng-image-container {
+  background: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transform: translate(135%, -65%);
+  border: 4px solid lightseagreen;
+  overflow: hidden;
+}
+.eng-image-container img {
+  background: white;
+  height: 45px;
+  width: 45px;
+  padding: 3px;
+  border: none;
+  align-content: center;
+}
+
+.eng-lower-container {
+  margin-top: 0px;
+  height: 35%;
+  background: white;
+  text-align: center;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.eng-lower-container h3,
+h4,
+p {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  align-items: baseline;
+}
+.eng-lower-container h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  padding: 0px;
+  margin-top: 2rem;
+}
+.eng-lower-container h4 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: lightseagreen;
+}
+.eng-lower-container p {
+  margin: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+}
+button {
+  margin-top: 0rem;
+  background-color: white;
+  font: bold;
+  font-size: 0.7rem;
+  padding: 0.4rem;
+  border: 1px solid lightseagreen;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
+}
