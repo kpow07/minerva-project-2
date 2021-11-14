@@ -1,6 +1,6 @@
 .bio-card {
-  height: 500px;
-  width: 300px;
+  height: 350px;
+  width: 210px;
   background: white;
   border-radius: 10px;
   border-color: orangered;
@@ -9,9 +9,16 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
+  transition-duration: 0.9s;
+  animation: ease-in-out;
 }
+
+.bio-card:hover {
+  transform: scale(1.15);
+}
+
 .upper-container {
-  height: 70%;
+  height: 65%;
   align-items: center;
   align-items: top;
   border-top-left-radius: 12px;
@@ -20,33 +27,37 @@
 }
 .upper-container img {
   background-position: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 .portrait {
   align-items: center;
   border: none;
   transform: translate(-25%);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 .image-container {
   background: white;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
-  transform: translate(115px, -48px);
+  transform: translate(135%, -65%);
   border: 4px solid black;
   overflow: hidden;
 }
 .image-container img {
   background: white;
-  height: 50px;
-  width: 50px;
-  padding: 5px;
+  height: 35px;
+  width: 35px;
+  padding: 3px;
   border: none;
   align-content: center;
 }
 
 .lower-container {
   margin-top: 0px;
-  height: 30%;
+  height: 35%;
   background: white;
   text-align: center;
   font-weight: 400;
@@ -61,39 +72,32 @@ p {
   align-items: baseline;
 }
 .lower-container h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   color: black;
-  padding: 5px;
-  margin-top: 5px;
+  padding: 0px;
+  margin-top: 2rem;
 }
 .lower-container h4 {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: 800;
   color: orangered;
 }
 .lower-container p {
-  margin: 0.5rem;
-  font-size: 1rem;
+  margin: 0.2rem;
+  font-size: 0.8rem;
   font-weight: 400;
   color: black;
   text-align: center;
 }
 button {
-  margin-top: 0.3rem;
+  margin-top: 0rem;
   background-color: white;
   font: bold;
-  padding: 0.6rem;
+  font-size: 0.7rem;
+  padding: 0.4rem;
   border: 1px solid orangered;
   border-radius: 10px;
   transition-duration: 0.5s;
   animation: ease-in-out;
-  align-items: baseline;
-}
-button:hover {
-  background: orangered;
-  transform: scale(1.1);
-  border: none;
-  color: white;
-  text-transform: bold;
 }
