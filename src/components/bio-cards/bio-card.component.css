@@ -3,8 +3,8 @@
   width: 300px;
   background: white;
   border-radius: 10px;
-  border-color: orangered;
-  border: 2px solid orangered;
+  /* border-color: orangered;
+  border: 2px solid orangered; */
   box-shadow: 1px 0px 15px 1px orangered;
   align-items: center;
   text-align: center;
