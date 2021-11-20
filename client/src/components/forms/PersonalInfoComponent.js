@@ -1,61 +1,63 @@
 import React from "react";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-function PersonalInfoComponent({ setters, ...rest }) {
-  console.log(rest);
-  const { firstName, lastName, email, city } = rest.values;
+function PersonalInfoComponent({ setters, values }) {
+  const { firstName, lastName, email, city } = values;
   const { setFirstName, setLastName, setCity, setEmail } = setters;
-  console.log(
-    `first name: ${firstName} last name: ${lastName} email: ${email} city: ${city}`
-  );
+
   return (
-    <container>
+    <div>
       <div className="main-personal-data">
         <label>
           First Name:
           <input
+            className="single-line-field-med"
             name="firstName"
             type="text"
             placeholder="first name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
-        </label>
-
+        </label>{" "}
+        <br />
         <label>
-          Lasts Name:{" "}
+          Lasts Name:
           <input
+            className="single-line-field-med"
             name="lastName"
             type="text"
             placeholder="last name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
-        </label>
-
+        </label>{" "}
+        <br />
         <label>
-          City:{" "}
+          City:
           <input
+            className="single-line-field-med"
             name="city"
             type="text"
             placeholder="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-        </label>
-
+        </label>{" "}
+        <br />
         <label>
-          Email Address:{" "}
+          Email Address:
           <input
+            className="single-line-field-med"
             name="email"
             type="text"
             placeholder="email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </label>
+        </label>{" "}
+        <br />
       </div>
-    </container>
+    </div>
   );
 }
 

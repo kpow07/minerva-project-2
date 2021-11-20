@@ -1,0 +1,84 @@
+.main-form {
+  width: 50%;
+  border: 1px dotted black;
+  margin: auto;
+  background-color: white;
+  opacity: 100%;
+  text-align: start;
+}
+.form-title {
+  text-align: center;
+}
+
+.single-line-field-long {
+  height: 1.5rem;
+  width: 80%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  resize: none;
+}
+.single-line-field-med {
+  height: 1.5rem;
+  width: 20rem;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  resize: none;
+}
+.multi-line-field-long {
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  resize: none;
+}
+.few-line-field-long {
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  resize: none;
+}
+.check {
+  margin-right: 15px;
+}
+
+.other-desc {
+  margin-left: 20px;
+}
+.field-area {
+  padding: 3px;
+  margin: 5px;
+}
+textarea {
+  width: 80%;
+  height: 100%;
+}
+
+label {
+  margin-left: 10px;
+  font-weight: 600;
+}
+h4 {
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.submit-button {
+  height: 3rem;
+  width: 80%;
+  background-color: rgb(17, 5, 97);
+  color: white;
+  margin: 20px auto;
+  display: block;
+  padding: 5px;
+}
+.submit-button:hover {
+  background-color: rgb(13, 63, 228);
+  color: white3;
+}
+.submit-button:active {
+  background-color: rgb(109, 109, 252);
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
+}
+input[type="text"]:focus {
+  background-color: lightblue;
+}
