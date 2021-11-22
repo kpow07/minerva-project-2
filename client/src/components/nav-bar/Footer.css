@@ -33,11 +33,13 @@
   margin-top: 1.3em;
   font-size: 15px;
   font-weight: 400;
+  text-align: left;
 }
 
 .navTitle {
   font-weight: 500;
   font-size: 15px;
+  text-align: left;
 }
 
 .footer address {
