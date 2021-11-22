@@ -1,7 +1,7 @@
 import React from "react";
-import "./science-directory.component.css";
-import ScienceBioCardComponent from "./mapping-science-bio-card.component.jsx";
-import "../bio-cards/science-bio-card.component.css";
+import "./ScienceDirectory.style.css";
+import ScienceMappingBioCardComponent from "./ScienceMappingBioCardComponent.js";
+import "../bio-cards/ScienceBioCard.style.css";
 
 class ScienceDirectory extends React.Component {
   constructor() {
@@ -148,7 +148,7 @@ class ScienceDirectory extends React.Component {
       <div className="directory-menu">
         {this.state.sections.map(
           ({ id, name, description, area, imageUrl }) => (
-            <ScienceBioCardComponent
+            <ScienceMappingBioCardComponent
               key={id}
               name={name}
               description={description}

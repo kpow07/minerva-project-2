@@ -1,9 +1,0 @@
-.directory-menu {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-
-  justify-content: space-between;
-}

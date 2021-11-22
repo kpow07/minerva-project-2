@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createMentor } from "../models/mentors.js";
-//
+import { createBio, listBios, findBioById } from "../models/bios.js";
 
 const router = Router();
 
@@ -38,4 +38,30 @@ router.post("/add-mentor", async (req, res) => {
   }
 });
 
+router.post("/add-bio", async (req, res) => {
+  let bio = req.body;
+  try {
+    let newBio = await createBio(bio);
+    console.log("Added Library Bio: ", newBio);
+    res.send(newBio);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Bio for " + bioToAdd.name + " already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
+});
+
+router.get("/get-bio", async (req, res) => {
+  let biosList = await listBios();
+  res.send(biosList);
+});
+
+router.get("/get-bio/:id", async (req, res) => {
+  let id = req.params.id;
+  let foundBio = await findBioById(id);
+  res.send(foundBio);
+});
 export default router;

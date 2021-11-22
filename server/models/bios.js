@@ -1,21 +1,34 @@
 import mongoose from "mongoose";
 
-const BiosSchema = new mongoose.Schema({
+const bioSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  field: {
-    type: String,
-    enum: ["Science", "Technology", "Engineering", "Mathematics"],
-  },
-  birthday: { type: Date, required: true },
-  briefDescription: { type: String, required: true },
-  Bio: { type: String, required: true },
-  imageURL: { type: String, required: true },
-  OtherResources: { type: String },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  science: Boolean,
+  technology: Boolean,
+  engineering: Boolean,
+  mathematics: Boolean,
+  canadian: Boolean,
+  description: String,
+  bio: String,
+  imageURL: String,
+  OtherResources: String,
+  // createdAt: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
 });
+const Bio = mongoose.model("Bio", bioSchema, "bio");
 
-export default mongoose.model("Bios", BiosSchema);
+async function createBio(BioToCreate) {
+  let newBio = new Bio(BioToCreate);
+  return newBio.save();
+}
+async function listBios() {
+  return Bio.find({});
+}
+
+async function findBioById(id) {
+  return Bio.findById(id);
+}
+/////////////////////
+export { createBio, listBios, findBioById };

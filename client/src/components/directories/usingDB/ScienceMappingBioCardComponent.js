@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import "./science-bio-card.component.css";
+import "./ScienceBioCard.style.css";
 
-const ScienceBioCardComponent = ({ name, id, description, imageUrl }) => {
-  // const [name, setName] = useState({ name});
+const ScienceMappingBioCardComponent = ({
+  name,
+  id,
+  description,
+  imageUrl,
+}) => {
   const [area, setArea] = useState("SCIENCE");
-  // const [description, setDescription] = useState(
-  //   "This is a brief description about so and so "
+
   // );
   return (
     <div className="science-bio-card">
@@ -35,4 +38,4 @@ const ScienceBioCardComponent = ({ name, id, description, imageUrl }) => {
   );
 };
 
-export default ScienceBioCardComponent;
+export default ScienceMappingBioCardComponent;

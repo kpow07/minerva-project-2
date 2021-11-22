@@ -7,7 +7,7 @@ import OtherAreasCheckboxComponent from "./OtherAreasCheckboxComponent";
 import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
 import FormTitleComponent from "./FormTitleComponent";
 
-function MasterForm() {
+function MentorForm() {
   //set the beginning state for all variables
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -68,15 +68,16 @@ function MasterForm() {
     const response = await fetch("/api/add-mentor", requestOptions);
     //data is the new object that was sent to the database
     const data = await response.json();
-    //console.log(data);
-    //response.text
+    console.log(data);
   }
+
   //form title component:  you can set the name of the form here to be what you want
   //personal info component:  values and setters of those values are passed in here
   //field of study component: values and setters of those values are passed in here
   //Description bio resource component:     ""
   //Other Areas checkbox component:      ""
   //Submit button
+
   return (
     <div className="main-form">
       <FormTitleComponent title={"Become a Mentor!"} />
@@ -131,4 +132,4 @@ function MasterForm() {
   );
 }
 
-export default MasterForm;
+export default MentorForm;

@@ -2,16 +2,13 @@
   height: 350px;
   width: 210px;
   background: white;
-  /* border-radius: 10px; */
-  /* border-color: orangered;
-  border: 3px solid orangered; */
   box-shadow: 1px 0px 20px 1px grey;
   align-items: center;
   text-align: center;
   overflow: hidden;
   transition-duration: 0.9s;
   animation: ease-in-out;
-  margin: 20px;
+  margin: 40px;
 }
 
 .science-bio-card:hover {
@@ -91,7 +88,7 @@ p {
   color: black;
   text-align: center;
 }
-button {
+/* button {
   margin-top: 0rem;
   background-color: white;
   font: bold;
@@ -101,4 +98,4 @@ button {
   border-radius: 10px;
   transition-duration: 0.5s;
   animation: ease-in-out;
-}
+} */

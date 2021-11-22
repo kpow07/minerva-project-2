@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./math-bio-card.component.css";
+import "./MathBioCard.styles.css";
 
 function MathBioCardComponent() {
   const [name, setName] = useState("KATHERINE JOHNSON");

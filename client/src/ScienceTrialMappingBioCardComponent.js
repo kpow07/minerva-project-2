@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import "./ScienceBioCardStyle.css";
+import "./ScienceBioCard.style.css";
 
-function ScienceBioCardComponent() {
-  const [name, setName] = useState("MARIE CURIE");
-  const [job, setJob] = useState("SCIENCE");
-  const [description, setDescription] = useState(
-    "This is a brief description about so and so "
-  );
-
+const ScienceTrialMappingBioCardComponent = ({
+  name,
+  id,
+  area,
+  description,
+  imageUrl,
+}) => {
   return (
-    <div className="science-bio-card">
+    <div className="science-bio-card" onClick={() => onBioSelected()}>
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src="stempics/Marie-Curie-1-CROPPED.jpg"
-          alt="marie curie"
+          src={imageUrl}
+          alt={name}
           height="230px"
           styles={{ backgroundPosition: "center" }}
         />
@@ -29,11 +29,11 @@ function ScienceBioCardComponent() {
       </div>
       <div className="science-lower-container">
         <h3>{name}</h3>
-        <h4>{job}</h4>
+        <h4>{area}</h4>
         <p>{description}</p>
       </div>
     </div>
   );
-}
+};
 
-export default ScienceBioCardComponent;
+export default ScienceTrialMappingBioCardComponent;

@@ -1,6 +1,5 @@
 import React from "react";
-import NavBarPlaceholder from "./navplacelolder";
-import ScienceDirectory from "./science-directory.component";
+import ScienceDirectory from "./ScienceDirectory";
 
 function SciencePageExample() {
   return (
