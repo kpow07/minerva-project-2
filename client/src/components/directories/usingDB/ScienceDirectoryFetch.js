@@ -63,6 +63,7 @@ const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
       {bios.map((bios, index) => {
         return (
           <ScienceMappingBioCardComponent
+            className="card"
             key={index}
             onBioSelected={() => selectBio(bios._id)}
             firstName={bios.firstName}
