@@ -4,6 +4,7 @@ import "./App.css";
 import Footer from "./components/nav-bar/Footer";
 import womenpic from "./women-background-crop.png";
 import MainBioGallery from "./components/directories/usingDB/MainBioGallery";
+import Header from "./components/nav-bar/Header";
 
 //
 //
@@ -22,6 +23,7 @@ function App() {
         height: "100vh",
       }}
     >
+      <Header />
       <MainBioGallery />
       <Footer />
     </div>
