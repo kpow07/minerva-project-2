@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const mentorSchema = new mongoose.Schema({
+const menteeSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
@@ -19,6 +19,7 @@ const mentorSchema = new mongoose.Schema({
   other6: Boolean,
   other7: Boolean,
   other8: Boolean,
+  other9: Boolean,
   ////////////////////
 });
 ////////////////////////////////

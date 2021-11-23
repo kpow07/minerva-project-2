@@ -6,6 +6,7 @@ import PersonalInfoComponent from "./PersonalInfoComponent";
 import OtherAreasCheckboxComponent from "./OtherAreasCheckboxComponent";
 import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
 import FormTitle from "./FormTitle";
+//import AdditionalCheckboxWithFieldComponent from "" //addition
 
 function MenteeForm() {
   const [firstName, setFirstName] = useState("");
@@ -27,6 +28,7 @@ function MenteeForm() {
   const [other6, setOther6] = useState(false);
   const [other7, setOther7] = useState(false);
   const [other8, setOther8] = useState(false);
+  //const [other9, setOther9] = useState (false);
 
   async function mySubmitFunction() {
     const personalInfo = {
@@ -49,6 +51,7 @@ function MenteeForm() {
       other6,
       other7,
       other8,
+      //other9,
     };
 
     const postData = JSON.stringify(personalInfo);
@@ -60,14 +63,14 @@ function MenteeForm() {
       headers: { "Content-Type": "application/json" },
       body: postData,
     };
-    const response = await fetch("/api/add-mentor", requestOptions);
+    const response = await fetch("/api/add-mentor", requestOptions); //<-update to add-mentee
     const data = await response.json();
     console.log(data);
     //response.text
   }
   return (
     <div className="main-form">
-      <FormTitle title={"Become a Mentor!"} />
+      <FormTitle title={"Become a Mentee!"} />
 
       <PersonalInfoComponent
         values={{ firstName, lastName, email, city }}
@@ -96,6 +99,7 @@ function MenteeForm() {
           other6,
           other7,
           other8,
+          //other9,
         }}
         setters={{
           setOther1,
@@ -106,6 +110,7 @@ function MenteeForm() {
           setOther6,
           setOther7,
           setOther8,
+          //setOther9,
         }}
       />
 
