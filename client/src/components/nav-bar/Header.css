@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 16px;
+  padding: 20px 20px 20px 20px;
+  color: #2f2f2f;
+  background-color: #d7ecd9;
+  border-top: 1px solid #e5e5e5;
+}
+
+.navMenu {
+  padding: 20px 0px 20px 0px;
+}
+
+.header h1 {
+  font-family: Julius Sans One;
+  font-size: 47px;
+  padding: 0px 40px 0px 40px;
+}
+
+.header p {
+  font-family: Sacramento;
+  font-size: 45px;
+  color: #8da47e;
+  border-top: #2f2f2f 3px solid;
+  padding-top: 5px;
+  margin: 0;
+}
+
+.photo img {
+  width: 400px;
+  height: auto;
+  padding: 0px 20px 0px 20px;
+}
+
+.mainNav {
+  display: flex;
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.mainNav ul {
+  line-height: 2.5em;
+  text-decoration: none;
+}
+
+.button {
+  font-family: "Montserrat", sans-serif;
+  flex: 0 auto;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  background-color: #8da47e;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.navMenu a {
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #efae46;
+}

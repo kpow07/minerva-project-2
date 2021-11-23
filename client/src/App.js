@@ -2,10 +2,14 @@ import React from "react";
 import "./App.css";
 // import BioDetail from "./components/directories/BioDetail";
 import Footer from "./components/nav-bar/Footer";
-import womenpic from "./women-background-crop.png";
-import LibraryBioForm from "./components/forms/LibraryBioForm";
-import MentorForm from "./components/forms/MentorForm";
-// import MainBioGallery from "./components/directories/usingDB/MainBioGallery";
+// import womenpic from "./women-background-crop.png";
+import womenpic2 from "./women-background2-crop.png";
+
+// import LibraryBioForm from "./components/forms/LibraryBioForm";
+// import MentorForm from "./components/forms/MentorForm";
+// import MainBioGallery from "./components/directories/usingDB/MainBioGallery"
+import MainBioGallery from "./components/directories/usingDB/MainBioGallery";
+import Header from "./components/nav-bar/Header";
 
 //
 //
@@ -19,14 +23,19 @@ function App() {
     <div
       className="App"
       style={{
-        backgroundImage: "url(" + womenpic + ")",
-        backgroundSize: "cover",
+        backgroundImage: "url(" + womenpic2 + ")",
+        backgroundSize: "contain",
+        backgroundPositionY: "70%",
+        backgroundPositionX: "center",
+
         height: "100vh",
+        // width: "auto",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      {/* <MainBioGallery /> */}
-      {/* <LibraryBioForm /> */}
-      <MentorForm />
+      <Header />
+      <MainBioGallery />
+
       <Footer />
     </div>
   );
