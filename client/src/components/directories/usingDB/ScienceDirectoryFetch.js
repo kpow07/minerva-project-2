@@ -49,6 +49,7 @@ const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
       console.log("Fetching bios data");
       let fetchResult = await fetch("/api/get-bio");
       let bioList = await fetchResult.json();
+
       setBios(bioList);
     }
     fetchData();
@@ -58,6 +59,7 @@ const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
     console.log("selectBio called on id: ", id);
     setSelectedBioId(id);
   }
+
   return (
     <div className="directory-menu">
       {bios.map((bios, index) => {

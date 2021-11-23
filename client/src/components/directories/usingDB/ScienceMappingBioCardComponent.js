@@ -15,7 +15,7 @@ const ScienceMappingBioCardComponent = ({
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src={imageUrl}
+          src={`${imageUrl}`}
           alt={name}
           height="230px"
           styles={{ backgroundPosition: "center" }}

@@ -19,6 +19,7 @@ const mentorSchema = new mongoose.Schema({
   other6: Boolean,
   other7: Boolean,
   other8: Boolean,
+  ////////////////////
 });
 ////////////////////////////////
 const Mentor = mongoose.model("Mentor", mentorSchema, "mentor");
@@ -39,5 +40,6 @@ async function getMentorInfo(id) {
   let mentorInfo = await findMentorById(id);
   return mentorInfo;
 }
+
 ////////////////////////////////
-export { createMentor };
+export { createMentor, getMentorInfo };

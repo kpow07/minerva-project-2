@@ -21,9 +21,8 @@ h2 {
   border: 2px solid white;
   background-color: white;
   opacity: 95%;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto;
+
   padding: 3%;
   box-shadow: 2px 0px 30px 1px grey;
-  margin-bottom: 20px;
 }

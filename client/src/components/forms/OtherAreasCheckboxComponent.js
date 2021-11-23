@@ -19,7 +19,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
     <div>
       <div className="field-checkbox-component">
         <div className="field-area">
-          <h4>Which category best describes you?</h4>
+          <h4>Which category best describes you? (Optional)</h4>
           <label className="check-label">
             <div className="other-desc">
               <input

@@ -3,7 +3,9 @@ import "./App.css";
 // import BioDetail from "./components/directories/BioDetail";
 import Footer from "./components/nav-bar/Footer";
 import womenpic from "./women-background-crop.png";
-import MainBioGallery from "./components/directories/usingDB/MainBioGallery";
+import LibraryBioForm from "./components/forms/LibraryBioForm";
+import MentorForm from "./components/forms/MentorForm";
+// import MainBioGallery from "./components/directories/usingDB/MainBioGallery";
 
 //
 //
@@ -22,7 +24,9 @@ function App() {
         height: "100vh",
       }}
     >
-      <MainBioGallery />
+      {/* <MainBioGallery /> */}
+      {/* <LibraryBioForm /> */}
+      <MentorForm />
       <Footer />
     </div>
   );

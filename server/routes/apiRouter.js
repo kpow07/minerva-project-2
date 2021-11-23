@@ -64,4 +64,10 @@ router.get("/get-bio/:id", async (req, res) => {
   let foundBio = await findBioById(id);
   res.send(foundBio);
 });
+
+// router.patch("edit-bio/:id", async (req, res) => {
+//   let id = rer.params.id;
+//   let foundBio = await findBioById(id);
+//   res.send(foundBio);
+// });
 export default router;

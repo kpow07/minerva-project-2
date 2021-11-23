@@ -64,7 +64,7 @@ function MentorForm() {
       },
       body: postData,
     };
-    //reponse is from salling post request on add-mentor route using the request options above
+    //reponse is from calling post request on add-mentor route using the request options above
     const response = await fetch("/api/add-mentor", requestOptions);
     //data is the new object that was sent to the database
     const data = await response.json();
