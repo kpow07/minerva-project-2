@@ -9,3 +9,6 @@
   background-size: cover;
   overflow: scroll;
 }
+body {
+  overflow: hidden;
+}

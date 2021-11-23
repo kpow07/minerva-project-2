@@ -6,14 +6,14 @@ const ScienceTrialMappingBioCardComponent = ({
   id,
   area,
   description,
-  imageUrl,
+  imageURL,
 }) => {
   return (
     <div className="science-bio-card" onClick={() => onBioSelected()}>
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src={imageUrl}
+          src={imageURL}
           alt={name}
           height="230px"
           styles={{ backgroundPosition: "center" }}

@@ -5,7 +5,7 @@ const ScienceMappingBioCardComponent = ({
   name,
   id,
   description,
-  imageUrl,
+  imageURL,
 }) => {
   const [area, setArea] = useState("SCIENCE");
 
@@ -15,7 +15,7 @@ const ScienceMappingBioCardComponent = ({
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src={`${imageUrl}`}
+          src={`${imageURL}`}
           alt={name}
           height="230px"
           styles={{ backgroundPosition: "center" }}

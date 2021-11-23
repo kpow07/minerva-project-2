@@ -9,7 +9,7 @@ const ScienceMappingBioCardComponent = ({
   firstName,
   lastName,
   description,
-  imageUrl,
+  imageURL,
   onBioSelected,
 }) => {
   return (
@@ -17,10 +17,10 @@ const ScienceMappingBioCardComponent = ({
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src={`'{imageUrl}'`}
+          src={"/images/" + imageURL}
           alt={firstName}
           height="230px"
-          styles={{ backgroundPosition: "center" }}
+          style={{ backgroundPosition: "center" }}
         />
         <div className="science-image-container">
           <img
@@ -49,7 +49,7 @@ const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
       console.log("Fetching bios data");
       let fetchResult = await fetch("/api/get-bio");
       let bioList = await fetchResult.json();
-
+      console.log(bioList);
       setBios(bioList);
     }
     fetchData();
@@ -62,17 +62,17 @@ const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
 
   return (
     <div className="directory-menu">
-      {bios.map((bios, index) => {
+      {bios.map((bio, index) => {
         return (
           <ScienceMappingBioCardComponent
             className="card"
             key={index}
-            onBioSelected={() => selectBio(bios._id)}
-            firstName={bios.firstName}
-            lastName={bios.lastName}
-            imageUrl={bios.imageUrl}
-            description={bios.description}
-            canadian={bios.canadian}
+            onBioSelected={() => selectBio(bio._id)}
+            firstName={bio.firstName}
+            lastName={bio.lastName}
+            imageURL={bio.imageURL}
+            description={bio.description}
+            canadian={bio.canadian}
           />
         );
       })}
