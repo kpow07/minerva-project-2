@@ -7,12 +7,12 @@ h2 {
 }
 .field-title {
   font-weight: 700;
-  text-align: left;
-  margin: 0em 1em;
+  text-align: center;
+  margin: 1em 1em;
 }
 
 .field-value {
-  text-align: left;
+  text-align: center;
   margin: 0em;
 }
 .rendered-bio {
@@ -22,7 +22,10 @@ h2 {
   background-color: white;
   opacity: 95%;
   margin: 20px auto;
-
+  text-align: center;
   padding: 3%;
   box-shadow: 2px 0px 30px 1px grey;
+}
+h2 {
+  margin-top: 0px;
 }

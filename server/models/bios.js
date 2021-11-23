@@ -30,5 +30,6 @@ async function listBios() {
 async function findBioById(id) {
   return Bio.findById(id);
 }
+
 /////////////////////
 export { createBio, listBios, findBioById };

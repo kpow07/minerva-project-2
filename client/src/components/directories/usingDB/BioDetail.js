@@ -17,28 +17,44 @@ const BioDetail = ({ bioId }) => {
     <div className="rendered-bio">
       {bio ? (
         <>
-          <h2>
-            {bio.firstName} {bio.lastName}
-          </h2>
+          <h1>
+            {bio.firstName} {bio.lastName}{" "}
+            {bio.canadian ? (
+              <img
+                src="images/logos/flag.png"
+                style={{ height: "30px", width: "40px" }}
+                alt="mini canadian flag"
+              />
+            ) : null}
+          </h1>
           <div className="detail-fields">
-            <div className="field-title">First Name: </div>
-            <div className="field-value">{bio.firstName}</div>
-            <div className="field-title">Last Name: </div>
-            <div className="field-value">{bio.lastName}</div>
-            <div className="field-title">Description: </div>
-            <div className="field-value">{bio.description}</div>
-            <div className="field-title">Science: </div>
+            <div className="fields">
+              {bio.science ? (
+                <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
+              ) : null}{" "}
+              {bio.technology ? (
+                <h2 style={{ color: "green" }}>TECHNOLOGY</h2>
+              ) : null}{" "}
+              {bio.engineering ? (
+                <h2 style={{ color: "blue" }}>ENGINEERING</h2>
+              ) : null}{" "}
+              {bio.mathematics ? (
+                <h2 style={{ color: "purple" }}>MATH</h2>
+              ) : null}{" "}
+            </div>
+            <h3 className="field-value">{bio.description}</h3>
+            {/* <div className="field-title">Science: </div>
             <div className="field-value">{bio.science}</div>
             <div className="field-title">Technology: </div>
             <div className="field-value">{bio.technology}</div>
             <div className="field-title">Engineering: </div>
             <div className="field-value">{bio.engineering}</div>
             <div className="field-title">Mathematics: </div>
-            <div className="field-value">{bio.mathematics}</div>
-            <div className="field-title">Bio:</div>
+            <div className="field-value">{bio.mathematics}</div> */}
+            <div className="field-title">Summary:</div>
             <div className="field-value">{bio.bio}</div>
-            <div className="field-title">Canadian: </div>
-            <div className="field-value">{bio.canadian ? "Canadian" : ""}</div>
+            {/* <div className="field-title">Canadian: </div>
+            <div className="field-value">{bio.canadian ? "Canadian" : ""}</div> */}
           </div>
         </>
       ) : null}

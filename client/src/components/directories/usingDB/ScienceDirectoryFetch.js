@@ -3,13 +3,17 @@ import { useEffect, useState } from "react";
 import "./ScienceDirectory.style.css";
 // import ScienceMappingBioCardComponent from "./ScienceMappingBioCardComponent.js";
 import "../../bio-cards/ScienceBioCard.style.css";
-import BioDetail from "./BioDetail";
 
 const ScienceMappingBioCardComponent = ({
   firstName,
   lastName,
   description,
   imageURL,
+  canadian,
+  science,
+  technology,
+  engineering,
+  mathematics,
   onBioSelected,
 }) => {
   return (
@@ -22,6 +26,7 @@ const ScienceMappingBioCardComponent = ({
           height="230px"
           style={{ backgroundPosition: "center" }}
         />
+
         <div className="science-image-container">
           <img
             src="images/logos/beaker.png"
@@ -33,9 +38,27 @@ const ScienceMappingBioCardComponent = ({
       </div>
       <div className="science-lower-container">
         <h3>
-          {firstName} {lastName}
+          {firstName} {lastName}{" "}
+          {canadian ? (
+            <img
+              id="mini-flag"
+              src="images/logos/flag.png"
+              style={{
+                height: "20px",
+                width: "30px",
+                alignContent: "center",
+                verticalAlign: "sub",
+              }}
+              alt="mini canadian flag"
+            />
+          ) : null}
         </h3>
-        <h4>SCIENCE</h4>
+        <div className="fields">
+          {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}
+          {technology ? <h4 style={{ color: "green" }}>TECHNOLOGY</h4> : null}{" "}
+          {engineering ? <h4 style={{ color: "blue" }}>ENGINEERING</h4> : null}{" "}
+          {mathematics ? <h4 style={{ color: "purple" }}>MATH</h4> : null}{" "}
+        </div>
         <p>{description}</p>
       </div>
     </div>
@@ -73,6 +96,10 @@ const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
             imageURL={bio.imageURL}
             description={bio.description}
             canadian={bio.canadian}
+            science={bio.science}
+            technology={bio.technology}
+            engineering={bio.engineering}
+            mathematics={bio.mathematics}
           />
         );
       })}

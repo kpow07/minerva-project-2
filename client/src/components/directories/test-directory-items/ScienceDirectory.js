@@ -162,3 +162,31 @@ class ScienceDirectory extends React.Component {
   }
 }
 export default ScienceDirectory;
+const allFields = async function () {
+  const fields = [];
+  function science() {
+    if (science === true) {
+      fields.push("SCIENCE ");
+    }
+  }
+  function technology() {
+    if (technology === true) {
+      fields.push("TECHNOLOGY");
+    }
+  }
+  function engineering() {
+    if (engineering === true) {
+      fields.push("ENGINEERING");
+    }
+  }
+  function mathematics() {
+    if (mathematics === true) {
+      fields.push("MATHEMATICS");
+    }
+  }
+  science();
+  technology();
+  engineering();
+  mathematics();
+  return fields.toString();
+};
