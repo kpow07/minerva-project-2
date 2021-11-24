@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 // import BioDetail from "./components/directories/BioDetail";
 import Footer from "./components/nav-bar/Footer";
@@ -34,8 +35,10 @@ function App() {
       }}
     >
       <Header />
-      {/* <MainMentorGallery /> */}
-      <MainMentorGallery />
+
+      <Routes>
+        {/* <Route path="/" exact element={<MainBioGallery />} /> */}
+      </Routes>
       <Footer />
     </div>
   );

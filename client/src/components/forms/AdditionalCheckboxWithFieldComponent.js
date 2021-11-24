@@ -2,92 +2,55 @@ import React from "react";
 // import { useEffect, useState } from "react";
 
 function AdditionalCheckboxWithFieldComponent({ setters, values }) {
-  const { other10, other11 } = values;
-  const {setOther10, setOther11} = setters;
-  
+  const { other9, other10, other11 } = values;
+  const { setOther9, setOther10, setOther11 } = setters;
+
   return (
     <div>
-      <div className="field-checkbox-component">
-        <div className="field-area">
-        
-          <label className="check-label">
-            <div className="other-desc">
-              <input
-                className="check"
-                name="other11"
-                type="checkbox"
-                value="other11"
-                onChange={(e) => setOther11(e.target.checked)}
-               
-              />
-              lgbtqia2s+
-            </div>
+      <div>
+        <div className="field-checkbox-component">
+          <div className="field-area">
+            <label className="check-label">
+              <div className="other-desc">
+                <input
+                  className="check"
+                  name="other11"
+                  type="checkbox"
+                  value="other11"
+                  onChange={(e) => setOther11(e.target.checked)}
+                />
+                lgbtqia2s+ Community
+              </div>
             </label>
+          </div>
         </div>
-     </div>
-</div>
+      </div>
 
-
-
-
-<div className="main-personal-data">
-<label>
-  First Name:
-  <input
-    className="single-line-field-med"
-    name="firstName"
-    type="text"
-    placeholder="first name"
-    value={firstName}
-    onChange={(e) => setFirstName(e.target.value)}
-  />
-</label>{" "}
-<br />
-<label>
-  Lasts Name:
-  <input
-    className="single-line-field-med"
-    name="lastName"
-    type="text"
-    placeholder="last name"
-    value={lastName}
-    onChange={(e) => setLastName(e.target.value)}
-  />
-</label>{" "}
-<br />
-<label>
-  Image URL:
-  <input
-    className="single-line-field-med"
-    name="imageURL"
-    type="text"
-    placeholder="image URL"
-    value={imageURL}
-    onChange={(e) => setImageURL(e.target.value)}
-  />
-</label>{" "}
-<br />
-<div className="field-area">
-  <label className="check-label">
-    <div className="other-desc">
-      <input
-        className="check"
-        name="canadian"
-        type="checkbox"
-        value="canadian"
-        onChange={(e) => setCanadian(e.target.checked)}
-      />
-      Canadian?:
+      <div className="empty-field">
+        <label>
+          <input
+            className="check"
+            name="other9"
+            type="checkbox"
+            value="other9"
+            onChange={(e) => setOther9(e.target.checked)}
+          />
+          Prefer to self-describe
+          <textarea //style this later
+            className="multi-line-field-long"
+            name="other"
+            type="text"
+            placeholder="type here"
+            wrap="hard"
+            rows="5"
+            //cols"70"
+            value={other10}
+            onChange={(e) => setOther10(e.target.value)}
+          />
+        </label>
+      </div>
     </div>
-  </label>
-</div>
-<br />
-</div>
-
-
-
   );
 }
 
 export default AdditionalCheckboxWithFieldComponent;
-
