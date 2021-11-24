@@ -1,6 +1,7 @@
 .directory-menu {
   /* display: block; */
   width: 70%;
+  background-color: rgba(256, 256, 256, 0.95);
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +12,6 @@
 
   /* justify-content: space-between; */
 }
-.card {
-  opacity: 100%;
+.fields h4 {
+  display: inline;
 }
