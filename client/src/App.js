@@ -35,6 +35,7 @@ function App() {
       }}
     >
       <Header />
+      <MenteeForm/>
       <Routes>
         <Route path="/" exact element={<MainBioGallery />} />
       </Routes>
