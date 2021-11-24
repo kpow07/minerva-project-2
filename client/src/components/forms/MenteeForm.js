@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import "./forms.components.css";
+import "./FormStyles.css";
 import FieldOfStudyCheckboxComponent from "./FieldOfStudyCheckBoxComponent";
 import PersonalInfoComponent from "./PersonalInfoComponent";
 import OtherAreasCheckboxComponent from "./OtherAreasCheckboxComponent";
 import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
-import FormTitle from "./FormTitle";
-//import AdditionalCheckboxWithFieldComponent from "" //addition
+import FormTitle from "./FormTitleComponent";
+import AdditionalCheckboxWithFieldComponent from "./AdditionalCheckboxWithFieldComponent"; //addition
 
 function MenteeForm() {
   const [firstName, setFirstName] = useState("");
@@ -28,7 +28,8 @@ function MenteeForm() {
   const [other6, setOther6] = useState(false);
   const [other7, setOther7] = useState(false);
   const [other8, setOther8] = useState(false);
-  //const [other9, setOther9] = useState (false);
+  const [other10, setOther10] = useState(false); //addition
+  const [other11, setOther11] = useState(false); //addition
 
   async function mySubmitFunction() {
     const personalInfo = {
@@ -51,7 +52,8 @@ function MenteeForm() {
       other6,
       other7,
       other8,
-      //other9,
+      other10, //addition
+      other11, //addition
     };
 
     const postData = JSON.stringify(personalInfo);
@@ -99,7 +101,6 @@ function MenteeForm() {
           other6,
           other7,
           other8,
-          //other9,
         }}
         setters={{
           setOther1,
@@ -110,7 +111,16 @@ function MenteeForm() {
           setOther6,
           setOther7,
           setOther8,
-          //setOther9,
+        }}
+      />
+      <AdditionalCheckboxWithFieldComponent
+        values={{
+          other10,
+          other11,
+        }}
+        setters={{
+          setOther10,
+          setOther11,
         }}
       />
 

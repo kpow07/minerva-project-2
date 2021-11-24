@@ -10,6 +10,7 @@ import womenpic2 from "./women-background2-crop.png";
 // import MainBioGallery from "./components/directories/usingDB/MainBioGallery"
 import MainBioGallery from "./components/directories/usingDB/MainBioGallery";
 import Header from "./components/nav-bar/Header";
+import MenteeForm from "./components/forms/MenteeForm";
 
 //
 //
@@ -35,7 +36,7 @@ function App() {
     >
       <Header />
       <MainBioGallery />
-
+      <MenteeForm/>
       <Footer />
     </div>
   );
