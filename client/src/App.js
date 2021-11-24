@@ -7,7 +7,7 @@ import Footer from "./components/nav-bar/Footer";
 import womenpic2 from "./women-background2-crop.png";
 
 // import LibraryBioForm from "./components/forms/LibraryBioForm";
-// import MentorForm from "./components/forms/MentorForm";
+import MentorForm from "./components/forms/MentorForm";
 import MainBioGallery from "./components/directories/usingDB/MainBioGallery";
 import Header from "./components/nav-bar/Header";
 import MenteeForm from "./components/forms/MenteeForm";
@@ -36,6 +36,7 @@ function App() {
     >
       <Header />
       <MenteeForm/>
+      <MentorForm/>
       <Routes>
         <Route path="/" exact element={<MainBioGallery />} />
       </Routes>

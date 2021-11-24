@@ -2,8 +2,8 @@ import React from "react";
 // import { useEffect, useState } from "react";
 
 function AdditionalCheckboxWithFieldComponent({ setters, values }) {
-  const { other10, other11 } = values;
-  const { setOther10, setOther11 } = setters;
+  const { other9, other10, other11 } = values;
+  const { setOther9, setOther10, setOther11 } = setters;
 
   return (
     <div>
@@ -19,7 +19,7 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
                   value="other11"
                   onChange={(e) => setOther11(e.target.checked)}
                 />
-                lgbtqia2s+
+                lgbtqia2s+ Community
               </div>
             </label>
           </div>
@@ -28,12 +28,19 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
 
       <div className="empty-field">
         <label>
-          Other
+          <input
+            className="check"
+            name="other9"
+            type="checkbox"
+            value="other9"
+            onChange={(e) => setOther9(e.target.checked)}
+          />
+          Prefer to self-describe
           <textarea //style this later
             className="single-line-field-med"
             name="other"
             type="text"
-            placeholder="Other"
+            placeholder="type here"
             value={other10}
             onChange={(e) => setOther10(e.target.value)}
           />

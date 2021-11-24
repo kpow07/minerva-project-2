@@ -6,6 +6,7 @@ import PersonalInfoComponent from "./PersonalInfoComponent";
 import OtherAreasCheckboxComponent from "./OtherAreasCheckboxComponent";
 import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
 import FormTitleComponent from "./FormTitleComponent";
+import AdditionalCheckboxWithFieldComponent from "./AdditionalCheckboxWithFieldComponent"; //addition
 
 function MentorForm() {
   //set the beginning state for all variables
@@ -28,6 +29,9 @@ function MentorForm() {
   const [other6, setOther6] = useState(false);
   const [other7, setOther7] = useState(false);
   const [other8, setOther8] = useState(false);
+  const [other9, setOther9] = useState(false); //addition
+  const [other10, setOther10] = useState(""); //addition
+  const [other11, setOther11] = useState(false); //addition
 
   async function mySubmitFunction() {
     //declare keys in personalInfo Object
@@ -51,6 +55,9 @@ function MentorForm() {
       other6,
       other7,
       other8,
+      other9, //addition
+      other10, //addition
+      other11, //addition
     };
     //the data from the post will be JSON-type personalInfo from the form inputs.  Uncomment to see below
     const postData = JSON.stringify(personalInfo);
@@ -119,6 +126,18 @@ function MentorForm() {
           setOther6,
           setOther7,
           setOther8,
+        }}
+      />
+      <AdditionalCheckboxWithFieldComponent
+        values={{
+          other9,
+          other10,
+          other11,
+        }}
+        setters={{
+          setOther9,
+          setOther10,
+          setOther11,
         }}
       />
 
