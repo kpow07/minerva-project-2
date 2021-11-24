@@ -37,10 +37,13 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
           />
           Prefer to self-describe
           <textarea //style this later
-            className="single-line-field-med"
+            className="multi-line-field-long"
             name="other"
             type="text"
             placeholder="type here"
+            wrap="hard"
+            rows="5"
+            //cols"70"
             value={other10}
             onChange={(e) => setOther10(e.target.value)}
           />
