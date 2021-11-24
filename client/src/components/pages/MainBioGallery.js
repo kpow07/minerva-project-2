@@ -1,6 +1,6 @@
 import { useState } from "react";
-import BioDetail from "./BioDetail";
-import ScienceDirectoryFetch from "./ScienceDirectoryFetch";
+import BioDetail from "../directories/usingDB/BioDetail";
+import ScienceDirectoryFetchComponent from "../directories/usingDB/ScienceDirectoryFetchComponent";
 
 //replaces the App.js made in class
 function MainBioGallery() {
@@ -18,7 +18,7 @@ function MainBioGallery() {
       } */}
 
       {!selectedBioId && (
-        <ScienceDirectoryFetch setSelectedBioId={setSelectedBioId} />
+        <ScienceDirectoryFetchComponent setSelectedBioId={setSelectedBioId} />
       )}
       {selectedBioId && (
         <div>

@@ -65,7 +65,7 @@ const ScienceMappingBioCardComponent = ({
   );
 };
 
-const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
+const ScienceDirectoryFetchComponent = ({ setSelectedBioId }) => {
   const [bios, setBios] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -106,4 +106,4 @@ const ScienceDirectoryFetch = ({ setSelectedBioId }) => {
     </div>
   );
 };
-export default ScienceDirectoryFetch;
+export default ScienceDirectoryFetchComponent;

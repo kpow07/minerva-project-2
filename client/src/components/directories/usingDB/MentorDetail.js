@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import "./Detail.style.css";
 
-const BioDetail = ({ bioId }) => {
-  const [bio, setBio] = useState(null);
+const MentorDetail = ({ mentorId }) => {
+  const [mentor, setMentor] = useState(null);
 
   useEffect(() => {
-    const fetchBio = async () => {
-      let fetchResult = await fetch("/api/get-bios/" + bioId);
-      let fetchedBio = await fetchResult.json();
-      setBio(fetchedBio);
+    const fetchMentor = async () => {
+      let fetchResult = await fetch("/api/get-mentors/" + mentorId);
+      let fetchedMentor = await fetchResult.json();
+      setMentor(fetchedMentor);
     };
-    fetchBio();
-  }, [bioId]);
+    fetchMentor();
+  }, [mentorId]);
 
   return (
     <div className="rendered-bio">
-      {bio ? (
+      {mentor ? (
         <>
           <h1>
-            {bio.firstName} {bio.lastName}{" "}
-            {bio.canadian ? (
+            {mentor.firstName} {mentor.lastName}{" "}
+            {mentor.canadian ? (
               <img
                 src="images/logos/flag.png"
                 style={{ height: "30px", width: "40px" }}
@@ -29,32 +29,32 @@ const BioDetail = ({ bioId }) => {
           </h1>
           <div className="detail-fields">
             <div className="fields">
-              {bio.science ? (
+              {mentor.science ? (
                 <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
               ) : null}{" "}
-              {bio.technology ? (
+              {mentor.technology ? (
                 <h2 style={{ color: "green" }}>TECHNOLOGY</h2>
               ) : null}{" "}
-              {bio.engineering ? (
+              {mentor.engineering ? (
                 <h2 style={{ color: "blue" }}>ENGINEERING</h2>
               ) : null}{" "}
-              {bio.mathematics ? (
+              {mentor.mathematics ? (
                 <h2 style={{ color: "purple" }}>MATH</h2>
               ) : null}{" "}
             </div>
-            <h3 className="field-value">{bio.description}</h3>
+            <h3 className="field-value">{mentor.description}</h3>
             {/* <div className="field-title">Science: </div>
-            <div className="field-value">{bio.science}</div>
+            <div className="field-value">{mentor.science}</div>
             <div className="field-title">Technology: </div>
-            <div className="field-value">{bio.technology}</div>
+            <div className="field-value">{mentor.technology}</div>
             <div className="field-title">Engineering: </div>
-            <div className="field-value">{bio.engineering}</div>
+            <div className="field-value">{mentor.engineering}</div>
             <div className="field-title">Mathematics: </div>
-            <div className="field-value">{bio.mathematics}</div> */}
+            <div className="field-value">{mentor.mathematics}</div> */}
             <div className="field-title">Summary:</div>
-            <div className="field-value">{bio.bio}</div>
+            <div className="field-value">{mentor.bio}</div>
             {/* <div className="field-title">Canadian: </div>
-            <div className="field-value">{bio.canadian ? "Canadian" : ""}</div> */}
+            <div className="field-value">{mentor.canadian ? "Canadian" : ""}</div> */}
           </div>
         </>
       ) : null}
@@ -63,4 +63,4 @@ const BioDetail = ({ bioId }) => {
   );
 };
 
-export default BioDetail;
+export default MentorDetail;

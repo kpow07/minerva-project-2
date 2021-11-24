@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { createMentor } from "../models/mentors.js";
+import {
+  createMentor,
+  findMentorById,
+  getMentor,
+  listMentors,
+} from "../models/mentors.js";
 import { createBio, listBios, findBioById } from "../models/bios.js";
 
 const router = Router();
@@ -54,7 +59,7 @@ router.post("/add-bio", async (req, res) => {
   }
 });
 
-router.get("/get-bio", async (req, res) => {
+router.get("/get-bios", async (req, res) => {
   let biosList = await listBios();
   res.send(biosList);
 });
@@ -64,10 +69,16 @@ router.get("/get-bio/:id", async (req, res) => {
   let foundBio = await findBioById(id);
   res.send(foundBio);
 });
+router.get("/get-mentors", async (req, res) => {
+  let mentorsList = await listMentors();
+  console.log(mentorsList);
+  res.send(mentorsList);
+});
 
-// router.patch("edit-bio/:id", async (req, res) => {
-//   let id = rer.params.id;
-//   let foundBio = await findBioById(id);
-//   res.send(foundBio);
-// });
+router.get("/get-mentor/:id", async (req, res) => {
+  let id = req.params.id;
+  let foundInfo = await getMentor(id);
+  res.send(foundInfo);
+});
+
 export default router;

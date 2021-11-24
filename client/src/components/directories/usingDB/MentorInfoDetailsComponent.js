@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import "./Detail.style.css";
+import "./BioDetail.style.css";
 
 const BioDetail = ({ bioId }) => {
   const [bio, setBio] = useState(null);
 
   useEffect(() => {
     const fetchBio = async () => {
-      let fetchResult = await fetch("/api/get-bios/" + bioId);
+      let fetchResult = await fetch("/api/getMentor-bio/" + bioId);
       let fetchedBio = await fetchResult.json();
       setBio(fetchedBio);
     };

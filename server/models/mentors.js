@@ -29,18 +29,19 @@ async function createMentor(mentorToCreate) {
   let newMentor = new Mentor(mentorToCreate);
   return newMentor.save();
 }
-// async function findMentorById(id) {
-//   return mentors.find(mentor => mentor.id === id);
-// }
 
 async function findMentorById(id) {
   return Mentor.findById(id);
 }
 
-async function getMentorInfo(id) {
+async function getMentor(id) {
   let mentorInfo = await findMentorById(id);
+  console.log(mentorInfo);
   return mentorInfo;
+}
+async function listMentors() {
+  return Mentor.find({});
 }
 
 ////////////////////////////////
-export { createMentor, getMentorInfo };
+export { createMentor, getMentor, listMentors, findMentorById };

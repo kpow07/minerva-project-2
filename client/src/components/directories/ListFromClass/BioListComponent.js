@@ -20,7 +20,7 @@ const BioListComponent = ({ setSelectedBioId }) => {
   useEffect(() => {
     async function fetchData() {
       console.log("Fetching Bio Data!");
-      let fetchResult = await fetch("/api/get-bio");
+      let fetchResult = await fetch("/api/get-bios");
       let biosList = await fetchResult.json();
       setBios(biosList);
     }
