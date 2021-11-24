@@ -6,7 +6,7 @@ const MentorDetail = ({ mentorId }) => {
 
   useEffect(() => {
     const fetchMentor = async () => {
-      let fetchResult = await fetch("/api/get-mentors/" + mentorId);
+      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
       let fetchedMentor = await fetchResult.json();
       setMentor(fetchedMentor);
     };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 import "./App.css";
 // import BioDetail from "./components/directories/BioDetail";
 import Footer from "./components/nav-bar/Footer";
@@ -9,12 +9,12 @@ import womenpic2 from "./women-background2-crop.png";
 // import LibraryBioForm from "./components/forms/LibraryBioForm";
 
 import Header from "./components/nav-bar/Header";
-//import MainBioGallery from "./components/pages/MainBioGallery";
+import MainBioGallery from "./components/pages/MainBioGallery";
 import MainMentorGallery from "./components/pages/MainMentorGallery";
 
 //
 //
-//
+//S
 //
 //
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
@@ -35,10 +35,12 @@ function App() {
       }}
     >
       <Header />
-
-      <Routes>
+      {/* <MainBioGallery /> */}
+      <MainMentorGallery />
+      {/* <MainMentorGallery /> */}
+      {/* <Routes>
         {/* <Route path="/" exact element={<MainBioGallery />} /> */}
-      </Routes>
+      {/* </Routes>  */}
       <Footer />
     </div>
   );

@@ -6,7 +6,7 @@ const BioDetail = ({ bioId }) => {
 
   useEffect(() => {
     const fetchBio = async () => {
-      let fetchResult = await fetch("/api/get-bios/" + bioId);
+      let fetchResult = await fetch("/api/get-bio/" + bioId);
       let fetchedBio = await fetchResult.json();
       setBio(fetchedBio);
     };
