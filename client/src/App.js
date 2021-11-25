@@ -1,5 +1,5 @@
 import React from "react";
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 // import BioDetail from "./components/directories/BioDetail";
 import Footer from "./components/nav-bar/Footer";
@@ -11,12 +11,9 @@ import womenpic2 from "./women-background2-crop.png";
 import Header from "./components/nav-bar/Header";
 import MainBioGallery from "./components/pages/MainBioGallery";
 import MainMentorGallery from "./components/pages/MainMentorGallery";
+import MentorForm from "./components/forms/MentorForm";
+import MenteeForm from "./components/forms/MenteeForm";
 
-//
-//
-//S
-//
-//
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
 //footer is not functional yet
 function App() {
@@ -35,12 +32,11 @@ function App() {
       }}
     >
       <Header />
-      {/* <MainBioGallery /> */}
-      <MainMentorGallery />
-      {/* <MainMentorGallery /> */}
-      {/* <Routes>
-        {/* <Route path="/" exact element={<MainBioGallery />} /> */}
-      {/* </Routes>  */}
+      <Routes>
+        <Route path="/" exact element={<MainBioGallery />} />
+        <Route path="/mentor" element={<MentorForm />} />
+        <Route path="/mentee" element={<MenteeForm />} />
+      </Routes>
       <Footer />
     </div>
   );

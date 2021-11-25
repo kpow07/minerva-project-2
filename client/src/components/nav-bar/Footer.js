@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import Social from "./hangingsocial.png";
 
@@ -25,9 +26,13 @@ const Footer = () => {
           <h2 className="navTitle">Mentoring</h2>
 
           <ul className="navList">
-            <li>Become a Mentee</li>
+            <Link to="/mentor">
+              <li>Become a Mentor</li>
+            </Link>
 
-            <li>Become a Mentor</li>
+            <Link to="/mentee">
+              <li>Become a Mentee</li>
+            </Link>
 
             <li>Tell a Friend</li>
           </ul>
