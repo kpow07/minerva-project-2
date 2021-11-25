@@ -69,6 +69,7 @@
 
 .footer li {
   line-height: 2em;
+  color: #2f2f2f;
 }
 
 .footer a {
@@ -86,7 +87,7 @@
 }
 
 .navList a {
-  color: #999;
+  color: #2f2f2f;
 }
 
 .bottom {
