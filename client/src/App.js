@@ -6,7 +6,7 @@ import Footer from "./components/nav-bar/Footer";
 // import womenpic from "./women-background-crop.png";
 import womenpic2 from "./women-background2-crop.png";
 
-// import LibraryBioForm from "./components/forms/LibraryBioForm";
+import LibraryBioForm from "./components/forms/LibraryBioForm";
 
 import Header from "./components/nav-bar/Header";
 import MainBioGallery from "./components/pages/MainBioGallery";
@@ -35,11 +35,8 @@ function App() {
       }}
     >
       <Header />
-      {/* <MainBioGallery /> */}
-      <MainMentorGallery />
-      {/* <MainMentorGallery /> */}
-      {/* <Routes>
-        {/* <Route path="/" exact element={<MainBioGallery />} /> */}
+      <LibraryBioForm />
+
       {/* </Routes>  */}
       <Footer />
     </div>
