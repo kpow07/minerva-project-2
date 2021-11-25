@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 import Social from "./hangingsocial.png";
 
+// 11-24 - KP need to add links to "Learn More" section of footer
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -34,18 +36,21 @@ const Footer = () => {
               <li>Become a Mentee</li>
             </Link>
 
-            <li>Tell a Friend</li>
+            <li>
+              <a href="mailto:?subject=Minerva Mentoring <3 &amp;body=Hello friend, check out this amazing site for female mentors in STEM! http://www.minerva.ca. Hope you like it :)">
+                Tell a Friend{" "}
+              </a>
+            </li>
           </ul>
         </li>
         <li className="navItem">
-          <h2 className="navTitle">Legal</h2>
-
+          <h2 className="navTitle">Learn More</h2>
           <ul className="navList">
-            <li>Privacy Policy</li>
+            <li>About Minerva</li>
 
-            <li>Terms of Use</li>
+            <li>Mission</li>
 
-            <li>Sitemap</li>
+            <li>Resources</li>
           </ul>
         </li>
         <li className="navItem">
