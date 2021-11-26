@@ -2,10 +2,10 @@ import { Router } from "express";
 import {
   createMentor,
   findMentorById,
-  getMentor,
   listMentors,
 } from "../models/mentors.js";
 import { createBio, listBios, findBioById } from "../models/bios.js";
+import { createMentee, findMenteeById } from "../models/mentees.js";
 
 const router = Router();
 
@@ -45,21 +45,33 @@ router.post("/add-mentor", async (req, res) => {
 
 //trying to post data from mentee for to the db
 
-//router.post("/add-mentee", async (req, res) => {
- // let mentee = req.body;
- // try {
- //   let newMentee = await createMentee(mentee);
-  //  console.log("Added Mentee", newMentee);
-  //  res.send(newMentee);
- // } catch (error) {
-  //  console.log(error);
-  //  if (error.code === 11000) {
-   //   res.status(409).send("Mentee " + menteeToAdd.name + " already exists");
-   // } else {
-  //    res.sendStatus(500);
-  //  }
-  //}
-//});
+router.post("/add-mentee", async (req, res) => {
+  let mentee = req.body;
+  try {
+    let newMentee = await createMentee(mentee);
+    console.log("Added Mentee", newMentee);
+    res.send(newMentee);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee " + menteeToAdd.name + " already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
+});
+
+router.get("/get-mentees", async (req, res) => {
+  let menteeList = await listMentees();
+  console.log(menteeList);
+  res.send(menteeList);
+});
+
+router.get("/get-mentee/:id", async (req, res) => {
+  let id = req.params.id;
+  let foundInfo = await getMentee(id);
+  res.send(foundInfo);
+});
 
 router.post("/add-bio", async (req, res) => {
   let bio = req.body;

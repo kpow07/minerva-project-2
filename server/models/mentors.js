@@ -34,16 +34,15 @@ async function findMentorById(id) {
   return Mentor.findById(id);
 }
 
-async function getMentor(id) {
-  let mentorInfo = await findMentorById(id);
-  console.log(mentorInfo);
-  return mentorInfo;
-}
+// async function getMentor(id) {
+//   let mentorInfo = await findMentorById(id);
+//   console.log(mentorInfo);
+//   return mentorInfo;
+// }
+
 async function listMentors() {
   return Mentor.find({});
 }
 
-
-
 ////////////////////////////////
-export { createMentor, getMentor, listMentors, findMentorById };
+export { createMentor, listMentors, findMentorById };

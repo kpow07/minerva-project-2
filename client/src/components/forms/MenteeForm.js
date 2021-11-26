@@ -67,7 +67,7 @@ function MenteeForm() {
       headers: { "Content-Type": "application/json" },
       body: postData,
     };
-    const response = await fetch("/api/add-mentor", requestOptions); //<-update to add-mentee
+    const response = await fetch("/api/add-mentee", requestOptions);
     const data = await response.json();
     console.log(data);
     //response.text
