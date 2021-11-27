@@ -7,7 +7,7 @@ import OtherAreasCheckboxComponent from "./OtherAreasCheckboxComponent";
 import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
 import FormTitleComponent from "./FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "./AdditionalCheckboxWithFieldComponent"; //addition
-import FileUploadComponent from "./FileUploadComponent"// addition
+import FileUploadComponent from "./FileUploadComponent"; // addition
 
 function MentorForm() {
   //set the beginning state for all variables
@@ -33,7 +33,7 @@ function MentorForm() {
   const [other9, setOther9] = useState(false); //addition
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
-  const [image, setImage] = useState();//addition
+  const [image, setImage] = useState(); //addition
 
   async function mySubmitFunction() {
     //declare keys in personalInfo Object
@@ -62,8 +62,8 @@ function MentorForm() {
       other11, //addition
     };
 
-    const ImageUpload ={
-      image,//has to be seperate from the JSON stringfy becasue it is handling an image
+    const ImageUpload = {
+      image, //has to be seperate from the JSON stringfy becasue it is handling an image
     };
     //the data from the post will be JSON-type personalInfo from the form inputs.  Uncomment to see below
     const postData = JSON.stringify(personalInfo);
@@ -158,26 +158,3 @@ function MentorForm() {
 }
 
 export default MentorForm;
-
-
-
-
-
-//this was the server file
-
-const express = require("express")
-const app = express()
-const multer = require("multer")
-const storage = multer.memoryStorage({//use mongo for storage
-    destination: function (req,files,callback) {
-        callback(null,"")
-    }
-}
-)
-const singleUpload = multer({storage:storage}).single("file")
-
-app.post("/api/addmentor", singleUpload, (req,res)=>{
-const image=req.file  
-Image.create({image:image.buffer})//Mentor.create in the model
-}) 
-app.listen(5001)

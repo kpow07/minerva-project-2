@@ -8,6 +8,7 @@ import session from "express-session";
 import passport from "passport";
 import connectDB from "./config/db.js";
 import apiRouter from "./routes/apiRouter.js";
+import multer from "multer";
 
 const app = express();
 const PORT = process.env.PORT || 6000;
@@ -22,6 +23,20 @@ app.use(json());
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+// Upload files to mentor form
+const storage = multer.memoryStorage({
+  //use mongo for storage
+  destination: function (req, files, callback) {
+    callback(null, "");
+  },
+});
+const singleUpload = multer({ storage: storage }).single("file");
+
+app.post("/api/add-mentor", singleUpload, (req, res) => {
+  const image = req.file;
+  Image.create({ image: image.buffer }); //Mentor.create in the model
+});
 
 //Static folder
 //app.use(express.static(path.join(__dirname, "public")));
