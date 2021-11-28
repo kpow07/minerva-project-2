@@ -13,6 +13,7 @@ import MainBioGallery from "./components/pages/MainBioGallery";
 import MainMentorGallery from "./components/pages/MainMentorGallery";
 import MentorForm from "./components/forms/MentorForm";
 import MenteeForm from "./components/forms/MenteeForm";
+import LoginPage from "./components/login/LoginPage";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
 //footer is not functional yet
@@ -36,6 +37,7 @@ function App() {
         <Route path="/" exact element={<MainBioGallery />} />
         <Route path="/mentor" element={<MentorForm />} />
         <Route path="/mentee" element={<MenteeForm />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </div>
