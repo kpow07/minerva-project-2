@@ -42,8 +42,9 @@ async function getMentor(id) {
 async function listMentors() {
   return Mentor.find({});
 }
-
-
+async function listMentorsFilter() {
+  return Mentor.find({});
+}
 
 ////////////////////////////////
 export { createMentor, getMentor, listMentors, findMentorById };

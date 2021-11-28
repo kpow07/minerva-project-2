@@ -46,19 +46,19 @@ router.post("/add-mentor", async (req, res) => {
 //trying to post data from mentee for to the db
 
 //router.post("/add-mentee", async (req, res) => {
- // let mentee = req.body;
- // try {
- //   let newMentee = await createMentee(mentee);
-  //  console.log("Added Mentee", newMentee);
-  //  res.send(newMentee);
- // } catch (error) {
-  //  console.log(error);
-  //  if (error.code === 11000) {
-   //   res.status(409).send("Mentee " + menteeToAdd.name + " already exists");
-   // } else {
-  //    res.sendStatus(500);
-  //  }
-  //}
+// let mentee = req.body;
+// try {
+//   let newMentee = await createMentee(mentee);
+//  console.log("Added Mentee", newMentee);
+//  res.send(newMentee);
+// } catch (error) {
+//  console.log(error);
+//  if (error.code === 11000) {
+//   res.status(409).send("Mentee " + menteeToAdd.name + " already exists");
+// } else {
+//    res.sendStatus(500);
+//  }
+//}
 //});
 
 router.post("/add-bio", async (req, res) => {
@@ -97,6 +97,16 @@ router.get("/get-mentor/:id", async (req, res) => {
   let id = req.params.id;
   let foundInfo = await getMentor(id);
   res.send(foundInfo);
+});
+
+router.get("/get-mentors-filter/sci&tech&eng&math", async (req, res) => {
+  let sci = req.query.sci;
+  let tech = req.query.tech;
+  let eng = req.query.eng;
+  let math = req.query.math;
+  let mentorsList = await listMentors(sci, tech, eng, math);
+  console.log(mentorsList);
+  res.send(mentorsList);
 });
 
 export default router;

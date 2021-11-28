@@ -12,6 +12,8 @@
   color: #2f2f2f;
   background-color: #d7ecd9;
   border-top: 1px solid #e5e5e5;
+  box-shadow: 1px 0px 20px 1px grey;
+  margin-top: 10px;
 }
 
 .footer > * {
