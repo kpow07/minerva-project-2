@@ -29,18 +29,15 @@ async function createMentee(menteeToCreate) {
   let newMentee = new Mentee(menteeToCreate);
   return newMentee.save();
 }
-// async function findMentorById(id) {
-//   return mentors.find(mentor => mentor.id === id);
-// }
 
 async function findMenteeById(id) {
   return Mentee.findById(id);
 }
 
-async function getMenteeInfo(id) {
-  let menteeInfo = await findMenteeById(id);
-  return menteeInfo;
-}
+// async function getMenteeInfo(id) {
+//   let menteeInfo = await findMenteeById(id);
+//   return menteeInfo;
+// }
 
 ////////////////////////////////
-export { createMentee, getMenteeInfo };
+export { createMentee, findMenteeById };

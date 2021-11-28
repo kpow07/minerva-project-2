@@ -6,28 +6,64 @@ import morgan from "morgan";
 import connectMongo from "connect-mongo";
 import session from "express-session";
 import passport from "passport";
+import Pass from "./config/passport.js";
 import connectDB from "./config/db.js";
+import authRouter from "./routes/authRouter.js";
 import apiRouter from "./routes/apiRouter.js";
+import multer from "multer";
 
 const app = express();
 const PORT = process.env.PORT || 6000;
+const MongoStore = connectMongo(session);
 
 //Load config
 _config({ path: "./config/config.env" });
 
+//passport config
+Pass(passport);
+
 //connect to database
 connectDB();
 app.use(json());
+
 //use morgan for login only at development stage
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-//Static folder
-//app.use(express.static(path.join(__dirname, "public")));
+// Upload files to mentor form
+const storage = multer.memoryStorage({
+  //use mongo for storage
+  destination: function (req, files, callback) {
+    callback(null, "");
+  },
+});
+const singleUpload = multer({ storage: storage }).single("file");
+
+app.post("/api/add-mentor", singleUpload, (req, res) => {
+  const image = req.file;
+  Image.create({ image: image.buffer }); //Mentor.create in the model
+});
+
+//Sessions
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+
+//Passport middleware
+app.use(session({ secret: "anything" }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Routes
 app.use("/api", apiRouter);
+//description: http://localhost:6000/api/auth
+app.use("/auth", authRouter);
 
 //Server
 app.listen(PORT, () => {

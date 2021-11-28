@@ -8,6 +8,7 @@
 **/pids/
 **/typings/
 **/.npm/
+**/config
 
 # FILES TO IGNORE
 *.log
@@ -23,3 +24,4 @@
 .yarn-integrity
 .next
 .env
+

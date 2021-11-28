@@ -20,6 +20,8 @@ const mentorSchema = new mongoose.Schema({
   other7: Boolean,
   other8: Boolean,
   other9: Boolean,
+  image: Buffer,
+
   ////////////////////
 });
 ////////////////////////////////
@@ -34,11 +36,12 @@ async function findMentorById(id) {
   return Mentor.findById(id);
 }
 
-async function getMentor(id) {
-  let mentorInfo = await findMentorById(id);
-  console.log(mentorInfo);
-  return mentorInfo;
-}
+// async function getMentor(id) {
+//   let mentorInfo = await findMentorById(id);
+//   console.log(mentorInfo);
+//   return mentorInfo;
+// }
+
 async function listMentors() {
   return Mentor.find({});
 }
@@ -47,4 +50,4 @@ async function listMentorsFilter() {
 }
 
 ////////////////////////////////
-export { createMentor, getMentor, listMentors, findMentorById };
+export { createMentor, listMentors, findMentorById };

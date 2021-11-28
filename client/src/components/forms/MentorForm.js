@@ -7,6 +7,7 @@ import OtherAreasCheckboxComponent from "./OtherAreasCheckboxComponent";
 import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
 import FormTitleComponent from "./FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "./AdditionalCheckboxWithFieldComponent"; //addition
+import FileUploadComponent from "./FileUploadComponent"; // addition
 
 function MentorForm() {
   //set the beginning state for all variables
@@ -32,6 +33,7 @@ function MentorForm() {
   const [other9, setOther9] = useState(false); //addition
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
+  const [image, setImage] = useState(); //addition
 
   async function mySubmitFunction() {
     //declare keys in personalInfo Object
@@ -58,6 +60,10 @@ function MentorForm() {
       other9, //addition
       other10, //addition
       other11, //addition
+    };
+
+    const ImageUpload = {
+      image, //has to be seperate from the JSON stringfy becasue it is handling an image
     };
     //the data from the post will be JSON-type personalInfo from the form inputs.  Uncomment to see below
     const postData = JSON.stringify(personalInfo);
