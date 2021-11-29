@@ -13,7 +13,7 @@ import apiRouter from "./routes/apiRouter.js";
 import multer from "multer";
 
 const app = express();
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 5000;
 const MongoStore = connectMongo(session);
 
 //Load config
@@ -62,7 +62,7 @@ app.use(passport.session());
 
 //Routes
 app.use("/api", apiRouter);
-//description: http://localhost:6000/api/auth
+//description: http://localhost:5000/api/auth
 app.use("/auth", authRouter);
 
 //Server
