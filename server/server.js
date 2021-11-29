@@ -11,14 +11,17 @@ import connectDB from "./config/db.js";
 import authRouter from "./routes/authRouter.js";
 import apiRouter from "./routes/apiRouter.js";
 import multer from "multer";
+//Load config
+_config({ path: "./config/config.env" });
 
 const app = express();
 const PORT = process.env.PORT || 6000;
 const MongoStore = connectMongo(session);
 
-//Load config
-_config({ path: "./config/config.env" });
-
+app.use("*", (req, res, next) => {
+  console.log(req.originalUrl);
+  next();
+});
 //passport config
 Pass(passport);
 
@@ -26,7 +29,7 @@ Pass(passport);
 connectDB();
 app.use(json());
 
-//use morgan for login only at development stage
+//use morgan for logging only at development stage
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
@@ -64,8 +67,11 @@ app.use(passport.session());
 app.use("/api", apiRouter);
 //description: http://localhost:6000/api/auth
 app.use("/auth", authRouter);
-
+console.log(process.env);
 //Server
 app.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
+
+//sets development mode
+// $env:NODE_ENV = 'development'

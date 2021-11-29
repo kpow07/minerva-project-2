@@ -60,6 +60,18 @@ async function listMentorsFilter(field) {
   } else return Mentor.find({});
   console.log("filtering mentors by field");
 }
+// async function listScienceMentors() {
+//   console.log("filtering science mentors");
+//   let results = Mentor.find({ science: true });
+//   console.log(results);
+//   return results;
+// }
 
 ////////////////////////////////
-export { createMentor, listMentors, findMentorById, listMentorsFilter };
+export {
+  createMentor,
+  listMentors,
+  findMentorById,
+  listMentorsFilter,
+  //listScienceMentors,
+};
