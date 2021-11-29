@@ -45,9 +45,21 @@ async function findMentorById(id) {
 async function listMentors() {
   return Mentor.find({});
 }
-async function listMentorsFilter() {
-  return Mentor.find({});
+
+async function listMentorsFilter(field) {
+  console.log(field);
+  if (field === "science") {
+    console.log(field);
+    return Mentor.find({ $filter: { science: true } });
+  } else if (field === "technology") {
+    return Mentor.find({ technology: true });
+  } else if (field === "engineering") {
+    return Mentor.find({ engineering: true });
+  } else if (field === "mathematics") {
+    return Mentor.find({ mathematics: true });
+  } else return Mentor.find({});
+  console.log("filtering mentors by field");
 }
 
 ////////////////////////////////
-export { createMentor, listMentors, findMentorById };
+export { createMentor, listMentors, findMentorById, listMentorsFilter };

@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createMentor,
   findMentorById,
+  listMentorsFilter,
   listMentors,
 } from "../models/mentors.js";
 import { createBio, listBios, findBioById } from "../models/bios.js";
@@ -126,14 +127,39 @@ router.get("/get-mentor/:id", async (req, res) => {
   res.send(foundInfo);
 });
 
-router.get("/get-mentors-filter/sci&tech&eng&math", async (req, res) => {
-  let sci = req.query.sci;
-  let tech = req.query.tech;
-  let eng = req.query.eng;
-  let math = req.query.math;
-  let mentorsList = await listMentors(sci, tech, eng, math);
-  console.log(mentorsList);
-  res.send(mentorsList);
+// router.get("/filter-mentors", async (req, res) => {
+//   let field = req.query.field;
+//   console.log(field);
+//   let mentorsList = await listMentorsFilter(field);
+//   console.log(field);
+//   console.log(mentorsList);
+//   res.send(mentorsList);
+// });
+router.get("/filter-mentors", async (req, res) => {
+  let field = req.query.field;
+  try {
+    let mentorsList = await listMentorsFilter(field);
+    console.log("Trying to filter field by", field);
+    res.send(mentorsList);
+  } catch (error) {
+    console.log(error);
+    // if (error.code === 11000) {
+    //   res.status(409).send("Mentee " + menteeToAdd.name + " already exists");
+    // } else {
+    //   res.sendStatus(500);
+    // }
+  }
 });
+
+// router.get("/get-mentors-filter", async (req, res) => {
+//   let sci = req.query.sci;
+//   let tech = req.query.tech;
+//   let eng = req.query.eng;
+//   let math = req.query.math;
+//   let can = req.query.can;
+//   let mentorsList = await listMentorsFilter(sci, tech, eng, math, can);
+//   console.log(mentorsList);
+//   res.send(mentorsList);
+// });
 
 export default router;
