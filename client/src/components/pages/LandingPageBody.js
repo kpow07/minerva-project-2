@@ -1,8 +1,10 @@
 import { useState } from "react";
 import MathBioCardComponent from "../bio-cards/MathBioCardComponent";
 import EngineeringBioCardComponent from "../bio-cards/EngineeringBioCardComponent";
-import ScienceBioCardComponent from "../bio-cards/ScienceBioCardComponent";
+import ScienceBioCardComponent from "../bio-cards/ScienceBioCardComponen
+t";
 import TechBioCardComponent from "../bio-cards/TechBioCardComponent";
+import Landingstyles from "/Landingpage";
 //about us component 
 
 
