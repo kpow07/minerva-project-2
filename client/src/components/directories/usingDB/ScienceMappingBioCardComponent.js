@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ScienceBioCard.style.css";
+import "./ScienceBioCard.style1.css";
 
 const ScienceMappingBioCardComponent = ({
   name,

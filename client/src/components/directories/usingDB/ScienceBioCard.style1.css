@@ -67,15 +67,16 @@ p {
   margin: 0px;
   padding: 0px;
   text-align: center;
-  align-items: baseline;
+  align-items: center;
 }
 .science-lower-container h3 {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 600;
   color: black;
-  padding: 0px;
-  /* margin-top: 2rem; */
-  margin-top: 0px;
+  /* padding: 0px; */
+  /* margin-top: 2rem;
+  padding-top: 20px; */
+  /* margin-top: 0px; */
 }
 .science-lower-container h4 {
   font-size: 0.8rem;

@@ -64,7 +64,7 @@
 .science-lower-container h3,
 h4,
 p {
-  margin: 0px;
+  /* margin: 0px; */
   padding: 0px;
   text-align: center;
   align-items: baseline;
@@ -75,7 +75,7 @@ p {
   color: black;
   padding: 0px;
   /* margin-top: 2rem; */
-  margin-top: 0px;
+  /* margin-top: 0px; */
 }
 .science-lower-container h4 {
   font-size: 0.8rem;

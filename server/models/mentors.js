@@ -66,7 +66,7 @@ async function listMentorsFilter(field) {
 //   console.log(results);
 //   return results;
 // }
-
+listMentors();
 ////////////////////////////////
 export {
   createMentor,
