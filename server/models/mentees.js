@@ -20,6 +20,8 @@ const menteeSchema = new mongoose.Schema({
   other7: Boolean,
   other8: Boolean,
   other9: Boolean,
+  other10: Boolean,
+  other11: Boolean,
   ////////////////////
 });
 ////////////////////////////////

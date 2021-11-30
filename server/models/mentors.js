@@ -20,6 +20,8 @@ const mentorSchema = new mongoose.Schema({
   other7: Boolean,
   other8: Boolean,
   other9: Boolean,
+  other10: Boolean,
+  other11: Boolean,
   image: Buffer,
 
   ////////////////////
@@ -50,7 +52,7 @@ async function listMentorsFilter(field) {
   console.log(field);
   if (field === "science") {
     console.log(field);
-    return Mentor.find({ $filter: { science: true } });
+    return Mentor.find({ science: true });
   } else if (field === "technology") {
     return Mentor.find({ technology: true });
   } else if (field === "engineering") {
@@ -58,7 +60,6 @@ async function listMentorsFilter(field) {
   } else if (field === "mathematics") {
     return Mentor.find({ mathematics: true });
   } else return Mentor.find({});
-  console.log("filtering mentors by field");
 }
 // async function listScienceMentors() {
 //   console.log("filtering science mentors");
@@ -66,7 +67,7 @@ async function listMentorsFilter(field) {
 //   console.log(results);
 //   return results;
 // }
-listMentors();
+
 ////////////////////////////////
 export {
   createMentor,

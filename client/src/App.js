@@ -6,15 +6,16 @@ import Footer from "./components/nav-bar/Footer";
 // import womenpic from "./women-background-crop.png";
 import womenpic2 from "./women-background2-crop.png";
 
-import LibraryBioForm from "./components/forms/LibraryBioForm";
+// import LibraryBioForm from "./components/forms/LibraryBioForm";
 
 import Header from "./components/nav-bar/Header";
 import MainBioGallery from "./components/pages/MainBioGallery";
-import MainMentorGallery from "./components/pages/MainMentorGallery";
+// import MainMentorGallery from "./components/pages/MainMentorGallery";
 import MentorForm from "./components/forms/MentorForm";
 import MenteeForm from "./components/forms/MenteeForm";
 import LoginPage from "./components/login/LoginPage";
-import LandingPageBody from "./components/pages/LandingPageBody";
+// import LandingPageBody from "./components/pages/LandingPageBody";
+import LandingPageCardDiv from "./components/pages/LandingPageCardDiv";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
 //footer is not functional yet
@@ -39,7 +40,7 @@ function App() {
         <Route path="/mentor" element={<MentorForm />} />
         <Route path="/mentee" element={<MenteeForm />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/landing" element={<LandingPageBody />} />
+        <Route path="/landing" element={<LandingPageCardDiv />} />
       </Routes>
       <Footer />
     </div>

@@ -16,7 +16,7 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
                   className="check"
                   name="other11"
                   type="checkbox"
-                  value="other11"
+                  value={other11}
                   onChange={(e) => setOther11(e.target.checked)}
                 />
                 lgbtqia2s+ Community
@@ -32,13 +32,13 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
             className="check"
             name="other9"
             type="checkbox"
-            value="other9"
+            value={other9}
             onChange={(e) => setOther9(e.target.checked)}
           />
           Prefer to self-describe
           <textarea //style this later
             className="multi-line-field-long"
-            name="other"
+            name="other10"
             type="text"
             placeholder="type here"
             wrap="hard"
