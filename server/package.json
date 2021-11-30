@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -27,5 +26,6 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.15"
-  }
+  },
+  "description": ""
 }

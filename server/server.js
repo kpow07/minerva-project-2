@@ -1,7 +1,6 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
 import { config as _config } from "dotenv";
-import { config } from "dotenv";
 import morgan from "morgan";
 import connectMongo from "connect-mongo";
 import session from "express-session";
@@ -67,7 +66,6 @@ app.use(passport.session());
 app.use("/api", apiRouter);
 //description: http://localhost:5001/api/auth
 app.use("/auth", authRouter);
-// console.log(process.env);
 //Server
 app.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
