@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./tech-bio-card.component.css";
+import "./TechBioCard.styles.css";
 
 function TechBioCardComponent() {
   const [name, setName] = useState("EUGENIA DUODU");

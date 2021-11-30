@@ -108,6 +108,7 @@ function MentorForm() {
           setMathematics,
         }}
       />
+      <FileUploadComponent setters={{ setImage }} values={{ image }} />
       <DescriptionBioResourceComponent
         values={{ description, bio, otherResources }}
         setters={{ setDescription, setBio, setOtherResources }}

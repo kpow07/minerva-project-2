@@ -14,6 +14,7 @@ import MainMentorGallery from "./components/pages/MainMentorGallery";
 import MentorForm from "./components/forms/MentorForm";
 import MenteeForm from "./components/forms/MenteeForm";
 import LoginPage from "./components/login/LoginPage";
+import LandingPageBody from "./components/pages/LandingPageBody";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
 //footer is not functional yet
@@ -38,6 +39,7 @@ function App() {
         <Route path="/mentor" element={<MentorForm />} />
         <Route path="/mentee" element={<MenteeForm />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/landing" element={<LandingPageBody />} />
       </Routes>
       <Footer />
     </div>
