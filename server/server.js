@@ -66,7 +66,7 @@ app.use(passport.session());
 app.use("/api", apiRouter);
 //description: http://localhost:5000/api/auth
 app.use("/auth", authRouter);
-console.log(process.env);
+
 //Server
 app.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
