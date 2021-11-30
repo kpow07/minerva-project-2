@@ -1,7 +1,6 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
 import { config as _config } from "dotenv";
-import { config } from "dotenv";
 import morgan from "morgan";
 import connectMongo from "connect-mongo";
 import session from "express-session";
