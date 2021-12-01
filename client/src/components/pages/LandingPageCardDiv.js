@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ScienceBioCard.style.css";
+import "Landingstyles.css";
 
 
 <h1> This is the landing page </h1>
@@ -80,10 +81,10 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
     };
     async function fetchFourMentorsData() {
       console.log("Fetching data for 4 cards on landing page");
-      let scienceMentor = fetchMentor("science");
-      let technologyMentor = fetchMentor("technology");
-      let engineeringMentor = fetchMentor("engineering");
-      let mathematicsMentor = fetchMentor("mathematics");
+      let scienceMentor = await fetchMentor("science");
+      let technologyMentor = await fetchMentor("technology");
+      let engineeringMentor = await fetchMentor("engineering");
+      let mathematicsMentor = await fetchMentor("mathematics");
       let fourMentorsArray = [
         scienceMentor,
         technologyMentor,
