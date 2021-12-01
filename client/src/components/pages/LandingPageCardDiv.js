@@ -1,36 +1,73 @@
 import { useEffect, useState } from "react";
-import "./ScienceBioCard.style.css";
+import "./landingPageCard.style.css";
 
 const ScienceMappingBioCardComponent = ({
   firstName,
   lastName,
   description,
-  imageURL,
+  imageURL = "/images/mentors/mentor1.jpg",
   canadian,
   science,
   technology,
   mathematics,
   engineering,
-  s,
 }) => {
   return (
     <div className="science-bio-card">
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src={"/images/" + imageURL}
+          src={imageURL}
           alt={firstName}
-          height="230px"
+          width="210px"
           style={{ backgroundPosition: "center" }}
         />
 
-        <div className="science-image-container">
-          <img
-            src="images/logos/beaker.png"
-            alt="logo"
-            width="25px"
-            height="25px"
-          />
+        <div>
+          {science ? (
+            <div className="image-container" id="science-image-container">
+              <img
+                id="science-landing-card"
+                src="images/logos/beaker.png"
+                alt="logo"
+                style={{ width: "35px", height: "35px" }}
+              />
+            </div>
+          ) : null}
+          {technology ? (
+            <div className="image-container" id="technology-image-container">
+              <img
+                id="technology-landing-card"
+                src="images/logos/computer.png"
+                alt="logo"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                }}
+              />
+            </div>
+          ) : null}
+          {engineering ? (
+            <div className="image-container" id="engineering-image-container">
+              <img
+                id="engineering-landing-card"
+                src="images/logos/gears.png"
+                alt="logo"
+                style={{ width: "44px", height: "44px" }}
+              />
+            </div>
+          ) : null}
+          {mathematics ? (
+            <div className="image-container" id="mathematics-image-container">
+              <img
+                id="mathematics-landing-card"
+                src="images/logos/pi-symbol.png"
+                alt="logo"
+                style={{ width: "44px", height: "44px" }}
+              />
+            </div>
+          ) : null}
+          +
         </div>
       </div>
       <div className="science-lower-container">
@@ -77,17 +114,23 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
     };
     async function fetchFourMentorsData() {
       console.log("Fetching data for 4 cards on landing page");
-      let scienceMentor = fetchMentor("science");
-      let technologyMentor = fetchMentor("technology");
-      let engineeringMentor = fetchMentor("engineering");
-      let mathematicsMentor = fetchMentor("mathematics");
+      let scienceMentor = await fetchMentor("science");
+      let technologyMentor = await fetchMentor("technology");
+      let engineeringMentor = await fetchMentor("engineering");
+      let mathematicsMentor = await fetchMentor("mathematics");
       let fourMentorsArray = [
         scienceMentor,
         technologyMentor,
         engineeringMentor,
         mathematicsMentor,
       ];
-      console.log(`this is the four mentors array ${fourMentorsArray}`);
+      // console.log(
+      //   scienceMentor,
+      //   technologyMentor,
+      //   engineeringMentor,
+      //   mathematicsMentor
+      // );
+      // console.log(`this is the four mentors array ${fourMentorsArray}`);
       setMentors(fourMentorsArray);
     }
 
