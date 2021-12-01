@@ -7,13 +7,16 @@
   flex: 0 auto;
   margin: 10px;
   text-align: left;
+  text-transform: uppercase;
   background-color: #8da47e;
   color: aliceblue;
-  padding: 10px;
+  width:70%;
+  padding: 60px;
   column-gap: 10px;
   row-gap: 10px;
   border-radius: 15px;
   margin-bottom: 5px;
+
   font-family: "Montserrat", sans-serif;
 }
 .grid-container-for-cards {
