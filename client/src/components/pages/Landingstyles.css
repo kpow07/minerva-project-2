@@ -4,8 +4,11 @@
 
 .about-container {
   display: grid;
-
-  background-color: #2196f3;
+  flex: 0 auto;
+  margin: 10px;
+  text-align: left;
+  background-color: #8da47e;
+  color: aliceblue;
   padding: 10px;
   column-gap: 10px;
   row-gap: 10px;

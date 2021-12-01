@@ -16,6 +16,7 @@ import MenteeForm from "./components/forms/MenteeForm";
 import LoginPage from "./components/login/LoginPage";
 // import LandingPageBody from "./components/pages/LandingPageBody";
 import LandingPageCardDiv from "./components/pages/LandingPageCardDiv";
+import AboutComponent from "./components/pages/AboutComponent";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
 //footer is not functional yet
@@ -41,6 +42,8 @@ function App() {
         <Route path="/mentee" element={<MenteeForm />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/landing" element={<LandingPageCardDiv />} />
+        <Route path="/box" element={<AboutComponent />} />
+        
       </Routes>
       <Footer />
     </div>
