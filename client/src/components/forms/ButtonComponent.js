@@ -12,3 +12,4 @@ function Button1 ({setters, values}) {
     )
 
 }
+export default Button1;
