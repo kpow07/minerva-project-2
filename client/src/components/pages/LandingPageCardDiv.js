@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ScienceBioCard.style.css";
-import "Landingstyles.css";
+import "./Landingstyles.css";
 
 
 <h1> This is the landing page </h1>
