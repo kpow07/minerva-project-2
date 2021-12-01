@@ -13,17 +13,17 @@ const ScienceMappingBioCardComponent = ({
   engineering,
 }) => {
   return (
-    <div className="science-bio-card">
-      <div className="science-upper-container">
+    <div className="portrait-bio-card">
+      <div className="portrait-upper-container">
         <img
-          className="science-portrait"
+          className="portrait-portrait"
           src={imageURL}
           alt={firstName}
           width="210px"
           style={{ backgroundPosition: "center" }}
         />
 
-        <div>
+        <div className="logo-container">
           {science ? (
             <div className="image-container" id="science-image-container">
               <img
@@ -67,10 +67,9 @@ const ScienceMappingBioCardComponent = ({
               />
             </div>
           ) : null}
-          +
         </div>
       </div>
-      <div className="science-lower-container">
+      <div className="portrait-lower-container">
         <h3>
           {firstName} {lastName}{" "}
           {canadian ? (

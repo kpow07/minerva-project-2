@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./ScienceDirectory.style.css";
 // import ScienceMappingBioCardComponent from "./ScienceMappingBioCardComponent.js";
-import "../../bio-cards/ScienceBioCard.style.css";
+import "./BioGalleryPageCard.style.css";
 
 const ScienceMappingBioCardComponent = ({
   firstName,
@@ -27,13 +27,50 @@ const ScienceMappingBioCardComponent = ({
           style={{ backgroundPosition: "center" }}
         />
 
-        <div className="science-image-container">
-          <img
-            src="images/logos/beaker.png"
-            alt="logo"
-            width="25px"
-            height="25px"
-          />
+        <div className="logo-container">
+          {science ? (
+            <div className="image-container" id="science-image-container">
+              <img
+                id="science-landing-card"
+                src="images/logos/beaker.png"
+                alt="logo"
+                style={{ width: "35px", height: "35px" }}
+              />
+            </div>
+          ) : null}
+          {technology ? (
+            <div className="image-container" id="technology-image-container">
+              <img
+                id="technology-landing-card"
+                src="images/logos/computer.png"
+                alt="logo"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                }}
+              />
+            </div>
+          ) : null}
+          {engineering ? (
+            <div className="image-container" id="engineering-image-container">
+              <img
+                id="engineering-landing-card"
+                src="images/logos/gears.png"
+                alt="logo"
+                style={{ width: "44px", height: "44px" }}
+              />
+            </div>
+          ) : null}
+          {mathematics ? (
+            <div className="image-container" id="mathematics-image-container">
+              <img
+                id="mathematics-landing-card"
+                src="images/logos/pi-symbol.png"
+                alt="logo"
+                style={{ width: "44px", height: "44px" }}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
       <div className="science-lower-container">
