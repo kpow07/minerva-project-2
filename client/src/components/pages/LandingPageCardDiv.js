@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import "./ScienceBioCard.style.css";
 
+
+<h1> This is the landing page </h1>
+
 const ScienceMappingBioCardComponent = ({
   firstName,
   lastName,
