@@ -4,14 +4,36 @@
 
 .about-container {
   display: grid;
+  flex: 0 auto;
+  margin: 10px;
+  background-position: center;
+  text-align: left;
+  display: inline-flex;
+  text-transform: uppercase;
+  background-color: #8da47e;
+  color: aliceblue;
+  width:70%;
+  padding: 60px;
+  column-gap: 5px;
+  row-gap: 5px;
+  border-radius: 5px;
+  margin-bottom: 3px;
 
-  background-color: #2196f3;
-  padding: 10px;
-  column-gap: 10px;
-  row-gap: 10px;
-  border-radius: 15px;
-  margin-bottom: 5px;
   font-family: "Montserrat", sans-serif;
+}
+.grid-item {
+    background-color: #d7ecd9;
+    border: 1px solid #D9D7EC;
+    width: 40%;
+    display: inline-flex;
+    padding: 100px;
+    font-size: 10px;
+    color: black;
+    text-align: left;
+    text-transform: lowercase;
+    border-radius: 25px;
+    margin-bottom: 5px;
+    font-family: "Montserrat", sans-serif;
 }
 .grid-container-for-cards {
   display: grid;
@@ -23,16 +45,6 @@
   border-radius: 25px;
   margin-bottom: 5px;
   font-family: "Montserrat", sans-serif;
-}
-
-.grid-item {
-  background-color: rgba(88, 255, 255, 0.8);
-  border: 5px solid rgba(0, 0, 0, 0.8);
-  padding: 100px;
-  font-size: 30px;
-  text-align: center;
-  border-radius: 25px;
-  margin-bottom: 5px;
 }
 .grid-item1 {
   grid-column: 2;
