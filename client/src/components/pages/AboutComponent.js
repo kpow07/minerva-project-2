@@ -1,6 +1,6 @@
 import React from "react";
 import Landingstyles from "./Landingstyles.css"
-import branch from "./branch.png"
+import branch from "./branch2.png"
 
 function AboutComponent () {
     const Box = ({ 
