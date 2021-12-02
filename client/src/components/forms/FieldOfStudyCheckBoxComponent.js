@@ -8,7 +8,7 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
   return (
     <div>
       <div className="field-checkbox-component">
-        <h4>Which fields are you involved in?</h4>
+        <h4 className="padding">Which fields are you involved in?</h4>
         <div className="field-area">
           <label className="check-label">
             <div className="other-desc">
