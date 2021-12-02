@@ -17,6 +17,7 @@ import LoginPage from "./components/login/LoginPage";
 // import LandingPageBody from "./components/pages/LandingPageBody";
 import LandingPageCardDiv from "./components/pages/LandingPageCardDiv";
 import AboutComponent from "./components/pages/AboutComponent";
+import LandingPageComponent from "./components/pages/LandingPageComponent";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
 //footer is not functional yet
@@ -43,6 +44,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/landing" element={<LandingPageCardDiv />} />
         <Route path="/box" element={<AboutComponent />} />
+        <Route path="/landingcombo" element={<LandingPageComponent />} />
         
       </Routes>
       <Footer />
