@@ -2,14 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
-
 .main-form {
   border-radius: 15px;
   font-family: "Montserrat", sans-serif;
   width: 50%;
   border: 1px dotted black;
   margin: auto;
-  background-image: url(images/mint.jpeg);
+  background-color: #d7ecd9;
+  box-shadow: 1px 0px 20px 1px grey;
+  margin-top: 10px;
+  /* background-image: url(images/mint.jpeg); */
   opacity: 100%;
   text-align: start;
 }
