@@ -43,7 +43,7 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
                   unchecked={other9 === false}
                   onChange={(e) => setOther9(e.target.checked)}
                 />
-                Prefer to self-describe
+                Prefer to self-describe (type below)
               </div>
             </label>
           </div>

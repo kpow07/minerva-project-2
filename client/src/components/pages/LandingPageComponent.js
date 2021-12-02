@@ -1,4 +1,6 @@
 import LandingPageCardDiv from "./LandingPageCardDiv";
+import AboutComponent from "./AboutComponent";
+
 
 
 <div className="main-body">
@@ -6,6 +8,7 @@ import LandingPageCardDiv from "./LandingPageCardDiv";
 <div card and message board holder> /// 2 colummns 70 30
 <LandingPageCardDiv/>
 <MessageBoard/>
+<AboutComponent/>
 
 
 
