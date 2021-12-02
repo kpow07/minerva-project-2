@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./landingPageCard.style.css";
 
-const ScienceMappingBioCardComponent = ({
+const PortraitCardComponent = ({
   firstName,
   lastName,
   description,
@@ -88,16 +88,25 @@ const ScienceMappingBioCardComponent = ({
         </h3>
         <div className="fields">
           {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}
-          {technology ? <h4 style={{ color: "green" }}>TECHNOLOGY</h4> : null}{" "}
-          {engineering ? <h4 style={{ color: "blue" }}>ENGINEERING</h4> : null}{" "}
-          {mathematics ? <h4 style={{ color: "purple" }}>MATH</h4> : null}{" "}
+          {technology ? (
+            <h4 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h4>
+          ) : null}{" "}
+          {engineering ? (
+            <h4 style={{ color: "darkBlue" }}>ENGINEERING</h4>
+          ) : null}{" "}
+          {mathematics ? (
+            <h4 style={{ color: "darkGoldenrod" }}>MATH</h4>
+          ) : null}{" "}
         </div>
         <p>{description}</p>
       </div>
     </div>
   );
 };
-
+/* orangeRed
+paleVioletRed
+darkBlue
+darkGoldenrod */
 const LandingPageCardDiv = ({ setSelectedBioId }) => {
   const [mentors, setMentors] = useState([]);
   const generateRandomIndex = (array) =>
@@ -145,7 +154,7 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
     <div className="directory-menu">
       {mentors.map((mentor, index) => {
         return (
-          <ScienceMappingBioCardComponent
+          <PortraitCardComponent
             className="card"
             key={index}
             firstName={mentor.firstName}

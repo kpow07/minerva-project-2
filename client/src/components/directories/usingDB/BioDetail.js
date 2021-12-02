@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Detail.style.css";
+import EditBioForm from "../../forms/EditBioForm";
 
 const BioDetail = ({ bioId }) => {
   const [bio, setBio] = useState(null);
@@ -43,22 +44,13 @@ const BioDetail = ({ bioId }) => {
               ) : null}{" "}
             </div>
             <h3 className="field-value">{bio.description}</h3>
-            {/* <div className="field-title">Science: </div>
-            <div className="field-value">{bio.science}</div>
-            <div className="field-title">Technology: </div>
-            <div className="field-value">{bio.technology}</div>
-            <div className="field-title">Engineering: </div>
-            <div className="field-value">{bio.engineering}</div>
-            <div className="field-title">Mathematics: </div>
-            <div className="field-value">{bio.mathematics}</div> */}
             <div className="field-title">Summary:</div>
             <div className="field-value">{bio.bio}</div>
-            {/* <div className="field-title">Canadian: </div>
-            <div className="field-value">{bio.canadian ? "Canadian" : ""}</div> */}
           </div>
         </>
       ) : null}
       {/* can add div with loading message  */}
+      <EditBioForm existingValues={bio} fetchedId={bioId} />
     </div>
   );
 };

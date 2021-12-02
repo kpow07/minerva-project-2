@@ -17,6 +17,8 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
                   name="other11"
                   type="checkbox"
                   value={other11}
+                  checked={other11 === true}
+                  unchecked={other11 === false}
                   onChange={(e) => setOther11(e.target.checked)}
                 />
                 lgbtqia2s+ Community
@@ -32,6 +34,8 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
             className="check"
             name="other9"
             type="checkbox"
+            checked={other9 === true}
+            unchecked={other9 === false}
             value={other9}
             onChange={(e) => setOther9(e.target.checked)}
           />

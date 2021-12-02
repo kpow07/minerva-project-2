@@ -2,8 +2,8 @@ import React from "react";
 // import { useEffect, useState } from "react";
 
 function OtherAreasCheckboxComponent({ setters, values }) {
-  // const { other1, other2, other3, other4, other5, other6, other7, other8 } =
-  //   values;
+  const { other1, other2, other3, other4, other5, other6, other7, other8 } =
+    values;
   const {
     setOther1,
     setOther2,
@@ -26,7 +26,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other1"
                 type="checkbox"
-                value="other1"
+                value={other1}
+                checked={other1 === true}
+                unchecked={other1 === false}
                 onChange={(e) => setOther1(e.target.checked)}
               />
               White (Eg: German, Irish, English, Italian, Polish, French, etc)
@@ -40,7 +42,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other2"
                 type="checkbox"
-                value="other2"
+                value={other2}
+                checked={other2 === true}
+                unchecked={other2 === false}
                 onChange={(e) => setOther2(e.target.checked)}
               />
               Hispanic, Latino or Spanish origin (Eg: Mexican or Mexican
@@ -56,7 +60,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other3"
                 type="checkbox"
-                value="other3"
+                value={other3}
+                checked={other3 === true}
+                unchecked={other3 === false}
                 onChange={(e) => setOther3(e.target.checked)}
               />{" "}
               Black or African American (Eg: African American, Jamaican,
@@ -71,7 +77,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other4"
                 type="checkbox"
-                value="other4"
+                value={other4}
+                checked={other4 === true}
+                unchecked={other4 === false}
                 onChange={(e) => setOther4(e.target.checked)}
               />
               Asian (Eg: Chinese, Filipino, Asian Indian, Vietnamese, Korean,
@@ -86,7 +94,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other5"
                 type="checkbox"
-                value="other5"
+                value={other5}
+                checked={other5 === true}
+                unchecked={other5 === false}
                 onChange={(e) => setOther5(e.target.checked)}
               />
               American Indian or Alaska Native(Eg: Navajo nation, Blackfeet
@@ -102,7 +112,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other6"
                 type="checkbox"
-                value="other6"
+                value={other6}
+                checked={other6 === true}
+                unchecked={other6 === false}
                 onChange={(e) => setOther6(e.target.checked)}
               />
               Middle Eastern or North African (Eg: Lebanese, Iranian, Egyptian,
@@ -117,7 +129,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other7"
                 type="checkbox"
-                value="other7"
+                value={other7}
+                checked={other7 === true}
+                unchecked={other7 === false}
                 onChange={(e) => setOther7(e.target.checked)}
               />
               Native Hawaiian or Other Pacific Islander (Eg: Native Hawaiian,
@@ -132,7 +146,9 @@ function OtherAreasCheckboxComponent({ setters, values }) {
                 className="check"
                 name="other8"
                 type="checkbox"
-                value="other8"
+                value={other8}
+                checked={other8 === true}
+                unchecked={other8 === false}
                 onChange={(e) => setOther8(e.target.checked)}
               />
               Some other race, ethnicity or origin

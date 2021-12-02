@@ -4,7 +4,7 @@ import "./ScienceDirectory.style.css";
 // import ScienceMappingBioCardComponent from "./ScienceMappingBioCardComponent.js";
 import "./BioGalleryPageCard.style.css";
 
-const ScienceMappingBioCardComponent = ({
+const LandscapeCardComponent = ({
   firstName,
   lastName,
   description,
@@ -92,15 +92,25 @@ const ScienceMappingBioCardComponent = ({
         </h3>
         <div className="fields">
           {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}
-          {technology ? <h4 style={{ color: "green" }}>TECHNOLOGY</h4> : null}{" "}
-          {engineering ? <h4 style={{ color: "blue" }}>ENGINEERING</h4> : null}{" "}
-          {mathematics ? <h4 style={{ color: "purple" }}>MATH</h4> : null}{" "}
+          {technology ? (
+            <h4 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h4>
+          ) : null}{" "}
+          {engineering ? (
+            <h4 style={{ color: "darkBlue" }}>ENGINEERING</h4>
+          ) : null}{" "}
+          {mathematics ? (
+            <h4 style={{ color: "darkGoldenrod" }}>MATH</h4>
+          ) : null}{" "}
         </div>
         <p>{description}</p>
       </div>
     </div>
   );
 };
+/* orangeRed
+paleVioletRed
+darkBlue
+darkGoldenrod */
 
 const ScienceDirectoryFetchComponent = ({ setSelectedBioId }) => {
   const [bios, setBios] = useState([]);
@@ -124,7 +134,7 @@ const ScienceDirectoryFetchComponent = ({ setSelectedBioId }) => {
     <div className="directory-menu">
       {bios.map((bio, index) => {
         return (
-          <ScienceMappingBioCardComponent
+          <LandscapeCardComponent
             className="card"
             key={index}
             onBioSelected={() => selectBio(bio._id)}

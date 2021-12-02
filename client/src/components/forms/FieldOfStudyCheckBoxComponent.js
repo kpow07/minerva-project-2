@@ -2,7 +2,7 @@ import React from "react";
 //import { useEffect, useState } from "react";
 
 function FieldOfStudyCheckboxComponent({ setters, values }) {
-  //const { science, technology, engineering, mathematics } = values;
+  const { science, technology, engineering, mathematics } = values;
   const { setScience, setTechnology, setEngineering, setMathematics } = setters;
 
   return (
@@ -16,7 +16,9 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
                 className="check"
                 name="science"
                 type="checkbox"
-                value="science"
+                value={science}
+                checked={science === true}
+                unchecked={science === false}
                 onChange={(e) => setScience(e.target.checked)}
               />{" "}
               Science
@@ -30,7 +32,9 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
                 className="check"
                 name="technology"
                 type="checkbox"
-                value="technology"
+                value={technology}
+                checked={technology === true}
+                unchecked={technology === false}
                 onChange={(e) => setTechnology(e.target.checked)}
               />
               Technology
@@ -44,7 +48,9 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
                 className="check"
                 name="engineering"
                 type="checkbox"
-                value="engineering"
+                value={engineering}
+                checked={engineering === true}
+                unchecked={engineering === false}
                 onChange={(e) => setEngineering(e.target.checked)}
               />
               Engineering
@@ -58,7 +64,9 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
                 className="check"
                 name="mathematics"
                 type="checkbox"
-                value="mathematics"
+                value={mathematics}
+                checked={mathematics === true}
+                unchecked={mathematics === false}
                 onChange={(e) => setMathematics(e.target.checked)}
               />
               Mathematics

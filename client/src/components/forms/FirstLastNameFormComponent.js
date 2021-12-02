@@ -50,7 +50,7 @@ function FirstLastNameComponent({ setters, values }) {
               className="check"
               name="canadian"
               type="checkbox"
-              value="canadian"
+              value={canadian}
               onChange={(e) => setCanadian(e.target.checked)}
             />
             Canadian?:

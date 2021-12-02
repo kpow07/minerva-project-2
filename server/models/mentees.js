@@ -35,11 +35,13 @@ async function createMentee(menteeToCreate) {
 async function findMenteeById(id) {
   return Mentee.findById(id);
 }
-
+async function updateMentee(id, newMenteeInfo) {
+  await Mentor.findByIdAndUpdate(id, newMenteeInfo);
+}
 // async function getMenteeInfo(id) {
 //   let menteeInfo = await findMenteeById(id);
 //   return menteeInfo;
 // }
 
 ////////////////////////////////
-export { createMentee, findMenteeById };
+export { createMentee, findMenteeById, updateMentee };

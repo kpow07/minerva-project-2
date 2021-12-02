@@ -61,12 +61,9 @@ async function listMentorsFilter(field) {
     return Mentor.find({ mathematics: true });
   } else return Mentor.find({});
 }
-// async function listScienceMentors() {
-//   console.log("filtering science mentors");
-//   let results = Mentor.find({ science: true });
-//   console.log(results);
-//   return results;
-// }
+async function updateMentor(id, newMentorInfo) {
+  await Mentor.findByIdAndUpdate(id, newMentorInfo);
+}
 
 ////////////////////////////////
 export {
@@ -74,5 +71,5 @@ export {
   listMentors,
   findMentorById,
   listMentorsFilter,
-  //listScienceMentors,
+  updateMentor,
 };

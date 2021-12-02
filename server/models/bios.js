@@ -30,6 +30,8 @@ async function listBios() {
 async function findBioById(id) {
   return Bio.findById(id);
 }
-
+async function updateBio(id, newBioInfo) {
+  await Bio.findByIdAndUpdate(id, newBioInfo, { returnDocument: "after" });
+}
 /////////////////////
-export { createBio, listBios, findBioById };
+export { createBio, listBios, findBioById, updateBio };
