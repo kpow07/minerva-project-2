@@ -1,17 +1,18 @@
 import React from "react";
 import Landingstyles from "./Landingstyles.css"
-import branch from "./branch.png"
+import branch from "./branch2.png"
 
-
-function AboutComponent() {
+function AboutComponent () {
     const Box = ({ 
     boxSizing: 'border-box',
     minWidth: 0,})
     console.log(Box)
+
     return (
 
         
       <div className="about-container">
+        
         <h1>About Us: Minerva Mentoring</h1>
         <p> 
           <img src={branch} alt="olive branch" />
@@ -27,7 +28,7 @@ function AboutComponent() {
       
     );
 
-
-  }
+    }
+  
   export default AboutComponent;
   
