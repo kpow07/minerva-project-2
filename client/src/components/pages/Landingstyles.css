@@ -1,3 +1,4 @@
+/*
 @import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;300&display=swap");
@@ -74,7 +75,8 @@
   background-size: cover;
   color: white;
   padding: 20px;
-} */
+} 
+
 .inner-border {
   background-color: #d7ecd9;
   height: 95%;
@@ -83,10 +85,10 @@
 .about-paragraph {
   padding: 5%;
 }
-/*
+
 p {
   text-align: left;
-  margin: 5%; */
+  margin: 5%; 
 .grid-item5 {
   background-color: rgba(500, 400, 300, 0.8);
   border: 5px solid rgba(0, 0, 0, 0.8);
@@ -109,4 +111,79 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+*/
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;300&display=swap");
+
+.page-container {
+  display: grid;
+  width: 100%;
+  align-items: flex-start;
+  margin: auto;
+  font-family: "Montserrat";
+  grid-template-columns: 25% 40% 35%;
+}
+
+/* background-color: #8da47e; */
+.mission-statement {
+  color: #8da47e;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 100%;
+  padding: 5% 5% 0% 5%;
+}
+
+.about-component {
+  background-color: #8da47e;
+  color: #8da47e;
+  box-shadow: 1px 0px 20px 1px grey;
+  margin: 3%;
+  width: 95%;
+}
+.about-title {
+  height: 250px;
+  font-family: "Julius Sans One";
+  font-size: 100%;
+  width: 80%;
+  margin: 0% 5%;
+  background-image: linear-gradient(
+      to right,
+      rgba(3, 3, 3, 100),
+      rgba(66, 66, 66, 0.01)
+    ),
+    url("\mentor-pic2.jpg");
+  height: full;
+  width: auto;
+  background-size: cover;
+  color: white;
+  padding: 20px;
+  margin: 0px;
+}
+
+.card-div {
+  margin: 5%;
+}
+/* .about-title {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.73)),
+    url("\mentor-pic2.jpg");
+  width: 80%;
+  height: 400px;
+  background-size: cover;
+  color: white;
+  padding: 20px;
+} */
+.inner-border {
+  background-color: #d7ecd9;
+  height: 95%;
+  width: 95%;
+}
+.about-paragraph {
+  padding: 5%;
+}
+
+p {
+  text-align: left;
+  margin: 5%;
 }
