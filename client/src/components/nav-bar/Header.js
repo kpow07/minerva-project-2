@@ -1,8 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import Logo from "./diversity.png";
 
-const Header = () => {
+const Header = ({ user }) => {
+  const logout = async () => {
+    window.open("http://localhost:5001/auth/logout");
+    window.parent.location.href = "/";
+    window.close();
+  };
   return (
     <div>
       <header className="header">
@@ -33,11 +39,27 @@ const Header = () => {
                 HOME
               </a>
             </ul>
-            <ul>
+            {/* 
+              <ul>
               <a className="button" href="/login">
                 LOG IN
               </a>
             </ul>
+            */}
+
+            {user ? (
+              <ul>
+                <a className="button" href="/login" onClick={logout}>
+                  LOG OUT
+                </a>
+              </ul>
+            ) : (
+              <ul>
+                <a className="button" href="/login">
+                  LOG IN
+                </a>
+              </ul>
+            )}
           </nav>
         </nav>
       </header>

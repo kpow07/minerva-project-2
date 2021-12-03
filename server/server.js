@@ -5,6 +5,7 @@ import morgan from "morgan";
 import connectMongo from "connect-mongo";
 import session from "express-session";
 import passport from "passport";
+import cors from "cors";
 import Pass from "./config/passport.js";
 import connectDB from "./config/db.js";
 import authRouter from "./routes/authRouter.js";
@@ -54,6 +55,15 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+
+//CORS
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
   })
 );
 
