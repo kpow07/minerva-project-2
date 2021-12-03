@@ -151,24 +151,26 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
   // }
 
   return (
-    <div className="directory-menu">
-      {mentors.map((mentor, index) => {
-        return (
-          <PortraitCardComponent
-            className="card"
-            key={index}
-            firstName={mentor.firstName}
-            lastName={mentor.lastName}
-            imageURL={mentor.imageURL}
-            description={mentor.description}
-            canadian={mentor.canadian}
-            science={mentor.science}
-            technology={mentor.technology}
-            engineering={mentor.engineering}
-            mathematics={mentor.mathematics}
-          />
-        );
-      })}
+    <div>
+      <div className="directory-menu" style={{ width: "55%" }}>
+        {mentors.map((mentor, index) => {
+          return (
+            <PortraitCardComponent
+              className="card"
+              key={index}
+              firstName={mentor.firstName}
+              lastName={mentor.lastName}
+              imageURL={mentor.imageURL}
+              description={mentor.description}
+              canadian={mentor.canadian}
+              science={mentor.science}
+              technology={mentor.technology}
+              engineering={mentor.engineering}
+              mathematics={mentor.mathematics}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
