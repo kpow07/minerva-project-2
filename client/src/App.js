@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 // import BioDetail from "./components/directories/BioDetail";
 import Footer from "./components/nav-bar/Footer";
@@ -14,6 +14,11 @@ import MainBioGallery from "./components/pages/MainBioGallery";
 import MentorForm from "./components/forms/MentorForm";
 import MenteeForm from "./components/forms/MenteeForm";
 import LoginPage from "./components/pages/LoginPage";
+// import LandingPageBody from "./components/pages/LandingPageBody";
+import LandingPageCardDiv from "./components/pages/LandingPageCardDiv";
+import AboutComponent from "./components/pages/AboutComponent";
+import LandingPageComponent from "./components/pages/LandingPageComponent";
+//import { useState } from "react";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
 //footer is not functional yet
@@ -63,7 +68,7 @@ function App() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Header user={user} />
+      <Header />
       <Routes>
         <Route path="/" exact element={<MainBioGallery />} />
         <Route path="/mentor" element={user ? <MentorForm /> : <LoginPage />} />
@@ -72,13 +77,18 @@ function App() {
           path="/login"
           element={user ? <Navigate to="/" /> : <LoginPage />}
         />
-        {/*
         <Route
           path="/landing"
           element={user ? <LandingPageCardDiv /> : <LoginPage />}
         />
-        <Route path="/box" element={<AboutComponent />} />
-        <Route path="/landingcombo" element={<LandingPageComponent />} /> */}
+        <Route
+          path="/box"
+          element={user ? <AboutComponent /> : <LoginPage />}
+        />
+        <Route
+          path="/landingcombo"
+          element={user ? <LandingPageComponent /> : <LoginPage />}
+        />
       </Routes>
       <Footer />
     </div>
