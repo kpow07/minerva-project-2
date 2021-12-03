@@ -68,7 +68,7 @@ function App() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Header />
+      <Header user={user} />
       <Routes>
         <Route path="/" exact element={<MainBioGallery />} />
         <Route path="/mentor" element={user ? <MentorForm /> : <LoginPage />} />
