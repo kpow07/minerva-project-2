@@ -12,3 +12,122 @@
 body {
   overflow: hidden;
 }
+
+/* LoginPage Styles */
+
+.login {
+  background-color: #d7ecd9;
+  font-family: inherit;
+  border-radius: 0.8rem;
+  width: 60%;
+  height: 75%;
+  text-align: center;
+  padding: 1.5rem, 3rem;
+  margin: 0 auto;
+  box-shadow: 14px -1px 33px -12px rgba(0, 0, 0, 0.49);
+  -webkit-box-shadow: 14px -1px 33px -12px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 14px -1px 33px -12px rgba(0, 0, 0, 0.49);
+  z-index: 40;
+}
+
+.wrapper {
+  width: 90%;
+  height: 75%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #eee;
+}
+
+.left,
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.or {
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  padding: 10px;
+  color: gray;
+  background-color: white;
+  font-weight: bold;
+  z-index: 50;
+}
+
+.line {
+  width: 0.5px;
+  height: 70%;
+  background-color: lightgray;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 20;
+}
+
+.loginButton {
+  width: 200px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.google {
+  background-color: #df4930;
+}
+.facebook {
+  background-color: #507cc0;
+}
+.github {
+  background-color: black;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+input {
+  width: 200px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.submit {
+  width: 200px;
+  background-color: rgba(128, 0, 128, 0.671);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+.loginTitle,
+.tagLine {
+  /* position: absolute; */
+  /* top: 150px; */
+  color: #8da47e;
+}
