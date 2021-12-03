@@ -6,8 +6,9 @@ function AboutComponent() {
   return (
     <div className="about-component">
       <div className="inner-border">
-        <div>
-          <h1 className="about-title">About Us: Minerva Mentoring</h1>
+        <div className="about-title">
+          <h1>About Us:</h1>
+          <h3>Minerva Mentoring</h3>
         </div>
 
         <div className="mission-statement">

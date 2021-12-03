@@ -70,7 +70,7 @@ function App() {
     >
       <Header user={user} />
       <Routes>
-        <Route path="/" exact element={<MainBioGallery />} />
+        <Route path="/" exact element={<LandingPageComponent />} />
         <Route path="/mentor" element={user ? <MentorForm /> : <LoginPage />} />
         <Route path="/mentee" element={user ? <MenteeForm /> : <LoginPage />} />
         <Route

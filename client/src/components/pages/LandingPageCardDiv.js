@@ -5,7 +5,7 @@ const PortraitCardComponent = ({
   firstName,
   lastName,
   description,
-  imageURL = "/images/mentors/mentor1.jpg",
+  imageURL = "/images/mentors/mentor20.jpg",
   canadian,
   science,
   technology,
@@ -152,7 +152,10 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
 
   return (
     <div>
-      <div className="directory-menu" style={{ width: "55%" }}>
+      <div className="directory-menu">
+        <div id="card-div-title" className="menu-title">
+          <h1>Meet Our Mentors!</h1>
+        </div>
         {mentors.map((mentor, index) => {
           return (
             <PortraitCardComponent

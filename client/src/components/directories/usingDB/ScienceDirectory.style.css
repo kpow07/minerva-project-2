@@ -1,12 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One:wght@600&display=swap");
+
 .directory-menu {
   /* display: block; */
-  width: 70%;
+  width: full;
   background-color: rgba(256, 256, 256, 0.95);
-  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5%;
   justify-content: center;
   box-shadow: 1px 0px 20px 1px grey;
 
@@ -14,4 +15,14 @@
 }
 .fields h4 {
   display: inline;
+}
+#card-div-title {
+  font-family: "Julius Sans One";
+  /* color: #8da47e; */
+  color: black;
+  font-size: 130%;
+  background-color: #d7ecd9;
+  padding: 2%;
+  margin: 5%;
+  box-shadow: 1px 0px 20px 1px grey;
 }
