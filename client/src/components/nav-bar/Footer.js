@@ -12,7 +12,7 @@ const Footer = () => {
         <h1 className="footerLogo"> MINERVA</h1>
 
         <h2>
-          that's so fetch(💛 ) <br /> Michelle, Julie, Kate and Rita
+          that's so fetch(💛 ) <br /> Julie, Kate, Michelle and Rita
         </h2>
 
         <address>
