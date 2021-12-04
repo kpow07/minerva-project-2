@@ -1,5 +1,5 @@
-import Google from "../../img/google.png";
-import Facebook from "../../img/facebook.png";
+import Google from "./img/google.png";
+import Facebook from "./img/facebook.png";
 
 const LoginPage = () => {
   const google = () => {

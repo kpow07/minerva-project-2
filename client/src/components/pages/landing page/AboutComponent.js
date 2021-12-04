@@ -1,12 +1,13 @@
 import React from "react";
-// import Landingstyles from "./Landingstyles.css";
+import "./Landingstyles.css";
+import "./landingPageCard.style.css";
 // import branch from "./branch2.png";
 
 function AboutComponent() {
   return (
     <div className="about-component">
       <div className="inner-border">
-        <div className="about-title">
+        <div id="about-title">
           <h1>About Us:</h1>
           <h3>Minerva Mentoring</h3>
         </div>

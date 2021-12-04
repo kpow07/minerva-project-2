@@ -11,9 +11,7 @@
   margin: 20px;
   cursor: pointer;
 }
-/* .science-bio-card:hover {
-  transform: scale(1.15);
-} */
+
 .portrait-bio-card:hover {
   transform: scale(1.15);
 }
@@ -22,6 +20,8 @@
   height: 65%;
   align-items: center;
   align-items: top;
+  overflow: hidden;
+
   background-position: center;
 }
 .portrait-upper-container img {
@@ -33,16 +33,18 @@
 .portrait-portrait {
   align-items: center;
   border: none;
+  /* overflow: hidden; */
 }
 .logo-container {
   display: inline-flex;
+  /* transform: translate(135%, -65%); */
 }
-.portrait-container {
+.image-container {
   background: white;
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  transform: translate(135%, -65%);
+  transform: translate(0%, -45%);
   overflow: hidden;
   align-content: center;
   justify-content: center;
@@ -60,10 +62,6 @@
   border: 4px solid darkgoldenrod;
 }
 
-/* orangered
-palevioletred
-darkBlue
-darkgoldenrod */
 .landing-card {
   background: white;
   padding: 3px;
@@ -75,47 +73,33 @@ darkgoldenrod */
   margin-top: 0px;
   height: 35%;
   background: white;
-  text-align: center;
+
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
+  vertical-align: top;
 }
 
 .portrait-lower-container h3,
 h4,
 p {
-  margin: 0px;
-  padding: 0px;
+  margin: 0%;
   text-align: center;
-  align-items: baseline;
 }
 .portrait-lower-container h3 {
   font-size: 1rem;
   font-weight: 600;
   color: black;
   padding: 0px;
-  margin-top: 1.5rem;
-  padding-top: 2rem;
-  /* margin-top: 0px; */
+  margin-top: 0px;
 }
 .portrait-lower-container h4 {
   font-size: 0.8rem;
   font-weight: 800;
 }
 .portrait-lower-container p {
-  margin: 0.2rem;
+  margin: 0.3rem;
   font-size: 0.8rem;
   font-weight: 600;
   color: black;
   text-align: center;
 }
-/* button {
-  margin-top: 0rem;
-  background-color: white;
-  font: bold;
-  font-size: 0.7rem;
-  padding: 0.4rem;
-  border: 1px solid orangered;
-  border-radius: 10px;
-  transition-duration: 0.5s;
-  animation: ease-in-out;
-} */

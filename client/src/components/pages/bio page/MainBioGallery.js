@@ -1,8 +1,8 @@
 import { useState } from "react";
 import BioDetail from "../directories/usingDB/BioDetail";
-import ScienceDirectoryFetchComponent from "../directories/usingDB/ScienceDirectoryFetchComponent";
+import ScienceDirectoryFetchComponent from "../../directories/usingDB/ScienceDirectoryFetchComponent";
 
-import LibraryBioForm from "../forms/LibraryBioForm";
+import LibraryBioForm from "../../forms/forms/LibraryBioForm";
 
 //replaces the App.js made in class
 function MainBioGallery() {

@@ -1,6 +1,3 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import "./ScienceDirectory.style.css";
 import "./BioGalleryPageCard.style.css";
 
 const LandscapeCardComponent = ({
@@ -106,50 +103,4 @@ const LandscapeCardComponent = ({
     </div>
   );
 };
-/* orangeRed
-paleVioletRed
-darkBlue
-darkGoldenrod */
-
-const ScienceDirectoryFetchComponent = ({ setSelectedBioId }) => {
-  const [bios, setBios] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      console.log("Fetching bios data");
-      let fetchResult = await fetch("/api/get-bios");
-      let bioList = await fetchResult.json();
-      console.log(bioList);
-      setBios(bioList);
-    }
-    fetchData();
-  }, []);
-
-  function selectBio(id) {
-    console.log("selectBio called on id: ", id);
-    setSelectedBioId(id);
-  }
-
-  return (
-    <div className="directory-menu">
-      {bios.map((bio, index) => {
-        return (
-          <LandscapeCardComponent
-            className="card"
-            key={index}
-            onBioSelected={() => selectBio(bio._id)}
-            firstName={bio.firstName}
-            lastName={bio.lastName}
-            imageURL={bio.imageURL}
-            description={bio.description}
-            canadian={bio.canadian}
-            science={bio.science}
-            technology={bio.technology}
-            engineering={bio.engineering}
-            mathematics={bio.mathematics}
-          />
-        );
-      })}
-    </div>
-  );
-};
-export default ScienceDirectoryFetchComponent;
+export default LandscapeCardComponent;

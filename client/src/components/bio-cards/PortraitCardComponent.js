@@ -1,28 +1,24 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import "./ScienceDirectory.style.css";
-import "./BioGalleryPageCard.style.css";
+import "./landingPageCard.style.css";
 
-const LandscapeCardComponent = ({
+const PortraitCardComponent = ({
   firstName,
   lastName,
   description,
-  imageURL,
+  imageURL = "/images/mentors/mentor20.jpg",
   canadian,
   science,
   technology,
-  engineering,
   mathematics,
-  onBioSelected,
+  engineering,
 }) => {
   return (
-    <div className="science-bio-card" onClick={() => onBioSelected()}>
-      <div className="science-upper-container">
+    <div className="portrait-bio-card">
+      <div className="portrait-upper-container">
         <img
-          className="science-portrait"
-          src={"/images/" + imageURL}
+          className="portrait-portrait"
+          src={imageURL}
           alt={firstName}
-          height="230px"
+          width="210px"
           style={{ backgroundPosition: "center" }}
         />
 
@@ -72,7 +68,7 @@ const LandscapeCardComponent = ({
           ) : null}
         </div>
       </div>
-      <div className="science-lower-container">
+      <div className="portrait-lower-container">
         <h3>
           {firstName} {lastName}{" "}
           {canadian ? (
@@ -106,50 +102,4 @@ const LandscapeCardComponent = ({
     </div>
   );
 };
-/* orangeRed
-paleVioletRed
-darkBlue
-darkGoldenrod */
-
-const ScienceDirectoryFetchComponent = ({ setSelectedBioId }) => {
-  const [bios, setBios] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      console.log("Fetching bios data");
-      let fetchResult = await fetch("/api/get-bios");
-      let bioList = await fetchResult.json();
-      console.log(bioList);
-      setBios(bioList);
-    }
-    fetchData();
-  }, []);
-
-  function selectBio(id) {
-    console.log("selectBio called on id: ", id);
-    setSelectedBioId(id);
-  }
-
-  return (
-    <div className="directory-menu">
-      {bios.map((bio, index) => {
-        return (
-          <LandscapeCardComponent
-            className="card"
-            key={index}
-            onBioSelected={() => selectBio(bio._id)}
-            firstName={bio.firstName}
-            lastName={bio.lastName}
-            imageURL={bio.imageURL}
-            description={bio.description}
-            canadian={bio.canadian}
-            science={bio.science}
-            technology={bio.technology}
-            engineering={bio.engineering}
-            mathematics={bio.mathematics}
-          />
-        );
-      })}
-    </div>
-  );
-};
-export default ScienceDirectoryFetchComponent;
+export default PortraitCardComponent;

@@ -2,22 +2,22 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 // import BioDetail from "./components/directories/BioDetail";
-import Footer from "./components/nav-bar/Footer";
+import Footer from "./components/navigation/Footer";
 // import womenpic from "./women-background-crop.png";
 import womenpic2 from "./women-background2-crop.png";
 
 // import LibraryBioForm from "./components/forms/LibraryBioForm";
 
-import Header from "./components/nav-bar/Header";
-import MainBioGallery from "./components/pages/MainBioGallery";
+import Header from "./components/navigation/Header";
+// import MainBioGallery from "./components/pages/bio page/MainBioGallery";
 // import MainMentorGallery from "./components/pages/MainMentorGallery";
-import MentorForm from "./components/forms/MentorForm";
-import MenteeForm from "./components/forms/MenteeForm";
-import LoginPage from "./components/pages/LoginPage";
+import MentorForm from "./components/forms/forms/MentorForm";
+import MenteeForm from "./components/forms/forms/MenteeForm";
+import LoginPage from "./components/pages/login page/LoginPage";
 // import LandingPageBody from "./components/pages/LandingPageBody";
-import LandingPageCardDiv from "./components/pages/LandingPageCardDiv";
-import AboutComponent from "./components/pages/AboutComponent";
-import LandingPageComponent from "./components/pages/LandingPageComponent";
+import LandingPageCardDiv from "./components/pages/landing page/LandingPageCardDiv";
+import AboutComponent from "./components/pages/landing page/AboutComponent";
+import LandingPageComponent from "./components/pages/landing page/LandingPageComponent";
 //import { useState } from "react";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme

@@ -1,16 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import "./FormStyles.css";
-import FieldOfStudyCheckboxComponent from "./FieldOfStudyCheckBoxComponent";
-import PersonalInfoComponent from "./PersonalInfoComponent";
-import OtherAreasCheckboxComponent from "./OtherAreasCheckboxComponent";
-import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
-import FormTitleComponent from "./FormTitleComponent";
-import AdditionalCheckboxWithFieldComponent from "./AdditionalCheckboxWithFieldComponent"; //addition
-import FileUploadComponent from "./FileUploadComponent"; // addition
+import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
+import PersonalInfoComponent from "../form fields/PersonalInfoComponent";
+import OtherAreasCheckboxComponent from "../form fields/OtherAreasCheckboxComponent";
+import DescriptionBioResourceComponent from "../form fields/DescriptionBioResourceComponent";
+import FormTitle from "../form fields/FormTitleComponent";
+import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheckboxWithFieldComponent"; //addition
 
-function MentorForm() {
-  //set the beginning state for all variables
+function MenteeForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -33,10 +31,8 @@ function MentorForm() {
   const [other9, setOther9] = useState(false); //addition
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
-  const [image, setImage] = useState(); //addition
 
   async function mySubmitFunction() {
-    //declare keys in personalInfo Object
     const personalInfo = {
       firstName,
       lastName,
@@ -62,38 +58,23 @@ function MentorForm() {
       other11, //addition
     };
 
-    const ImageUpload = {
-      image, //has to be seperate from the JSON stringfy becasue it is handling an image
-    };
-    //the data from the post will be JSON-type personalInfo from the form inputs.  Uncomment to see below
     const postData = JSON.stringify(personalInfo);
-    //console.log(personalInfo);
+
+    console.log(personalInfo);
 
     const requestOptions = {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: postData,
     };
-    //reponse is from calling post request on add-mentor route using the request options above
-    const response = await fetch("/api/add-mentor", requestOptions);
-    //data is the new object that was sent to the database
+    const response = await fetch("/api/add-mentee", requestOptions);
     const data = await response.json();
     console.log(data);
+    //response.text
   }
-
-  //form title component:  you can set the name of the form here to be what you want
-  //personal info component:  values and setters of those values are passed in here
-  //field of study component: values and setters of those values are passed in here
-  //Description bio resource component:     ""
-  //Other Areas checkbox component:      ""
-  //Submit button
-
   return (
     <div className="main-form">
-      <FormTitleComponent title={"Become a Mentor!"} />
+      <FormTitle title={"Become a Mentee!"} />
 
       <PersonalInfoComponent
         values={{ firstName, lastName, email, city }}
@@ -108,7 +89,6 @@ function MentorForm() {
           setMathematics,
         }}
       />
-      <FileUploadComponent setters={{ setImage }} values={{ image }} />
       <DescriptionBioResourceComponent
         values={{ description, bio, otherResources }}
         setters={{ setDescription, setBio, setOtherResources }}
@@ -158,4 +138,4 @@ function MentorForm() {
   );
 }
 
-export default MentorForm;
+export default MenteeForm;

@@ -7,7 +7,7 @@ const ScienceMappingBioCardComponent = ({
   description,
   imageURL,
 }) => {
-  const [area, setArea] = useState("SCIENCE");
+  const [area] = useState("SCIENCE");
 
   // );
   return (

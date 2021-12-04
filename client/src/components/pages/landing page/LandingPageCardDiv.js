@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import "./landingPageCard.style.css";
-
+import "./ScienceDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
+import "./landingPageCard.style.css"; //this css is specific to landing page cards
+//
+//
+//
+//This is the card component specific to the landing page
 const PortraitCardComponent = ({
   firstName,
   lastName,
   description,
-  imageURL = "/images/mentors/mentor20.jpg",
+  // imageURL = "/images/mentors/mentor28.jpg",
+  imageURL = "/images/mentors/Eugenia-Duodu-web.jpeg",
   canadian,
   science,
   technology,
@@ -20,9 +25,9 @@ const PortraitCardComponent = ({
           src={imageURL}
           alt={firstName}
           width="210px"
-          style={{ backgroundPosition: "center" }}
         />
-
+      </div>
+      <div className="portrait-lower-container">
         <div className="logo-container">
           {science ? (
             <div className="image-container" id="science-image-container">
@@ -68,8 +73,6 @@ const PortraitCardComponent = ({
             </div>
           ) : null}
         </div>
-      </div>
-      <div className="portrait-lower-container">
         <h3>
           {firstName} {lastName}{" "}
           {canadian ? (
@@ -103,10 +106,7 @@ const PortraitCardComponent = ({
     </div>
   );
 };
-/* orangeRed
-paleVioletRed
-darkBlue
-darkGoldenrod */
+
 const LandingPageCardDiv = ({ setSelectedBioId }) => {
   const [mentors, setMentors] = useState([]);
   const generateRandomIndex = (array) =>
@@ -132,13 +132,7 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
         engineeringMentor,
         mathematicsMentor,
       ];
-      // console.log(
-      //   scienceMentor,
-      //   technologyMentor,
-      //   engineeringMentor,
-      //   mathematicsMentor
-      // );
-      // console.log(`this is the four mentors array ${fourMentorsArray}`);
+
       setMentors(fourMentorsArray);
     }
 
@@ -178,32 +172,3 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
   );
 };
 export default LandingPageCardDiv;
-
-//import Landingstyles from "/Landingpage.html";
-//about us component
-
-// const About = (img, title, description) => {
-//   return (
-//     <>
-//       <img src=".c.a.casa" alt="advdavad" />
-//       <h3>{title}</h3>;<p>{description}</p>
-//     </>
-//   );
-// };
-
-// const LandingPageBody = (props) => {
-//   return (
-//     <div id="body">
-//       <About
-//         className="section"
-//         img=".forms/mint.jpeg"
-//         title="About Us"
-//         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-//       />
-//       <LandingPageCardDiv />
-//     </div>
-//   );
-// };
-
-// //style card in grid
-// export default LandingPageBody;

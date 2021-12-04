@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MentorDetail from "../directories/usingDB/MentorDetail";
-import MentorDirectoryFetchComponent from "../directories/usingDB/MentorDirectoryFetchComponent";
+import MentorDirectoryFetchComponent from "../../directories/usingDB/MentorDirectoryFetchComponent";
 
 //replaces the App.js made in class
 function MainMentorGallery() {
