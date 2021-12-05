@@ -1,4 +1,4 @@
-import "./BioGalleryPageCard.style.css";
+import "./LandscapeBioCard.style.css";
 
 const LandscapeCardComponent = ({
   firstName,

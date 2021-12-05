@@ -22,7 +22,6 @@
   height: 65%;
   align-items: center;
   align-items: top;
-  overflow: hidden;
 
   background-position: center;
 }
@@ -36,13 +35,14 @@
 }
 .logo-container {
   display: inline-flex;
+  transform: translate(00%, -25%);
 }
 .image-container {
   background: white;
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  transform: translate(00%, -65%);
+  /* transform: translate(00%%); */
   overflow: hidden;
   align-content: center;
   justify-content: center;
@@ -91,7 +91,7 @@ p {
   font-weight: 600;
   color: black;
   padding: 0px;
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
   /* padding-top: 2rem; */
   /* margin-top: 0px; */
 }

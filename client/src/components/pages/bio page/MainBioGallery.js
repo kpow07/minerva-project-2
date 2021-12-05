@@ -1,7 +1,6 @@
 import { useState } from "react";
-import BioDetail from "../directories/usingDB/BioDetail";
-import ScienceDirectoryFetchComponent from "../../directories/usingDB/ScienceDirectoryFetchComponent";
-
+import ScienceDirectoryFetchComponent from "../../directories/BioDirectoryComponent";
+import AnyoneDetail from "../../bio-cards/AnyoneDetail";
 import LibraryBioForm from "../../forms/forms/LibraryBioForm";
 
 //replaces the App.js made in class
@@ -35,7 +34,7 @@ function MainBioGallery() {
       {selectedBioId && (
         <div>
           <button onClick={() => setSelectedBioId(undefined)}>Go Back</button>
-          <BioDetail bioId={selectedBioId} />
+          <AnyoneDetail bioId={selectedBioId} />
         </div>
       )}
     </div>

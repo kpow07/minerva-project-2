@@ -1,6 +1,6 @@
 import React from "react";
 import "./Landingstyles.css";
-import "./landingPageCard.style.css";
+import "../../bio-cards/portraitCard.style.css";
 // import branch from "./branch2.png";
 
 function AboutComponent() {
@@ -8,12 +8,11 @@ function AboutComponent() {
     <div className="about-component">
       <div className="inner-border">
         <div id="about-title">
-          <h1>About Us:</h1>
-          <h3>Minerva Mentoring</h3>
+          <h1>About Us:</h1> <h3>Minerva Mentoring</h3>
         </div>
 
         <div className="mission-statement">
-          <h4> When women support each other, incredible things happen</h4>
+          <h4>WHEN WOMEN SUPPORT EACH OTHER, INCREDIVBLE THINGS HAPPEN</h4>
         </div>
         <div className="about-paragraph">
           <p>

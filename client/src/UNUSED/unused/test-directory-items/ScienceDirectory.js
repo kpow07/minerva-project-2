@@ -1,5 +1,5 @@
 import React from "react";
-import "./ScienceDirectory.style.css";
+import "./BioDirectory.style.css";
 import ScienceMappingBioCardComponent from "./ScienceMappingBioCardComponent.js.js.js";
 import "../bio-cards/ScienceBioCard.style.css";
 

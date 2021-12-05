@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./Detail.style.css";
-import EditBioForm from "../../forms/EditBioForm";
+import EditBioForm from "../components/forms/forms/EditBioForm";
+import "../../Detail.style.css";
 
 const BioDetail = ({ bioId }) => {
   const [bio, setBio] = useState(null);

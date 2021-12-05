@@ -1,10 +1,11 @@
-import "./landingPageCard.style.css";
+import "./portraitCard.style.css";
 
 const PortraitCardComponent = ({
   firstName,
   lastName,
   description,
-  imageURL = "/images/mentors/mentor20.jpg",
+  // imageURL = "/images/mentors/mentor28.jpg",
+  imageURL = "/images/mentors/Eugenia-Duodu-web.jpeg",
   canadian,
   science,
   technology,
@@ -19,9 +20,9 @@ const PortraitCardComponent = ({
           src={imageURL}
           alt={firstName}
           width="210px"
-          style={{ backgroundPosition: "center" }}
         />
-
+      </div>
+      <div className="portrait-lower-container">
         <div className="logo-container">
           {science ? (
             <div className="image-container" id="science-image-container">
@@ -67,8 +68,6 @@ const PortraitCardComponent = ({
             </div>
           ) : null}
         </div>
-      </div>
-      <div className="portrait-lower-container">
         <h3>
           {firstName} {lastName}{" "}
           {canadian ? (

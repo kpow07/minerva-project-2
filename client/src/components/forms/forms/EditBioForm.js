@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./FormStyles.css";
-import FieldOfStudyCheckboxComponent from "./FieldOfStudyCheckBoxComponent";
-import DescriptionBioResourceComponent from "./DescriptionBioResourceComponent";
+import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
+import DescriptionBioResourceComponent from "../form fields/DescriptionBioResourceComponent";
 import FormTitleComponent from "../form fields/FormTitleComponent";
 import FirstLastNameComponent from "../form fields/FirstLastNameFormComponent";
 

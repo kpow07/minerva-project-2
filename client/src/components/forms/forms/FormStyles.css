@@ -21,29 +21,29 @@
 }
 
 .single-line-field-long {
-  height: 1.5rem;
-  width: 80%;
+  height: 1rem;
+  width: 25rem;
   margin-bottom: 10px;
   margin-left: 10px;
   resize: none;
 }
 .single-line-field-med {
-  height: 1.5rem;
+  height: 1rem;
   width: 20rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   margin-left: 10px;
   resize: none;
 }
 .multi-line-field-long {
   overflow-y: scroll;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   margin-left: 10px;
   resize: none;
   text-align: justify;
 }
 .few-line-field-long {
   overflow-y: scroll;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   margin-left: 10px;
   resize: none;
 }
@@ -53,10 +53,12 @@
 
 .other-desc {
   margin-left: 20px;
+  padding: 0px;
 }
 .field-area {
-  padding: 3px;
-  margin: 5px;
+  padding: 1px;
+  margin: 0px;
+  text-align: left;
 }
 textarea {
   width: 80%;
@@ -66,10 +68,12 @@ textarea {
 label {
   margin-left: 10px;
   font-weight: 600;
+  padding: 0px;
 }
 h4 {
   margin-left: 10px;
   margin-bottom: 0px;
+  padding: 0px;
 }
 
 .submit-button {

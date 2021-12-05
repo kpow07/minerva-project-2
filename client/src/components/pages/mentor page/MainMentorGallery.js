@@ -1,6 +1,6 @@
 import { useState } from "react";
-import MentorDetail from "../directories/usingDB/MentorDetail";
-import MentorDirectoryFetchComponent from "../../directories/usingDB/MentorDirectoryFetchComponent";
+import MentorDirectoryComponent from "../../directories/MentorDirectoryComponent";
+import MentorDetail from "../../bio-cards/MentorDetail";
 
 //replaces the App.js made in class
 function MainMentorGallery() {
@@ -18,9 +18,7 @@ function MainMentorGallery() {
       } */}
 
       {!selectedMentorId && (
-        <MentorDirectoryFetchComponent
-          setSelectedMentorId={setSelectedMentorId}
-        />
+        <MentorDirectoryComponent setSelectedMentorId={setSelectedMentorId} />
       )}
       {selectedMentorId && (
         <div>

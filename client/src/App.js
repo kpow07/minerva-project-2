@@ -9,8 +9,8 @@ import womenpic2 from "./women-background2-crop.png";
 // import LibraryBioForm from "./components/forms/LibraryBioForm";
 
 import Header from "./components/navigation/Header";
-// import MainBioGallery from "./components/pages/bio page/MainBioGallery";
-// import MainMentorGallery from "./components/pages/MainMentorGallery";
+import MainBioGallery from "./components/pages/bio page/MainBioGallery";
+import MainMentorGallery from "./components/pages/mentor page/MainMentorGallery";
 import MentorForm from "./components/forms/forms/MentorForm";
 import MenteeForm from "./components/forms/forms/MenteeForm";
 import LoginPage from "./components/pages/login page/LoginPage";
@@ -64,7 +64,6 @@ function App() {
         backgroundPositionX: "center",
 
         height: "100vh",
-        // width: "auto",
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -73,6 +72,11 @@ function App() {
         <Route path="/" exact element={<LandingPageComponent />} />
         <Route path="/mentor" element={user ? <MentorForm /> : <LoginPage />} />
         <Route path="/mentee" element={user ? <MenteeForm /> : <LoginPage />} />
+        <Route
+          path="/mentor-gallery"
+          element={user ? <MainMentorGallery /> : <LoginPage />}
+        />
+        <Route path="/bio-gallery" element={<MainBioGallery />} />
         <Route
           path="/login"
           element={user ? <Navigate to="/" /> : <LoginPage />}

@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import "./Detail.style.css";
+import EditBioForm from "../forms/forms/EditBioForm";
 
-const MentorDetail = ({ mentorId }) => {
-  const [mentor, setMentor] = useState(null);
+const AnyoneDetail = ({ bioId }) => {
+  const [bio, setBio] = useState(null);
 
   useEffect(() => {
-    const fetchMentor = async () => {
-      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
-      let fetchedMentor = await fetchResult.json();
-      setMentor(fetchedMentor);
+    const fetchBio = async () => {
+      let fetchResult = await fetch("/api/get-bio/" + bioId);
+      let fetchedBio = await fetchResult.json();
+      setBio(fetchedBio);
     };
-    fetchMentor();
-  }, [mentorId]);
+    fetchBio();
+  }, [bioId]);
 
   return (
     <div className="rendered-bio">
-      {mentor ? (
+      {bio ? (
         <>
           <h1>
-            {mentor.firstName} {mentor.lastName}{" "}
-            {mentor.canadian ? (
+            {bio.firstName} {bio.lastName}{" "}
+            {bio.canadian ? (
               <img
                 src="images/logos/flag.png"
                 style={{ height: "30px", width: "40px" }}
@@ -29,29 +30,29 @@ const MentorDetail = ({ mentorId }) => {
           </h1>
           <div className="detail-fields">
             <div className="fields">
-              {mentor.science ? (
+              {bio.science ? (
                 <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
               ) : null}{" "}
-              {mentor.technology ? (
+              {bio.technology ? (
                 <h2 style={{ color: "green" }}>TECHNOLOGY</h2>
               ) : null}{" "}
-              {mentor.engineering ? (
+              {bio.engineering ? (
                 <h2 style={{ color: "blue" }}>ENGINEERING</h2>
               ) : null}{" "}
-              {mentor.mathematics ? (
+              {bio.mathematics ? (
                 <h2 style={{ color: "purple" }}>MATH</h2>
               ) : null}{" "}
             </div>
-            <h3 className="field-value">{mentor.description}</h3>
-
+            <h3 className="field-value">{bio.description}</h3>
             <div className="field-title">Summary:</div>
-            <div className="field-value">{mentor.bio}</div>
+            <div className="field-value">{bio.bio}</div>
           </div>
         </>
       ) : null}
       {/* can add div with loading message  */}
+      <EditBioForm existingValues={bio} fetchedId={bioId} />
     </div>
   );
 };
 
-export default MentorDetail;
+export default AnyoneDetail;
