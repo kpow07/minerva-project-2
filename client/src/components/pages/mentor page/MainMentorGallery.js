@@ -2,7 +2,7 @@ import { useState } from "react";
 import MentorDirectoryComponent from "../../directories/MentorDirectoryComponent";
 import MentorDetail from "../../bio-cards/MentorDetail";
 
-//replaces the App.js made in class
+//replace MentorDetail with ProfilePageComponent on click
 function MainMentorGallery() {
   const [selectedMentorId, setSelectedMentorId] = useState();
 

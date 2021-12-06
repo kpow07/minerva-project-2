@@ -14,6 +14,8 @@ import AboutComponent from "./components/pages/landing page/AboutComponent";
 import LandingPageComponent from "./components/pages/landing page/LandingPageComponent";
 import MainBioGallery2 from "./components/pages/bio page/MainBioGallery2";
 import BioPageComponent from "./components/pages/bio page/BioPageCompoent";
+import AboutMe from "./components/pages/profile/AboutMe";
+import ProfilePageComponent from "./components/pages/profile/ProfilePageComponent";
 //import { useState } from "react";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
@@ -66,6 +68,7 @@ function App() {
       <Header user={user} />
       <Routes>
         <Route path="/" exact element={<LandingPageComponent />} />
+        <Route path="/profile" element={<ProfilePageComponent />} />
         <Route path="/mentor" element={user ? <MentorForm /> : <LoginPage />} />
         <Route path="/mentee" element={user ? <MenteeForm /> : <LoginPage />} />
         <Route path="/mentor-gallery" element={<MainMentorGallery />} />

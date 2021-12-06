@@ -12,7 +12,7 @@ function AboutComponent() {
         </div>
 
         <div className="mission-statement">
-          <h4>WHEN WOMEN SUPPORT EACH OTHER, INCREDIVBLE THINGS HAPPEN</h4>
+          <h4>WHEN WOMEN SUPPORT EACH OTHER, INCREDIBLE THINGS HAPPEN</h4>
         </div>
         <div className="about-paragraph">
           <p>
