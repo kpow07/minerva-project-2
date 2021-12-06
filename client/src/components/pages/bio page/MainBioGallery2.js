@@ -1,11 +1,9 @@
 import { useState } from "react";
-import BioDirectoryComponent from "../../directories/BioDirectoryComponent";
+import BioDirectoryComponent2 from "../../directories/BioDirectoryComponent2";
 import AnyoneDetail from "../../bio-cards/AnyoneDetail";
 import BioForm from "../../forms/forms/BioForm";
 
-//replaces the App.js made in class
-
-function MainBioGallery() {
+function MainBioGallery2({ bios }) {
   const [selectedBioId, setSelectedBioId] = useState();
 
   const createBio = async function (newBio) {
@@ -24,7 +22,10 @@ function MainBioGallery() {
     <div className="main-bio-list">
       {!selectedBioId && (
         <div>
-          <BioDirectoryComponent setSelectedBioId={setSelectedBioId} />
+          <BioDirectoryComponent2
+            biosArray={bios}
+            setSelectedBioId={setSelectedBioId}
+          />
           <BioForm
             buttonValue={"SUBMIT BIO"}
             onSave={createBio}
@@ -41,4 +42,4 @@ function MainBioGallery() {
     </div>
   );
 }
-export default MainBioGallery;
+export default MainBioGallery2;

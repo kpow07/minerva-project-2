@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-// import BioDetail from "./components/directories/BioDetail";
 import Footer from "./components/navigation/Footer";
-// import womenpic from "./women-background-crop.png";
 import womenpic2 from "./women-background2-crop.png";
-
-// import LibraryBioForm from "./components/forms/LibraryBioForm";
-
 import Header from "./components/navigation/Header";
 import MainBioGallery from "./components/pages/bio page/MainBioGallery";
 import MainMentorGallery from "./components/pages/mentor page/MainMentorGallery";
 import MentorForm from "./components/forms/forms/MentorForm";
 import MenteeForm from "./components/forms/forms/MenteeForm";
 import LoginPage from "./components/pages/login page/LoginPage";
-// import LandingPageBody from "./components/pages/LandingPageBody";
 import LandingPageCardDiv from "./components/pages/landing page/LandingPageCardDiv";
 import AboutComponent from "./components/pages/landing page/AboutComponent";
 import LandingPageComponent from "./components/pages/landing page/LandingPageComponent";
+import MainBioGallery2 from "./components/pages/bio page/MainBioGallery2";
+import BioPageComponent from "./components/pages/bio page/BioPageCompoent";
 //import { useState } from "react";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
@@ -72,10 +68,7 @@ function App() {
         <Route path="/" exact element={<LandingPageComponent />} />
         <Route path="/mentor" element={user ? <MentorForm /> : <LoginPage />} />
         <Route path="/mentee" element={user ? <MenteeForm /> : <LoginPage />} />
-        <Route
-          path="/mentor-gallery"
-          element={user ? <MainMentorGallery /> : <LoginPage />}
-        />
+        <Route path="/mentor-gallery" element={<MainMentorGallery />} />
         <Route path="/bio-gallery" element={<MainBioGallery />} />
         <Route
           path="/login"

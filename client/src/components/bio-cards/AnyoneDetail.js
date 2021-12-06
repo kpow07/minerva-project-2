@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Detail.style.css";
-import EditBioForm from "../forms/forms/EditBioForm";
+import BioForm from "../forms/forms/BioForm";
 
 const AnyoneDetail = ({ bioId }) => {
   const [bio, setBio] = useState(null);
@@ -13,6 +13,18 @@ const AnyoneDetail = ({ bioId }) => {
     };
     fetchBio();
   }, [bioId]);
+  //
+  const UpdateBio = async function (updatedBio) {
+    console.log(`updataing bio with id: ${bioId}`);
+    await fetch(`/api/add-bio/${bioId}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedBio),
+    });
+  };
 
   return (
     <div className="rendered-bio">
@@ -34,13 +46,13 @@ const AnyoneDetail = ({ bioId }) => {
                 <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
               ) : null}{" "}
               {bio.technology ? (
-                <h2 style={{ color: "green" }}>TECHNOLOGY</h2>
+                <h2 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h2>
               ) : null}{" "}
               {bio.engineering ? (
-                <h2 style={{ color: "blue" }}>ENGINEERING</h2>
+                <h2 style={{ color: "darkBlue" }}>ENGINEERING</h2>
               ) : null}{" "}
               {bio.mathematics ? (
-                <h2 style={{ color: "purple" }}>MATH</h2>
+                <h2 style={{ color: "goldegnRod" }}>MATH</h2>
               ) : null}{" "}
             </div>
             <h3 className="field-value">{bio.description}</h3>
@@ -50,7 +62,13 @@ const AnyoneDetail = ({ bioId }) => {
         </>
       ) : null}
       {/* can add div with loading message  */}
-      <EditBioForm existingValues={bio} fetchedId={bioId} />
+      <BioForm
+        buttonValue={"UPDATE BIO"}
+        existingValues={bio}
+        fetchedId={bioId}
+        titleValue={"Update a STEM Bio"}
+        onSave={UpdateBio}
+      />
     </div>
   );
 };

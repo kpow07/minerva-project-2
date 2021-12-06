@@ -92,9 +92,7 @@ const PortraitCardComponent = ({
           {engineering ? (
             <h4 style={{ color: "darkBlue" }}>ENGINEERING</h4>
           ) : null}{" "}
-          {mathematics ? (
-            <h4 style={{ color: "darkGoldenrod" }}>MATH</h4>
-          ) : null}{" "}
+          {mathematics ? <h4 style={{ color: "gold" }}>MATH</h4> : null}{" "}
         </div>
         <p>{description}</p>
       </div>

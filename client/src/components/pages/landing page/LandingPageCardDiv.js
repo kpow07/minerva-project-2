@@ -12,7 +12,7 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
   useEffect(() => {
     const fetchMentor = async function (field) {
       console.log("Fetching mentor's data");
-      let fetchResult = await fetch(`/api/filter-mentors?field=${field}`);
+      let fetchResult = await fetch(`/api/filter-mentors-field?field=${field}`);
       let mentorArray = await fetchResult.json();
       let randomIndex = generateRandomIndex(mentorArray);
       return mentorArray[randomIndex];

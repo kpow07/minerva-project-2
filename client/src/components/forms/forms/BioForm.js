@@ -1,12 +1,18 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./FormStyles.css";
 import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
 import DescriptionBioResourceComponent from "../form fields/DescriptionBioResourceComponent";
 import FormTitleComponent from "../form fields/FormTitleComponent";
 import FirstLastNameComponent from "../form fields/FirstLastNameFormComponent";
 
-function LibraryBioForm() {
+function BioForm({
+  existingValues,
+  fetchedId,
+  titleValue,
+  buttonValue,
+  onSave,
+}) {
   //set the beginning state for all variables
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -19,10 +25,28 @@ function LibraryBioForm() {
   const [description, setDescription] = useState("");
   const [bio, setBio] = useState("");
   const [otherResources, setOtherResources] = useState("");
+  const [id, setId] = useState("");
 
-  async function mySubmitFunction() {
-    //declare keys in personalInfo Object
-    const personalInfo = {
+  //prepopulates the form with existing values of current bio
+  useEffect(() => {
+    if (existingValues) {
+      setFirstName(existingValues.firstName);
+      setLastName(existingValues.lastName);
+      setCanadian(existingValues.canadian);
+      setImageURL(existingValues.imageURL);
+      setScience(existingValues.science);
+      setTechnology(existingValues.technology);
+      setEngineering(existingValues.engineering);
+      setMathematics(existingValues.mathematics);
+      setDescription(existingValues.description);
+      setBio(existingValues.bio);
+      setOtherResources(existingValues.otherResources);
+      setId(existingValues.id);
+    }
+  }, [existingValues]);
+
+  async function postData() {
+    let newBio = {
       firstName,
       lastName,
       canadian,
@@ -34,26 +58,27 @@ function LibraryBioForm() {
       description,
       bio,
       otherResources,
+      id,
     };
-    //the data from the post will be JSON-type personalInfo from the form inputs.  Uncomment to see below
-    const postData = JSON.stringify(personalInfo);
-    // console.log(personalInfo);
-
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: postData,
-    };
-    //reponse is from salling post request on add-mentor route using the request options above
-    const response = await fetch("/api/add-bio", requestOptions);
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: newBio,
+    // };
+    // //reponse is from salling post request on add-mentor route using the request options above
+    // await fetch(`/api/add-bio/${fetchedId}`, requestOptions);
+    // console.log(`Fetched Id ${fetchedId}`);
     //data is the new object that was sent to the database
-    const data = await response.json();
-    console.log(data);
+    // const data = await response.json();
+    // console.log(data);
     //response.text
+    await onSave(newBio);
+    console.log(`saving bio ${newBio}`);
   }
+
   //form title component:  you can set the name of the form here to be what you want
   //personal info component:  values and setters of those values are passed in here
   // this component for bios has an added canadian field, as well as an image url
@@ -63,7 +88,7 @@ function LibraryBioForm() {
   //Submit button
   return (
     <div className="main-form">
-      <FormTitleComponent title={"Add a Famous Women of STEM Bio!"} />
+      <FormTitleComponent title={titleValue} />
 
       <FirstLastNameComponent
         values={{ firstName, lastName, canadian, imageURL }}
@@ -86,11 +111,11 @@ function LibraryBioForm() {
       <input
         className="submit-button"
         type="button"
-        value="SUBMIT"
-        onClick={mySubmitFunction}
+        value={buttonValue}
+        onClick={postData}
       />
     </div>
   );
 }
 
-export default LibraryBioForm;
+export default BioForm;

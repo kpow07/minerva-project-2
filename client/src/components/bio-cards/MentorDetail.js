@@ -18,7 +18,7 @@ const MentorDetail = ({ mentorId }) => {
       {mentor ? (
         <>
           <h1>
-            {mentor.firstName} {mentor.lastName}{" "}
+            {mentor.firstName} {mentor.lastName}
             {mentor.canadian ? (
               <img
                 src="images/logos/flag.png"
@@ -33,13 +33,13 @@ const MentorDetail = ({ mentorId }) => {
                 <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
               ) : null}{" "}
               {mentor.technology ? (
-                <h2 style={{ color: "green" }}>TECHNOLOGY</h2>
+                <h2 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h2>
               ) : null}{" "}
               {mentor.engineering ? (
-                <h2 style={{ color: "blue" }}>ENGINEERING</h2>
+                <h2 style={{ color: "darkBlue" }}>ENGINEERING</h2>
               ) : null}{" "}
               {mentor.mathematics ? (
-                <h2 style={{ color: "purple" }}>MATH</h2>
+                <h2 style={{ color: "gold" }}>MATH</h2>
               ) : null}{" "}
             </div>
             <h3 className="field-value">{mentor.description}</h3>

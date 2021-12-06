@@ -8,15 +8,6 @@ function MainMentorGallery() {
 
   return (
     <div className="main-bio-list">
-      {/* { selectedMentorId ? 
-          <div>
-            <button onClick={() => setSelectedMentorId(undefined)}>Go Back</button>
-            <MentorDetail  mentorId={selectedMentorId}/> 
-          </div>
-        : 
-        <ScienceDirectoryFetch setSelectedMentorId={setSelectedMentorId} />  
-      } */}
-
       {!selectedMentorId && (
         <MentorDirectoryComponent setSelectedMentorId={setSelectedMentorId} />
       )}

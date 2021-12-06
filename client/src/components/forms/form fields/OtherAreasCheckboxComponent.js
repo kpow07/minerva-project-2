@@ -19,7 +19,12 @@ function OtherAreasCheckboxComponent({ setters, values }) {
     <div>
       <div className="field-checkbox-component">
         <div className="field-area">
-          <h4>Which category best describes you? (Optional)</h4>
+          <h4>
+            If you feel you are able to offer any unique guidance/need
+            mentorship specifically regarding the options below please check the
+            following boxes as they may apply to you. Please note this area of
+            the form is COMPLETELY OPTIONAL!!!
+          </h4>
           <label className="check-label">
             <div className="other-desc">
               <input
