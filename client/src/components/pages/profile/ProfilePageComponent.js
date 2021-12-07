@@ -11,6 +11,17 @@ function ProfilePageComponent({ mentorId }) {
   let navigate = useNavigate();
   let params = useParams();
 
+  useEffect(() => {
+    const fetchMentor = async () => {
+      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
+      console.log("This is the mentor ID", mentorId);
+      let fetchedMentor = await fetchResult.json();
+      console.log("this is the dfetched mentor", fetchedMentor);
+      setMentor(fetchedMentor);
+    };
+    fetchMentor();
+  }, [mentorId]);
+
 
   return (
     
@@ -22,12 +33,12 @@ function ProfilePageComponent({ mentorId }) {
       <div className="sidebar">
         <ProfilePageCardDiv mentorId={params.id} />
       </div>
-      {/* <div className="content">
+      <div className="content">
         <AboutMe mentorId={mentorId} />
-      </div> */}
+      </div>
 
       <div className="content">
-        <AboutMe />
+        <AboutMe mentorId={mentorId}/>
       </div>
 
 
