@@ -4,7 +4,7 @@ const PortraitCardComponent = ({
   firstName,
   lastName,
   description,
-  // imageURL = "/images/mentors/mentor28.jpg",
+  //imageURL = "/images/mentors/mentor28.jpg",
   imageURL = "/images/mentors/Eugenia-Duodu-web.jpeg",
   canadian,
   science,

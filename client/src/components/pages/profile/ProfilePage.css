@@ -55,7 +55,7 @@
   margin: 0%;
   margin-top: 2%;
 }
-.about-title {
+/* .about-title {
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.73)),
     url("\mentor-pic2.jpg");
   width: 80%;
@@ -63,7 +63,7 @@
   background-size: cover;
   color: white;
   padding: 20px;
-}
+} */
 .inner-border {
   background-color: #d7ecd9;
   height: 95%;
