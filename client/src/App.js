@@ -4,18 +4,16 @@ import "./App.css";
 import Footer from "./components/navigation/Footer";
 import womenpic2 from "./women-background2-crop.png";
 import Header from "./components/navigation/Header";
-import MainBioGallery from "./components/pages/bio page/MainBioGallery";
-import MainMentorGallery from "./components/pages/mentor page/MainMentorGallery";
+
 import MentorForm from "./components/forms/forms/MentorForm";
 import MenteeForm from "./components/forms/forms/MenteeForm";
 import LoginPage from "./components/pages/login page/LoginPage";
-import LandingPageCardDiv from "./components/pages/landing page/LandingPageCardDiv";
-import AboutComponent from "./components/pages/landing page/AboutComponent";
 import LandingPageComponent from "./components/pages/landing page/LandingPageComponent";
-import MainBioGallery2 from "./components/pages/bio page/MainBioGallery2";
 import BioPageComponent from "./components/pages/bio page/BioPageCompoent";
-import AboutMe from "./components/pages/profile/AboutMe";
-import ProfilePageComponent from "./components/pages/profile/ProfilePageComponent";
+import CreateBioPage from "./components/pages/add bio page/CreateBioPage";
+import BioDetailPage from "./components/pages/bio detail page/BioDetailPage";
+import BioEditPage from "./components/pages/bio edit page/BioEditPage";
+import MentorPageComponent from "./components/pages/mentor page/MentorPageComponent";
 //import { useState } from "react";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
@@ -68,27 +66,37 @@ function App() {
       <Header user={user} />
       <Routes>
         <Route path="/" exact element={<LandingPageComponent />} />
-        <Route path="/profile" element={<ProfilePageComponent />} />
-        <Route path="/mentor" element={user ? <MentorForm /> : <LoginPage />} />
-        <Route path="/mentee" element={user ? <MenteeForm /> : <LoginPage />} />
-        <Route path="/mentor-gallery" element={<MainMentorGallery />} />
-        <Route path="/bio-gallery" element={<MainBioGallery />} />
+        {/* MENTOR ROUTES */}
+        <Route
+          path="/mentor-add"
+          element={user ? <MentorForm /> : <LoginPage />}
+        />
+        <Route
+          path="/mentor-gallery"
+          element={user ? <MentorPageComponent /> : <LoginPage />}
+        />
+        {/* STEM BIO ROUTES */}
+        <Route
+          path="/bio-create"
+          element={user ? <CreateBioPage /> : <LoginPage />}
+        />
+        <Route path="/bio-gallery" element={<BioPageComponent />} />
+        <Route path="/bio-detail/:id" element={<BioDetailPage />} />
+        <Route
+          path="/bio-edit/:id"
+          element={user ? <BioEditPage /> : <LoginPage />}
+        />
+        {/* MENTEE ROUTES */}
+        <Route
+          path="/mentee-add"
+          element={user ? <MenteeForm /> : <LoginPage />}
+        />
+
         <Route
           path="/login"
           element={user ? <Navigate to="/" /> : <LoginPage />}
         />
-        <Route
-          path="/landing"
-          element={user ? <LandingPageCardDiv /> : <LoginPage />}
-        />
-        <Route
-          path="/box"
-          element={user ? <AboutComponent /> : <LoginPage />}
-        />
-        <Route
-          path="/landingcombo"
-          element={user ? <LandingPageComponent /> : <LoginPage />}
-        />
+        <Route path="/landing-page" element={<LandingPageComponent />} />
       </Routes>
       <Footer />
     </div>

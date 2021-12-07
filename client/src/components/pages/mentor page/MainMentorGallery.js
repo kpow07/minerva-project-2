@@ -1,24 +1,20 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MentorDirectoryComponent from "../../directories/MentorDirectoryComponent";
-import MentorDetail from "../../bio-cards/MentorDetail";
 
-//replace MentorDetail with ProfilePageComponent on click
-function MainMentorGallery() {
-  const [selectedMentorId, setSelectedMentorId] = useState();
+function MainMentorGallery({ mentors }) {
+  const navigate = useNavigate();
+  // console.log(`MENTORS FROM MAIN MENTOR GALLERY: ${mentors}`);
 
+  function setSelectedMentorId(id) {
+    navigate("/mentor-detail/" + id);
+  }
   return (
     <div className="main-bio-list">
-      {!selectedMentorId && (
-        <MentorDirectoryComponent setSelectedMentorId={setSelectedMentorId} />
-      )}
-      {selectedMentorId && (
-        <div>
-          <button onClick={() => setSelectedMentorId(undefined)}>
-            Go Back
-          </button>
-          <MentorDetail mentorId={selectedMentorId} />
-        </div>
-      )}
+      <MentorDirectoryComponent
+        title={"Mentors in STEM"}
+        mentorsArray={mentors}
+        setSelectedMentorId={setSelectedMentorId}
+      />
     </div>
   );
 }

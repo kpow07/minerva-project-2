@@ -22,6 +22,7 @@ const Header = ({ user }) => {
         <nav className="mainNav">
           <nav className="navMenu">
             <ul>
+<<<<<<< HEAD
               <a className="button" href="/TBD">
                 MENTOR GALLERY
               </a>
@@ -35,11 +36,14 @@ const Header = ({ user }) => {
           <nav className="navMenu">
             <ul>
               <a className="button" href="/mentor">
+=======
+              <a className="button" href="/mentor-add">
+>>>>>>> 04fc2c8e13bbc763fb74479dbabb12cdd10fd104
                 BECOME A MENTOR
               </a>
             </ul>
             <ul>
-              <a className="button" href="/mentee">
+              <a className="button" href="/mentee-add">
                 BECOME A MENTEE
               </a>
             </ul>

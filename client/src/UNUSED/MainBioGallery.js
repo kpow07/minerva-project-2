@@ -1,7 +1,7 @@
 import { useState } from "react";
-import BioDirectoryComponent from "../../directories/BioDirectoryComponent";
-import AnyoneDetail from "../../bio-cards/AnyoneDetail";
-import BioForm from "../../forms/forms/BioForm";
+import BioDirectoryComponent from "../components/directories/BioDirectoryComponent";
+import AnyoneDetail from "../components/bio-cards/AnyoneDetail";
+import BioForm from "../components/forms/forms/BioForm";
 
 //replaces the App.js made in class
 

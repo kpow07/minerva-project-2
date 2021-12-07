@@ -11,9 +11,10 @@ const PortraitCardComponent = ({
   technology,
   mathematics,
   engineering,
+  onMentorSelected,
 }) => {
   return (
-    <div className="portrait-bio-card">
+    <div className="portrait-bio-card" onClick={() => onMentorSelected()}>
       <div className="portrait-upper-container">
         <img
           className="portrait-portrait"

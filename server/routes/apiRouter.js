@@ -4,7 +4,6 @@ import {
   findMentorById,
   listMentorsFilterField,
   listMentorsFilterCity,
-  listMentorsFilterAll,
   listMentorsFilterFieldCity,
   listMentors,
   updateMentor,
@@ -62,8 +61,8 @@ router.post("/add-mentor", async (req, res) => {
 //gets a list of all mentors from all fields
 router.get("/get-mentors", async (req, res) => {
   let mentorsList = await listMentors();
-  console.log(mentorsList);
-  res.send(mentorsList);
+  console.log(`FROM API's ${mentorsList}`);
+  res.json(mentorsList);
 });
 //gets a mentor using the mentor id from the request
 router.get("/get-mentor/:id", async (req, res) => {
@@ -85,23 +84,27 @@ router.get("/filter-mentors-field", async (req, res) => {
   let field = req.query.field;
   let mentorsList = await listMentorsFilterField(field);
   console.log(`Filtering Mentors in the ${field} field`);
-  res.send(mentorsList);
+  res.json(mentorsList);
 });
-//filter mentors based on city
-// router.get("/filter-mentors-city", async (req, res) => {
-//   let city = req.query.city;
-//   let mentorsList = await listMentorsFilterCity(city);
-//   console.log(`Filtering mentors who live in ${city}`);
-//   res.send(mentorsList);
-// });
+
 router.get("/filter-mentors-all", async (req, res) => {
-  console.log(
-    `filtering mentors who are in the ${field} field and live in ${city}`
-  );
-  let city = req.query.city;
+  let mentorsList;
   let field = req.query.field;
-  let mentorsList = await listMentorsFilterFieldCity(field, city);
-  res.send(mentorsList);
+  let city = req.query.city;
+  if ((field !== "allFields" && city === "nothing") || city === "") {
+    mentorsList = await listMentorsFilterField(field);
+  } else if (field !== "allFields" && city !== "nothing") {
+    mentorsList = await listMentorsFilterFieldCity(field, city);
+  } else if (field === "allFields" && city === "nothing") {
+    mentorsList = await listMentors();
+  } else if (field === "allFields" && city !== "nothing") {
+    mentorsList = await listMentorsFilterCity(city);
+  }
+  console.log(
+    `FROM API ROUTER: filtering Mentors where city = ${city} who are in the ${field} field }`
+  );
+  console.log(mentorsList);
+  res.json(mentorsList);
 });
 //////////////////////////////////MENTEE ENDPOINTS /////////////////////////////////
 
@@ -142,6 +145,7 @@ router.post("/update-mentee/:id", async (req, res) => {
   let mentee = await updateMentee(id, updatedMentee);
   res.send(mentee);
 });
+
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form
 router.post("/add-bio", async (req, res) => {
@@ -194,22 +198,23 @@ router.get("/filter-bios-field", async (req, res) => {
 // });
 
 router.get("/filter-bios-all", async (req, res) => {
+  let biosList;
   let field = req.query.field;
   let canadian = req.query.canadian;
   if (field !== "allFields" && canadian === "nothing") {
-    listBiosFilterField(field);
+    biosList = await listBiosFilterField(field);
   } else if (field !== "allFields" && canadian === "true") {
-    listBiosFilterFieldCanadian(field, "true");
+    biosList = await listBiosFilterFieldCanadian(field, "true");
   } else if (field === "allFields" && canadian === "nothing") {
-    listBios();
+    biosList = await listBios();
   } else if (field === "allFields" && canadian === "true") {
-    listBiosFilterCanadian("true");
+    biosList = await listBiosFilterCanadian("true");
   }
   console.log(
     `FROM API ROUTER: filtering bios where canadian = ${canadian} who are in the ${field} field }`
   );
-  let biosList = await listBiosFilterFieldCanadian(field, canadian);
-  res.send(biosList);
+  console.log(biosList);
+  res.json(biosList);
 });
 
 export default router;

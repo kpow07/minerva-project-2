@@ -1,44 +1,19 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BioDirectoryComponent2 from "../../directories/BioDirectoryComponent2";
-import AnyoneDetail from "../../bio-cards/AnyoneDetail";
-import BioForm from "../../forms/forms/BioForm";
 
 function MainBioGallery2({ bios }) {
-  const [selectedBioId, setSelectedBioId] = useState();
+  const navigate = useNavigate();
 
-  const createBio = async function (newBio) {
-    console.log(`adding bio with id: ${newBio.id}`);
-    await fetch("/api/add-bio", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newBio),
-    });
-  };
-
+  function setSelectedBioId(id) {
+    navigate("/bio-detail/" + id);
+  }
   return (
     <div className="main-bio-list">
-      {!selectedBioId && (
-        <div>
-          <BioDirectoryComponent2
-            biosArray={bios}
-            setSelectedBioId={setSelectedBioId}
-          />
-          <BioForm
-            buttonValue={"SUBMIT BIO"}
-            onSave={createBio}
-            titleValue={"Add a New STEM Bio"}
-          />
-        </div>
-      )}
-      {selectedBioId && (
-        <div>
-          <button onClick={() => setSelectedBioId(undefined)}>Go Back</button>
-          <AnyoneDetail bioId={selectedBioId} />
-        </div>
-      )}
+      <BioDirectoryComponent2
+        title={"Famous women in STEM"}
+        biosArray={bios}
+        setSelectedBioId={setSelectedBioId}
+      />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import LandscapeCardComponent from "../bio-cards/LandscapeCardComponent";
 
 const ScienceDirectoryComponent = ({ setSelectedBioId }) => {
   const [bios, setBios] = useState([]);
+  //
   useEffect(() => {
     async function fetchData() {
       console.log("Fetching bios data");
