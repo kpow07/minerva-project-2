@@ -39,6 +39,7 @@ const ProfilePageCardDiv = ({ mentorId }) => {
             engineering={mentor.engineering}
             mathematics={mentor.mathematics}
           />
+          <AboutMe mentorId={mentorId} />
         </div>
       </div>
     </div>

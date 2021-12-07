@@ -10,8 +10,10 @@ function ProfilePageComponent() {
   let params = useParams();
 
   return (
-    <div className="page-container">
-      <ProfilePageCardDiv mentorId={params.id} />
+    <div>
+      <div className="page-container">
+        <ProfilePageCardDiv mentorId={params.id} />
+      </div>
     </div>
   );
 }
