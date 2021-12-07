@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import AboutMe from "./AboutMe";
 import ProfilePageCardDiv from "./ProfilePageCardDiv";
@@ -6,8 +6,8 @@ import "./ProfilePage.css"
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
-function ProfilePageComponent() {
- 
+function ProfilePageComponent({ mentorId }) {
+  const [mentor, setMentor] = useState("");
   let navigate = useNavigate();
   let params = useParams();
 
@@ -27,7 +27,7 @@ function ProfilePageComponent() {
       </div> */}
 
       <div className="content">
-        <AboutMe mentorId={mentorId} />
+        <AboutMe />
       </div>
 
 
