@@ -35,7 +35,7 @@ async function updateBio(id, newBioInfo) {
 }
 async function listBiosFilterField(field) {
   console.log(field);
-  return Mentor.find({ [field]: true });
+  return Bio.find({ [field]: true });
 }
 async function listBiosFilterCanadian(canadian) {
   if (canadian === "true") {

@@ -23,12 +23,12 @@ const Header = ({ user }) => {
         <nav className="mainNav">
           <nav className="navMenu">
             <ul>
-              <a className="button" href="/mentor">
+              <a className="button" href="/mentor-add">
                 BECOME A MENTOR
               </a>
             </ul>
             <ul>
-              <a className="button" href="/mentee">
+              <a className="button" href="/mentee-add">
                 BECOME A MENTEE
               </a>
             </ul>
