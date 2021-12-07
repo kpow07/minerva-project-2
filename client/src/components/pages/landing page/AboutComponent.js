@@ -12,7 +12,9 @@ function AboutComponent() {
         </div>
 
         <div className="mission-statement">
-          <h4>WHEN WOMEN SUPPORT EACH OTHER, INCREDIBLE THINGS HAPPEN</h4>
+          <h4>
+            ♥ - WHEN WOMEN SUPPORT EACH OTHER, INCREDIBLE THINGS HAPPEN - ♥
+          </h4>
         </div>
         <div className="about-paragraph">
           <p>
@@ -22,6 +24,7 @@ function AboutComponent() {
             french press ristretto pumpkin spice aromatic. Café au lait, dark,
             et dripper crema instant cinnamon java.
           </p>
+          <br />
           <p>
             Strong ut chicory crema to go cinnamon cup percolator con panna.
             Cappuccino, single shot crema, beans con panna barista café au lait
@@ -29,6 +32,15 @@ function AboutComponent() {
             french press ristretto pumpkin spice aromatic. Café au lait, dark,
             et dripper crema instant cinnamon java.
           </p>
+          <br />
+          <p>
+            Strong ut chicory crema to go cinnamon cup percolator con panna.
+            Cappuccino, single shot crema, beans con panna barista café au lait
+            whipped cup frappuccino trifecta carajillo. Espresso, beans doppio
+            french press ristretto pumpkin spice aromatic. Café au lait, dark,
+            et dripper crema instant cinnamon java.
+          </p>
+          <br />
           <p>
             Strong ut chicory crema to go cinnamon cup percolator con panna.
             Cappuccino, single shot crema, beans con panna barista café au lait
