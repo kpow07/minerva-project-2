@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Header.css";
 import Logo from "./diversity.png";
 
@@ -21,6 +20,18 @@ const Header = ({ user }) => {
           <p className="headerSecond">Mentorship</p>
         </h1>
         <nav className="mainNav">
+          <nav className="navMenu">
+            <ul>
+              <a className="button" href="/TBD">
+                MENTOR GALLERY
+              </a>
+            </ul>
+            <ul>
+              <a className="button" href="/TBD">
+                BIOGRAPHY GALLERY
+              </a>
+            </ul>
+          </nav>
           <nav className="navMenu">
             <ul>
               <a className="button" href="/mentor">
