@@ -25,6 +25,12 @@ function ProfilePageComponent() {
       {/* <div className="content">
         <AboutMe mentorId={mentorId} />
       </div> */}
+
+      <div className="content">
+        <AboutMe mentorId={mentorId} />
+      </div>
+
+
     </div>
   
   
