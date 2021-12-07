@@ -2,7 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 // click on bio card to render profile page w/ About Me component
-const AboutMe = ({ mentorId }) => {
+const AboutMe = ({mentorId}) => {
+  
   const [mentor, setMentor] = useState("");
 
   useEffect(() => {

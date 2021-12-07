@@ -9,7 +9,7 @@ import AboutMe from "./AboutMe";
 
 const ProfilePageCardDiv = ({ mentorId }) => {
   console.log(window.location.pathname) 
-  const [mentor, setMentor] = useState([]);
+ const [mentor, setMentor] = useState([]);
 
   useEffect(() => {
     const fetchMentor = async () => {
@@ -38,11 +38,11 @@ const ProfilePageCardDiv = ({ mentorId }) => {
             engineering={mentor.engineering}
             mathematics={mentor.mathematics}
           />
-        {/* </div>
-        <div className="content">
-        <AboutMe mentorId={mentorId}
-        /> */}
         </div>
+        {/* <div className="content">
+        <AboutMe mentorId={mentorId}
+        />
+        </div> */}
       </div>
     </div>
   );

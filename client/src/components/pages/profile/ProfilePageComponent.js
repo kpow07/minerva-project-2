@@ -6,7 +6,7 @@ import "./ProfilePage.css"
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
-function ProfilePageComponent({ mentorId }) {
+function ProfilePageComponent({mentorId}) {
   const [mentor, setMentor] = useState("");
   let navigate = useNavigate();
   let params = useParams();
@@ -34,7 +34,7 @@ function ProfilePageComponent({ mentorId }) {
         <ProfilePageCardDiv mentorId={params.id} />
       </div>
       <div className="content">
-        <AboutMe mentorId={mentorId} />
+        <AboutMe mentorId={params.id} />
       </div>
 
      
