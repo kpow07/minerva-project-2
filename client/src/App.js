@@ -75,6 +75,9 @@ function App() {
           path="/mentor-gallery"
           element={user ? <MentorPageComponent /> : <LoginPage />}
         />
+        <Route
+        path="/mentor-detail"
+        
         {/* STEM BIO ROUTES */}
         <Route
           path="/bio-create"
