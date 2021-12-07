@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;300&display=swap"); */
 
 .page-container {
   display: grid;
@@ -26,18 +26,18 @@
   font-size: 100%;
   width: 80%;
   margin: 0% 5%;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       to right,
       rgba(3, 3, 3, 100),
       rgba(66, 66, 66, 0.01)
     ),
-    url("\mentor-pic2.jpg");
+   url("\mentor-pic2.jpg");
   height: full;
   width: auto;
   background-size: cover;
   color: white;
   padding: 20px;
-  margin: 0px;
+  margin: 0px; */
 }
 #about-title-h2 {
   text-align: left;

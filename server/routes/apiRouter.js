@@ -68,7 +68,7 @@ router.get("/get-mentors", async (req, res) => {
 //gets a mentor using the mentor id from the request
 router.get("/get-mentor/:id", async (req, res) => {
   let id = req.params.id;
-  let foundInfo = await getMentor(id);
+  let foundInfo = await findMentorById(id);
   res.send(foundInfo);
 });
 // updates a mentor using id from the url

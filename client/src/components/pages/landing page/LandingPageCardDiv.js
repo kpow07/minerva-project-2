@@ -54,7 +54,7 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
               key={index}
               firstName={mentor.firstName}
               lastName={mentor.lastName}
-              imageURL={mentor.imageURL}
+              //imageURL={mentor.imageURL}
               description={mentor.description}
               canadian={mentor.canadian}
               science={mentor.science}
