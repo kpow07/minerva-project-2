@@ -22,6 +22,8 @@ import {
   findMenteeById,
   updateMentee,
 } from "../models/mentees.js";
+import cloudinary from "../utilities/cloudinary.js";
+import upload from "../utilities/multer.js";
 
 const router = Router();
 
@@ -43,8 +45,11 @@ router.get("/minerva", (rer, res) => {
 });
 /////////////////////////MENTOR ENDPOINTS //////////////////////////////////////////
 //trying to post data from form input
-router.post("/add-mentor", async (req, res) => {
+router.post("/add-mentor", upload.single("image"), async (req, res) => {
+  const result = await cloudinary.uploader.upload(req.file.path);
   let mentor = req.body;
+  mentor.avatar = result.secure_url;
+  mentor.cloudinary_id = result.public_id;
   try {
     let newMentor = await createMentor(mentor);
     console.log("Added Mentor", newMentor);

@@ -34,7 +34,7 @@ const Header = ({ user }) => {
           </nav>
           <nav className="navMenu">
             <ul>
-              <a className="button" href="/mentor">
+              <a className="button" href="/mentor-add">
                 BECOME A MENTOR
               </a>
             </ul>
