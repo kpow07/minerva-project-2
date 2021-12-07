@@ -27,7 +27,7 @@ const MentorDirectoryComponent = ({
               <PortraitCardComponent
                 className="card"
                 key={index}
-                onMentorWWSelected={() => selectMentor(mentor._id)}
+                onMentorSelected={() => selectMentor(mentor._id)}
                 firstName={mentor.firstName}
                 lastName={mentor.lastName}
                 imageURL={mentor.imageURL}
