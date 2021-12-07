@@ -37,16 +37,10 @@ function ProfilePageComponent({ mentorId }) {
         <AboutMe mentorId={mentorId} />
       </div>
 
-      <div className="content">
-        <AboutMe mentorId={mentorId}/>
-      </div>
-
-
-    </div>
-  
-  
+     
+   </div>
     
   );
-}
+};
 export default ProfilePageComponent;
 //fetch to take ID from URL , if the user wants to comment they need to pull it out of the URL and it pulls the name out of it
