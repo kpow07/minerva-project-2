@@ -7,6 +7,7 @@ const mentorSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true },
   city: String,
+  province: String,
   science: Boolean,
   technology: Boolean,
   engineering: Boolean,
@@ -38,16 +39,18 @@ async function createMentor(mentorToCreate) {
 }
 
 async function findMentorById(id) {
-  return Mentor.findById(id);
+  let mentor = await Mentor.findById(id);
+  return mentor;
 }
 
 async function listMentors() {
   return Mentor.find({});
 }
 async function updateMentor(id, newMentorInfo) {
-  await Mentor.findByIdAndUpdate(id, newMentorInfo);
+  await Mentor.findByIdAndUpdate(id, newMentorInfo, {
+    returnDocument: "after",
+  });
 }
-
 async function listMentorsFilterField(field) {
   console.log(field);
   return Mentor.find({ [field]: true });

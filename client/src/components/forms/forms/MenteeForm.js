@@ -13,6 +13,7 @@ function MenteeForm() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
   const [science, setScience] = useState(false);
   const [technology, setTechnology] = useState(false);
   const [engineering, setEngineering] = useState(false);
@@ -37,6 +38,7 @@ function MenteeForm() {
       firstName,
       lastName,
       city,
+      province,
       email,
       science,
       technology,
@@ -77,8 +79,8 @@ function MenteeForm() {
       <FormTitle title={"Become a Mentee!"} />
 
       <PersonalInfoComponent
-        values={{ firstName, lastName, email, city }}
-        setters={{ setFirstName, setLastName, setEmail, setCity }}
+        values={{ firstName, lastName, email, city, province }}
+        setters={{ setFirstName, setLastName, setEmail, setCity, setProvince }}
       />
       <FieldOfStudyCheckboxComponent
         values={{ science, technology, engineering, mathematics }}

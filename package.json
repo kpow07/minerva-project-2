@@ -20,10 +20,13 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "install": "npm run install-client && npm run install-server",
+    "install-client": "cd client && npm install && cd ..",
+    "install-server": "cd server && npm install && cd ..",
+    "build": "npm run build-client",
+    "build-client": "cd client && npm run build && cd ..",
+    "start": "npm run start-server",
+    "start-server": "cd server && npm start && cd .."
   },
   "eslintConfig": {
     "extends": [

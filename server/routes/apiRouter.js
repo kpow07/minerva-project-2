@@ -19,8 +19,8 @@ import {
 } from "../models/bios.js";
 import {
   createMentee,
-  findMenteeById,
   updateMentee,
+  findMenteeById,
 } from "../models/mentees.js";
 import cloudinary from "../utilities/cloudinary.js";
 import upload from "../utilities/multer.js";
@@ -36,6 +36,11 @@ const router = Router();
 
 //@description: Main Page
 //@routes GET/
+router.use("*", (req, res, next) => {
+  console.log("path is " + req.originalUrl);
+  next();
+});
+
 router.get("/mainPage", (req, res) => {
   res.send("Main Page");
 });
@@ -59,7 +64,7 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
   } catch (error) {
     console.log(error);
     if (error.code === 11000) {
-      res.status(409).send("Mentor " + mentorToAdd.name + " already exists");
+      res.status(409).send("Mentor already exists");
     } else {
       res.sendStatus(500);
     }
@@ -75,15 +80,16 @@ router.get("/get-mentors", async (req, res) => {
 router.get("/get-mentor/:id", async (req, res) => {
   let id = req.params.id;
   let foundInfo = await findMentorById(id);
-  res.json(foundInfo);
+  console.log(`FOUND INFO FROM API ROUTER ${foundInfo}`);
+  res.send(foundInfo);
 });
 // updates a mentor using id from the url
-router.post("/update-mentor/:id", async (req, res) => {
+router.post("/add-mentor/:id", async (req, res) => {
   let id = req.params.id;
   let updatedMentor = req.body;
   console.log(`updating mentor ${id}: ${updatedMentor}`);
   let mentor = await updateMentor(id, updatedMentor);
-  res.json(mentor);
+  res.send(mentor);
 });
 
 //filter mentors based on the field
@@ -126,7 +132,7 @@ router.post("/add-mentee", async (req, res) => {
   } catch (error) {
     console.log(error);
     if (error.code === 11000) {
-      res.status(409).send("Mentee " + menteeToAdd.name + " already exists");
+      res.status(409).send("Mentee already exists");
     } else {
       res.sendStatus(500);
     }
@@ -164,7 +170,7 @@ router.post("/add-bio", async (req, res) => {
   } catch (error) {
     console.log(error);
     if (error.code === 11000) {
-      res.status(409).send("Bio for " + bioToAdd.name + " already exists");
+      res.status(409).send("Bio already exists");
     } else {
       res.sendStatus(500);
     }

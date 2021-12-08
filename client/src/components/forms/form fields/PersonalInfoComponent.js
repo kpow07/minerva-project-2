@@ -2,8 +2,8 @@ import React from "react";
 // import { useEffect, useState } from "react";
 
 function PersonalInfoComponent({ setters, values }) {
-  const { firstName, lastName, email, city } = values;
-  const { setFirstName, setLastName, setCity, setEmail } = setters;
+  const { firstName, lastName, email, city, province } = values;
+  const { setFirstName, setLastName, setCity, setProvince, setEmail } = setters;
 
   return (
     <div>
@@ -42,7 +42,19 @@ function PersonalInfoComponent({ setters, values }) {
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-        </label>{" "}
+        </label>
+        <br />
+        <label>
+          Province:
+          <input
+            className="single-line-field-med"
+            name="province"
+            type="text"
+            placeholder="province"
+            value={province}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </label>
         <br />
         <label>
           Email Address:

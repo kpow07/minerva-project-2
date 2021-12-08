@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AnyoneDetail from "../../bio-cards/AnyoneDetail";
 
 const BioDetailPage = function () {

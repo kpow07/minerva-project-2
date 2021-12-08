@@ -8,7 +8,13 @@ import FormTitleComponent from "../form fields/FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheckboxWithFieldComponent"; //addition
 import FileUploadComponent from "../form fields/FileUploadComponent"; // addition
 
-function EditMentorForm({ existingValues, fetchedId }) {
+function EditMentorForm({
+  existingValues,
+  fetchedId,
+  titleValue,
+  buttonValue,
+  onSave,
+}) {
   //set the beginning state for all variables
   const [firstName, setFirstName] = useState(""); //the first value is a variable and the setter is a fuction
   const [lastName, setLastName] = useState("");
@@ -36,6 +42,7 @@ function EditMentorForm({ existingValues, fetchedId }) {
 
   useEffect(() => {
     if (existingValues) {
+      console.log(`FROM EDIT FORM EXISTING VALUES ${existingValues}`);
       setFirstName(existingValues.firstName);
       setLastName(existingValues.lastName);
       setEmail(existingValues.email);
@@ -62,9 +69,9 @@ function EditMentorForm({ existingValues, fetchedId }) {
     }
   }, [existingValues]); //this is called a guard, it will not touch the existing values unless the existing values are changed
 
-  async function mySubmitFunction() {
+  async function postData() {
     //declare keys in personalInfo Object
-    const personalInfo = {
+    let newMentor = {
       firstName,
       lastName,
       city,
@@ -90,26 +97,9 @@ function EditMentorForm({ existingValues, fetchedId }) {
       image,
     };
 
-    //const ImageUpload = {
-    // image, //has to be seperate from the JSON stringfy becasue it is handling an image
-    //  };
-    //the data from the post will be JSON-type personalInfo from the form inputs.  Uncomment to see below
-    const postData = JSON.stringify(personalInfo);
-    //console.log(personalInfo);
-
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: postData,
-    };
-    //reponse is from calling post request on add-mentor route using the request options above
-    const response = await fetch("/api/add-mentor", requestOptions);
-    //data is the new object that was sent to the database
-    const data = await response.json();
-    console.log(data);
+    // console.log(data);
+    await onSave(newMentor);
+    console.log(`saving bio ${newMentor}`);
   }
 
   //form title component:  you can set the name of the form here to be what you want
@@ -180,7 +170,7 @@ function EditMentorForm({ existingValues, fetchedId }) {
         className="submit-button"
         type="button"
         value="SUBMIT"
-        onClick={mySubmitFunction}
+        onClick={postData}
       />
     </div>
   );

@@ -5,6 +5,7 @@ const menteeSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true },
   city: String,
+  province: String,
   science: Boolean,
   technology: Boolean,
   engineering: Boolean,
@@ -36,7 +37,7 @@ async function findMenteeById(id) {
   return Mentee.findById(id);
 }
 async function updateMentee(id, newMenteeInfo) {
-  await Mentor.findByIdAndUpdate(id, newMenteeInfo);
+  await Mentee.findByIdAndUpdate(id, newMenteeInfo);
 }
 // async function getMenteeInfo(id) {
 //   let menteeInfo = await findMenteeById(id);

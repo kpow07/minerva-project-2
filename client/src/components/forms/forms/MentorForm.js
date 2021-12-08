@@ -10,12 +10,19 @@ import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheck
 
 import ImageUpload from "../form fields/FileUploadComponent"; //addition
 
-function MentorForm() {
+function MentorForm(
+  existingValues,
+  fetchedId,
+  titleValue,
+  buttonValue,
+  onSave
+) {
   //set the beginning state for all variables
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
   const [science, setScience] = useState(false);
   const [technology, setTechnology] = useState(false);
   const [engineering, setEngineering] = useState(false);
@@ -44,6 +51,7 @@ function MentorForm() {
         firstName,
         lastName,
         city,
+        province,
         email,
         science,
         technology,
@@ -122,8 +130,8 @@ function MentorForm() {
       <FormTitleComponent title={"Become a Mentor!"} />
 
       <PersonalInfoComponent
-        values={{ firstName, lastName, email, city }}
-        setters={{ setFirstName, setLastName, setEmail, setCity }}
+        values={{ firstName, lastName, email, city, province }}
+        setters={{ setFirstName, setLastName, setEmail, setCity, setProvince }}
       />
 
       <FieldOfStudyCheckboxComponent

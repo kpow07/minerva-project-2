@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 //import "../../directories/BioDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
@@ -8,7 +9,7 @@ import HeartButton from "../../navigation/HeartButton";
 
 //Need to render based on selected mentor from Mentor Gallery
 
-const ProfilePageCardDiv = ({ mentorId }) => {
+const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink }) => {
   console.log(window.location.pathname);
   const [mentor, setMentor] = useState();
   let navigate = useNavigate();
@@ -36,14 +37,11 @@ const ProfilePageCardDiv = ({ mentorId }) => {
           technology={mentor?.technology}
           engineering={mentor?.engineering}
           mathematics={mentor?.mathematics}
+          // onClick={() => onMentorSelected()}
         />
-        <button
-          onClick={(e) => {
-            navigate("/mentor-edit/" + mentorId);
-          }}
-        >
-          EDIT
-        </button>
+        <Link to={"/mentor-edit/" + buttonLink}>
+          <button>EDIT</button>
+        </Link>
       </div>
     </div>
   );

@@ -60,21 +60,7 @@ function BioForm({
       otherResources,
       id,
     };
-    // const requestOptions = {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: newBio,
-    // };
-    // //reponse is from salling post request on add-mentor route using the request options above
-    // await fetch(`/api/add-bio/${fetchedId}`, requestOptions);
-    // console.log(`Fetched Id ${fetchedId}`);
-    //data is the new object that was sent to the database
-    // const data = await response.json();
-    // console.log(data);
-    //response.text
+
     await onSave(newBio);
     console.log(`saving bio ${newBio}`);
   }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams, Link } from "react-router";
 import AboutMe from "./AboutMe";
 import ProfilePageCardDiv from "./ProfilePageCardDiv";
 import "./ProfilePage.css";
@@ -7,6 +7,8 @@ import "./ProfilePage.css";
 // this will render the Mentor Card, About Me & Q&A and like button
 
 function ProfilePageComponent() {
+  const [mentor, setMentor] = useState();
+
   let params = useParams();
 
   return (
@@ -16,10 +18,18 @@ function ProfilePageComponent() {
       </div>
 
       <div className="sidebar">
-        <ProfilePageCardDiv mentorId={params.id} />
+        <ProfilePageCardDiv
+          mentorId={params.id}
+          buttonLink={"/mentor-edit/" + params.id}
+          // existingValues={existingValues}
+        />
       </div>
       <div className="content">
-        <AboutMe mentorId={params.id} />
+        <AboutMe
+          mentorId={params.id}
+          buttonLink={"/mentor-edit/" + params.id}
+          // existingValues={existingValues}
+        />
       </div>
 
       {/* <div>
