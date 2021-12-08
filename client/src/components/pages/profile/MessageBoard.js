@@ -20,7 +20,7 @@ const MessageBoard = () => {
     <div className="content">
       <CommentList />
 
-      <div>
+      <div className="footer">
         <CommentBox />
       </div>
     </div>
