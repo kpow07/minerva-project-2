@@ -6,7 +6,7 @@ import OtherAreasCheckboxComponent from "../form fields/OtherAreasCheckboxCompon
 import DescriptionBioResourceComponent from "../form fields/DescriptionBioResourceComponent";
 import FormTitleComponent from "../form fields/FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheckboxWithFieldComponent"; //addition
-import FileUploadComponent from "../form fields/FileUploadComponent"; // addition
+import ImageUpload from "../form fields/FileUploadComponent";
 
 function EditMentorForm({
   existingValues,
@@ -39,7 +39,7 @@ function EditMentorForm({
   const [other9, setOther9] = useState(false); //addition
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
-  const [image, setImage] = useState(); //addition
+  const [image, setImage] = useState(""); //addition
 
   useEffect(() => {
     if (existingValues) {
@@ -72,38 +72,51 @@ function EditMentorForm({
   }, [existingValues]); //this is called a guard, it will not touch the existing values unless the existing values are changed
 
   async function postData() {
+    let formData = new FormData();
     //declare keys in personalInfo Object
-    let newMentor = {
-      firstName,
-      lastName,
-      city,
-      province,
-      email,
-      science,
-      technology,
-      engineering,
-      mathematics,
-      description,
-      bio,
-      otherResources,
-      other1,
-      other2,
-      other3,
-      other4,
-      other5,
-      other6,
-      other7,
-      other8,
-      other9, //addition
-      other10, //addition
-      other11, //addition
-      image,
-    };
+    try {
+      let newMentor = {
+        firstName,
+        lastName,
+        city,
+        province,
+        email,
+        science,
+        technology,
+        engineering,
+        mathematics,
+        description,
+        bio,
+        otherResources,
+        other1,
+        other2,
+        other3,
+        other4,
+        other5,
+        other6,
+        other7,
+        other8,
+        other9, //addition
+        other10, //addition
+        other11, //addition
+      };
 
-    // console.log(data);
-    await onSave(newMentor);
-    console.log(`saving bio ${newMentor}`);
+      formData.append("fileProps", JSON.stringify(newMentor));
+      formData.append("image", image);
+
+      const res = await fetch("http://localhost:5001/api/add-mentor", {
+        method: "POST",
+        body: formData,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
+
+  // console.log(data);
+  //   await onSave(newMentor);
+  //   console.log(`saving bio ${newMentor}`);
+  // }
 
   //form title component:  you can set the name of the form here to be what you want
   //personal info component:  values and setters of those values are passed in here
@@ -118,7 +131,13 @@ function EditMentorForm({
 
       <PersonalInfoComponent
         values={{ firstName, lastName, email, city, province }}
-        setters={{ setFirstName, setLastName, setEmail, setCity, setProvince }}
+        setters={{
+          setFirstName,
+          setLastName,
+          setEmail,
+          setCity,
+          setProvince,
+        }}
       />
       <FieldOfStudyCheckboxComponent
         values={{ science, technology, engineering, mathematics }}
@@ -129,7 +148,7 @@ function EditMentorForm({
           setMathematics,
         }}
       />
-      <FileUploadComponent values={{ image }} setters={{ setImage }} />
+      <ImageUpload values={{ image }} setters={{ setImage }} />
       <DescriptionBioResourceComponent
         values={{ description, bio, otherResources }}
         setters={{ setDescription, setBio, setOtherResources }}

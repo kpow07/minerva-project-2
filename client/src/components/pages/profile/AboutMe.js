@@ -20,7 +20,10 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
 
   return (
     <div className="about-me">
-      <h1> Hi, I'm {mentor?.firstName} </h1>
+      <h1>
+        {" "}
+        Hi, I'm {mentor?.firstName}, a {mentor?.description}!
+      </h1>
 
       <p>
         I am a mentor in:
@@ -37,9 +40,9 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
       </p>
       <h2> About Me: </h2>
       <p>{mentor?.bio}</p>
-      {/* <h2> Here are some resources: </h2> */}
+      <h2> Here are some resources: </h2>
       <p>{mentor?.otherResources}</p>
-      {mentor?.science ? <h2 style={{ color: "orangeRed" }}>SCIENCE</h2> : null}
+      {/* {mentor?.science ? <h2 style={{ color: "orangeRed" }}>SCIENCE</h2> : null} */}
       <Link to={buttonLink}>
         <button>EDIT</button>
       </Link>

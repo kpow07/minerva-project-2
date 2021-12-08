@@ -143,7 +143,7 @@ function MentorForm(
           setMathematics,
         }}
       />
-      <ImageUpload setters={{ setImage }} values={{ image }} />
+      <ImageUpload values={{ image }} setters={{ setImage }} />
 
       <DescriptionBioResourceComponent
         values={{ description, bio, otherResources }}
