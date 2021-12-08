@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./BioDirectory.style.css";
 import "../bio-cards/portraitCard.style.css";
 import PortraitCardComponent from "../bio-cards/PortraitCardComponent";
@@ -30,7 +29,7 @@ const MentorDirectoryComponent = ({
                 onMentorSelected={() => selectMentor(mentor._id)}
                 firstName={mentor.firstName}
                 lastName={mentor.lastName}
-                imageURL={mentor.imageURL}
+                imageURL={mentor.image}
                 description={mentor.description}
                 city={mentor.city}
                 science={mentor.science}

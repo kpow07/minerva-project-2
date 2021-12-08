@@ -4,9 +4,7 @@ const PortraitCardComponent = ({
   firstName,
   lastName,
   description,
-  //imageURL = "/images/mentors/mentor28.jpg",
-  imageURL = "/images/mentors/Eugenia-Duodu-web.jpeg",
-  canadian,
+  imageURL,
   science,
   technology,
   mathematics,
@@ -18,7 +16,7 @@ const PortraitCardComponent = ({
       <div className="portrait-upper-container">
         <img
           className="portrait-portrait"
-          src={imageURL}
+          src={"/images/" + imageURL}
           alt={firstName}
           width="210px"
         />
@@ -70,8 +68,8 @@ const PortraitCardComponent = ({
           ) : null}
         </div>
         <h3>
-          {firstName} {lastName}{" "}
-          {canadian ? (
+          {firstName} {lastName}
+          {/* {canadian ? (
             <img
               id="mini-flag"
               src="images/logos/flag.png"
@@ -83,7 +81,7 @@ const PortraitCardComponent = ({
               }}
               alt="mini canadian flag"
             />
-          ) : null}
+          ) : null} */}
         </h3>
         <div className="fields">
           {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}

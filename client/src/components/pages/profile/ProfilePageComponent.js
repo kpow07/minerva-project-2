@@ -1,16 +1,17 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router";
 import AboutMe from "./AboutMe";
 import ProfilePageCardDiv from "./ProfilePageCardDiv";
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
 function ProfilePageComponent() {
+  let navigate = useNavigate();
+  let params = useParams();
+
   return (
     <div className="page-container">
-      <ProfilePageCardDiv
-        className="card-div"
-        mentorId="61a297d5611071030427a57b"
-      />
+      <ProfilePageCardDiv mentorId={params.id} />
     </div>
   );
 }

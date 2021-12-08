@@ -4,9 +4,8 @@ import "./App.css";
 import Footer from "./components/navigation/Footer";
 import womenpic2 from "./women-background2-crop.png";
 import Header from "./components/navigation/Header";
-
-import MentorForm from "./components/forms/forms/MentorForm";
-import MenteeForm from "./components/forms/forms/MenteeForm";
+import MentorSignUpPage from "./components/pages/mentor-sign-up-page/MentorSignUpPage";
+import MenteeSignUpPage from "./components/pages/mentee-sign-up-page/MenteeSignUpPage";
 import LoginPage from "./components/pages/login page/LoginPage";
 import LandingPageComponent from "./components/pages/landing page/LandingPageComponent";
 import BioPageComponent from "./components/pages/bio page/BioPageCompoent";
@@ -14,6 +13,7 @@ import CreateBioPage from "./components/pages/add bio page/CreateBioPage";
 import BioDetailPage from "./components/pages/bio detail page/BioDetailPage";
 import BioEditPage from "./components/pages/bio edit page/BioEditPage";
 import MentorPageComponent from "./components/pages/mentor page/MentorPageComponent";
+import ProfilePageComponent from "./components/pages/profile/ProfilePageComponent";
 //import { useState } from "react";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
@@ -69,15 +69,17 @@ function App() {
         {/* MENTOR ROUTES */}
         <Route
           path="/mentor-add"
-          element={user ? <MentorForm /> : <LoginPage />}
+          element={user ? <MentorSignUpPage /> : <LoginPage />}
         />
         <Route
           path="/mentor-gallery"
-          element={user ? <MentorPageComponent /> : <LoginPage />}
+          // element={user ? <MentorPageComponent /> : <LoginPage />}
+          element={<MentorPageComponent />}
         />
         <Route
-        path="/mentor-detail"
-        
+          path="/mentor-detail/:id"
+          element={user ? <ProfilePageComponent /> : <LoginPage />}
+        />
         {/* STEM BIO ROUTES */}
         <Route
           path="/bio-create"
@@ -92,7 +94,7 @@ function App() {
         {/* MENTEE ROUTES */}
         <Route
           path="/mentee-add"
-          element={user ? <MenteeForm /> : <LoginPage />}
+          element={user ? <MenteeSignUpPage /> : <LoginPage />}
         />
 
         <Route
