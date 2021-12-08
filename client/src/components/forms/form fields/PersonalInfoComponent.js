@@ -21,7 +21,7 @@ function PersonalInfoComponent({ setters, values }) {
         </label>{" "}
         <br />
         <label>
-          Lasts Name:
+          Last Name:
           <input
             className="single-line-field-med"
             name="lastName"

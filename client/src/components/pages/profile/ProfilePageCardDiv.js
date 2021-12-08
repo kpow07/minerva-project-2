@@ -6,8 +6,10 @@ import HeartButton from "../../navigation/HeartButton";
 import AboutMe from "./AboutMe";
 
 //Need to render based on selected mentor from Mentor Gallery
+
 const ProfilePageCardDiv = ({ mentorId }) => {
-  const [mentor, setMentor] = useState([]);
+  console.log(window.location.pathname) 
+ const [mentor, setMentor] = useState([]);
 
   useEffect(() => {
     const fetchMentor = async () => {
@@ -21,9 +23,6 @@ const ProfilePageCardDiv = ({ mentorId }) => {
   return (
     <div>
       <div className="directory-menu">
-        <div id="card-div-title" className="menu-title">
-          <h1>Mentor Profile Page</h1>
-        </div>
         <div>
           <HeartButton />
           <PortraitCardComponent
@@ -40,6 +39,10 @@ const ProfilePageCardDiv = ({ mentorId }) => {
             mathematics={mentor.mathematics}
           />
         </div>
+        {/* <div className="content">
+        <AboutMe mentorId={mentorId}
+        />
+        </div> */}
       </div>
     </div>
   );

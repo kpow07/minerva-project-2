@@ -10,7 +10,7 @@ import Pass from "./config/passport.js";
 import connectDB from "./config/db.js";
 import authRouter from "./routes/authRouter.js";
 import apiRouter from "./routes/apiRouter.js";
-import multer from "multer";
+
 //Load config
 _config({ path: "./config/config.env" });
 
@@ -33,20 +33,6 @@ app.use(json());
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
-
-// Upload files to mentor form
-const storage = multer.memoryStorage({
-  //use mongo for storage
-  destination: function (req, files, callback) {
-    callback(null, "");
-  },
-});
-const singleUpload = multer({ storage: storage }).single("file");
-
-app.post("/api/add-mentor", singleUpload, (req, res) => {
-  const image = req.file;
-  Image.create({ image: image.buffer }); //Mentor.create in the model
-});
 
 //Sessions
 app.use(
