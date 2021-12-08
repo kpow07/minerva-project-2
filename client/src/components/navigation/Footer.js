@@ -28,11 +28,11 @@ const Footer = () => {
           <h2 className="navTitle">Mentoring</h2>
 
           <ul className="navList">
-            <Link to="/mentor">
+            <Link to="/mentor-add">
               <li>Become a Mentor</li>
             </Link>
 
-            <Link to="/mentee">
+            <Link to="/mentee-add">
               <li>Become a Mentee</li>
             </Link>
 
