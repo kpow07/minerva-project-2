@@ -52,13 +52,13 @@ function PersonalInfoComponent({ setters, values }) {
             type="text"
             placeholder="province"
             value={province}
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => setProvince(e.target.value)}
           />
         </label>
         <br />
         <label>
           Email Address:
-          <input
+          <inputs
             className="single-line-field-med"
             name="email"
             type="text"

@@ -39,9 +39,9 @@ const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink }) => {
           mathematics={mentor?.mathematics}
           // onClick={() => onMentorSelected()}
         />
-        <Link to={"/mentor-edit/" + buttonLink}>
+        {/* <Link to={buttonLink}>
           <button>EDIT</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

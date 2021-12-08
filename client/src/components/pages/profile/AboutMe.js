@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-// click on bio card to render profile page w/ About Me component
-const AboutMe = ({ mentorId, buttonLink, existingValues }) => {
+// click on bio card to render profile  w/ About Me component
+const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
   const [mentor, setMentor] = useState();
   let params = useParams();
   useEffect(() => {
@@ -21,12 +21,6 @@ const AboutMe = ({ mentorId, buttonLink, existingValues }) => {
   return (
     <div className="about-me">
       <h1> Hi, I'm {mentor?.firstName} </h1>
-
-      {mentor ? (
-        <Link to={"/mentor-edit/" + params.id}>
-          <button>EDIT</button>
-        </Link>
-      ) : null}
 
       <p>
         I am a mentor in:
@@ -46,6 +40,9 @@ const AboutMe = ({ mentorId, buttonLink, existingValues }) => {
       {/* <h2> Here are some resources: </h2> */}
       <p>{mentor?.otherResources}</p>
       {mentor?.science ? <h2 style={{ color: "orangeRed" }}>SCIENCE</h2> : null}
+      <Link to={buttonLink}>
+        <button>EDIT</button>
+      </Link>
     </div>
   );
 };

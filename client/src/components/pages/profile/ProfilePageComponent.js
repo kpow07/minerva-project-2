@@ -20,7 +20,7 @@ function ProfilePageComponent() {
       <div className="sidebar">
         <ProfilePageCardDiv
           mentorId={params.id}
-          buttonLink={"/mentor-edit/" + params.id}
+          //  buttonLink={"/mentor-edit/" + params.id}
           // existingValues={existingValues}
         />
       </div>

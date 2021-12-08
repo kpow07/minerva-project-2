@@ -20,6 +20,7 @@ function EditMentorForm({
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
   const [science, setScience] = useState(false);
   const [technology, setTechnology] = useState(false);
   const [engineering, setEngineering] = useState(false);
@@ -47,6 +48,7 @@ function EditMentorForm({
       setLastName(existingValues.lastName);
       setEmail(existingValues.email);
       setCity(existingValues.city);
+      setProvince(existingValues.province);
       setScience(existingValues.science);
       setTechnology(existingValues.technology);
       setEngineering(existingValues.engineering);
@@ -75,6 +77,7 @@ function EditMentorForm({
       firstName,
       lastName,
       city,
+      province,
       email,
       science,
       technology,
@@ -114,8 +117,8 @@ function EditMentorForm({
       <FormTitleComponent title={"Edit Mentor Details"} />
 
       <PersonalInfoComponent
-        values={{ firstName, lastName, email, city }}
-        setters={{ setFirstName, setLastName, setEmail, setCity }}
+        values={{ firstName, lastName, email, city, province }}
+        setters={{ setFirstName, setLastName, setEmail, setCity, setProvince }}
       />
       <FieldOfStudyCheckboxComponent
         values={{ science, technology, engineering, mathematics }}
