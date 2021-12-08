@@ -32,7 +32,7 @@ function EditMentorForm({ existingValues, fetchedId }) {
   const [other9, setOther9] = useState(false); //addition
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
-  //const [image, setImage] = useState(); //addition
+  const [image, setImage] = useState(); //addition
 
   useEffect(() => {
     if (existingValues) {
@@ -58,7 +58,7 @@ function EditMentorForm({ existingValues, fetchedId }) {
       setOther9(existingValues.other9);
       setOther10(existingValues.other10);
       setOther11(existingValues.other11);
-      //setImage (existingValues.image);
+      setImage(existingValues.image);
     }
   }, [existingValues]); //this is called a guard, it will not touch the existing values unless the existing values are changed
 

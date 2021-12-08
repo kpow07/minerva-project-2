@@ -9,8 +9,8 @@ const MentorDirectoryComponent = ({
   mentorsArray,
   title,
 }) => {
-  console.log(typeof mentorsArray);
-  console.log(mentorsArray);
+  // console.log(typeof mentorsArray);
+  // console.log(mentorsArray);
   function selectMentor(id) {
     console.log("selectMentor called on id: ", id);
     setSelectedMentorId(id);

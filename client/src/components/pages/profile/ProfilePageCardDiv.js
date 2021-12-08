@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 //import "../../directories/BioDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
 // import "../../bio-cards/portraitCard.style.css"; //this css is specific to landing page cards
 import PortraitCardComponent from "../../bio-cards/PortraitCardComponent";
 import HeartButton from "../../navigation/HeartButton";
-import AboutMe from "./AboutMe";
 
 //Need to render based on selected mentor from Mentor Gallery
 
 const ProfilePageCardDiv = ({ mentorId }) => {
-  console.log(window.location.pathname) 
- const [mentor, setMentor] = useState([]);
+  console.log(window.location.pathname);
+  const [mentor, setMentor] = useState();
+  let navigate = useNavigate();
 
   useEffect(() => {
     const fetchMentor = async () => {
@@ -23,26 +25,25 @@ const ProfilePageCardDiv = ({ mentorId }) => {
   return (
     <div>
       <div className="directory-menu">
-        <div>
-          <HeartButton />
-          <PortraitCardComponent
-            className="card"
-            firstName={mentor.firstName}
-            lastName={mentor.lastName}
-            imageURL={mentor.imageURL}
-            description={mentor.description}
-            S
-            canadian={mentor.canadian}
-            science={mentor.science}
-            technology={mentor.technology}
-            engineering={mentor.engineering}
-            mathematics={mentor.mathematics}
-          />
-        </div>
-        {/* <div className="content">
-        <AboutMe mentorId={mentorId}
+        <HeartButton />
+        <PortraitCardComponent
+          className="card"
+          firstName={mentor?.firstName}
+          lastName={mentor?.lastName}
+          imageURL={mentor?.image}
+          description={mentor?.description}
+          science={mentor?.science}
+          technology={mentor?.technology}
+          engineering={mentor?.engineering}
+          mathematics={mentor?.mathematics}
         />
-        </div> */}
+        <button
+          onClick={(e) => {
+            navigate("/mentor-edit/" + mentorId);
+          }}
+        >
+          EDIT
+        </button>
       </div>
     </div>
   );

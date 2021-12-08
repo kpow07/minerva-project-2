@@ -9,7 +9,7 @@ function MentorsFilterForm({ onSubmit, values, setters }) {
     // onSubmit(city, field);
     onSubmit(city ? city : "nothing", field);
     console.log("this use effect ran!!!!!!!!!!!!!!!!!!!");
-  }, [city, field, onSubmit]);
+  }, [city, field]);
   // console.log(
   //   `MentorsFilterForm: filtering for field:${field} and city ${city}`
   // );

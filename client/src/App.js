@@ -14,6 +14,7 @@ import BioDetailPage from "./components/pages/bio detail page/BioDetailPage";
 import BioEditPage from "./components/pages/bio edit page/BioEditPage";
 import MentorPageComponent from "./components/pages/mentor page/MentorPageComponent";
 import ProfilePageComponent from "./components/pages/profile/ProfilePageComponent";
+import MentorEditPage from "./components/forms/forms/EditMentorForm";
 //import { useState } from "react";
 
 //the main div of the app has kate's background image which will soon be edited for the new colour scheme
@@ -78,7 +79,13 @@ function App() {
         />
         <Route
           path="/mentor-detail/:id"
-          element={user ? <ProfilePageComponent /> : <LoginPage />}
+          // element={user ? <ProfilePageComponent /> : <LoginPage />}
+          element={<ProfilePageComponent />}
+        />
+        <Route
+          path="/mentor-edit/:id"
+          // element={user ? <ProfilePageComponent /> : <LoginPage />}
+          element={<MentorEditPage />}
         />
         {/* STEM BIO ROUTES */}
         <Route

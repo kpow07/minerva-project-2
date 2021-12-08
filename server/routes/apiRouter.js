@@ -73,7 +73,7 @@ router.get("/get-mentors", async (req, res) => {
 router.get("/get-mentor/:id", async (req, res) => {
   let id = req.params.id;
   let foundInfo = await findMentorById(id);
-  res.send(foundInfo);
+  res.json(foundInfo);
 });
 // updates a mentor using id from the url
 router.post("/update-mentor/:id", async (req, res) => {
@@ -81,7 +81,7 @@ router.post("/update-mentor/:id", async (req, res) => {
   let updatedMentor = req.body;
   console.log(`updating mentor ${id}: ${updatedMentor}`);
   let mentor = await updateMentor(id, updatedMentor);
-  res.send(mentor);
+  res.json(mentor);
 });
 
 //filter mentors based on the field

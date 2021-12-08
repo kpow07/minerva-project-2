@@ -6,21 +6,8 @@ import "./ProfilePage.css";
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
-function ProfilePageComponent({ mentorId }) {
-  const [mentor, setMentor] = useState("");
-  let navigate = useNavigate();
+function ProfilePageComponent() {
   let params = useParams();
-
-  useEffect(() => {
-    const fetchMentor = async () => {
-      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
-      console.log("This is the mentor ID", mentorId);
-      let fetchedMentor = await fetchResult.json();
-      console.log("this is the dfetched mentor", fetchedMentor);
-      setMentor(fetchedMentor);
-    };
-    fetchMentor();
-  }, [mentorId]);
 
   return (
     <div className="wrapper">
