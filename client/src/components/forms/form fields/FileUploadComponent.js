@@ -18,9 +18,10 @@ function ImageUpload({ setters, values }) {
     <div className="ImageUpload">
       <input
         type="file"
-        value={image}
+        /*value={image}*/
+        name="image"
         accept="image/*"
-        multiple={false}
+        /*multiple={false}*/
         onChange={(e) => {
           setImage(e.target.files[0]);
         }}

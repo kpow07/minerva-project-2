@@ -7,7 +7,8 @@ import OtherAreasCheckboxComponent from "../form fields/OtherAreasCheckboxCompon
 import DescriptionBioResourceComponent from "../form fields/DescriptionBioResourceComponent";
 import FormTitleComponent from "../form fields/FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheckboxWithFieldComponent"; //addition
-import FileUploadComponent from "../form fields/FileUploadComponent"; // addition
+
+import ImageUpload from "../form fields/FileUploadComponent"; //addition
 
 function MentorForm() {
   //set the beginning state for all variables
@@ -33,35 +34,57 @@ function MentorForm() {
   const [other9, setOther9] = useState(false); //addition
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
-  const [image, setImage] = useState(); //addition
+  const [image, setImage] = useState(""); //addition
 
   async function mySubmitFunction() {
     //declare keys in personalInfo Object
-    const personalInfo = {
-      firstName,
-      lastName,
-      city,
-      email,
-      science,
-      technology,
-      engineering,
-      mathematics,
-      description,
-      bio,
-      otherResources,
-      other1,
-      other2,
-      other3,
-      other4,
-      other5,
-      other6,
-      other7,
-      other8,
-      other9, //addition
-      other10, //addition
-      other11, //addition
-    };
+    let formData = new FormData();
+    try {
+      const personalInfo = {
+        firstName,
+        lastName,
+        city,
+        email,
+        science,
+        technology,
+        engineering,
+        mathematics,
+        description,
+        bio,
+        otherResources,
+        other1,
+        other2,
+        other3,
+        other4,
+        other5,
+        other6,
+        other7,
+        other8,
+        other9, //addition
+        other10, //addition
+        other11, //addition
+      };
 
+      formData.append("fileProps", JSON.stringify(personalInfo));
+      formData.append("image", image);
+
+      const res = await fetch("http://localhost:5001/api/add-mentor", {
+        method: "POST",
+        body: formData,
+      });
+      /*
+        if (res.ok) {
+         
+          setName("");
+          setImage("");
+          navigate("/");
+        } */
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  /*
     const ImageUpload = {
       image, //has to be seperate from the JSON stringfy becasue it is handling an image
     };
@@ -77,12 +100,15 @@ function MentorForm() {
       },
       body: postData,
     };
-    //reponse is from calling post request on add-mentor route using the request options above
+    */
+  //reponse is from calling post request on add-mentor route using the request options above
+  /*
     const response = await fetch("/api/add-mentor", requestOptions);
     //data is the new object that was sent to the database
     const data = await response.json();
     console.log(data);
   }
+  */
 
   //form title component:  you can set the name of the form here to be what you want
   //personal info component:  values and setters of those values are passed in here
@@ -99,6 +125,7 @@ function MentorForm() {
         values={{ firstName, lastName, email, city }}
         setters={{ setFirstName, setLastName, setEmail, setCity }}
       />
+
       <FieldOfStudyCheckboxComponent
         values={{ science, technology, engineering, mathematics }}
         setters={{
@@ -108,7 +135,8 @@ function MentorForm() {
           setMathematics,
         }}
       />
-      <FileUploadComponent setters={{ setImage }} values={{ image }} />
+      <ImageUpload setters={{ setImage }} values={{ image }} />
+
       <DescriptionBioResourceComponent
         values={{ description, bio, otherResources }}
         setters={{ setDescription, setBio, setOtherResources }}

@@ -1,6 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 import dotenv from "dotenv";
-// import { config } from "dotenv";
+//import { config } from "dotenv";
 
 //Load config
 dotenv.config({ path: "./config/config.env" });
