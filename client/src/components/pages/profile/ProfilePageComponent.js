@@ -37,7 +37,10 @@ function ProfilePageComponent({mentorId}) {
         <AboutMe mentorId={params.id} />
       </div>
 
-     
+
+     {/* <div>
+       <MessageBoard className="footer"/>
+     </div> */}
    </div>
     
   );
