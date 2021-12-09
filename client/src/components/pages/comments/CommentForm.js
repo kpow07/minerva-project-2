@@ -56,6 +56,8 @@ function CommentForm({ user, commentId, instructions }) {
     const response = await fetch("/api/add-comment", requestOptions);
     const data = await response.json();
     console.log("this is the data", data);
+    window.location.reload();
+  
   }
   return (
     <div>
