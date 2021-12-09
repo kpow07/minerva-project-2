@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;300&display=swap");
 
-.button {
+.button-profile {
     font-family: "Montserrat", sans-serif;
     flex: 0 auto;
     margin: 10px;
@@ -39,7 +39,7 @@
 }
 
 
-.profilepagewrapper {
+.profile-page-wrapper {
     display: grid;
     height: unset;
     grid-template-columns: repeat(9, 1fr);

@@ -25,7 +25,7 @@ const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink }) => {
 
   return (
     <div>
-      <div lassName="directory-menu" className="button">
+      <div lassName="directory-menu" className="button-profile">
         <HeartButton />
         <PortraitCardComponent
           className="card"
