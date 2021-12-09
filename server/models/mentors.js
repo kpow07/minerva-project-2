@@ -27,7 +27,7 @@ const mentorSchema = new mongoose.Schema({
   other9: Boolean,
   other10: { type: String },
   other11: Boolean,
-  image: String,
+  image: { type: String, required: true },
   ////////////////////
 });
 ////////////////////////////////
