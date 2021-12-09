@@ -2,16 +2,45 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
+import CommentButton from "./CommentButton";
 
-function CommentListItem({ commentQuestion, postedTime, poster }) {
+function CommentListItem({
+  commentQuestion,
+  postedTime,
+  poster,
+  user,
+  comment,
+  buttonId,
+}) {
+  const [showing, setShowing] = useState(false);
+  function showOrNot() {
+    if (showing === true) {
+      setShowing(false);
+    } else {
+      setShowing(true);
+    }
+  }
   return (
-    <div>
-      <h4 style={{ textAlign: "left" }}>{commentQuestion}</h4>
-      <div style={{ display: "inlineBlock" }}>
+    <>
+      <div>
+        <h4 style={{ textAlign: "left" }}>{commentQuestion}</h4>
         <h5> on: {postedTime} </h5> <h5>by:{poster}</h5>
-        <button style={{ marginLeft: "10px" }}>answer</button>
+        <CommentButton
+          buttonId={buttonId}
+          showOrNot={showOrNot}
+          value={"reply"}
+        />
       </div>
-    </div>
+      <div>
+        {showing ? (
+          <CommentForm
+            user={user}
+            commentId={comment._id}
+            instructions={"REPLY"}
+          />
+        ) : null}
+      </div>
+    </>
   );
 }
 
@@ -31,10 +60,6 @@ function CommentComponent({ user }) {
     fetchData();
   }, [params.id]);
 
-  // function selectComment(mentord) {
-  //   console.log("selectBio called on id: ", id);
-  //   setSelectedBioId(id);
-  // }
   console.log("comments list is currently: ", commentsList);
   return (
     <div style={{ backgroundColor: "white", opacity: "100%" }}>
@@ -43,16 +68,13 @@ function CommentComponent({ user }) {
           return (
             <div style={{ backgroundColor: "white", opacity: "100%" }}>
               <CommentListItem
-                // key={comment._id}
                 key={index}
                 commentQuestion={comment.messageBody}
                 poster={comment.firstName}
                 postedTime={comment.createdAt}
-              />
-              <CommentForm
+                buttonId={index}
                 user={user}
-                commentId={comment._id}
-                instructions={"REPLY"}
+                comment={comment}
               />
             </div>
           );

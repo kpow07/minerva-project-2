@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "../../forms/FormStyles.css";
 
 function CommentForm({ user, commentId, instructions }) {
   let params = useParams();
@@ -11,17 +12,17 @@ function CommentForm({ user, commentId, instructions }) {
   const [mentorId, setMentorId] = useState("");
   const [userId, setUserId] = useState("");
   const [messageBody, setMessageBody] = useState("");
-  const [commentParentId, setCommentParentId] = useState(null);
+  const [commentParentId, setCommentParentId] = useState("");
   // console.log("the user is", user);
 
   useEffect(() => {
     const theDate = Date().toLocaleString();
     setDate(theDate);
     setMentorId(params.id);
-    if (commentParentId) {
-      setCommentParentId(commentId);
+    if (!commentParentId) {
+      setCommentParentId("question");
     } else {
-      setCommentParentId(null);
+      setCommentParentId(commentParentId);
     }
     if (user) {
       setFirstName(user.firstName);
