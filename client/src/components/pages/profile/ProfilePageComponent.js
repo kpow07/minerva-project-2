@@ -12,7 +12,7 @@ function ProfilePageComponent() {
   let params = useParams();
 
   return (
-    <div className="wrapper">
+    <div className="profilepagewrapper">
       <div id="card-div-title" className="header">
         <h1>Mentor Profile Page</h1>
       </div>
