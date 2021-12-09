@@ -19,17 +19,18 @@ function CommentForm({ user, commentId, instructions }) {
     const theDate = Date().toLocaleString();
     setDate(theDate);
     setMentorId(params.id);
-    if (!commentParentId) {
+    if (!commentId) {
       setCommentParentId("question");
     } else {
-      setCommentParentId(commentParentId);
+      console.log(" this is a comment id yup",commentId)
+      setCommentParentId(commentId);
     }
     if (user) {
       setFirstName(user.firstName);
       setLastName(user.lastName);
       setUserId(user._id);
     }
-  }, [user, params.id, commentParentId, commentId]);
+  }, [user, params.id,commentId]);
 
   // console.log(firstName, "is the current user", date, "is the date");
   async function mySubmitFunction() {

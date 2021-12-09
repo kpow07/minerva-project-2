@@ -32,11 +32,11 @@ function CommentListItem({
         />
       </div>
       <div>
-        {showing ? (
+        {showing && !!comment ? ( 
           <CommentForm
             user={user}
             commentId={comment._id}
-            instructions={"REPLY"}
+            instructions={"REPLY!"}
           />
         ) : null}
       </div>
