@@ -15,10 +15,12 @@ const MessageBoard = () => {
     </div>
 
     <div className="sidebar">
-      <CommentForm />
+      <CommentForm addComment={this.addComment}/>
     </div>
     <div className="content">
-      <CommentList />
+      <CommentList
+      loading={this.state.loading}
+      comments={this.state.comments} />
 
       <div className="footer">
         <CommentBox />

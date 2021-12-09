@@ -27,7 +27,7 @@ const mentorSchema = new mongoose.Schema({
   other9: Boolean,
   other10: { type: String },
   other11: Boolean,
-  image: String,
+  image: { type: String, required: true },
   ////////////////////
 });
 ////////////////////////////////
@@ -46,7 +46,7 @@ async function findMentorById(id) {
 async function listMentors() {
   return Mentor.find({});
 }
-async function updateMentor(id, newMentorInfo) {
+async function updateMentor(id, newMentorInfo, obj) {
   await Mentor.findByIdAndUpdate(id, newMentorInfo, {
     returnDocument: "after",
   });

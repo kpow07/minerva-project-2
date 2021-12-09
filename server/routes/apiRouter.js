@@ -71,6 +71,7 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
     }
   }
 });
+
 //gets a list of all mentors from all fields
 router.get("/get-mentors", async (req, res) => {
   let mentorsList = await listMentors();
@@ -85,12 +86,49 @@ router.get("/get-mentor/:id", async (req, res) => {
   res.send(foundInfo);
 });
 // updates a mentor using id from the url
-router.post("/add-mentor/:id", async (req, res) => {
+router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
   let id = req.params.id;
-  let updatedMentor = req.body;
-  console.log(`updating mentor ${id}: ${updatedMentor}`);
-  let mentor = await updateMentor(id, updatedMentor);
-  res.send(mentor);
+  const mentor = findMentorById(id);
+  // Delete image from cloudinary
+  await cloudinary.uploader.destroy(mentor.cloudinary_id);
+  // Upload image to cloudinary
+  let result;
+  if (req.file) {
+    result = await cloudinary.uploader.upload(req.file.path);
+  }
+  const data = {
+    firstName: req.body.firstName || mentor.firstName,
+    lastName: req.body.lastName || mentor.lastName,
+    city: req.body.city || mentor.city,
+    province: req.body.province || mentor.province,
+    email: req.body.email || mentor.email,
+    science: req.body.science || mentor.science,
+    technology: req.body.technology || mentor.technology,
+    engineering: req.body.engineering || mentor.engineering,
+    mathematics: req.body.mathematics || mentor.mathematics,
+    description: req.body.description || mentor.description,
+    bio: req.body.bio || mentor.bio,
+    otherResources: req.body.otherResources || mentor.otherResources,
+    other1: req.body.other1 || mentor.other1,
+    other2: req.body.other2 || mentor.other2,
+    other3: req.body.other3 || mentor.other3,
+    other4: req.body.other4 || mentor.other4,
+    other5: req.body.other5 || mentor.other5,
+    other6: req.body.other6 || mentor.other6,
+    other7: req.body.other7 || mentor.other7,
+    other8: req.body.other8 || mentor.other8,
+    other9: req.body.other9 || mentor.other9,
+    other10: req.body.other10 || mentor.other10,
+    other11: req.body.other11 || mentor.other11,
+    avatar: result?.secure_url || mentor.avatar,
+    cloudinary_id: result?.public_id || mentor.cloudinary_id,
+  };
+  let updatedMentor = updateMentor(id, data, { new: true });
+  res.send(updatedMentor);
+  // let updatedMentor = req.body;
+  // console.log(`updating mentor ${id}: ${updatedMentor}`);
+  // let mentor = await updateMentor(id, updatedMentor);
+  // res.send(mentor);
 });
 
 //filter mentors based on the field
