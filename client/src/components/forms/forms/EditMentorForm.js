@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import "./FormStyles.css";
 import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
 import PersonalInfoComponent from "../form fields/PersonalInfoComponent";
@@ -16,6 +17,8 @@ function EditMentorForm({
   onSave,
 }) {
   //set the beginning state for all variables
+  let params = useParams();
+  let id = params.id;
   const [firstName, setFirstName] = useState(""); //the first value is a variable and the setter is a fuction
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -104,8 +107,8 @@ function EditMentorForm({
       formData.append("fileProps", JSON.stringify(newMentor));
       formData.append("image", image);
 
-      const res = await fetch("http://localhost:5001/api/add-mentor", {
-        method: "POST",
+      const res = await fetch(`http://localhost:5001/api/add-mentor/${id}`, {
+        method: "PUT",
         body: formData,
       });
     } catch (err) {

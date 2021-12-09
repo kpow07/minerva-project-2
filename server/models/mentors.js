@@ -46,7 +46,7 @@ async function findMentorById(id) {
 async function listMentors() {
   return Mentor.find({});
 }
-async function updateMentor(id, newMentorInfo) {
+async function updateMentor(id, newMentorInfo, obj) {
   await Mentor.findByIdAndUpdate(id, newMentorInfo, {
     returnDocument: "after",
   });
