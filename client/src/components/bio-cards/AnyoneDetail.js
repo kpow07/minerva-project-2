@@ -28,7 +28,7 @@ const AnyoneDetail = ({ bioId, buttonLink }) => {
               {bio.firstName} {bio.lastName}{" "}
               {bio.canadian ? (
                 <img
-                  src="images/logos/flag.png"
+                  src="/images/logos/flag.png"
                   style={{ height: "30px", width: "40px" }}
                   alt="mini canadian flag"
                 />
