@@ -22,6 +22,7 @@ import {
   updateMentee,
   findMenteeById,
 } from "../models/mentees.js";
+import { createComment, findCommentsByMentorId } from "../models/comments.js";
 import cloudinary from "../utilities/cloudinary.js";
 import upload from "../utilities/multer.js";
 
@@ -228,6 +229,27 @@ router.get("/filter-bios-all", async (req, res) => {
   );
   console.log(biosList);
   res.json(biosList);
+});
+/////////////////////////////ENDPOINTS FOR ALL COMMENTS///////////////////
+router.post("/add-comment", async (req, res) => {
+  let comment = req.body;
+  try {
+    let newComment = await createComment(comment);
+    console.log("Added comment: ", newComment);
+    res.send(newComment);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("something");
+    } else {
+      res.sendStatus(500);
+    }
+  }
+});
+router.get("/get-comments", async (req, res) => {
+  let mentorId = req.query.mentorId;
+  let commentsList = await findCommentsByMentorId(mentorId);
+  res.json(commentsList);
 });
 
 export default router;

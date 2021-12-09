@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 //import "../../directories/BioDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
 // import "../../bio-cards/portraitCard.style.css"; //this css is specific to landing page cards
@@ -12,7 +12,7 @@ import HeartButton from "../../navigation/HeartButton";
 const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink }) => {
   console.log(window.location.pathname);
   const [mentor, setMentor] = useState();
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   useEffect(() => {
     const fetchMentor = async () => {

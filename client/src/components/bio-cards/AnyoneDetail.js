@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Detail.style.css";
 
 const AnyoneDetail = ({ bioId, buttonLink }) => {
   const [bio, setBio] = useState(null);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   useEffect(() => {
     const fetchBio = async () => {
