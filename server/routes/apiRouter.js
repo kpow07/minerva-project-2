@@ -131,6 +131,16 @@ router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
   // res.send(mentor);
 });
 
+//---------------------------------------------Michelle's Delete Test--------------------------
+
+// router.delete ("/delete-mentor/:id", async (req,res) => {
+//   let id = req.params.id
+//   console.log ('deleting Mentor', id)
+//   let deletedMentor = await mentor.delete(id) < is this hooking up to the model properly tonys is superheroModel.delete(id)
+//   res.send (deletedMentor) 
+// })
+
+
 //filter mentors based on the field
 router.get("/filter-mentors-field", async (req, res) => {
   let field = req.query.field;
@@ -197,6 +207,15 @@ router.post("/update-mentee/:id", async (req, res) => {
   let mentee = await updateMentee(id, updatedMentee);
   res.send(mentee);
 });
+
+//---------------------------------------------Michelle's Delete Test--------------------------
+
+// router.delete ("/delete-mentee/:id", async (req,res) => {
+//   let id = req.params.id
+//   console.log ('deleting Mentee', id)
+//   let deletedMentee = await mentee.delete(id) <-is this hooking up to the model properly?
+//   res.send (deletedMentor) 
+// })
 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form
