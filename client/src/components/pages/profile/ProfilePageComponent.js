@@ -29,8 +29,11 @@ function ProfilePageComponent() {
           mentorId={params.id}
           buttonLink={"/mentor-edit/" + params.id}
           // existingValues={existingValues}
+          buttonLink={"/mentor-delete/" + params.id}
         />
       </div>
+
+
 
       {/* <div>
        <MessageBoard className="footer"/>
@@ -40,3 +43,4 @@ function ProfilePageComponent() {
 }
 export default ProfilePageComponent;
 //fetch to take ID from URL , if the user wants to comment they need to pull it out of the URL and it pulls the name out of it
+
