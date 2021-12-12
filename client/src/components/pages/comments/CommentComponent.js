@@ -25,7 +25,7 @@ function CommentListItem({
       <div>
         <h4 style={{ textAlign: "left" }}>{commentQuestion}</h4>
         <h5> on: {postedTime} </h5> <h5>by:{poster}</h5>
-        <p> {answers}</p>
+        {/* <p> {answers}</p> */}
 
 
         <CommentButton
