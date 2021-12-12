@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../../forms/FormStyles.css";
 
-function CommentForm({ user, commentId, instructions }) {
+function CommentForm({ user, parentId, instructions, buttonValue }) {
   let params = useParams();
 
   const [firstName, setFirstName] = useState("");
@@ -13,24 +13,22 @@ function CommentForm({ user, commentId, instructions }) {
   const [userId, setUserId] = useState("");
   const [messageBody, setMessageBody] = useState("");
   const [commentParentId, setCommentParentId] = useState("");
-  // console.log("the user is", user);
 
   useEffect(() => {
     const theDate = Date().toLocaleString();
     setDate(theDate);
     setMentorId(params.id);
-    if (!commentId) {
-      setCommentParentId("question");
+    if (parentId) {
+      setCommentParentId(parentId);
     } else {
-      console.log(" this is a comment id yup",commentId)
-      setCommentParentId(commentId);
+      setCommentParentId("none");
     }
     if (user) {
       setFirstName(user.firstName);
       setLastName(user.lastName);
       setUserId(user._id);
     }
-  }, [user, params.id,commentId]);
+  }, [user, params.id, parentId]);
 
   // console.log(firstName, "is the current user", date, "is the date");
   async function mySubmitFunction() {
@@ -44,7 +42,7 @@ function CommentForm({ user, commentId, instructions }) {
       commentParentId,
     };
     const postData = JSON.stringify(commentInfo);
-    console.log("COMMENT INFO AND POST DATA", commentInfo, postData);
+    // console.log("COMMENT INFO AND POST DATA", commentInfo, postData);
     const requestOptions = {
       method: "POST",
       headers: {
@@ -55,7 +53,8 @@ function CommentForm({ user, commentId, instructions }) {
     };
     const response = await fetch("/api/add-comment", requestOptions);
     const data = await response.json();
-    console.log("this is the data", data);
+    console.log("this is the data returned from the form", data);
+    /////////////////////////////////////////////////////////////
   }
   return (
     <div>
@@ -78,7 +77,7 @@ function CommentForm({ user, commentId, instructions }) {
       <input
         className="submit-button"
         type="button"
-        value="SUBMIT"
+        value={buttonValue}
         onClick={mySubmitFunction}
       />
     </div>

@@ -20,9 +20,16 @@ import {
 import {
   createMentee,
   updateMentee,
-  findMenteeById,
+  // findMenteeById,
 } from "../models/mentees.js";
-import { createComment, findCommentsByMentorId } from "../models/comments.js";
+import {
+  createComment,
+  findCommentsByMentorId,
+  addToCommentChildren,
+  findCommentsById,
+  // findCommentsByParentId,
+  findCommentsByCommentArray,
+} from "../models/comments.js";
 import cloudinary from "../utilities/cloudinary.js";
 import upload from "../utilities/multer.js";
 
@@ -178,17 +185,17 @@ router.post("/add-mentee", async (req, res) => {
   }
 });
 //gets a list of all mentees
-router.get("/get-mentees", async (req, res) => {
-  let menteeList = await listMentees();
-  console.log(menteeList);
-  res.send(menteeList);
-});
+// router.get("/get-mentees", async (req, res) => {
+//   let menteeList = await listMentees();
+//   console.log(menteeList);
+//   res.send(menteeList);
+// });
 //gets a mentee using id from the request
-router.get("/get-mentee/:id", async (req, res) => {
-  let id = req.params.id;
-  let foundInfo = await getMentee(id);
-  res.send(foundInfo);
-});
+// router.get("/get-mentee/:id", async (req, res) => {
+//   let id = req.params.id;
+//   let foundInfo = await getMentee(id);
+//   res.send(foundInfo);
+// });
 //updates mentee using id from the url
 router.post("/update-mentee/:id", async (req, res) => {
   let id = req.params.id;
@@ -273,7 +280,7 @@ router.post("/add-comment", async (req, res) => {
   let comment = req.body;
   try {
     let newComment = await createComment(comment);
-    console.log("Added comment: ", newComment);
+    await addToCommentChildren(newComment.commentParentId, newComment._id);
     res.send(newComment);
   } catch (error) {
     console.log(error);
@@ -284,10 +291,41 @@ router.post("/add-comment", async (req, res) => {
     }
   }
 });
+// router.get("/add-to-children-array", async (req, res) => {
+//   let parentId = req.query.parentId;
+//   let currentCommentId = req.query.currentCommentId;
+//   let updatedParentComment = await addToCommentChildren(
+//     parentId,
+//     currentCommentId
+//   );
+//   res.send(updatedParentComment);
+// });
+
+// router.get("/get-comment-children", async (req, res) => {
+//   let parentId = req.query.parentId;
+//   let childrenComments = await findCommentsByParentId(parentId);
+//   console.log("AAPPII these are the children of the comment", childrenComments);
+//   res.send(childrenComments);
+// });
+
+router.get("/get-comment-children", async (req, res) => {
+  let parentId = req.query.parentId;
+  let childrenComments = await findCommentsByCommentArray(parentId);
+  console.log("AAPPII these are the children of the comment", childrenComments);
+  res.send(childrenComments);
+});
+
 router.get("/get-comments", async (req, res) => {
-  let mentorId = req.query.mentorId;
-  let commentsList = await findCommentsByMentorId(mentorId);
+  let id = req.query.id;
+  let commentsList = await findCommentsById(id);
   res.json(commentsList);
+});
+
+router.get("/get-mentor-comments", async (req, res) => {
+  let mentorId = req.query.mentorId;
+  let commentList = await findCommentsByMentorId(mentorId);
+  console.log("the comments by mentor id is: >>>>>>>>>>>>>>>>>", commentList);
+  res.send(commentList);
 });
 
 export default router;

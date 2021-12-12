@@ -1,88 +1,53 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
-import CommentButton from "./CommentButton";
-
-function CommentListItem({
-  commentQuestion,
-  postedTime,
-  poster,
-  user,
-  comment,
-  buttonId,
-}) {
-  const [showing, setShowing] = useState(false);
-  function showOrNot() {
-    if (showing === true) {
-      setShowing(false);
-    } else {
-      setShowing(true);
-    }
-  }
-  return (
-    <>
-      <div>
-        <h4 style={{ textAlign: "left" }}>{commentQuestion}</h4>
-        <h5> on: {postedTime} </h5> <h5>by:{poster}</h5>
-        <CommentButton
-          buttonId={buttonId}
-          showOrNot={showOrNot}
-          value={"reply"}
-        />
-      </div>
-      <div>
-        {showing && !!comment ? ( 
-          <CommentForm
-            user={user}
-            commentId={comment._id}
-            instructions={"REPLY!"}
-          />
-        ) : null}
-      </div>
-    </>
-  );
-}
+import CommentListItem from "./CommentListItem";
 
 /////////////////////////////////////////////60
 
-function CommentComponent({ user }) {
-  let params = useParams();
-  const [commentsList, setCommentsList] = useState(null);
+function CommentComponent({ user, mentorId }) {
+  const [commentsList, setCommentsList] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
       console.log("Fetching comment data");
-      let fetchResult = await fetch(`/api/get-comments?mentorId=${params.id}`);
+      let fetchResult = await fetch(
+        `/api/get-mentor-comments?mentorId=${mentorId}`
+      );
       let commentsList = await fetchResult.json();
-
       setCommentsList(commentsList);
     }
     fetchData();
-  }, [params.id]);
+  }, [mentorId]);
 
-  console.log("comments list is currently: ", commentsList);
   return (
     <div style={{ backgroundColor: "white", opacity: "100%" }}>
       {commentsList &&
-        commentsList.map((comment, index) => {
-          return (
-            <div style={{ backgroundColor: "white", opacity: "100%" }}>
-              <CommentListItem
-                key={index}
-                commentQuestion={comment.messageBody}
-                poster={comment.firstName}
-                postedTime={comment.createdAt}
-                buttonId={index}
-                user={user}
-                comment={comment}
-              />
-            </div>
-          );
-        })}
-      <CommentForm
+        commentsList
+          .filter((comment) => comment.commentParentId === "none")
+          .map((comment, index) => {
+            return (
+              <div>
+                <CommentListItem
+                  style={{ marginLeft: "20px" }}
+                  key={index}
+                  commentQuestion={comment.messageBody}
+                  poster={comment.firstName}
+                  postedTime={comment.createdAt}
+                  user={user}
+                  comment={comment}
+                  commentId={comment._id}
+                  commentChildren={comment.commentChildren}
+                  buttonValue="REPLY"
+                />
+              </div>
+            );
+          })}
+      <CommentForm //JUST FOR THE INITIAL QUESTION, set the parentId to empty string
         user={user}
-        commentId={null}
-        instructions={"ADD NEW QUESTION OR COMMENT"}
+        commentParentId={""}
+        instructions="ASK A QUESTION TO THIS MENTOR!!"
+        buttonValue="SUBMIT QUESTION"
       />
     </div>
   );
