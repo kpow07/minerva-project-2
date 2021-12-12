@@ -46,6 +46,11 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
       <Link to={buttonLink}>
         <button>EDIT</button>
       </Link>
+
+{/* <link to={put link here}> */}
+<button>DELETE</button>
+
+
     </div>
   );
 };
