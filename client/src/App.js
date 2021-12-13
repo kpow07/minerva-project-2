@@ -80,7 +80,13 @@ function App() {
         />
         <Route
           path="/mentor-detail/:id"
-          element={user ? <ProfilePageComponent user={user} /> : <LoginPage />}
+          element={
+            user ? (
+              <ProfilePageComponent user={user} setUser={setUser} />
+            ) : (
+              <LoginPage />
+            )
+          }
         />
         <Route
           path="/mentor-edit/:id"

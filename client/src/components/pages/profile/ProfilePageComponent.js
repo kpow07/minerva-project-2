@@ -6,55 +6,59 @@ import "./ProfilePage.css";
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
-function ProfilePageComponent({ user }) {
+function ProfilePageComponent({ user, setUser }) {
   const [like, setLike] = useState(false);
   const [buttonValue, setButtonValue] = useState("");
-  const [favoritesToggle, setFavoritesToggle] = useState(false);
   const [mentor, setMentor] = useState();
   let userId = user?._id;
   let params = useParams();
   let mentorId = params.id;
 
   // console.log("user favorites", user?.favorites);
-  // useEffect(() => {
-  //   let doesLike = user?.favorites.includes(mentorId);
-  //   setLike(doesLike);
-  // }, [mentorId, user.favorites]);
-
-  // useEffect(() => {
-  //   const fetchMentor = async () => {
-  //     let fetchResult = await fetch("/api/get-mentor/" + mentorId);
-  //     let fetchedMentor = await fetchResult.json();
-  //     setMentor(fetchedMentor);
-  //   };
-  //   fetchMentor();
-  // }, [mentorId]);
-
   useEffect(() => {
     let doesLike = user?.favorites.includes(mentorId);
     setLike(doesLike);
+    console.log("value of button", doesLike);
+  }, [mentorId, user.favorites]);
 
+  const favoritesToggle = () => {
+    let index = user?.favorites.indexOf(mentorId);
+    console.log("running toggle", index);
+    let fave = [...user.favorites];
+    if (index > -1) {
+      fave.splice(index, 1);
+    } else {
+      fave.push(mentorId);
+    }
+    setUser((curr) => {
+      return { ...curr, favorites: fave };
+    });
+  };
+
+  // const addToFavorites = async function () {
+  //   await fetch(`/api/add-favorite?mentorId=${mentorId}&id=${userId}`);
+  // };
+  // const removeFromFavorites = async function () {
+  //   await fetch(`/api/remove-favorite?mentorId=${mentorId}&id=${userId}`);
+  // };
+  // if (like) {
+  //   setFavoritesToggle(removeFromFavorites);
+  //   setButtonValue("🤍");
+  // } else {
+  //   setFavoritesToggle(addToFavorites);
+  //   setButtonValue("❤️");
+  // }
+
+  useEffect(() => {
     const fetchMentor = async () => {
       let fetchResult = await fetch("/api/get-mentor/" + mentorId);
       let fetchedMentor = await fetchResult.json();
       setMentor(fetchedMentor);
     };
-    fetchMentor();
-
-    const addToFavorites = async function () {
-      await fetch(`/api/add-favorite?mentorId=${mentorId}&id=${userId}`);
-    };
-    const removeFromFavorites = async function () {
-      await fetch(`/api/remove-favorite?mentorId=${mentorId}&id=${userId}`);
-    };
-    if (like) {
-      setFavoritesToggle(removeFromFavorites);
-      setButtonValue("🤍");
-    } else {
-      setFavoritesToggle(addToFavorites);
-      setButtonValue("❤️");
+    if (mentorId) {
+      fetchMentor();
     }
-  }, [like, userId, mentorId, user.favorites]);
+  }, [mentorId]);
 
   return (
     <div className="profile-page-wrapper">
