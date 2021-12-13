@@ -242,6 +242,17 @@ router.get("/add-favorite", async (req,res)=>{
   res.send(updatedUser);
 })
 
+router.get ("/get-user", async (req,res)=>{
+  let userId= req.query.userId;
+  let user = await User.findById({userId})
+  console.log("from the API ROUTER", user)
+  res.send(user);
+
+}
+
+)
+
+
 //---------------------------------------------Michelle's Delete Test--------------------------
 
 // router.delete ("/delete-mentee/:id", async (req,res) => {

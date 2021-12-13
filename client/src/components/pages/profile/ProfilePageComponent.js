@@ -13,7 +13,7 @@ function ProfilePageComponent({userId}) {
   let params = useParams();
   
   // console.log("this is the user being console logged", user)
-  // console.log ("this is the current user id", user._id)
+  console.log ("this is the current user id", userId)
   // useEffect (()=>{ setCurrentUser(user)
   
   // // console.log ("this is the current user!!!!", currentUser._id)

@@ -14,14 +14,6 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-async function addToUserFavorites(mentorId, id) {
-  console.log("adding favorite Mentor ", mentorId, "to user id", id.toString());
-  let updatedUser = await User.findOneAndUpdate(
-    { _id: id },
-    { $push: {favorites:mentorId } }
-  );
-  return updatedUser.save();
-}
 
 // export const User = mongoose.models.User || mongoose.model('User', User);
 export default mongoose.model("User", UserSchema);
