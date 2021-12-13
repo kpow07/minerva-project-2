@@ -104,5 +104,5 @@ export {
   listMentorsFilterCity,
   listMentorsFilterFieldCity,
   updateMentor,
-  removeMentor,
+  //removeMentor,
 };
