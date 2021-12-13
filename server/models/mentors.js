@@ -72,6 +72,8 @@ async function listMentorsFilterCity(city) {
 // async function removeMentor (id) {
 //   return Mentor.findByIdAndDelete(id)
 // }
+
+
 // async function listMentorsFilterAll(field, city) {
 //   console.log(`filtering ${field} mentors who live in ${city}`);
 //   if (field === "" && city === "") {
