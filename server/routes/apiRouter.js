@@ -146,7 +146,7 @@ router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
 // router.delete ("/delete-mentor/:id", async (req,res) => {
 //   let id = req.params.id
 //   console.log ('deleting Mentor', id)
-//   let deletedMentor = await mentor.delete(id) < is this hooking up to the model properly tonys is superheroModel.delete(id)
+//   let deletedMentor = await mentor.removeMentor(id) < is this hooking up to the model properly tonys is superheroModel.delete(id)
 //   res.send (deletedMentor)
 // })
 
