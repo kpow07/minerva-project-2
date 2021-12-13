@@ -62,12 +62,14 @@ router.get("/minerva", (rer, res) => {
 /////////////////////////MENTOR ENDPOINTS //////////////////////////////////////////
 //trying to post data from form input
 router.post("/add-mentor", upload.single("image"), async (req, res) => {
+  /*
   const result = await cloudinary.uploader.upload(req.file.path);
   let mentor = JSON.parse(req.body.fileProps);
   mentor.avatar = result.secure_url;
   mentor.cloudinary_id = result.public_id;
 
-  // console.log(mentor);
+  console.log(mentor);
+  */
   try {
     let newMentor = await createMentor(mentor);
     res.send(newMentor);
