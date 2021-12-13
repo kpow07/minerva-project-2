@@ -1,3 +1,31 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@ritaog 
+michlovin
+/
+minerva-project-2
+Private
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+minerva-project-2/server/routes/apiRouter.js /
+@weirjulieanne
+weirjulieanne fixed favorite button!!!!
+Latest commit 9f3be42 18 minutes ago
+ History
+ 4 contributors
+@weirjulieanne@michlovin@kpow07@ritaog
+422 lines (393 sloc)  13.7 KB
+   
 import { Router } from "express";
 import {
   createMentor,
@@ -62,14 +90,12 @@ router.get("/minerva", (rer, res) => {
 /////////////////////////MENTOR ENDPOINTS //////////////////////////////////////////
 //trying to post data from form input
 router.post("/add-mentor", upload.single("image"), async (req, res) => {
-  /*
   const result = await cloudinary.uploader.upload(req.file.path);
   let mentor = JSON.parse(req.body.fileProps);
   mentor.avatar = result.secure_url;
   mentor.cloudinary_id = result.public_id;
 
-  console.log(mentor);
-  */
+  // console.log(mentor);
   try {
     let newMentor = await createMentor(mentor);
     res.send(newMentor);
@@ -99,7 +125,6 @@ router.get("/get-mentor/:id", async (req, res) => {
 });
 // updates a mentor using id from the url
 router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
-  console.log(req.body);
   let id = req.params.id;
   const mentor = findMentorById(id);
   // Delete image from cloudinary
