@@ -22,6 +22,11 @@ import {
   updateMentee,
   // findMenteeById,
 } from "../models/mentees.js";
+
+import 
+  User
+  from "../models/user.js";
+
 import {
   createComment,
   findCommentsByMentorId,
@@ -32,6 +37,8 @@ import {
 } from "../models/comments.js";
 import cloudinary from "../utilities/cloudinary.js";
 import upload from "../utilities/multer.js";
+
+
 
 const router = Router();
 
@@ -214,6 +221,26 @@ router.post("/update-mentee/:id", async (req, res) => {
   let mentee = await updateMentee(id, updatedMentee);
   res.send(mentee);
 });
+
+// router.get("/add-favorite", async (req,res)=>{
+//   let mentorId=req.query.mentorId;
+//   let id = req.query.id;
+//   console.log(`trying to add mentor to mentee favs , ${mentorId, id}`)
+//   let updatedUser =  await addToUserFavorites(mentorId, id)
+//   res.send(updatedUser);
+// })
+
+router.get("/add-favorite", async (req,res)=>{
+  let mentorId=req.query.mentorId;
+  let id = req.query.id;
+  console.log(`trying to add mentor to mentee favs , ${mentorId, id}`)
+  let updatedUser = await User.findOneAndUpdate(
+    { _id: id },
+    { $push: {favorites:mentorId } }
+  );
+  updatedUser.save();
+  res.send(updatedUser);
+})
 
 //---------------------------------------------Michelle's Delete Test--------------------------
 

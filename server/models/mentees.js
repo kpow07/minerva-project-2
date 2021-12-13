@@ -39,6 +39,8 @@ async function findMenteeById(id) {
 async function updateMentee(id, newMenteeInfo) {
   await Mentee.findByIdAndUpdate(id, newMenteeInfo);
 }
+
+
 // async function getMenteeInfo(id) {
 //   let menteeInfo = await findMenteeById(id);
 //   return menteeInfo;

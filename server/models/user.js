@@ -1,3 +1,4 @@
+import _default from "atob";
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
@@ -6,10 +7,22 @@ const UserSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   image: { type: String },
+  favorites:[String],
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
+async function addToUserFavorites(mentorId, id) {
+  console.log("adding favorite Mentor ", mentorId, "to user id", id.toString());
+  let updatedUser = await User.findOneAndUpdate(
+    { _id: id },
+    { $push: {favorites:mentorId } }
+  );
+  return updatedUser.save();
+}
+
+// export const User = mongoose.models.User || mongoose.model('User', User);
 export default mongoose.model("User", UserSchema);
+

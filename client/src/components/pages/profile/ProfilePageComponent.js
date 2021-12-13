@@ -6,11 +6,20 @@ import "./ProfilePage.css";
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
-function ProfilePageComponent() {
+function ProfilePageComponent({userId}) {
   const [mentor, setMentor] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
   let params = useParams();
-
+  
+  // console.log("this is the user being console logged", user)
+  // console.log ("this is the current user id", user._id)
+  // useEffect (()=>{ setCurrentUser(user)
+  
+  // // console.log ("this is the current user!!!!", currentUser._id)
+  // }
+  // )
+ 
   return (
     <div className="profile-page-wrapper">
       <div id="card-div-title" className="header">
@@ -20,6 +29,7 @@ function ProfilePageComponent() {
       <div className="sidebar">
         <ProfilePageCardDiv
           mentorId={params.id}
+          userId={userId}
           //  buttonLink={"/mentor-edit/" + params.id}
           // existingValues={existingValues}
         />

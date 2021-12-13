@@ -46,6 +46,18 @@ const Header = ({ user }) => {
           </nav>
           <nav className="navMenu">
             <ul>
+              <a className="button" href="/profile">
+                PROFILE
+              </a>
+            </ul>
+            <ul>
+              <a className="button" href="/">
+                STUFF
+              </a>
+            </ul>
+          </nav>
+          <nav className="navMenu">
+            <ul>
               <a className="button" href="/">
                 HOME
               </a>
@@ -69,8 +81,9 @@ const Header = ({ user }) => {
                 <a className="button" href="/login">
                   LOG IN
                 </a>
-              </ul>
+              </ul> 
             )}
+             
           </nav>
         </nav>
       </header>

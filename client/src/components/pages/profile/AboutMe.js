@@ -25,7 +25,7 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
         Hi, I'm {mentor?.firstName}, a {mentor?.description}!
       </h1>
 
-      <p>
+      <div>
         I am a mentor in:
         {mentor?.science ? (
           <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
@@ -37,7 +37,7 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
           <h2 style={{ color: "darkBlue" }}>ENGINEERING</h2>
         ) : null}{" "}
         {mentor?.mathematics ? <h2 style={{ color: "gold" }}>MATH</h2> : null}{" "}
-      </p>
+      </div>
       <h2> About Me: </h2>
       <p>{mentor?.bio}</p>
       <h2> Here are some resources: </h2>

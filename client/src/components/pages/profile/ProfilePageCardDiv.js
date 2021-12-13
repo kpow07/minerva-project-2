@@ -9,7 +9,7 @@ import HeartButton from "../../navigation/HeartButton";
 
 //Need to render based on selected mentor from Mentor Gallery
 
-const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink }) => {
+const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink,userId}) => {
   console.log(window.location.pathname);
   const [mentor, setMentor] = useState();
   // let navigate = useNavigate();
@@ -25,8 +25,9 @@ const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink }) => {
 
   return (
     <div>
-      <div lassName="directory-menu" className="button-profile">
-        <HeartButton />
+      <div className="directory-menu" className="button-profile">
+        <HeartButton mentorId={mentor?._id} 
+        userId={userId} />
         <PortraitCardComponent
           className="card"
           firstName={mentor?.firstName}

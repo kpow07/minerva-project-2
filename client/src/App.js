@@ -81,7 +81,7 @@ function App() {
         <Route
           path="/mentor-detail/:id"
           // element={user ? <ProfilePageComponent /> : <LoginPage />}
-          element={<ProfilePageComponent />}
+          element={<ProfilePageComponent userId={user?._id} />}
         />
         <Route
           path="/mentor-edit/:id"
