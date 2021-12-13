@@ -1,15 +1,16 @@
-// import React, { useState, useEffect } from "react";
-const HeartButton = ({ like, setLike, favoritesToggle }) => {
+const HeartButton = ({ like, setLike, favoritesToggle, buttonValue }) => {
   return (
     <div>
       <button
         className="heartButton"
-        onClick={() => favoritesToggle}
-        // onClick={() => setLike((prevLike) => !prevLike)}
+        onClick={() => setLike((prevLike) => !prevLike)}
       >
-        Add to Favourites: {like ? "❤️" : "🤍"}
+        {buttonValue}
       </button>
     </div>
   );
 };
 export default HeartButton;
+{
+  /* Add to Favourites: {like ? "❤️" : "🤍"} */
+}

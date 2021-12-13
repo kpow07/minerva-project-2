@@ -228,27 +228,34 @@ router.post("/update-mentee/:id", async (req, res) => {
 router.get("/add-favorite", async (req, res) => {
   let mentorId = req.query.mentorId;
   let id = req.query.id;
-  let updatedUser;
+
   console.log(`trying to add mentor to mentee favs , ${(mentorId, id)}`);
   let user = await User.findOne({ _id: id });
   if (!user.favorites.includes(mentorId)) {
-    updatedUser = await User.findOneAndUpdate(
+    user = await User.findOneAndUpdate(
       { _id: id },
       { $push: { favorites: mentorId } }
     );
+    user.save();
   }
-  updatedUser.save();
+
   res.send("SUCCESS ADDING TO USER FAVOURITES");
 });
 
 router.get("/remove-favorite", async (req, res) => {
   let mentorId = req.query.mentorId;
   let id = req.query.id;
-  console.log(`trying to remove mentor from mentee favs , ${(mentorId, id)}`);
+  console.log(`trying to remove mentor from user favs , ${mentorId}, ${id}`);
   let user = await User.findOne({ _id: id });
   let index = await user.favorites.indexOf(mentorId);
   console.log("FROM ROUTER INDEX OF REMOVABLE", index);
-  let updatedUser = await user.favorites.pull(index);
+  // let updatedUser = await user.favorites.pull(index);
+  let updatedUser = await User.findOneAndUpdate(
+    { _id: id },
+    { $pull: { favorites: mentorId } }
+  );
+  console.log("UPDATED USER", updatedUser);
+  // console.log("USER", user);
   updatedUser.save();
   res.send("SUCCESS REMOVING MENTOR FROM USER FAVOURITES");
 });

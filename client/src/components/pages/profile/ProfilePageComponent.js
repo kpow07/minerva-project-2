@@ -8,41 +8,53 @@ import "./ProfilePage.css";
 
 function ProfilePageComponent({ user }) {
   const [like, setLike] = useState(false);
-  const [favoritesToggle, setFavoritesToggle] = useState();
+  const [buttonValue, setButtonValue] = useState("");
+  const [favoritesToggle, setFavoritesToggle] = useState(false);
   const [mentor, setMentor] = useState();
   let userId = user?._id;
   let params = useParams();
   let mentorId = params.id;
 
   // console.log("user favorites", user?.favorites);
+  // useEffect(() => {
+  //   let doesLike = user?.favorites.includes(mentorId);
+  //   setLike(doesLike);
+  // }, [mentorId, user.favorites]);
+
+  // useEffect(() => {
+  //   const fetchMentor = async () => {
+  //     let fetchResult = await fetch("/api/get-mentor/" + mentorId);
+  //     let fetchedMentor = await fetchResult.json();
+  //     setMentor(fetchedMentor);
+  //   };
+  //   fetchMentor();
+  // }, [mentorId]);
+
   useEffect(() => {
     let doesLike = user?.favorites.includes(mentorId);
     setLike(doesLike);
-  }, [mentorId, user.favorites]);
 
-  useEffect(() => {
     const fetchMentor = async () => {
       let fetchResult = await fetch("/api/get-mentor/" + mentorId);
       let fetchedMentor = await fetchResult.json();
       setMentor(fetchedMentor);
     };
     fetchMentor();
-  }, [mentorId]);
 
-  useEffect(() => {
     const addToFavorites = async function () {
       await fetch(`/api/add-favorite?mentorId=${mentorId}&id=${userId}`);
     };
     const removeFromFavorites = async function () {
       await fetch(`/api/remove-favorite?mentorId=${mentorId}&id=${userId}`);
     };
-
     if (like) {
       setFavoritesToggle(removeFromFavorites);
+      setButtonValue("🤍");
     } else {
       setFavoritesToggle(addToFavorites);
+      setButtonValue("❤️");
     }
-  }, [like, userId, mentorId]);
+  }, [like, userId, mentorId, user.favorites]);
 
   return (
     <div className="profile-page-wrapper">
@@ -59,6 +71,7 @@ function ProfilePageComponent({ user }) {
           like={like}
           setLike={setLike}
           user={user}
+          buttonValue={buttonValue}
           //  buttonLink={"/mentor-edit/" + params.id}
           // existingValues={existingValues}
         />

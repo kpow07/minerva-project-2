@@ -18,6 +18,7 @@ const ProfilePageCardDiv = ({
   setLike,
   mentor,
   user,
+  buttonValue,
 }) => {
   // console.log(window.location.pathname);
 
@@ -31,6 +32,7 @@ const ProfilePageCardDiv = ({
           setLike={setLike}
           favoritesToggle={favoritesToggle}
           user={user}
+          buttonValue={buttonValue}
         />
         <PortraitCardComponent
           className="card"
