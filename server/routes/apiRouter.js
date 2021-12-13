@@ -97,6 +97,7 @@ router.get("/get-mentor/:id", async (req, res) => {
 });
 // updates a mentor using id from the url
 router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
+  console.log(req.body);
   let id = req.params.id;
   const mentor = findMentorById(id);
   // Delete image from cloudinary
