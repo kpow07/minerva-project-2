@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
@@ -9,25 +8,30 @@ import HeartButton from "../../navigation/HeartButton";
 
 //Need to render based on selected mentor from Mentor Gallery
 
-const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink,userId}) => {
-  console.log(window.location.pathname);
-  const [mentor, setMentor] = useState();
-  // let navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchMentor = async () => {
-      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
-      let fetchedMentor = await fetchResult.json();
-      setMentor(fetchedMentor);
-    };
-    fetchMentor();
-  }, [mentorId]);
+const ProfilePageCardDiv = ({
+  mentorId,
+  onMentorSelected,
+  buttonLink,
+  userId,
+  favoritesToggle,
+  like,
+  setLike,
+  mentor,
+  user,
+}) => {
+  // console.log(window.location.pathname);
 
   return (
     <div>
       <div className="directory-menu" className="button-profile">
-        <HeartButton mentorId={mentor?._id} 
-        userId={userId} />
+        <HeartButton
+          mentorId={mentorId}
+          userId={userId}
+          like={like}
+          setLike={setLike}
+          favoritesToggle={favoritesToggle}
+          user={user}
+        />
         <PortraitCardComponent
           className="card"
           firstName={mentor?.firstName}
@@ -43,11 +47,6 @@ const ProfilePageCardDiv = ({ mentorId, onMentorSelected, buttonLink,userId}) =>
         {/* <Link to={buttonLink}>
           <button>EDIT</button>
         </Link> */}
-
-        
-
-
-  
       </div>
     </div>
   );

@@ -1,17 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // click on bio card to render profile  w/ About Me component
 const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
   const [mentor, setMentor] = useState();
-  let params = useParams();
+
   useEffect(() => {
     const fetchMentor = async () => {
       let fetchResult = await fetch("/api/get-mentor/" + mentorId);
-      console.log("This is the mentor ID", mentorId);
+      // console.log("This is the mentor ID", mentorId);
       let fetchedMentor = await fetchResult.json();
-      console.log("this is the fetched mentor from about me", fetchedMentor);
+      // console.log("this is the fetched mentor from about me", fetchedMentor);
 
       setMentor(fetchedMentor);
     };
@@ -47,10 +47,8 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
         <button>EDIT</button>
       </Link>
 
-{/* <link to={put link here}> */}
-<button>DELETE</button>
-
-
+      {/* <link to={put link here}> */}
+      <button>DELETE</button>
     </div>
   );
 };

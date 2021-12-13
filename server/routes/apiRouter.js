@@ -23,9 +23,7 @@ import {
   // findMenteeById,
 } from "../models/mentees.js";
 
-import 
-  User
-  from "../models/user.js";
+import User from "../models/user.js";
 
 import {
   createComment,
@@ -37,8 +35,6 @@ import {
 } from "../models/comments.js";
 import cloudinary from "../utilities/cloudinary.js";
 import upload from "../utilities/multer.js";
-
-
 
 const router = Router();
 
@@ -71,7 +67,7 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
   mentor.avatar = result.secure_url;
   mentor.cloudinary_id = result.public_id;
 
-  console.log(mentor);
+  // console.log(mentor);
   try {
     let newMentor = await createMentor(mentor);
     res.send(newMentor);
@@ -89,14 +85,14 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
 //gets a list of all mentors from all fields
 router.get("/get-mentors", async (req, res) => {
   let mentorsList = await listMentors();
-  console.log(`FROM API's ${mentorsList}`);
+  // console.log(`FROM API's ${mentorsList}`);
   res.json(mentorsList);
 });
 //gets a mentor using the mentor id from the request
 router.get("/get-mentor/:id", async (req, res) => {
   let id = req.params.id;
   let foundInfo = await findMentorById(id);
-  console.log(`FOUND INFO FROM API ROUTER ${foundInfo}`);
+  // console.log(`FOUND INFO FROM API ROUTER ${foundInfo}`);
   res.send(foundInfo);
 });
 // updates a mentor using id from the url
@@ -151,9 +147,8 @@ router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
 //   let id = req.params.id
 //   console.log ('deleting Mentor', id)
 //   let deletedMentor = await mentor.delete(id) < is this hooking up to the model properly tonys is superheroModel.delete(id)
-//   res.send (deletedMentor) 
+//   res.send (deletedMentor)
 // })
-
 
 //filter mentors based on the field
 router.get("/filter-mentors-field", async (req, res) => {
@@ -176,10 +171,10 @@ router.get("/filter-mentors-all", async (req, res) => {
   } else if (field === "allFields" && city !== "nothing") {
     mentorsList = await listMentorsFilterCity(city);
   }
-  console.log(
-    `FROM API ROUTER: filtering Mentors where city = ${city} who are in the ${field} field }`
-  );
-  console.log(mentorsList);
+  // console.log(
+  //   `FROM API ROUTER: filtering Mentors where city = ${city} who are in the ${field} field }`
+  // );
+  // console.log(mentorsList);
   res.json(mentorsList);
 });
 //////////////////////////////////MENTEE ENDPOINTS /////////////////////////////////
@@ -230,28 +225,49 @@ router.post("/update-mentee/:id", async (req, res) => {
 //   res.send(updatedUser);
 // })
 
-router.get("/add-favorite", async (req,res)=>{
-  let mentorId=req.query.mentorId;
+router.get("/add-favorite", async (req, res) => {
+  let mentorId = req.query.mentorId;
   let id = req.query.id;
-  console.log(`trying to add mentor to mentee favs , ${mentorId, id}`)
-  let updatedUser = await User.findOneAndUpdate(
-    { _id: id },
-    { $push: {favorites:mentorId } }
-  );
+  let updatedUser;
+  console.log(`trying to add mentor to mentee favs , ${(mentorId, id)}`);
+  let user = await User.findOne({ _id: id });
+  if (!user.favorites.includes(mentorId)) {
+    updatedUser = await User.findOneAndUpdate(
+      { _id: id },
+      { $push: { favorites: mentorId } }
+    );
+  }
   updatedUser.save();
-  res.send(updatedUser);
-})
+  res.send("SUCCESS ADDING TO USER FAVOURITES");
+});
 
-router.get ("/get-user", async (req,res)=>{
-  let userId= req.query.userId;
-  let user = await User.findById({userId})
-  console.log("from the API ROUTER", user)
-  res.send(user);
+router.get("/remove-favorite", async (req, res) => {
+  let mentorId = req.query.mentorId;
+  let id = req.query.id;
+  console.log(`trying to remove mentor from mentee favs , ${(mentorId, id)}`);
+  let user = await User.findOne({ _id: id });
+  let index = await user.favorites.indexOf(mentorId);
+  console.log("FROM ROUTER INDEX OF REMOVABLE", index);
+  let updatedUser = await user.favorites.pull(index);
+  updatedUser.save();
+  res.send("SUCCESS REMOVING MENTOR FROM USER FAVOURITES");
+});
 
-}
-
-)
-
+router.get("/get-user", async (req, res) => {
+  let favouriteAnswer;
+  let userId = req.query.userId;
+  let mentorId = req.query.mentorId;
+  // console.log("from API ROUTER", userId);
+  let user = await User.findOne({ _id: userId });
+  let answer = await user.favorites.indexOf(mentorId);
+  if (answer > -1) {
+    favouriteAnswer = "true";
+  } else {
+    favouriteAnswer = "false";
+  }
+  console.log("from the API ROUTER FAVORITES", answer);
+  res.send(favouriteAnswer);
+});
 
 //---------------------------------------------Michelle's Delete Test--------------------------
 
@@ -259,7 +275,7 @@ router.get ("/get-user", async (req,res)=>{
 //   let id = req.params.id
 //   console.log ('deleting Mentee', id)
 //   let deletedMentee = await mentee.delete(id) <-is this hooking up to the model properly?
-//   res.send (deletedMentor) 
+//   res.send (deletedMentor)
 // })
 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
@@ -386,3 +402,14 @@ router.get("/get-mentor-comments", async (req, res) => {
 });
 
 export default router;
+// router.get("/add-favorite", async (req, res) => {
+//   let mentorId = req.query.mentorId;
+//   let id = req.query.id;
+//   console.log(`trying to add mentor to mentee favs , ${(mentorId, id)}`);
+//   let updatedUser = await User.findOneAndUpdate(
+//     { _id: id },
+//     { $push: { favorites: mentorId } }
+//   );
+//   updatedUser.save();
+//   res.send("SUCCESS ADDING TO USER FAVOURITES");
+// });

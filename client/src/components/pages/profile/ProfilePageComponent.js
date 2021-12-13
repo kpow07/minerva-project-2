@@ -1,25 +1,49 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams, Link } from "react-router";
+import { useParams } from "react-router";
 import AboutMe from "./AboutMe";
 import ProfilePageCardDiv from "./ProfilePageCardDiv";
 import "./ProfilePage.css";
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
-function ProfilePageComponent({userId}) {
+function ProfilePageComponent({ user }) {
+  const [like, setLike] = useState(false);
+  const [favoritesToggle, setFavoritesToggle] = useState();
   const [mentor, setMentor] = useState();
-  const [currentUser, setCurrentUser] = useState();
-
+  let userId = user?._id;
   let params = useParams();
-  
-  // console.log("this is the user being console logged", user)
-  console.log ("this is the current user id", userId)
-  // useEffect (()=>{ setCurrentUser(user)
-  
-  // // console.log ("this is the current user!!!!", currentUser._id)
-  // }
-  // )
- 
+  let mentorId = params.id;
+
+  // console.log("user favorites", user?.favorites);
+  useEffect(() => {
+    let doesLike = user?.favorites.includes(mentorId);
+    setLike(doesLike);
+  }, [mentorId, user.favorites]);
+
+  useEffect(() => {
+    const fetchMentor = async () => {
+      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
+      let fetchedMentor = await fetchResult.json();
+      setMentor(fetchedMentor);
+    };
+    fetchMentor();
+  }, [mentorId]);
+
+  useEffect(() => {
+    const addToFavorites = async function () {
+      await fetch(`/api/add-favorite?mentorId=${mentorId}&id=${userId}`);
+    };
+    const removeFromFavorites = async function () {
+      await fetch(`/api/remove-favorite?mentorId=${mentorId}&id=${userId}`);
+    };
+
+    if (like) {
+      setFavoritesToggle(removeFromFavorites);
+    } else {
+      setFavoritesToggle(addToFavorites);
+    }
+  }, [like, userId, mentorId]);
+
   return (
     <div className="profile-page-wrapper">
       <div id="card-div-title" className="header">
@@ -28,8 +52,13 @@ function ProfilePageComponent({userId}) {
 
       <div className="sidebar">
         <ProfilePageCardDiv
-          mentorId={params.id}
+          mentor={mentor}
+          mentorId={mentorId}
           userId={userId}
+          favoritesToggle={favoritesToggle}
+          like={like}
+          setLike={setLike}
+          user={user}
           //  buttonLink={"/mentor-edit/" + params.id}
           // existingValues={existingValues}
         />
@@ -37,13 +66,11 @@ function ProfilePageComponent({userId}) {
       <div className="content">
         <AboutMe
           mentorId={params.id}
-          buttonLink={"/mentor-edit/" + params.id}
+          buttonLink={"/mentor-edit/" + mentorId}
           // existingValues={existingValues}
-          buttonLink={"/mentor-delete/" + params.id}
+          buttonLink={"/mentor-delete/" + mentorId}
         />
       </div>
-
-
 
       {/* <div>
        <MessageBoard className="footer"/>
@@ -52,5 +79,3 @@ function ProfilePageComponent({userId}) {
   );
 }
 export default ProfilePageComponent;
-//fetch to take ID from URL , if the user wants to comment they need to pull it out of the URL and it pulls the name out of it
-
