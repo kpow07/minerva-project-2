@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@ritaog 
-michlovin
-/
-minerva-project-2
-Private
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-minerva-project-2/server/routes/apiRouter.js /
-@weirjulieanne
-weirjulieanne fixed favorite button!!!!
-Latest commit 9f3be42 18 minutes ago
- History
- 4 contributors
-@weirjulieanne@michlovin@kpow07@ritaog
-422 lines (393 sloc)  13.7 KB
-   
 import { Router } from "express";
 import {
   createMentor,
