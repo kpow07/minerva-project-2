@@ -63,6 +63,7 @@ function CommentListItem({
                 poster={child.firstName}
                 user={user}
                 replyBody={child.messageBody}
+                commentId={child?._id}
                 buttonValue="comment"
                 comment={child}
               />

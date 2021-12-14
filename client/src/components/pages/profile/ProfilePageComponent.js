@@ -35,20 +35,6 @@ function ProfilePageComponent({ user, setUser }) {
     });
   };
 
-  // const addToFavorites = async function () {
-  //   await fetch(`/api/add-favorite?mentorId=${mentorId}&id=${userId}`);
-  // };
-  // const removeFromFavorites = async function () {
-  //   await fetch(`/api/remove-favorite?mentorId=${mentorId}&id=${userId}`);
-  // };
-  // if (like) {
-  //   setFavoritesToggle(removeFromFavorites);
-  //   setButtonValue("🤍");
-  // } else {
-  //   setFavoritesToggle(addToFavorites);
-  //   setButtonValue("❤️");
-  // }
-
   useEffect(() => {
     const fetchMentor = async () => {
       let fetchResult = await fetch("/api/get-mentor/" + mentorId);
@@ -83,9 +69,9 @@ function ProfilePageComponent({ user, setUser }) {
       <div className="content">
         <AboutMe
           mentorId={params.id}
-          buttonLink={"/mentor-edit/" + mentorId}
-          // existingValues={existingValues}
-          buttonLink={"/mentor-delete/" + mentorId}
+          editButtonLink={"/mentor-edit/" + params.id}
+          existingValues={mentor}
+          deleteButtonLink={"/mentor-delete/" + mentorId}
         />
       </div>
 

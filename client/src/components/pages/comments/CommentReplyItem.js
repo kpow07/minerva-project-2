@@ -4,7 +4,6 @@ import CommentButton from "./CommentButton";
 import CommentForm from "./CommentForm";
 
 function CommentReplyItem({
-  commentQuestion,
   postedTime,
   poster,
   user,
@@ -15,21 +14,20 @@ function CommentReplyItem({
 }) {
   //determines whether or not reply box is showing
   const [showing, setShowing] = useState(false);
-  const [commentChildren, setCommentChildren] = useState([]);
+  const [grandChildrenArray, setGrandChildrenArray] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      console.log("Fetching children comments using commentId", commentId);
+      console.log("Fetching grandchildren comments using commentId", commentId);
       let fetchResult = await fetch(
         `/api/get-comment-children?parentId=${commentId}`
       );
-      let childrenList = await fetchResult.json();
-      setCommentChildren(childrenList);
-      return commentChildren;
+      let grandChildrenList = await fetchResult.json();
+      setGrandChildrenArray(grandChildrenList);
     }
     fetchData();
   }, [commentId]);
-
+  console.log("THIS IS THE GRANDCHILDREN ARRAY", grandChildrenArray);
   function showOrNot() {
     if (showing === true) {
       setShowing(false);
@@ -43,19 +41,21 @@ function CommentReplyItem({
       <div>
         <h4 style={{ textAlign: "left", color: "blue" }}>{replyBody}</h4>
         <div>
-          <h5> on: {postedTime} </h5> <h5>by:{poster}</h5>
+          <p> on: {postedTime} </p> <p>by:{poster}</p>
           <CommentButton value={buttonValue} showOrNot={showOrNot} />
         </div>
-        {commentChildren &&
-          commentChildren.map((child, index) => {
+        {grandChildrenArray &&
+          grandChildrenArray.map((child, index) => {
             return (
               <CommentReplyItem
+                style={{ marginLeft: "150px" }}
                 key={index}
                 postedTime={child.createdAt}
                 poster={child.firstName}
                 user={user}
                 replyBody={child.messageBody}
-                buttonValue="comment"
+                // buttonValue="comment"
+                comment={child}
               />
             );
           })}

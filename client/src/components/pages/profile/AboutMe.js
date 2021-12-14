@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // click on bio card to render profile  w/ About Me component
-const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
+const AboutMe = ({
+  mentorId,
+  existingValues,
+  editButtonLink,
+  deleteButtonLink,
+}) => {
   const [mentor, setMentor] = useState();
 
   useEffect(() => {
@@ -43,12 +48,13 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
       <h2> Here are some resources: </h2>
       <p>{mentor?.otherResources}</p>
       {/* {mentor?.science ? <h2 style={{ color: "orangeRed" }}>SCIENCE</h2> : null} */}
-      <Link to={buttonLink}>
+      <Link to={editButtonLink}>
         <button>EDIT</button>
       </Link>
 
-      {/* <link to={put link here}> */}
-      <button>DELETE</button>
+      <Link to={deleteButtonLink}>
+        <button>DELETE</button>
+      </Link>
     </div>
   );
 };

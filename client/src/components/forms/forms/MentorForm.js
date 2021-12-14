@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./FormStyles.css";
 import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
 import PersonalInfoComponent from "../form fields/PersonalInfoComponent";
@@ -42,7 +43,9 @@ function MentorForm(
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
   const [image, setImage] = useState(""); //addition
-
+  const [avatar, setAvatar] = useState("");
+  const [cloudinary_id, setCloudinary_id] = useState("");
+  let navigate = useNavigate();
   async function mySubmitFunction() {
     //declare keys in personalInfo Object
     let formData = new FormData();
@@ -71,6 +74,8 @@ function MentorForm(
         other9, //addition
         other10, //addition
         other11, //addition
+        avatar,
+        cloudinary_id,
       };
 
       formData.append("fileProps", JSON.stringify(personalInfo));
@@ -80,18 +85,17 @@ function MentorForm(
         method: "POST",
         body: formData,
       });
-      /*
-        if (res.ok) {
-         
-          setName("");
-          setImage("");
-          navigate("/");
-        } */
+      if (res.ok) {
+        //setName("");
+        //setImage("");
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }
   }
-
+  // avatar: { type: String },
+  // cloudinary_id: { type: String }
   /*
     const ImageUpload = {
       image, //has to be seperate from the JSON stringfy becasue it is handling an image
