@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";//add this
 
+import "./AboutMe.css";
 
 // click on bio card to render profile  w/ About Me component
 const AboutMe = ({
@@ -32,13 +33,13 @@ const AboutMe = ({
 
 
   return (
-    <div className="about-me">
-      <h1>
+    <div className="rendered-bio">
+      <h1 className="field-title">
         {" "}
         Hi, I'm {mentor?.firstName}, a {mentor?.description}!
       </h1>
 
-      <div>
+      <div className="field-title">
         I am a mentor in:
         {mentor?.science ? (
           <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
@@ -51,12 +52,11 @@ const AboutMe = ({
         ) : null}{" "}
         {mentor?.mathematics ? <h2 style={{ color: "gold" }}>MATH</h2> : null}{" "}
       </div>
-      <div>
-      <h2> About Me: </h2>
-      <p>{mentor?.bio}</p>
-      <h2> Here are some resources: </h2>
-      <p>{mentor?.otherResources}</p>
-      {/* {mentor?.science ? <h2 style={{ color: "orangeRed" }}>SCIENCE</h2> : null} */}
+      <h2 className="field-title"> About Me: </h2>
+      <p className="field-value">{mentor?.bio}</p>
+      <h2 className="field-title"> Here are some resources: </h2>
+      <p className="field-value">{mentor?.otherResources}</p>
+      <br />
       <Link to={editButtonLink}>
         <button>EDIT</button>
       </Link>
