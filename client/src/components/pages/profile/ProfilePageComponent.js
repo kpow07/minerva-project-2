@@ -30,8 +30,15 @@ function ProfilePageComponent({ user, setUser }) {
     } else {
       fave.push(mentorId);
     }
-    setUser((curr) => {
-      return { ...curr, favorites: fave };
+    const newUser = { ...user, favorites: fave };
+    setUser(newUser);
+    fetch(`/api/update-favorite`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
     });
   };
 
