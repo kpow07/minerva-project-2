@@ -1,10 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";//add this
+
 
 // click on bio card to render profile  w/ About Me component
-const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
+const AboutMe = ({ mentorId, existingValues, buttonLink,removeMentor }) => {
   const [mentor, setMentor] = useState();
+  
+
 
   useEffect(() => {
     const fetchMentor = async () => {
@@ -17,6 +21,10 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
     };
     fetchMentor();
   }, [mentorId]);
+
+
+
+
 
   return (
     <div className="about-me">
@@ -38,6 +46,7 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
         ) : null}{" "}
         {mentor?.mathematics ? <h2 style={{ color: "gold" }}>MATH</h2> : null}{" "}
       </div>
+      <div>
       <h2> About Me: </h2>
       <p>{mentor?.bio}</p>
       <h2> Here are some resources: </h2>
@@ -47,8 +56,11 @@ const AboutMe = ({ mentorId, existingValues, buttonLink }) => {
         <button>EDIT</button>
       </Link>
 
-      {/* <link to={put link here}> */}
-      <button>DELETE</button>
+      <Link to={}>
+      <deletebutton onClick={()=> removeMentor}>DELETE</deletebutton>
+        removeMentor={removeMentor}
+      </Link>
+    </div>
     </div>
   );
 };
