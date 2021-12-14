@@ -33,11 +33,11 @@
   border: none;
   transform: translate(-25%);
 }
-.logo-container {
+.bio-logo-container {
   display: inline-flex;
-  transform: translate(00%, -25%);
+  transform: translate(00%, -50%);
 }
-.image-container {
+.bio-image-container {
   background: white;
   height: 50px;
   width: 50px;
@@ -91,7 +91,7 @@ p {
   font-weight: 600;
   color: black;
   padding: 0px;
-  margin-top: 1.5rem;
+  margin-top: 2.2rem;
   /* padding-top: 2rem; */
   /* margin-top: 0px; */
 }

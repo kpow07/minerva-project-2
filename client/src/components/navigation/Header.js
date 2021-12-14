@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import Logo from "./diversity.png";
 
@@ -22,68 +23,78 @@ const Header = ({ user }) => {
         <nav className="mainNav">
           <nav className="navMenu">
             <ul>
-              <a className="button" href="/mentor-gallery">
-                MENTOR GALLERY
-              </a>
+              <Link to="/mentor-gallery">
+                <button id="bigButton" className="button">
+                  MENTOR GALLERY
+                </button>
+              </Link>
             </ul>
             <ul>
-              <a className="button" href="/bio-gallery">
-                BIOGRAPHY GALLERY
-              </a>
+              <Link to="/bio-gallery">
+                <button id="bigButton" className="button">
+                  BIOGRAPHY GALLERY
+                </button>
+              </Link>
             </ul>
           </nav>
           <nav className="navMenu">
             <ul>
-              <a className="button" href="/mentor-add">
-                BECOME A MENTOR
-              </a>
+              <Link to="/mentor-add">
+                <button id="bigButton" className="button">
+                  BECOME A MENTOR
+                </button>
+              </Link>
             </ul>
             <ul>
-              <a className="button" href="/mentee-add">
-                BECOME A MENTEE
-              </a>
+              <Link to="/mentee-add">
+                <button id="bigButton" className="button">
+                  BECOME A MENTEE
+                </button>
+              </Link>
             </ul>
           </nav>
           <nav className="navMenu">
             <ul>
-              <a className="button" href="/profile">
-                PROFILE
-              </a>
+              <Link to="/profile">
+                <button id="smallButton" className="button">
+                  PROFILE
+                </button>
+              </Link>
             </ul>
             <ul>
-              <a className="button" href="/">
-                STUFF
-              </a>
+              <Link to="/">
+                <button id="smallButton" className="button">
+                  STUFF
+                </button>
+              </Link>
             </ul>
           </nav>
           <nav className="navMenu">
             <ul>
-              <a className="button" href="/">
-                HOME
-              </a>
+              <Link to="/">
+                <button id="smallButton" className="button" href="/">
+                  HOME
+                </button>
+              </Link>
             </ul>
-            {/* 
-              <ul>
-              <a className="button" href="/login">
-                LOG IN
-              </a>
-            </ul>
-            */}
 
             {user ? (
               <ul>
-                <a className="button" href="/login" onClick={logout}>
-                  LOG OUT
-                </a>
+                <Link to="/login">
+                  <button id="smallButton" className="button" onClick={logout}>
+                    LOG OUT
+                  </button>
+                </Link>
               </ul>
             ) : (
               <ul>
-                <a className="button" href="/login">
-                  LOG IN
-                </a>
-              </ul> 
+                <Link to="/login">
+                  <button id="smallButton" className="button" href="/login">
+                    LOG IN
+                  </button>
+                </Link>
+              </ul>
             )}
-             
           </nav>
         </nav>
       </header>

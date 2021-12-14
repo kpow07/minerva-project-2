@@ -33,10 +33,10 @@
   border: none;
   transform: translate(-25%);
 }
-.logo-container {
+.bio-logo-container {
   display: inline-flex;
 }
-.image-container {
+.bio-image-container {
   background: white;
   height: 50px;
   width: 50px;
