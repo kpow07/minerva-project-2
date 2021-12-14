@@ -22,9 +22,12 @@ const PortraitCardComponent = ({
         />
       </div>
       <div className="portrait-lower-container">
-        <div className="logo-container">
+        <div className="portrait-logo-container">
           {science ? (
-            <div className="image-container" id="science-image-container">
+            <div
+              className="portrait-image-container"
+              id="science-image-container"
+            >
               <img
                 id="science-landing-card"
                 src="/images/logos/beaker.png"
@@ -34,7 +37,10 @@ const PortraitCardComponent = ({
             </div>
           ) : null}
           {technology ? (
-            <div className="image-container" id="technology-image-container">
+            <div
+              className="portrait-image-container"
+              id="technology-image-container"
+            >
               <img
                 id="technology-landing-card"
                 src="/images/logos/computer.png"
@@ -47,7 +53,10 @@ const PortraitCardComponent = ({
             </div>
           ) : null}
           {engineering ? (
-            <div className="image-container" id="engineering-image-container">
+            <div
+              className="portrait-image-container"
+              id="engineering-image-container"
+            >
               <img
                 id="engineering-landing-card"
                 src="/images/logos/gears.png"
@@ -57,7 +66,10 @@ const PortraitCardComponent = ({
             </div>
           ) : null}
           {mathematics ? (
-            <div className="image-container" id="mathematics-image-container">
+            <div
+              className="portrait-image-container"
+              id="mathematics-image-container"
+            >
               <img
                 id="mathematics-landing-card"
                 src="/images/logos/pi-symbol.png"
