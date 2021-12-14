@@ -27,29 +27,39 @@ const AboutMe = ({
   }, [mentorId]);
 
   return (
-    <div className="rendered-bio">
-      <h1 className="field-title">
+    <div className="about-rendered-bio">
+      <h1 className="about-field-title">
         {" "}
         Hi, I'm {mentor?.firstName}, a {mentor?.description}!
       </h1>
 
-      <div className="field-title">
+      <div className="about-field-title">
         I am a mentor in:
         {mentor?.science ? (
-          <h2 style={{ color: "orangeRed" }}>SCIENCE</h2>
+          <h2 className="about-field-title" style={{ color: "orangeRed" }}>
+            SCIENCE
+          </h2>
         ) : null}{" "}
         {mentor?.technology ? (
-          <h2 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h2>
+          <h2 className="about-field-title" style={{ color: "paleVioletRed" }}>
+            TECHNOLOGY
+          </h2>
         ) : null}{" "}
         {mentor?.engineering ? (
-          <h2 style={{ color: "darkBlue" }}>ENGINEERING</h2>
+          <h2 className="about-field-title" style={{ color: "darkBlue" }}>
+            ENGINEERING
+          </h2>
         ) : null}{" "}
-        {mentor?.mathematics ? <h2 style={{ color: "gold" }}>MATH</h2> : null}{" "}
+        {mentor?.mathematics ? (
+          <h2 className="about-field-title" style={{ color: "gold" }}>
+            MATH
+          </h2>
+        ) : null}{" "}
       </div>
-      <h2 className="field-title"> About Me: </h2>
-      <p className="field-value">{mentor?.bio}</p>
-      <h2 className="field-title"> Here are some resources: </h2>
-      <p className="field-value">{mentor?.otherResources}</p>
+      <h2 className="about-field-title"> About Me: </h2>
+      <p className="about-field-value">{mentor?.bio}</p>
+      <h2 className="about-field-title"> Here are some resources: </h2>
+      <p className="about-field-value">{mentor?.otherResources}</p>
       <br />
       {/* <Link to={}>
         <button>EDIT</button>
