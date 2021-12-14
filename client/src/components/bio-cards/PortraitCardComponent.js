@@ -1,3 +1,5 @@
+import Button from "@restart/ui/esm/Button";
+import HeartButton from "../navigation/HeartButton";
 import "./portraitCard.style.css";
 
 const PortraitCardComponent = ({
@@ -10,6 +12,14 @@ const PortraitCardComponent = ({
   mathematics,
   engineering,
   onMentorSelected,
+  favoritesToggle,
+  //////////////
+  mentorId,
+  userId,
+  like,
+  setLike,
+  user,
+  buttonValue,
 }) => {
   return (
     <div className="portrait-bio-card" onClick={() => onMentorSelected()}>
@@ -22,6 +32,13 @@ const PortraitCardComponent = ({
         />
       </div>
       <div className="portrait-lower-container">
+        <HeartButton
+          className="fav-button"
+          favoritesToggle={favoritesToggle}
+          like={like}
+          setLike={setLike}
+          buttonValue={buttonValue}
+        />
         <div className="portrait-logo-container">
           {science ? (
             <div
@@ -79,7 +96,7 @@ const PortraitCardComponent = ({
             </div>
           ) : null}
         </div>
-        <h3>
+        <h3 style={{ textAlign: "center" }}>
           {firstName} {lastName}
           {/* {canadian ? (
             <img

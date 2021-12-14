@@ -25,7 +25,7 @@ const ProfilePageCardDiv = ({
   return (
     <div>
       <div className="directory-menu button-profile">
-        <HeartButton
+        {/* <HeartButton
           mentorId={mentorId}
           userId={userId}
           like={like}
@@ -33,7 +33,7 @@ const ProfilePageCardDiv = ({
           favoritesToggle={favoritesToggle}
           user={user}
           buttonValue={buttonValue}
-        />
+        /> */}
         <PortraitCardComponent
           className="card"
           firstName={mentor?.firstName}
@@ -44,6 +44,13 @@ const ProfilePageCardDiv = ({
           technology={mentor?.technology}
           engineering={mentor?.engineering}
           mathematics={mentor?.mathematics}
+          favoritesToggle={favoritesToggle}
+          ////////////////////////////////
+          mentorId={mentorId}
+          userId={userId}
+          like={like}
+          setLike={setLike}
+          user={user}
           // onClick={() => onMentorSelected()}
         />
         {/* <Link to={buttonLink}>

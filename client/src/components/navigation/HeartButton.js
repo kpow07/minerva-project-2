@@ -1,8 +1,8 @@
-const HeartButton = ({ like, setLike, favoritesToggle, buttonValue }) => {
+const HeartButton = ({ like, setLike, favoritesToggle }) => {
   return (
     <div>
-      <button className="heartButton" onClick={() => favoritesToggle()}>
-        Add to Favourites: {like ? "❤️" : "🤍"}
+      <button className="fav-button" onClick={favoritesToggle}>
+        {like ? "❤️" : "🤍"}
       </button>
     </div>
   );

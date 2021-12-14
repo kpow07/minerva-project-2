@@ -63,5 +63,3 @@ const AboutMe = ({
 };
 
 export default AboutMe;
-
-// comment

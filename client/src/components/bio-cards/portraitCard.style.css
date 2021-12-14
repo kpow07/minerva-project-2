@@ -12,22 +12,23 @@
   cursor: pointer;
 }
 
-.portrait-bio-card:hover {
+/* .portrait-bio-card:hover {
   transform: scale(1.15);
-}
+} */
 
 .portrait-upper-container {
   height: 65%;
   align-items: center;
   align-items: top;
   overflow: hidden;
-
+  animation: none;
   background-position: center;
 }
 .portrait-upper-container img {
   background-position: center;
   width: 210px;
   overflow: hidden;
+  animation: none;
 }
 .portrait-portrait {
   align-items: center;
@@ -35,15 +36,19 @@
 }
 .portrait-logo-container {
   display: inline-flex;
-  transform: translate(0%, -35%);
+  transform: translate(100%, -90%);
+}
+.fav-button {
+  display: inline-flex;
+  transform: translate(270%, -1100%);
+  background: none;
+  border: none;
 }
 .portrait-image-container {
   background: white;
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  /* transform: translate(0%, -45%); */
-  overflow: hidden;
   align-content: center;
   justify-content: center;
 }
@@ -87,24 +92,24 @@
 h4,
 p {
   margin: 0%;
-  text-align: center;
+  display: inline-flex;
   padding: 0%;
-  vertical-align: top;
+  vertical-align: flex-start;
+  text-align: center;
 }
 .portrait-lower-container h3 {
   font-size: 1rem;
   font-weight: 600;
   color: black;
-  padding: 0px;
-  margin-top: 0px;
+  text-align: center;
 }
 .portrait-lower-container h4 {
   font-size: 0.8rem;
   font-weight: 800;
+  text-align: center;
 }
 .portrait-lower-container p {
   margin: 0.3rem;
-  margin-bottom: 50px;
   font-size: 0.8rem;
   font-weight: 600;
   color: black;
