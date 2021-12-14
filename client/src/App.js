@@ -67,7 +67,11 @@ function App() {
     >
       <Header user={user} />
       <Routes>
-        <Route path="/" exact element={<LandingPageComponent />} />
+        <Route
+          path="/"
+          exact
+          element={<LandingPageComponent user={user} setUser={setUser} />}
+        />
         {/* MENTOR ROUTES */}
         <Route
           path="/mentor-add"
@@ -75,8 +79,13 @@ function App() {
         />
         <Route
           path="/mentor-gallery"
-          // element={user ? <MentorPageComponent /> : <LoginPage />}
-          element={<MentorPageComponent />}
+          element={
+            user ? (
+              <MentorPageComponent user={user} setUser={setUser} />
+            ) : (
+              <LoginPage />
+            )
+          }
         />
         <Route
           path="/mentor-detail/:id"

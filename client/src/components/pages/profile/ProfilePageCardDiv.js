@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 //import "../../directories/BioDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
 // import "../../bio-cards/portraitCard.style.css"; //this css is specific to landing page cards
-import PortraitCardComponentStatic from "../../bio-cards/PortraitCardComponentStatic";
+import PortraitCardComponent from "../../bio-cards/PortraitCardComponent";
 import HeartButton from "../../navigation/HeartButton";
 
 //Need to render based on selected mentor from Mentor Gallery
@@ -18,6 +18,7 @@ const ProfilePageCardDiv = ({
   setLike,
   mentor,
   user,
+  setUser,
   buttonValue,
 }) => {
   // console.log(window.location.pathname);
@@ -34,7 +35,7 @@ const ProfilePageCardDiv = ({
           user={user}
           buttonValue={buttonValue}
         /> */}
-        <PortraitCardComponentStatic
+        <PortraitCardComponent
           className="card"
           firstName={mentor?.firstName}
           lastName={mentor?.lastName}
@@ -51,6 +52,8 @@ const ProfilePageCardDiv = ({
           like={like}
           setLike={setLike}
           user={user}
+          setUser={setUser}
+          isStatic={true}
           // onClick={() => onMentorSelected()}
         />
         {/* <Link to={buttonLink}>

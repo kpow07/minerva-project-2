@@ -1,5 +1,6 @@
 import Button from "@restart/ui/esm/Button";
 import HeartButton from "../navigation/HeartButton";
+import { useState, useEffect } from "react";
 import "./portraitCard.style.css";
 
 const PortraitCardComponent = ({
@@ -12,14 +13,47 @@ const PortraitCardComponent = ({
   mathematics,
   engineering,
   onMentorSelected,
-  favoritesToggle,
-  //////////////
-  like,
-  setLike,
+  user,
+  setUser,
   buttonValue,
+  mentor,
+  isStatic,
 }) => {
+  const [like, setLike] = useState(false);
+  const mentorId = mentor?._id;
+  console.log("THIS IS THE USER", user);
+  useEffect(() => {
+    let doesLike = user?.favorites.includes(mentorId);
+    setLike(doesLike);
+    console.log("value of button", doesLike);
+  }, [mentorId, user?.favorites]);
+
+  const favoritesToggle = () => {
+    let index = user?.favorites.indexOf(mentorId);
+    console.log("running toggle", index);
+    let fave = [...user.favorites];
+    if (index > -1) {
+      fave.splice(index, 1);
+    } else {
+      fave.push(mentorId);
+    }
+    const newUser = { ...user, favorites: fave };
+    setUser(newUser);
+    fetch(`/api/update-favorite`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
+  };
+
   return (
-    <div className="portrait-bio-card" onClick={() => onMentorSelected()}>
+    <div
+      className="portrait-bio-card"
+      onClick={!isStatic ? () => onMentorSelected() : null}
+    >
       <div className="portrait-upper-container">
         <img
           className="portrait-portrait"

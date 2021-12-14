@@ -4,7 +4,7 @@ import "../../bio-cards/portraitCard.style.css"; //this css is specific to landi
 import PortraitCardComponent from "../../bio-cards/PortraitCardComponent";
 //
 //
-const LandingPageCardDiv = ({ setSelectedBioId }) => {
+const LandingPageCardDiv = ({ setSelectedBioId, user, setUser }) => {
   const [mentors, setMentors] = useState([]);
   const generateRandomIndex = (array) =>
     Math.floor(Math.random() * array.length);
@@ -61,6 +61,9 @@ const LandingPageCardDiv = ({ setSelectedBioId }) => {
               technology={mentor.technology}
               engineering={mentor.engineering}
               mathematics={mentor.mathematics}
+              user={user}
+              setUser={setUser}
+              mentor={mentor}
             />
           );
         })}

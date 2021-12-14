@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import MentorDirectoryComponent from "../../directories/MentorDirectoryComponent";
 
-function MainMentorGallery({ mentors }) {
+function MainMentorGallery({ mentors, user, setUser }) {
   const navigate = useNavigate();
+
   // console.log(`MENTORS FROM MAIN MENTOR GALLERY: ${mentors}`);
 
   function setSelectedMentorId(id) {
@@ -14,6 +15,8 @@ function MainMentorGallery({ mentors }) {
         title={"Mentors in STEM"}
         mentorsArray={mentors}
         setSelectedMentorId={setSelectedMentorId}
+        user={user}
+        setUser={setUser}
       />
     </div>
   );

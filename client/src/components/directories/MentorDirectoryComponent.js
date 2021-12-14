@@ -2,15 +2,16 @@ import React from "react";
 import "./BioDirectory.style.css";
 import "../bio-cards/portraitCard.style.css";
 import PortraitCardComponent from "../bio-cards/PortraitCardComponent";
+
 //
 //
 const MentorDirectoryComponent = ({
   setSelectedMentorId,
   mentorsArray,
   title,
+  user,
+  setUser,
 }) => {
-  // console.log(typeof mentorsArray);
-  // console.log(mentorsArray);
   function selectMentor(id) {
     console.log("selectMentor called on id: ", id);
     setSelectedMentorId(id);
@@ -36,6 +37,9 @@ const MentorDirectoryComponent = ({
                 technology={mentor.technology}
                 engineering={mentor.engineering}
                 mathematics={mentor.mathematics}
+                mentor={mentor}
+                user={user}
+                setUser={setUser}
               />
             );
           })}

@@ -8,8 +8,8 @@ import { useNavigate } from "react-router"; //add this
 // this will render the Mentor Card, About Me & Q&A and like button
 
 function ProfilePageComponent({ user, setUser }) {
-  const [like, setLike] = useState(false);
   const [buttonValue, setButtonValue] = useState("");
+  const [like, setLike] = useState(false);
   const [mentor, setMentor] = useState();
   let userId = user?._id;
   let params = useParams();
@@ -17,32 +17,8 @@ function ProfilePageComponent({ user, setUser }) {
   const navigate = useNavigate();
 
   console.log("user favorites", user?.favorites);
-  useEffect(() => {
-    let doesLike = user?.favorites.includes(mentorId);
-    setLike(doesLike);
-    console.log("value of button", doesLike);
-  }, [mentorId, user.favorites]);
-
-  const favoritesToggle = () => {
-    let index = user?.favorites.indexOf(mentorId);
-    console.log("running toggle", index);
-    let fave = [...user.favorites];
-    if (index > -1) {
-      fave.splice(index, 1);
-    } else {
-      fave.push(mentorId);
-    }
-    const newUser = { ...user, favorites: fave };
-    setUser(newUser);
-    fetch(`/api/update-favorite`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newUser),
-    });
-  };
+  //
+  //
 
   //will the delete function below work?
 
@@ -90,10 +66,8 @@ function ProfilePageComponent({ user, setUser }) {
           mentor={mentor}
           mentorId={mentorId}
           userId={userId}
-          favoritesToggle={favoritesToggle}
-          like={like}
-          setLike={setLike}
           user={user}
+          setUser={setUser}
           buttonValue={buttonValue}
           //  buttonLink={"/mentor-edit/" + params.id}
           // existingValues={existingValues}

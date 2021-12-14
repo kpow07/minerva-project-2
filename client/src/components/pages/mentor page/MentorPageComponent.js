@@ -3,7 +3,7 @@ import { useState } from "react";
 import MentorsFilterForm from "./MentorsFilterForm";
 import MainMentorGallery from "./MainMentorGallery";
 
-function MentorPageComponent() {
+function MentorPageComponent({ user, setUser }) {
   const [mentorsList, setMentorsList] = useState([]);
   const filterGetRequest = async function (city, field) {
     console.log(`Filtering Metors for FIELD: ${field} and CITY: ${city}`);
@@ -18,7 +18,7 @@ function MentorPageComponent() {
   return (
     <div>
       <MentorsFilterForm onSubmit={filterGetRequest} />
-      <MainMentorGallery mentors={mentorsList} />
+      <MainMentorGallery mentors={mentorsList} user={user} setUser={setUser} />
     </div>
   );
 }
