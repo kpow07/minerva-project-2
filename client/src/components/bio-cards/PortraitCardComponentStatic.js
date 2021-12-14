@@ -1,44 +1,61 @@
-import "./LandscapeBioCard.style.css";
+import Button from "@restart/ui/esm/Button";
+import HeartButton from "../navigation/HeartButton";
+import "./portraitCard.style.css";
 
-const LandscapeCardComponent = ({
+const PortraitCardComponentStatic = ({
   firstName,
   lastName,
   description,
   imageURL,
-  canadian,
   science,
   technology,
-  engineering,
   mathematics,
-  onBioSelected,
+  engineering,
+  favoritesToggle,
+  like,
+  setLike,
+  buttonValue,
 }) => {
   return (
-    <div className="science-bio-card" onClick={() => onBioSelected()}>
-      <div className="science-upper-container">
+    <div className="portrait-bio-card">
+      <div className="portrait-upper-container">
         <img
-          className="science-portrait"
+          className="portrait-portrait"
           src={"/images/" + imageURL}
           alt={firstName}
-          height="230px"
-          style={{ backgroundPosition: "center" }}
+          width="210px"
         />
-
-        <div className="bio-logo-container">
+      </div>
+      <div className="portrait-lower-container">
+        <HeartButton
+          className="fav-button"
+          favoritesToggle={favoritesToggle}
+          like={like}
+          setLike={setLike}
+          buttonValue={buttonValue}
+        />
+        <div className="portrait-logo-container">
           {science ? (
-            <div className="image-container" id="science-image-container">
+            <div
+              className="portrait-image-container"
+              id="science-image-container"
+            >
               <img
                 id="science-landing-card"
-                src="images/logos/beaker.png"
+                src="/images/logos/beaker.png"
                 alt="logo"
                 style={{ width: "35px", height: "35px" }}
               />
             </div>
           ) : null}
           {technology ? (
-            <div className="image-container" id="technology-image-container">
+            <div
+              className="portrait-image-container"
+              id="technology-image-container"
+            >
               <img
                 id="technology-landing-card"
-                src="images/logos/computer.png"
+                src="/images/logos/computer.png"
                 alt="logo"
                 style={{
                   width: "40px",
@@ -48,31 +65,35 @@ const LandscapeCardComponent = ({
             </div>
           ) : null}
           {engineering ? (
-            <div className="image-container" id="engineering-image-container">
+            <div
+              className="portrait-image-container"
+              id="engineering-image-container"
+            >
               <img
                 id="engineering-landing-card"
-                src="images/logos/gears.png"
+                src="/images/logos/gears.png"
                 alt="logo"
                 style={{ width: "44px", height: "44px" }}
               />
             </div>
           ) : null}
           {mathematics ? (
-            <div className="image-container" id="mathematics-image-container">
+            <div
+              className="portrait-image-container"
+              id="mathematics-image-container"
+            >
               <img
                 id="mathematics-landing-card"
-                src="images/logos/pi-symbol.png"
+                src="/images/logos/pi-symbol.png"
                 alt="logo"
                 style={{ width: "44px", height: "44px" }}
               />
             </div>
           ) : null}
         </div>
-      </div>
-      <div className="science-lower-container">
-        <h3>
-          {firstName} {lastName}{" "}
-          {canadian ? (
+        <h3 style={{ textAlign: "center" }}>
+          {firstName} {lastName}
+          {/* {canadian ? (
             <img
               id="mini-flag"
               src="images/logos/flag.png"
@@ -84,7 +105,7 @@ const LandscapeCardComponent = ({
               }}
               alt="mini canadian flag"
             />
-          ) : null}
+          ) : null} */}
         </h3>
         <div className="fields">
           {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}
@@ -101,4 +122,4 @@ const LandscapeCardComponent = ({
     </div>
   );
 };
-export default LandscapeCardComponent;
+export default PortraitCardComponentStatic;

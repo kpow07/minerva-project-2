@@ -37,12 +37,11 @@
   display: inline-flex;
   transform: translate(00%, -50%);
 }
-.bio-image-container {
+.image-container {
   background: white;
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  /* transform: translate(00%%); */
   overflow: hidden;
   align-content: center;
   justify-content: center;

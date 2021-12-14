@@ -13,12 +13,10 @@ const PortraitCardComponent = ({
   engineering,
   onMentorSelected,
   favoritesToggle,
+
   //////////////
-  mentorId,
-  userId,
   like,
   setLike,
-  user,
   buttonValue,
 }) => {
   return (
