@@ -36,7 +36,7 @@
 }
 .portrait-logo-container {
   display: inline-flex;
-  transform: translate(100%, -90%);
+  transform: translate(0%, -90%);
 }
 .fav-button {
   display: inline-flex;
@@ -51,26 +51,27 @@
   border-radius: 50%;
   align-content: center;
   justify-content: center;
+  overflow: hidden;
 }
 #science-image-container {
   border: 4px solid orangered;
-  height: 50px;
-  width: 50px;
+  /* height: 50px;
+  width: 50px; */
 }
 #technology-image-container {
   border: 4px solid palevioletred;
-  height: 50px;
-  width: 50px;
+  /* height: 50px;
+  width: 50px; */
 }
 #engineering-image-container {
   border: 4px solid darkblue;
-  height: 50px;
-  width: 50px;
+  /* height: 50px;
+  width: 50px; */
 }
 #mathematics-image-container {
   border: 4px solid gold;
-  height: 50px;
-  width: 50px;
+  /* height: 50px;
+  width: 50px; */
 }
 
 .landing-card {
@@ -84,34 +85,37 @@
   margin-top: 0px;
   height: 35%;
   background: white;
+  text-align: center;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.portrait-lower-container h3,
-h4,
-p {
-  margin: 0%;
-  display: inline-flex;
-  padding: 0%;
-  vertical-align: flex-start;
-  text-align: center;
-}
 .portrait-lower-container h3 {
   font-size: 1rem;
   font-weight: 600;
   color: black;
+  margin-top: -45px;
+  margin-bottom: 3px;
+  padding: 0px;
   text-align: center;
+  align-items: top;
 }
 .portrait-lower-container h4 {
   font-size: 0.8rem;
   font-weight: 800;
   text-align: center;
+  padding: 0px;
+  text-align: center;
+  margin-top: -5px;
 }
 .portrait-lower-container p {
-  margin: 0.3rem;
+  margin: 0.2rem;
   font-size: 0.8rem;
   font-weight: 600;
   color: black;
   text-align: center;
+  margin-top: 8px;
+  padding: 0px;
+  text-align: center;
+  align-items: top;
 }

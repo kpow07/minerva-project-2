@@ -35,10 +35,7 @@ const LandscapeCardComponent = ({
             </div>
           ) : null}
           {technology ? (
-            <div
-              className="bio-image-container"
-              id="technology-image-container"
-            >
+            <div className="image-container" id="technology-image-container">
               <img
                 id="technology-landing-card"
                 src="images/logos/computer.png"
@@ -51,10 +48,7 @@ const LandscapeCardComponent = ({
             </div>
           ) : null}
           {engineering ? (
-            <div
-              className="bio-image-container"
-              id="engineering-image-container"
-            >
+            <div className="image-container" id="engineering-image-container">
               <img
                 id="engineering-landing-card"
                 src="images/logos/gears.png"
@@ -64,10 +58,7 @@ const LandscapeCardComponent = ({
             </div>
           ) : null}
           {mathematics ? (
-            <div
-              className="bio-image-container"
-              id="mathematics-image-container"
-            >
+            <div className="image-container" id="mathematics-image-container">
               <img
                 id="mathematics-landing-card"
                 src="images/logos/pi-symbol.png"

@@ -2,7 +2,7 @@ import Button from "@restart/ui/esm/Button";
 import HeartButton from "../navigation/HeartButton";
 import "./portraitCard.style.css";
 
-const PortraitCardComponent = ({
+const PortraitCardComponentStatic = ({
   firstName,
   lastName,
   description,
@@ -11,19 +11,17 @@ const PortraitCardComponent = ({
   technology,
   mathematics,
   engineering,
-  onMentorSelected,
   favoritesToggle,
-  //////////////
   like,
   setLike,
   buttonValue,
 }) => {
   return (
-    <div className="portrait-bio-card" onClick={() => onMentorSelected()}>
+    <div className="portrait-bio-card">
       <div className="portrait-upper-container">
         <img
           className="portrait-portrait"
-          src={imageURL}
+          src={"/images/" + imageURL}
           alt={firstName}
           width="210px"
         />
@@ -93,48 +91,35 @@ const PortraitCardComponent = ({
             </div>
           ) : null}
         </div>
-        <div className="content-container">
-          <h3>
-            {firstName} {lastName}
-          </h3>
-          <div className="fields">
-            {science ? (
-              <h4
-                className="portrait-lower-container"
-                style={{ color: "orangeRed" }}
-              >
-                SCIENCE
-              </h4>
-            ) : null}{" "}
-            {technology ? (
-              <h4
-                className="portrait-lower-container"
-                style={{ color: "paleVioletRed" }}
-              >
-                TECHNOLOGY
-              </h4>
-            ) : null}{" "}
-            {engineering ? (
-              <h4
-                className="portrait-lower-container"
-                style={{ color: "darkBlue" }}
-              >
-                ENGINEERING
-              </h4>
-            ) : null}{" "}
-            {mathematics ? (
-              <h4
-                className="portrait-lower-container"
-                style={{ color: "gold" }}
-              >
-                MATH
-              </h4>
-            ) : null}{" "}
-          </div>
-          <p className="portrait-lower-container">{description}</p>
+        <h3 style={{ textAlign: "center" }}>
+          {firstName} {lastName}
+          {/* {canadian ? (
+            <img
+              id="mini-flag"
+              src="images/logos/flag.png"
+              style={{
+                height: "20px",
+                width: "30px",
+                alignContent: "center",
+                verticalAlign: "sub",
+              }}
+              alt="mini canadian flag"
+            />
+          ) : null} */}
+        </h3>
+        <div className="fields">
+          {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}
+          {technology ? (
+            <h4 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h4>
+          ) : null}{" "}
+          {engineering ? (
+            <h4 style={{ color: "darkBlue" }}>ENGINEERING</h4>
+          ) : null}{" "}
+          {mathematics ? <h4 style={{ color: "gold" }}>MATH</h4> : null}{" "}
         </div>
+        <p>{description}</p>
       </div>
     </div>
   );
 };
-export default PortraitCardComponent;
+export default PortraitCardComponentStatic;

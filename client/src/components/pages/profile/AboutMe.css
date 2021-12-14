@@ -1,21 +1,21 @@
-.detail-fields {
+.about-detail-fields {
   display: inline-block;
 }
 
-h2 {
+h2 .about-field-title {
   text-align: center;
 }
-.field-title {
+.about-field-title {
   font-weight: 700;
   text-align: center;
   margin: 1em 1em;
 }
 
-.field-value {
+.about-field-value {
   text-align: center;
   margin: 0em;
 }
-.rendered-bio {
+.about-rendered-bio {
   height: auto;
   width: 50%;
   border: 2px solid white;
@@ -26,6 +26,9 @@ h2 {
   padding: 3%;
   box-shadow: 2px 0px 30px 1px grey;
 }
-h2 {
+h2 .about-field-title {
   margin-top: 0px;
+}
+p {
+  text-align: center;
 }

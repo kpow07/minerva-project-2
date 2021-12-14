@@ -16,7 +16,7 @@ function ProfilePageComponent({ user, setUser }) {
   let mentorId = params.id;
   const navigate = useNavigate();
 
-  // console.log("user favorites", user?.favorites);
+  console.log("user favorites", user?.favorites);
   useEffect(() => {
     let doesLike = user?.favorites.includes(mentorId);
     setLike(doesLike);
@@ -44,7 +44,7 @@ function ProfilePageComponent({ user, setUser }) {
     });
   };
 
-  // will the delete function below work?
+  //will the delete function below work?
 
   async function deleteMentor(id) {
     await fetch(`/api/delete-mentor/` + id, {
