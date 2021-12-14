@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const mentorSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  email: { type: String, required: true },
+  // email: { type: String, required: true },
   city: String,
   province: String,
   science: Boolean,
@@ -72,7 +72,6 @@ async function listMentorsFilterCity(city) {
 // async function removeMentor (id) {
 //   return Mentor.findByIdAndDelete(id)
 // }
-
 
 // async function listMentorsFilterAll(field, city) {
 //   console.log(`filtering ${field} mentors who live in ${city}`);
