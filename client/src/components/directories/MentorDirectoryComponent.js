@@ -30,7 +30,7 @@ const MentorDirectoryComponent = ({
                 onMentorSelected={() => selectMentor(mentor._id)}
                 firstName={mentor.firstName}
                 lastName={mentor.lastName}
-                imageURL={mentor.image}
+                imageURL={mentor.avatar}
                 description={mentor.description}
                 city={mentor.city}
                 science={mentor.science}

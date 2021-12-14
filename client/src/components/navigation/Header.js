@@ -62,9 +62,9 @@ const Header = ({ user }) => {
               </Link>
             </ul>
             <ul>
-              <Link to="/">
+              <Link to="/bio-create">
                 <button id="smallButton" className="button">
-                  STUFF
+                  ADD A BIO
                 </button>
               </Link>
             </ul>
