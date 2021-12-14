@@ -35,28 +35,37 @@
 }
 .logo-container {
   display: inline-flex;
+  transform: translate(25%);
 }
 .image-container {
   background: white;
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  transform: translate(0%, -45%);
+  /* transform: translate(0%, -45%); */
   overflow: hidden;
   align-content: center;
   justify-content: center;
 }
 #science-image-container {
   border: 4px solid orangered;
+  height: 50px;
+  width: 50px;
 }
 #technology-image-container {
   border: 4px solid palevioletred;
+  height: 50px;
+  width: 50px;
 }
 #engineering-image-container {
   border: 4px solid darkblue;
+  height: 50px;
+  width: 50px;
 }
 #mathematics-image-container {
   border: 4px solid gold;
+  height: 50px;
+  width: 50px;
 }
 
 .landing-card {
@@ -95,6 +104,7 @@ p {
 }
 .portrait-lower-container p {
   margin: 0.3rem;
+  margin-bottom: 30px;
   font-size: 0.8rem;
   font-weight: 600;
   color: black;

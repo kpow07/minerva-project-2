@@ -3,7 +3,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../../forms/FormStyles.css";
 
-function CommentForm({ user, parentId, instructions, buttonValue }) {
+function CommentEditForm({
+  user,
+  parentId,
+  instructions,
+  buttonValue,
+  existingValues,
+}) {
   let params = useParams();
 
   const [firstName, setFirstName] = useState("");
@@ -15,18 +21,20 @@ function CommentForm({ user, parentId, instructions, buttonValue }) {
   const [commentParentId, setCommentParentId] = useState("");
 
   useEffect(() => {
-    const theDate = Date().toLocaleString();
-    setDate(theDate);
-    setMentorId(params.id);
-    if (parentId) {
-      setCommentParentId(parentId);
-    } else {
-      setCommentParentId("none");
-    }
-    if (user) {
-      setFirstName(user.firstName);
-      setLastName(user.lastName);
-      setUserId(user._id);
+    if (existingValues) {
+      const theDate = Date().toLocaleString();
+      setDate(theDate);
+      setMentorId(existingValues.params.id);
+      if (parentId) {
+        setCommentParentId(existingValues.parentId);
+      } else {
+        setCommentParentId("none");
+      }
+      if (user) {
+        setFirstName(user.firstName);
+        setLastName(user.lastName);
+        setUserId(user._id);
+      }
     }
   }, [user, params.id, parentId]);
 
@@ -86,4 +94,4 @@ function CommentForm({ user, parentId, instructions, buttonValue }) {
   );
 }
 
-export default CommentForm;
+export default CommentEditForm;

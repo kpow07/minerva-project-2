@@ -16,6 +16,7 @@ import {
   listBiosFilterField,
   listBiosFilterFieldCanadian,
   listBiosFilterCanadian,
+  //removeMentor
 } from "../models/bios.js";
 import {
   createMentee,
@@ -94,7 +95,7 @@ router.get("/get-mentor/:id", async (req, res) => {
 // updates a mentor using id from the url
 router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
   let id = req.params.id;
-  const mentor = findMentorById(id);
+  const mentor = await findMentorById(id);
   // Delete image from cloudinary
   await cloudinary.uploader.destroy(mentor.cloudinary_id);
   // Upload image to cloudinary
@@ -139,12 +140,12 @@ router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
 
 //---------------------------------------------Michelle's Delete Test--------------------------
 
-// router.delete ("/delete-mentor/:id", async (req,res) => {
-//   let id = req.params.id
-//   console.log ('deleting Mentor', id)
-//   let deletedMentor = await mentor.removeMentor(id) < is this hooking up to the model properly tonys is superheroModel.delete(id)
-//   res.send (deletedMentor)
-// })
+router.delete ("/delete-mentor/:id", async (req,res) => {
+  let id = req.params.id
+  console.log ('deleting Mentor', id)
+  let deletedMentor = await mentor.removeMentor(id)
+  res.send (deletedMentor)
+})
 
 //filter mentors based on the field
 router.get("/filter-mentors-field", async (req, res) => {

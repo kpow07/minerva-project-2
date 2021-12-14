@@ -5,7 +5,12 @@ import { useNavigate } from "react-router";//add this
 
 
 // click on bio card to render profile  w/ About Me component
-const AboutMe = ({ mentorId, existingValues, buttonLink,removeMentor }) => {
+const AboutMe = ({
+  mentorId,
+  existingValues,
+  editButtonLink,
+  deleteButtonLink,
+}) => {
   const [mentor, setMentor] = useState();
   
 
@@ -52,13 +57,12 @@ const AboutMe = ({ mentorId, existingValues, buttonLink,removeMentor }) => {
       <h2> Here are some resources: </h2>
       <p>{mentor?.otherResources}</p>
       {/* {mentor?.science ? <h2 style={{ color: "orangeRed" }}>SCIENCE</h2> : null} */}
-      <Link to={buttonLink}>
+      <Link to={editButtonLink}>
         <button>EDIT</button>
       </Link>
 
-      <Link to={}>
-      <deletebutton onClick={()=> removeMentor}>DELETE</deletebutton>
-        removeMentor={removeMentor}
+      <Link to={deleteButtonLink}>
+        <button>DELETE</button>
       </Link>
     </div>
     </div>
