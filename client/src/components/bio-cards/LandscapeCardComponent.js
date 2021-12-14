@@ -17,7 +17,7 @@ const LandscapeCardComponent = ({
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src={"/images/" + imageURL}
+          src={imageURL}
           alt={firstName}
           height="230px"
           style={{ backgroundPosition: "center" }}

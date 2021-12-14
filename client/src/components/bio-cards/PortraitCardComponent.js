@@ -26,7 +26,7 @@ const PortraitCardComponent = ({
       <div className="portrait-upper-container">
         <img
           className="portrait-portrait"
-          src={"/images/" + imageURL}
+          src={imageURL}
           alt={firstName}
           width="210px"
         />
