@@ -16,6 +16,7 @@ import {
   listBiosFilterField,
   listBiosFilterFieldCanadian,
   listBiosFilterCanadian,
+  //removeMentor
 } from "../models/bios.js";
 import {
   createMentee,
@@ -139,12 +140,12 @@ router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
 
 //---------------------------------------------Michelle's Delete Test--------------------------
 
-// router.delete ("/delete-mentor/:id", async (req,res) => {
-//   let id = req.params.id
-//   console.log ('deleting Mentor', id)
-//   let deletedMentor = await mentor.removeMentor(id) < is this hooking up to the model properly tonys is superheroModel.delete(id)
-//   res.send (deletedMentor)
-// })
+router.delete ("/delete-mentor/:id", async (req,res) => {
+  let id = req.params.id
+  console.log ('deleting Mentor', id)
+  let deletedMentor = await mentor.removeMentor(id)
+  res.send (deletedMentor)
+})
 
 //filter mentors based on the field
 router.get("/filter-mentors-field", async (req, res) => {

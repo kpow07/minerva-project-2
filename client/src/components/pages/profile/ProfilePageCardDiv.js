@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //import "../../directories/BioDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
 // import "../../bio-cards/portraitCard.style.css"; //this css is specific to landing page cards
@@ -46,9 +46,9 @@ const ProfilePageCardDiv = ({
           mathematics={mentor?.mathematics}
           // onClick={() => onMentorSelected()}
         />
-        {/* <Link to={buttonLink}>
+        <Link to={buttonLink}>
           <button>EDIT</button>
-        </Link> */}
+        </Link>
       </div>
     </div>
   );
