@@ -21,18 +21,35 @@ function ProfilePageComponent({ user, setUser }) {
     console.log("value of button", doesLike);
   }, [mentorId, user.favorites]);
 
+  useEffect(() => {
+    const postData = async () => {
+      await fetch(`/api/add-favorite`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+   })}; 
+      postData();
+  }, [user]);
+
+
   const favoritesToggle = () => {
     let index = user?.favorites.indexOf(mentorId);
     console.log("running toggle", index);
     let fave = [...user.favorites];
     if (index > -1) {
-      fave.splice(index, 1);
+      fave.splice(index, 1); 
     } else {
       fave.push(mentorId);
     }
     setUser((curr) => {
-      return { ...curr, favorites: fave };
-    });
+      const newUser= { ...curr, favorites: fave };
+      console.log("this is the NEW USER",newUser)
+      return newUser
+    }); 
+    
   };
 
   // const addToFavorites = async function () {

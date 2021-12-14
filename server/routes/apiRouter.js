@@ -225,10 +225,11 @@ router.post("/update-mentee/:id", async (req, res) => {
 //   res.send(updatedUser);
 // })
 
-router.get("/add-favorite", async (req, res) => {
-  let mentorId = req.query.mentorId;
-  let id = req.query.id;
-
+router.post("/add-favorite", async (req, res) => {
+  // let mentorId = req.query.mentorId;
+  // let id = req.query.id;
+  const newObject = JSON.parse(req.body);
+  console.log("HELLO NEW OBJECT", newObject)
   console.log(`trying to add mentor to mentee favs , ${(mentorId, id)}`);
   let user = await User.findOne({ _id: id });
   if (!user.favorites.includes(mentorId)) {
