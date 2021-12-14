@@ -22,7 +22,7 @@ const BioDirectoryComponent2 = ({ setSelectedBioId, biosArray, title }) => {
                 onBioSelected={() => selectBio(bio._id)}
                 firstName={bio.firstName}
                 lastName={bio.lastName}
-                imageURL={bio.imageURL}
+                imageURL={bio.avatar}
                 description={bio.description}
                 canadian={bio.canadian}
                 science={bio.science}
