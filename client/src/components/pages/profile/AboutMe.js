@@ -65,7 +65,7 @@ const AboutMe = ({
         <button>DELETE</button>
       </Link>
     </div>
-    </div>
+    
   );
 };
 
