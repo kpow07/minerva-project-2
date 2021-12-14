@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 //import "../../directories/BioDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
@@ -24,7 +24,7 @@ const ProfilePageCardDiv = ({
 
   return (
     <div>
-      <div className="directory-menu" className="button-profile">
+      <div className="directory-menu button-profile">
         <HeartButton
           mentorId={mentorId}
           userId={userId}
@@ -46,9 +46,9 @@ const ProfilePageCardDiv = ({
           mathematics={mentor?.mathematics}
           // onClick={() => onMentorSelected()}
         />
-        <Link to={buttonLink}>
+        {/* <Link to={buttonLink}>
           <button>EDIT</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

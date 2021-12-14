@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";//add this
+import { useNavigate } from "react-router"; //add this
 
 import "./AboutMe.css";
 
@@ -13,8 +13,6 @@ const AboutMe = ({
   deleteButtonLink,
 }) => {
   const [mentor, setMentor] = useState();
-  
-
 
   useEffect(() => {
     const fetchMentor = async () => {
@@ -27,10 +25,6 @@ const AboutMe = ({
     };
     fetchMentor();
   }, [mentorId]);
-
-
-
-
 
   return (
     <div className="rendered-bio">
@@ -57,14 +51,13 @@ const AboutMe = ({
       <h2 className="field-title"> Here are some resources: </h2>
       <p className="field-value">{mentor?.otherResources}</p>
       <br />
-      <Link to={editButtonLink}>
+      {/* <Link to={}>
         <button>EDIT</button>
-      </Link>
+      </Link> */}
 
-      <Link to={deleteButtonLink}>
+      {/* <Link to={deleteButtonLink}>
         <button>DELETE</button>
-      </Link>
-    </div>
+      </Link> */}
     </div>
   );
 };
