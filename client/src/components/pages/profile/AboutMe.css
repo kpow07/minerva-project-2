@@ -1,0 +1,31 @@
+.detail-fields {
+  display: inline-block;
+}
+
+h2 {
+  text-align: center;
+}
+.field-title {
+  font-weight: 700;
+  text-align: center;
+  margin: 1em 1em;
+}
+
+.field-value {
+  text-align: center;
+  margin: 0em;
+}
+.rendered-bio {
+  height: auto;
+  width: 50%;
+  border: 2px solid white;
+  background-color: white;
+  opacity: 95%;
+  margin: 20px auto;
+  text-align: center;
+  padding: 3%;
+  box-shadow: 2px 0px 30px 1px grey;
+}
+h2 {
+  margin-top: 0px;
+}
