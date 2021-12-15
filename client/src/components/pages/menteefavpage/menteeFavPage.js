@@ -9,8 +9,6 @@ function MenteeFavPage({user,setUser}) {
   let params = useParams(); 
   const [favList, setFavList] = useState([])
 
-
-
   useEffect(() => {
     const fetchMenteeFavs = async () => {
       const response=await fetch ("/api/get-favs")
@@ -19,9 +17,6 @@ function MenteeFavPage({user,setUser}) {
     }
     fetchMenteeFavs ()
   }, [])
-
-
-
 
   return (
     <div className="wrapper">
