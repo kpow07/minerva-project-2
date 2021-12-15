@@ -262,6 +262,16 @@ router.get("/get-user", async (req, res) => {
   res.send(favouriteAnswer);
 });
 
+router.get ("/get-favs", async (req, res) => {
+  let user = req.user 
+  // console.log(user)
+  let favs = user.favorites
+  res.json(favs)
+
+
+
+
+})
 //---------------------------------------------Michelle's Delete Test--------------------------
 
 // router.delete ("/delete-mentee/:id", async (req,res) => {

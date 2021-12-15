@@ -15,6 +15,7 @@ import BioEditPage from "./components/pages/bio edit page/BioEditPage";
 import MentorPageComponent from "./components/pages/mentor page/MentorPageComponent";
 import ProfilePageComponent from "./components/pages/profile/ProfilePageComponent";
 import MentorEditPage from "./components/pages/mentor-edit-page/MentorEditPage";
+import MenteeFavPage from "./components/pages/menteefavpage/MenteeFavPage";
 //import EditMentorForm from "./components/forms/forms/EditMentorForm";
 //import { useState } from "react";
 
@@ -117,6 +118,10 @@ function App() {
         <Route
           path="/mentee-add"
           element={user ? <MenteeSignUpPage /> : <LoginPage />}
+        />
+        <Route
+          path="/mentee-fav"
+          element={user ? <MenteeFavPage user={user} setUser={setUser}/> : <LoginPage />}
         />
 
         <Route
