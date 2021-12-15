@@ -48,6 +48,7 @@ const ProfilePageCardDiv = ({
           favoritesToggle={favoritesToggle}
           ////////////////////////////////
           mentorId={mentorId}
+          mentor={mentor}
           userId={userId}
           like={like}
           setLike={setLike}

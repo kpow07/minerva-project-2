@@ -8,7 +8,7 @@ import "./menteeFavPage.css"
 function MenteeFavPage({user,setUser}) {
   let params = useParams(); 
   const [favList, setFavList] = useState([])
-
+  console.log(favList)
   useEffect(() => {
     const fetchMenteeFavs = async () => {
       const response=await fetch ("/api/get-favs")
@@ -24,15 +24,8 @@ function MenteeFavPage({user,setUser}) {
         <h1>Mentee Profile Page</h1>
         <h2>Below are your favorite mentors you have selected from the Mentor Biography gallery</h2>
       </div>
-       {favList.map((fav)=> {
-         <FavCard mentorId={fav} user={user} setUser={setUser} />
-       })}
-    
-      {/* <div className="content">
-        <MainMentorGallery />
-      </div> */}
-
-      
+       {favList.map((fav)=><FavCard mentorId={fav} user={user} setUser={setUser} />
+       )}
     </div>
   );
 }

@@ -35,11 +35,14 @@
   transform: translate(0%, -90%);
 }
 .fav-button {
-  display: inline-flex;
-  transform: translate(270%, -1100%);
   background: none;
   border: none;
+  width: 50px;
+  position: absolute;
+  top: -220px;
+  right: 0;
 }
+
 .portrait-image-container {
   background: white;
   height: 50px;
@@ -84,7 +87,14 @@
   text-align: center;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
+
+
 }
+
+.portrait-lower-container>div{
+  position: relative
+}
+
 
 .portrait-lower-container h3 {
   font-size: 1rem;
