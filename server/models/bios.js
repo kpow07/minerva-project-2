@@ -56,6 +56,11 @@ async function listBiosFilterFieldCanadian(field, canadian) {
     return Bio.find({ [field]: true });
   }
 }
+
+function removeBio(id) {
+  console.log("FROM anyone details.js: trying to delete bio with id:", id);
+  return Bio.findByIdAndDelete(id);
+} 
 /////////////////////
 export {
   createBio,
@@ -65,4 +70,5 @@ export {
   listBiosFilterField,
   listBiosFilterCanadian,
   listBiosFilterFieldCanadian,
+  removeBio,
 };

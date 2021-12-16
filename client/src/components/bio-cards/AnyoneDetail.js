@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Detail.style.css";
+import { useNavigate } from "react-router";
 
 const AnyoneDetail = ({ bioId, buttonLink }) => {
   const [bio, setBio] = useState(null);
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
   useEffect(() => {
     const fetchBio = async () => {
@@ -15,7 +16,14 @@ const AnyoneDetail = ({ bioId, buttonLink }) => {
     fetchBio();
   }, [bioId]);
   //
-
+  async function deleteBio(id) {
+    console.log("FROM DELETE BIO FUNCTION");
+    await fetch(`/api/delete-bio/` + id, {
+      method: "DELETE",
+    });
+    console.log("Are you sure you want to DELETE Bio?", bioId);
+    navigate("/bio-gallery");
+  };
   return (
     <>
       <div className="rendered-bio">
@@ -23,6 +31,9 @@ const AnyoneDetail = ({ bioId, buttonLink }) => {
           <>
             <Link to={buttonLink}>
               <button>EDIT</button>
+            </Link>
+            <Link to={buttonLink}>
+            <button onClick={() => deleteBio(bio._id)}>DELETE</button>
             </Link>
             <h1>
               {bio.firstName} {bio.lastName}{" "}

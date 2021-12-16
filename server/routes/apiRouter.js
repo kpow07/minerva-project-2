@@ -7,8 +7,7 @@ import {
   listMentorsFilterFieldCity,
   listMentors,
   updateMentor,
-  removeMentor,
-  removeMentee,
+  removeMentor, 
 } from "../models/mentors.js";
 import {
   createBio,
@@ -18,6 +17,7 @@ import {
   listBiosFilterField,
   listBiosFilterFieldCanadian,
   listBiosFilterCanadian,
+  removeBio,
 } from "../models/bios.js";
 import {
   createMentee,
@@ -434,6 +434,14 @@ router.get("/filter-bios-all", async (req, res) => {
   );
   console.log(biosList);
   res.json(biosList);
+});
+
+router.delete("/delete-bio/:id", async (req, res) => {
+  console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
+  let id = req.params.id;
+  console.log("FROM API ROUTER deleting BIO:", id);
+  let deletedBio = await removeBio(id);
+  res.send(deletedBio);
 });
 /////////////////////////////ENDPOINTS FOR ALL COMMENTS///////////////////
 router.post("/add-comment", async (req, res) => {
