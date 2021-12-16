@@ -88,7 +88,7 @@ function MentorForm(
       if (res.ok) {
         //setName("");
         //setImage("");
-        navigate("/");
+        navigate("/mentor-gallery");
       }
     } catch (err) {
       console.log(err);

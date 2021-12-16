@@ -11,11 +11,11 @@ import LandingPageComponent from "./components/pages/landing page/LandingPageCom
 import BioPageComponent from "./components/pages/bio page/BioPageCompoent";
 import CreateBioPage from "./components/pages/add bio page/CreateBioPage";
 import BioDetailPage from "./components/pages/bio detail page/BioDetailPage";
-import BioEditPage from "./components/pages/bio edit page/BioEditPage";
 import MentorPageComponent from "./components/pages/mentor page/MentorPageComponent";
 import ProfilePageComponent from "./components/pages/profile/ProfilePageComponent";
 import MentorEditPage from "./components/pages/mentor-edit-page/MentorEditPage";
 import MenteeFavPage from "./components/pages/menteefavpage/MenteeFavPage";
+import BioEditPage from "./components/pages/bio edit page/BioEditPage";
 //import EditMentorForm from "./components/forms/forms/EditMentorForm";
 //import { useState } from "react";
 

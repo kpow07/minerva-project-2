@@ -1,26 +1,25 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import BioForm from "../../forms/forms/BioForm";
+import EditBioForm from "../../forms/forms/EditBioForm";
 
 function BioEditPage() {
   let navigate = useNavigate();
   let params = useParams();
-  let bioId = params.id;
   const [bio, setBio] = useState(null);
 
   useEffect(() => {
     const fetchBio = async () => {
-      let fetchResult = await fetch("/api/get-bio/" + bioId);
+      let fetchResult = await fetch("/api/get-bio/" + params.id);
       let fetchedBio = await fetchResult.json();
       setBio(fetchedBio);
     };
     fetchBio();
-  }, [bioId]);
+  }, [params.id]);
 
   const UpdateBio = async function (updatedBio) {
-    console.log(`updataing bio with id: ${bioId}`);
-    await fetch(`/api/add-bio/${bioId}`, {
+    console.log(`updataing bio with id: ${params.id}`);
+    await fetch(`/api/add-bio/${params.id}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -28,16 +27,15 @@ function BioEditPage() {
       },
       body: JSON.stringify(updatedBio),
     });
-    // navigate("/bio-detail/" + bioId);
     navigate("/bio-gallery");
   };
 
   return (
     <div>
-      <BioForm
+      <EditBioForm
         buttonValue={"UPDATE BIO"}
         existingValues={bio}
-        fetchedId={bioId}
+        fetchedId={params.id}
         titleValue={"Update STEM Bio"}
         onSave={UpdateBio}
       />
