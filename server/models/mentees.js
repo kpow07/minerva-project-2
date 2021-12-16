@@ -41,10 +41,14 @@ async function updateMentee(id, newMenteeInfo) {
 }
 
 
+function removeMentee(id) {
+  console.log("FROM MENTee.js: trying to delete mentee with id:", id);
+  return Mentor.findByIdAndDelete(id);
+}
 // async function getMenteeInfo(id) {
 //   let menteeInfo = await findMenteeById(id);
 //   return menteeInfo;
 // }
 
 ////////////////////////////////
-export { createMentee, findMenteeById, updateMentee };
+export { createMentee, findMenteeById, updateMentee, removeMentee };
