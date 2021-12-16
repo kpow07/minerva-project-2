@@ -11,8 +11,8 @@ function MainMentorGallery({ mentors, user, setUser }) {
   }
   return (
     <div className="main-bio-list">
+      
       <MentorDirectoryComponent
-        title={"Mentors in STEM"}
         mentorsArray={mentors}
         setSelectedMentorId={setSelectedMentorId}
         user={user}

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import MentorsFilterForm from "./MentorsFilterForm";
 import MainMentorGallery from "./MainMentorGallery";
+import TitleComponent from "../../title/TitleComponent";
 
 function MentorPageComponent({ user, setUser }) {
   const [mentorsList, setMentorsList] = useState([]);
@@ -17,6 +18,7 @@ function MentorPageComponent({ user, setUser }) {
 
   return (
     <div>
+      <TitleComponent title="Mentor Gallery" />
       <MentorsFilterForm onSubmit={filterGetRequest} />
       <MainMentorGallery mentors={mentorsList} user={user} setUser={setUser} />
     </div>
