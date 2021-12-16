@@ -6,21 +6,40 @@ const CLIENT_URL = "http://localhost:3000/";
 
 //description: Login successful
 router.get("/login/success", (req, res) => {
-  if (req.user) {
-    res.status(200).json({
-      success: true,
-      message: "successful",
-      user: req.user,
-    });
+  try {
+    if (req.user) {
+      res.status(200).json({
+        success: true,
+        message: "successful",
+        user: req.user,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
   }
 });
 
 //decsription: login failed
 router.get("/login/failed", (req, res) => {
-  res.status(401).json({
-    success: false,
-    message: "failure",
-  });
+  try{
+    res.status(401).json({
+      success: false,
+      message: "failure",
+    });
+
+  }catch(error){
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 
 //@description: Auth with Google
@@ -37,10 +56,6 @@ router.get(
       successRedirect: CLIENT_URL,
       failureRedirect: "/login/failed",
     }
-    /*
-    (req, res) => {
-      res.redirect(CLIENT_URL);
-    } */
   )
 );
 
@@ -48,8 +63,6 @@ router.get(
 //@route /auth/logout
 
 router.get("/logout", async (req, res) => {
-  //With the passport middleware, once we login, we will have a logout on the request object
-
   req.logout();
   res.redirect(CLIENT_URL);
 });
