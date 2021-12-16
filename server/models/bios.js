@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 const bioSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
+  avatar: { type: String },
+  cloudinary_id: { type: String },
   science: Boolean,
   technology: Boolean,
   engineering: Boolean,
@@ -10,7 +12,7 @@ const bioSchema = new mongoose.Schema({
   canadian: Boolean,
   description: String,
   bio: String,
-  imageURL: String,
+  // imageURL: String,
   OtherResources: String,
   // createdAt: {
   //   type: Date,

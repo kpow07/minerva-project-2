@@ -51,18 +51,26 @@ function CommentListItem({
   }
 
   return (
-    <div style={{ border: "1px solid black" }}>
+    <div className="comment-parent" style={{ border: "1px solid black" }}>
       <div>
-        <div style={{ display: "inlineFlex" }}>
-          <h5>
-            on: {comment.postedTime} by:{comment.poster}
-          </h5>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <p style={{ display: "flex", flexDirection: "row" }}>
+            on: {postedTime} by:{poster}{" "}
+            <CommentButton value={buttonValue} showOrNot={showOrNot} />
+            <CommentButton value="EDIT" showOrNot={showEditOrNot} />
+          </p>
         </div>
-        <h5 style={{ textAlign: "left", color: "blue" }}>
-          {commentQuestion}
-          <CommentButton value={buttonValue} showOrNot={showOrNot} />
-          <CommentButton value="EDIT" showOrNot={showEditOrNot} />
-        </h5>
+        <h5 style={{ textAlign: "left", color: "blue" }}>{commentQuestion}</h5>
+        {/* <CommentButton
+          value={buttonValue}
+          showOrNot={showOrNot}
+          style={{ float: "left" }}
+        />
+        <CommentButton
+          value="EDIT"
+          showOrNot={showEditOrNot}
+          style={{ float: "left" }}
+        /> */}
 
         {childrenArray &&
           childrenArray.map((child, index) => {
@@ -89,8 +97,8 @@ function CommentListItem({
             parentId={comment._id}
             instructions="ANSWER THE QUESTION FOR THE MENTEE!!"
             buttonValue="SUBMIT ANSWER"
-            // existingValues={comment}
-            // onSave={UpdateComment}
+            existingValues={comment}
+            onSave={UpdateComment}
           />
         ) : null}
         {showEdit && !!comment ? (

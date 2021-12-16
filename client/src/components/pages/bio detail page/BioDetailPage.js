@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import AnyoneDetail from "../../bio-cards/AnyoneDetail";
 import CommentComponent from "../comments/CommentComponent";
 import CommentForm from "../comments/CommentForm";
+import TitleComponent from "../../title/TitleComponent";
 
 const BioDetailPage = function ({ user }) {
   // let navigate = useNavigate();
@@ -11,6 +12,7 @@ const BioDetailPage = function ({ user }) {
 
   return (
     <div>
+      <TitleComponent title="Biography Detail" />
       <AnyoneDetail bioId={params.id} buttonLink={"/bio-edit/" + params.id} />
       <CommentComponent mentorId={params.id} user={user} />
     </div>
