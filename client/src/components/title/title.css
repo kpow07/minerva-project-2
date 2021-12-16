@@ -10,5 +10,6 @@
   padding: 2%;
   margin: 30px auto;
   box-shadow: 1px 0px 20px 1px grey;
-  width: 85%;
+  width: 90%;
+  border-radius: 25px;
 }

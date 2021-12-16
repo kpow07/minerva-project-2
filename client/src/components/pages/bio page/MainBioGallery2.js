@@ -10,7 +10,6 @@ function MainBioGallery2({ bios }) {
   return (
     <div className="main-bio-list">
       <BioDirectoryComponent2
-        title={"Famous women in STEM"}
         biosArray={bios}
         setSelectedBioId={setSelectedBioId}
       />
