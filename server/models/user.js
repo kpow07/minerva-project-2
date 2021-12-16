@@ -8,10 +8,12 @@ const UserSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   image: { type: String },
   favorites: [String],
+  userType: String, 
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
+
 
 export default mongoose.model("User", UserSchema);

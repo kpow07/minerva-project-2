@@ -30,11 +30,15 @@ async function listBios() {
 }
 
 async function findBioById(id) {
-  return Bio.findById(id);
+  let bio = await Bio.findById(id);
+  return bio;
 }
-async function updateBio(id, newBioInfo) {
-  await Bio.findByIdAndUpdate(id, newBioInfo, { returnDocument: "after" });
+async function updateBio(id, newBioInfo, obj) {
+  const bio = await Bio.findByIdAndUpdate(id, newBioInfo, obj);
+  await bio.save();
+  return bio;
 }
+
 async function listBiosFilterField(field) {
   console.log(field);
   return Bio.find({ [field]: true });
@@ -60,7 +64,7 @@ async function listBiosFilterFieldCanadian(field, canadian) {
 function removeBio(id) {
   console.log("FROM anyone details.js: trying to delete bio with id:", id);
   return Bio.findByIdAndDelete(id);
-} 
+}
 /////////////////////
 export {
   createBio,

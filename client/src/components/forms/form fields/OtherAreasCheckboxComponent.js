@@ -26,7 +26,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
             the form is COMPLETELY OPTIONAL!!!
           </h4>
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other1"
@@ -41,7 +41,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other2"
@@ -58,7 +58,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other3"
@@ -74,7 +74,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other4"
@@ -90,7 +90,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other5"
@@ -107,7 +107,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other6"
@@ -123,7 +123,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other7"
@@ -139,7 +139,7 @@ function OtherAreasCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc1">
               <input
                 className="check"
                 name="other8"

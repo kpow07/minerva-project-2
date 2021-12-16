@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import "./FormStyles.css";
 import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
@@ -8,7 +9,7 @@ import FormTitleComponent from "../form fields/FormTitleComponent";
 import FirstLastNameComponent from "../form fields/FirstLastNameFormComponent";
 import ImageUpload from "../form fields/FileUploadComponent";
 
-function BioForm({
+function EditBioForm({
   existingValues,
   fetchedId,
   titleValue,
@@ -16,6 +17,8 @@ function BioForm({
   onSave,
 }) {
   //set the beginning state for all variables
+  let params = useParams();
+  let id = params.id;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [canadian, setCanadian] = useState(false);
@@ -26,14 +29,12 @@ function BioForm({
   const [description, setDescription] = useState("");
   const [bio, setBio] = useState("");
   const [otherResources, setOtherResources] = useState("");
-  const [id, setId] = useState("");
   const [image, setImage] = useState("");
   const [avatar, setAvatar] = useState("");
-  const [cloudinary_id, setCloudinary_id] = useState("");
+  const [cloudinary_id, setCloudinaryId] = useState("");
 
   let navigate = useNavigate();
 
-  //prepopulates the form with existing values of current bio
   useEffect(() => {
     if (existingValues) {
       setFirstName(existingValues.firstName);
@@ -46,14 +47,16 @@ function BioForm({
       setDescription(existingValues.description);
       setBio(existingValues.bio);
       setOtherResources(existingValues.otherResources);
-      setId(existingValues.id);
+      setImage(existingValues.image);
+      setAvatar(existingValues.avatar);
+      setCloudinaryId(existingValues.cloudinary_id);
     }
-  }, [existingValues]);
+  }, [existingValues]); //this is called a guard, it will not touch the existing values unless the existing values are changed
 
   async function postData() {
-    let newBio = new FormData();
+    let formData = new FormData();
     try {
-      const personalInfo = {
+      let editBio = {
         firstName,
         lastName,
         canadian,
@@ -64,21 +67,18 @@ function BioForm({
         description,
         bio,
         otherResources,
-        id,
         avatar,
         cloudinary_id,
       };
 
-      newBio.append("fileProps", JSON.stringify(personalInfo));
-      newBio.append("image", image);
+      formData.append("fileProps", JSON.stringify(editBio));
+      formData.append("image", image);
 
-      const res = await fetch("http://localhost:5001/api/add-bio", {
-        method: "POST",
-        body: newBio,
+      const res = await fetch(`http://localhost:5001/api/add-bio/${id}`, {
+        method: "PUT",
+        body: formData,
       });
       if (res.ok) {
-        //setName("");
-        //setImage("");
         navigate("/bio-gallery");
       }
     } catch (err) {
@@ -86,20 +86,10 @@ function BioForm({
     }
   }
 
-  //   await onSave(newBio);
-  //   console.log(`saving bio ${newBio}`);
-  // }
 
-  //form title component:  you can set the name of the form here to be what you want
-  //personal info component:  values and setters of those values are passed in here
-  // this component for bios has an added canadian field, as well as an image url
-  //field of study component: values and setters of those values are passed in here
-  //Description bio resource component:     ""
-  //Other Areas checkbox component:      ""
-  //Submit button
   return (
     <div className="main-form">
-      <FormTitleComponent title={titleValue} />
+      <FormTitleComponent title={"Edit Biography"} />
 
       <FirstLastNameComponent
         values={{ firstName, lastName, canadian }}
@@ -123,11 +113,11 @@ function BioForm({
       <input
         className="submit-button"
         type="button"
-        value={buttonValue}
+        value="SUBMIT"
         onClick={postData}
       />
     </div>
   );
 }
 
-export default BioForm;
+export default EditBioForm;

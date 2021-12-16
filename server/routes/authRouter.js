@@ -66,5 +66,4 @@ router.get("/logout", async (req, res) => {
   req.logout();
   res.redirect(CLIENT_URL);
 });
-
 export default router;

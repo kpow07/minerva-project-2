@@ -22,6 +22,7 @@ import {
 import {
   createMentee,
   updateMentee,
+  // removeMentee,
   // findMenteeById,
 } from "../models/mentees.js";
 
@@ -61,13 +62,7 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
     }
   }
 });
-router.post("/update-mentor/:id", async (req, res) => {
-  let id = req.params.id;
-  let updatedMentor = req.body;
-  console.log("updating mentor with id:", id, "with", updatedMentor);
-  let mentor = await updateMentor(id, updatedMentor);
-  res.send(mentor);
-});
+
 //gets a list of all mentors from all fields
 router.get("/get-mentors", async (req, res) => {
   try {
@@ -100,6 +95,13 @@ router.get("/get-mentor/:id", async (req, res) => {
   }
 });
 
+// router.post("/update-mentor/:id", async (req, res) => {
+//   let id = req.params.id;
+//   let updatedMentor = req.body;
+//   console.log("updating mentor with id:", id, "with", updatedMentor);
+//   let mentor = await updateMentor(id, updatedMentor);
+//   res.send(mentor);
+// });
 // Updates a mentor using id from the url
 router.put("/update-mentor/:id", upload.single("image"), async (req, res) => {
   try {
@@ -119,7 +121,7 @@ router.put("/update-mentor/:id", upload.single("image"), async (req, res) => {
     }
 
     //update mentor based on new info
-    const data = req.body;
+    const data = JSON.parse(req.body.fileProps);
     data.avatar = result?.secure_url || mentor.avatar;
     data.cloudinary_id = result?.public_id || mentor.cloudinary_id;
 
@@ -197,9 +199,12 @@ router.get("/filter-mentors-all", async (req, res) => {
 // adds mentee from form information (body) and posts to database
 router.post("/add-mentee", async (req, res) => {
   let mentee = req.body;
+  console.log;("SO FAR THIS IS WORKING")
   try {
     let newMentee = await createMentee(mentee);
     console.log("Added Mentee", newMentee);
+    req.user.userType="mentee";
+    await req.user.save();
     res.send(newMentee);
   } catch (error) {
     console.log(error);
@@ -323,6 +328,7 @@ router.get("/get-favs", async (req, res) => {
 });
 //---------------------------------------------Michelle's Delete Test--------------------------
 
+<<<<<<< HEAD
 router.delete("/delete-mentee/:id", async (req, res) => {
   console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
   let id = req.params.id;
@@ -330,6 +336,15 @@ router.delete("/delete-mentee/:id", async (req, res) => {
   let deletedMentee = await removeMentee(id);
   res.send(deletedMentee);
 });
+=======
+// router.delete("/delete-mentee/:id", async (req, res) => {
+//   console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
+//   let id = req.params.id;
+//   console.log("FROM API ROUTER deleting Mentor:", id);
+//   let deletedMentee = await removeMentee(id);
+//   res.send(deletedMentee);
+// });
+>>>>>>> dfd17d062359788b1c94fb086ab6ab7140e76d5c
 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form
@@ -383,18 +398,39 @@ router.get("/get-bio/:id", async (req, res) => {
     }
   }
 });
-//updates bio using is from the url
-router.post("/add-bio/:id", async (req, res) => {
+
+router.put("/add-bio/:id", upload.single("image"), async (req, res) => {
   try {
-    let id = req.params.id;
-    let updatedBio = req.body;
-    console.log(`updating bio ${id}: ${updatedBio}`);
-    let bio = await updateBio(id, updatedBio);
-    res.send(bio);
+    const id = req.params.id;
+    let result;
+
+    //get mentor from database
+    const bio = await findBioById(id);
+
+    //If there is a new image from mentor
+    if (req.file) {
+      // Delete old image from cloudinary
+      await cloudinary.uploader.destroy(bio.cloudinary_id);
+
+      // Upload new image to cloudinary
+      result = await cloudinary.uploader.upload(req.file.path);
+    }
+
+    //update mentor based on new info
+    const data = JSON.parse(req.body.fileProps);
+    data.avatar = result?.secure_url || bio.avatar;
+    data.cloudinary_id = result?.public_id || bio.cloudinary_id;
+
+    //update mentor
+    const updatedBio = await updateBio(id, data, {
+      new: true,
+      useFindAndModify: false,
+    });
+    res.send(updatedBio);
   } catch (error) {
     console.log(error);
     if (error.code === 11000) {
-      res.status(409).send("Mentee already exists");
+      res.status(409).send("Bio already exists");
     } else {
       res.sendStatus(500);
     }
