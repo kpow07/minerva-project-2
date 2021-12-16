@@ -50,4 +50,4 @@ async function updateMentee(id, newMenteeInfo) {
 // }
 
 ////////////////////////////////
-export { createMentee, findMenteeById, updateMentee, removeMentee };
+export { createMentee, findMenteeById, updateMentee };
