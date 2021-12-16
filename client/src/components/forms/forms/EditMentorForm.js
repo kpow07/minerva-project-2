@@ -300,7 +300,7 @@ function EditMentorForm({
         body: formData,
       });
       if (res.ok) {
-        navigate("/");
+        navigate("/mentor-gallery");
       }
     } catch (err) {
       console.log(err);
