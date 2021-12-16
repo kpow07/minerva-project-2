@@ -83,7 +83,7 @@ function ProfilePageComponent({ user, setUser }) {
             buttonLink={"/mentor-edit/" + mentorId}
             // existingValues={existingValues}
             buttonDelete={"/mentor-delete/" + mentorId}
-            removeMentor={() => deleteMentor(mentor._id)}
+            removeMentor={() => deleteMentor(mentorId)}
           />
         </div>
 
@@ -95,17 +95,15 @@ function ProfilePageComponent({ user, setUser }) {
             user={user}
             setUser={setUser}
             buttonValue={buttonValue}
-            //  buttonLink={"/mentor-edit/" + params.id}
-            // existingValues={existingValues}
+            buttonLink={"/mentor-edit/" + mentorId}
+            existingValues={mentor}
           />
         </div>
         <div className="content">
           <AboutMe
             mentorId={params.id}
-            buttonLink={"/mentor-edit/" + mentorId}
-            // existingValues={existingValues}
-            // buttonDelete={"/delete-mentor/" + mentorId}
             deleteMentor={() => deleteMentor(mentorId)}
+            buttonLink={"/mentor-edit/" + mentorId}
           />
         </div>
 

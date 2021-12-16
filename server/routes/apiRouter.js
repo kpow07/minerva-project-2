@@ -79,7 +79,13 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
     }
   }
 });
-
+router.post("/update-mentor/:id", async (req, res) => {
+  let id = req.params.id;
+  let updatedMentor = req.body;
+  console.log("updating mentor with id:", id, "with", updatedMentor);
+  let mentor = await updateMentor(id, updatedMentor);
+  res.send(mentor);
+});
 //gets a list of all mentors from all fields
 router.get("/get-mentors", async (req, res) => {
   let mentorsList = await listMentors();

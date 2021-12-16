@@ -12,6 +12,7 @@ const AboutMe = ({
   editButtonLink,
   deleteButtonLink,
   deleteMentor,
+  buttonLink,
 }) => {
   const [mentor, setMentor] = useState();
 
@@ -62,13 +63,11 @@ const AboutMe = ({
       <h2 className="about-field-title"> Here are some resources: </h2>
       <p className="about-field-value">{mentor?.otherResources}</p>
       <br />
-      {/* <Link to={}>
+      <Link to={buttonLink}>
         <button>EDIT</button>
-      </Link> */}
+      </Link>
 
-      {/* <Link to={deleteButtonLink}> */}
       <button onClick={() => deleteMentor()}>DELETE</button>
-      {/* </Link> */}
     </div>
   );
 };

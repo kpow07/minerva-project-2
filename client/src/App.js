@@ -121,7 +121,13 @@ function App() {
         />
         <Route
           path="/mentee-fav"
-          element={user ? <MenteeFavPage user={user} setUser={setUser}/> : <LoginPage />}
+          element={
+            user ? (
+              <MenteeFavPage user={user} setUser={setUser} />
+            ) : (
+              <LoginPage />
+            )
+          }
         />
 
         <Route

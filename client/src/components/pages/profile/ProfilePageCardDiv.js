@@ -19,7 +19,6 @@ const ProfilePageCardDiv = ({
   mentor,
   user,
   setUser,
-  buttonValue,
 }) => {
   // console.log(window.location.pathname);
 
