@@ -22,6 +22,7 @@ import {
 import {
   createMentee,
   updateMentee,
+  // removeMentee,
   // findMenteeById,
 } from "../models/mentees.js";
 
