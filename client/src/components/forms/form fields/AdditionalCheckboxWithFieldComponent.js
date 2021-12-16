@@ -11,7 +11,7 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
         <div className="field-checkbox-component">
           <div className="field-area">
             <label className="check-label">
-              <div className="other-desc">
+              <div className="other-desc1">
                 <input
                   className="check"
                   name="other11"
@@ -32,7 +32,7 @@ function AdditionalCheckboxWithFieldComponent({ setters, values }) {
           <div className="field-checkbox-component">
             <div className="field-area">
               <label className="check-label">
-                <div className="other-desc">
+                <div className="other-desc1">
                   <input
                     className="check"
                     name="other9"
