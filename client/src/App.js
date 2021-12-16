@@ -23,6 +23,7 @@ import BioEditPage from "./components/pages/bio edit page/BioEditPage";
 //footer is not functional yet
 function App() {
   const [user, setUser] = useState(null);
+  const [getUser, setGetUser] = useState(new Date());
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -47,9 +48,9 @@ function App() {
         console.log(err);
       }
     };
-
+    console.log("RELOADING THE USER");
     getUser();
-  }, []);
+  }, [getUser]);
 
   console.log(user);
 
@@ -117,7 +118,9 @@ function App() {
         {/* MENTEE ROUTES */}
         <Route
           path="/mentee-add"
-          element={user ? <MenteeSignUpPage /> : <LoginPage />}
+          element={
+            user ? <MenteeSignUpPage setGetUser={setGetUser} /> : <LoginPage />
+          }
         />
         <Route
           path="/mentee-fav"

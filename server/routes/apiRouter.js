@@ -199,11 +199,12 @@ router.get("/filter-mentors-all", async (req, res) => {
 // adds mentee from form information (body) and posts to database
 router.post("/add-mentee", async (req, res) => {
   let mentee = req.body;
-  console.log;("SO FAR THIS IS WORKING")
+  console.log;
+  ("SO FAR THIS IS WORKING");
   try {
     let newMentee = await createMentee(mentee);
     console.log("Added Mentee", newMentee);
-    req.user.userType="mentee";
+    req.user.userType = "mentee";
     await req.user.save();
     res.send(newMentee);
   } catch (error) {
@@ -328,15 +329,6 @@ router.get("/get-favs", async (req, res) => {
 });
 //---------------------------------------------Michelle's Delete Test--------------------------
 
-<<<<<<< HEAD
-router.delete("/delete-mentee/:id", async (req, res) => {
-  console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
-  let id = req.params.id;
-  console.log("FROM API ROUTER deleting Mentor:", id);
-  let deletedMentee = await removeMentee(id);
-  res.send(deletedMentee);
-});
-=======
 // router.delete("/delete-mentee/:id", async (req, res) => {
 //   console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
 //   let id = req.params.id;
@@ -344,7 +336,6 @@ router.delete("/delete-mentee/:id", async (req, res) => {
 //   let deletedMentee = await removeMentee(id);
 //   res.send(deletedMentee);
 // });
->>>>>>> dfd17d062359788b1c94fb086ab6ab7140e76d5c
 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form

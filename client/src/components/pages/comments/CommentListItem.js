@@ -13,7 +13,7 @@ function CommentListItem({
   comment,
   commentId,
   buttonValue,
-  // UpdateComment,
+  updateComment,
 }) {
   //determines whether or not reply box is showing
   const [showing, setShowing] = useState(false);
@@ -105,7 +105,7 @@ function CommentListItem({
             instructions="ANSWER THE QUESTION FOR THE MENTEE!!"
             buttonValue="SUBMIT ANSWER"
             existingValues={comment}
-            // onSave={updateComment}
+            onSave={updateComment}
           />
         ) : null}
         {showEdit && !!comment ? (
@@ -115,7 +115,7 @@ function CommentListItem({
             instructions="EDIT YOUR COMMENT"
             buttonValue="SUBMIT ANSWER"
             existingValues={comment}
-            // onSave={UpdateComment}
+            onSave={updateComment}
           />
         ) : null}
       </div>

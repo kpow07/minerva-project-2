@@ -8,7 +8,7 @@ import DescriptionBioResourceComponent from "../form fields/DescriptionBioResour
 import FormTitle from "../form fields/FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheckboxWithFieldComponent"; //addition
 
-function MenteeForm() {
+function MenteeForm({ setGetUser }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -71,9 +71,12 @@ function MenteeForm() {
     };
     const response = await fetch("/api/add-mentee", requestOptions);
     const data = await response.json();
+
     console.log(data);
+    setGetUser(new Date());
     //response.text
   }
+
   return (
     <div className="main-form">
       <FormTitle title={"Become a Mentee!"} />

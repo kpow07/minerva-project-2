@@ -1,10 +1,10 @@
 import React from "react";
 import MenteeForm from "../../forms/forms/MenteeForm";
 
-function MenteeSignUpPage() {
+function MenteeSignUpPage({ setGetUser }) {
   return (
     <div>
-      <MenteeForm />
+      <MenteeForm setGetUser={setGetUser} />
     </div>
   );
 }

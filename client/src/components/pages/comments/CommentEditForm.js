@@ -21,11 +21,15 @@ function CommentEditForm({
   const [userId, setUserId] = useState("");
   const [messageBody, setMessageBody] = useState("");
   const [commentParentId, setCommentParentId] = useState("");
+  const [newCommentBody, setNewCommentBody] = useState(
+    existingValues.messageBody
+  );
 
   useEffect(() => {
     if (existingValues) {
       const theDate = Date().toLocaleString();
       setDate(theDate);
+      setMessageBody(existingValues.messageBody);
       setMentorId(existingValues.mentorId);
       if (parentId) {
         setCommentParentId(existingValues.parentId);
@@ -38,7 +42,7 @@ function CommentEditForm({
     }
   }, [existingValues, parentId]);
 
-  const udateComment = async function (updatedComment) {
+  const updateComment = async function (updatedComment) {
     console.log(`updataing bio with id: ${existingValues.commentId}`);
     await fetch(`/api/add-bio/${existingValues.commentId}`, {
       method: "POST",
@@ -80,8 +84,8 @@ function CommentEditForm({
           placeholder="add comment..."
           required={true}
           wrap="hard"
-          value={existingValues.messageBody}
-          onChange={(e) => setMessageBody(e.target.value)}
+          value={newCommentBody}
+          onChange={(e) => setNewCommentBody(e.target.value)}
         />
       </label>
       <br />
