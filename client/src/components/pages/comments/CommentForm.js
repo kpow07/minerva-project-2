@@ -64,7 +64,7 @@ function CommentForm({ user, parentId, instructions, buttonValue }) {
         {instructions}
         <br />
         <textarea
-          className="multi-line-field-long"
+          className="comment-multi-line-field-long"
           name="question"
           type="text"
           rows="4"
