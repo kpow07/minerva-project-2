@@ -3,6 +3,7 @@ import "../../directories/BioDirectory.style.css"; //This is the styling for the
 import "../../bio-cards/portraitCard.style.css"; //this css is specific to landing page cards
 import PortraitCardComponent from "../../bio-cards/PortraitCardComponent";
 import { useNavigate } from "react-router-dom";
+import TitleComponent from "../../title/TitleComponent";
 //
 //
 const LandingPageCardDiv = ({ user, setUser }) => {
@@ -48,10 +49,8 @@ const LandingPageCardDiv = ({ user, setUser }) => {
 
   return (
     <div>
+      <TitleComponent title="Meet Our Mentors" />
       <div className="directory-menu">
-        <div id="card-div-title" className="menu-title">
-          <h1>Meet Our Mentors!</h1>
-        </div>
         {mentors.map((mentor, index) => {
           return (
             <PortraitCardComponent

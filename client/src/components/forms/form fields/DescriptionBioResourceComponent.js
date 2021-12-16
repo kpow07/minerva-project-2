@@ -26,7 +26,7 @@ function DescriptionBioResourceComponent({ setters, values }) {
         <br />
 
         <label>
-          Bio:
+          Tell Us About Yourself:
           <br />
           <textarea
             className="multi-line-field-long"

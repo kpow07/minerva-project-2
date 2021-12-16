@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import BiosFilterForm from "./BiosFilterForm";
 import MainBioGallery2 from "./MainBioGallery2";
+import TitleComponent from "../../title/TitleComponent";
 
 function BioPageComponent() {
   const [biosList, setBiosList] = useState([]);
@@ -19,6 +20,7 @@ function BioPageComponent() {
 
   return (
     <div>
+      <TitleComponent title="Famous Women in STEM" />
       <BiosFilterForm onSubmit={filterGetRequest} />
       <MainBioGallery2 bios={biosList} />
     </div>

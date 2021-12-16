@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "../mentor page/Filter.css";
 
 function BiosFilterForm({ onSubmit, values, setters }) {
   const [field, setField] = useState("allFields");
@@ -11,26 +12,37 @@ function BiosFilterForm({ onSubmit, values, setters }) {
   }, [canadian, field]);
   console.log(`THE FIELD IS: filter form: ${field}`);
   return (
-    <div>
-      <div onChange={(e) => setField(e.target.value)}>
+    <div className="parent-filter-component">
+      <div className="search">FILTER BIOS:</div>
+      <div
+        className="filter-component"
+        onChange={(e) => setField(e.target.value)}
+      >
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div
+              className="other-desc"
+              style={{ backgroundColor: "orangeRed" }}
+            >
               <input
                 className="check"
                 name="field"
                 type="radio"
                 value={"science"}
+
                 // checked={science === true}
                 //   onChange={(e) => setScience(e.target.checked)}
               />
-              Science
+              SCIENCE
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div
+              className="other-desc"
+              style={{ backgroundColor: "paleVioletRed" }}
+            >
               <input
                 className="check"
                 name="field"
@@ -40,13 +52,13 @@ function BiosFilterForm({ onSubmit, values, setters }) {
 
                 //   onChange={(e) => setTechnology(e.target.checked)}
               />
-              Technology
+              TECHNOLOGY
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc" style={{ backgroundColor: "darkBlue" }}>
               <input
                 className="check"
                 name="field"
@@ -56,13 +68,13 @@ function BiosFilterForm({ onSubmit, values, setters }) {
 
                 //   onChange={(e) => setEngineering(e.target.checked)}
               />
-              Engineering
+              ENGINEERING
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc" style={{ backgroundColor: "gold" }}>
               <input
                 className="check"
                 name="field"
@@ -72,13 +84,13 @@ function BiosFilterForm({ onSubmit, values, setters }) {
 
                 //   onChange={(e) => setMathematics(e.target.checked)}
               />
-              Mathematics
+              MATHEMATICS
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc" style={{ backgroundColor: "purple" }}>
               <input
                 className="check"
                 name="field"
@@ -88,14 +100,14 @@ function BiosFilterForm({ onSubmit, values, setters }) {
 
                 //   onChange={(e) => setAllFields(e.target.checked)}
               />
-              All Fields
+              ALL FIELDS
             </div>
           </label>
         </div>
       </div>
       <div className="field-area">
         <label className="check-label">
-          <div className="other-desc">
+          <div className="other-desc" style={{ backgroundColor: "red" }}>
             <input
               className="check"
               name="canadian"
@@ -105,7 +117,7 @@ function BiosFilterForm({ onSubmit, values, setters }) {
               unchecked={canadian === ""}
               onChange={(e) => setCanadian(e.target.checked)}
             />
-            Canadian
+            CANADIAN
           </div>
         </label>
       </div>

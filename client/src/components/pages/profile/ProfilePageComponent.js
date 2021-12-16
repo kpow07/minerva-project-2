@@ -4,6 +4,7 @@ import AboutMe from "./AboutMe";
 import ProfilePageCardDiv from "./ProfilePageCardDiv";
 import "./ProfilePage.css";
 import { useNavigate } from "react-router"; //add this
+import TitleComponent from "../../title/TitleComponent";
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
@@ -61,36 +62,58 @@ function ProfilePageComponent({ user, setUser }) {
   // }
 
   return (
-    <div className="profile-page-wrapper">
-      <div id="card-div-title" className="header">
-        <h1>Mentor Profile Page</h1>
-      </div>
+    <div>
+      <TitleComponent title="Mentor Profile Page" />
+      <div className="profile-page-wrapper">
+        <div className="sidebar">
+          <ProfilePageCardDiv
+            mentor={mentor}
+            mentorId={mentorId}
+            userId={userId}
+            user={user}
+            setUser={setUser}
+            buttonValue={buttonValue}
+            //  buttonLink={"/mentor-edit/" + params.id}
+            // existingValues={existingValues}
+          />
+        </div>
+        <div className="content">
+          <AboutMe
+            mentorId={params.id}
+            buttonLink={"/mentor-edit/" + mentorId}
+            // existingValues={existingValues}
+            buttonDelete={"/mentor-delete/" + mentorId}
+            removeMentor={() => deleteMentor(mentor._id)}
+          />
+        </div>
 
-      <div className="sidebar">
-        <ProfilePageCardDiv
-          mentor={mentor}
-          mentorId={mentorId}
-          userId={userId}
-          user={user}
-          setUser={setUser}
-          buttonValue={buttonValue}
-          //  buttonLink={"/mentor-edit/" + params.id}
-          // existingValues={existingValues}
-        />
-      </div>
-      <div className="content">
-        <AboutMe
-          mentorId={params.id}
-          buttonLink={"/mentor-edit/" + mentorId}
-          // existingValues={existingValues}
-          // buttonDelete={"/delete-mentor/" + mentorId}
-          deleteMentor={() => deleteMentor(mentorId)}
-        />
-      </div>
+        <div className="sidebar">
+          <ProfilePageCardDiv
+            mentor={mentor}
+            mentorId={mentorId}
+            userId={userId}
+            user={user}
+            setUser={setUser}
+            buttonValue={buttonValue}
+            //  buttonLink={"/mentor-edit/" + params.id}
+            // existingValues={existingValues}
+          />
+        </div>
+        <div className="content">
+          <AboutMe
+            mentorId={params.id}
+            buttonLink={"/mentor-edit/" + mentorId}
+            // existingValues={existingValues}
+            // buttonDelete={"/delete-mentor/" + mentorId}
+            deleteMentor={() => deleteMentor(mentorId)}
+          />
+        </div>
 
-      {/* <div>
+        {/* <div>
+        {/* <div>
        <MessageBoard className="footer"/>
      </div> */}
+      </div>
     </div>
   );
 }

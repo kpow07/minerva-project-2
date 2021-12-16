@@ -14,6 +14,7 @@
   color: snow;
   width: 90%;
   margin: 0 auto;
+  border-radius: 100px;
 }
 
 .search {
@@ -32,6 +33,7 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+
 
 .other-input {
   margin-top: 35px;

@@ -55,7 +55,7 @@ const Header = ({ user }) => {
           </nav>
           <nav className="navMenu">
             <ul>
-              <Link to="/profile">
+              <Link to="/mentee-fav">
                 <button id="smallButton" className="button">
                   PROFILE
                 </button>
