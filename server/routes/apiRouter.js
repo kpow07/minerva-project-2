@@ -22,6 +22,7 @@ import {
 import {
   createMentee,
   updateMentee,
+  // removeMentee, 
   // findMenteeById,
 } from "../models/mentees.js";
 
@@ -323,13 +324,13 @@ router.get("/get-favs", async (req, res) => {
 });
 //---------------------------------------------Michelle's Delete Test--------------------------
 
- router.delete ("/delete-mentee/:id", async (req,res) => {
-    console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
-  let id = req.params.id;
-    console.log("FROM API ROUTER deleting Mentor:", id);
-    let deletedMentee = await removeMentee(id);
-    res.send (deletedMentee)
-   })
+//  router.delete ("/delete-mentee/:id", async (req,res) => {
+//     console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
+//   let id = req.params.id;
+//     console.log("FROM API ROUTER deleting Mentor:", id);
+//     let deletedMentee = await removeMentee(id);
+//     res.send (deletedMentee)
+//    })
 
  
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
