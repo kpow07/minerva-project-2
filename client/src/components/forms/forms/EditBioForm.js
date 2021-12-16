@@ -86,17 +86,6 @@ function EditBioForm({
     }
   }
 
-  // console.log(data);
-  //   await onSave(newMentor);
-  //   console.log(`saving bio ${newMentor}`);
-  // }
-
-  //form title component:  you can set the name of the form here to be what you want
-  //personal info component:  values and setters of those values are passed in here
-  //field of study component: values and setters of those values are passed in here
-  //Description bio resource component:     ""
-  //Other Areas checkbox component:      ""
-  //Submit button
 
   return (
     <div className="main-form">

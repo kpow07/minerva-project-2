@@ -62,13 +62,7 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
     }
   }
 });
-router.post("/update-mentor/:id", async (req, res) => {
-  let id = req.params.id;
-  let updatedMentor = req.body;
-  console.log("updating mentor with id:", id, "with", updatedMentor);
-  let mentor = await updateMentor(id, updatedMentor);
-  res.send(mentor);
-});
+
 //gets a list of all mentors from all fields
 router.get("/get-mentors", async (req, res) => {
   try {
@@ -101,6 +95,13 @@ router.get("/get-mentor/:id", async (req, res) => {
   }
 });
 
+// router.post("/update-mentor/:id", async (req, res) => {
+//   let id = req.params.id;
+//   let updatedMentor = req.body;
+//   console.log("updating mentor with id:", id, "with", updatedMentor);
+//   let mentor = await updateMentor(id, updatedMentor);
+//   res.send(mentor);
+// });
 // Updates a mentor using id from the url
 router.put("/update-mentor/:id", upload.single("image"), async (req, res) => {
   try {
@@ -120,7 +121,7 @@ router.put("/update-mentor/:id", upload.single("image"), async (req, res) => {
     }
 
     //update mentor based on new info
-    const data = req.body;
+    const data = JSON.parse(req.body.fileProps);
     data.avatar = result?.secure_url || mentor.avatar;
     data.cloudinary_id = result?.public_id || mentor.cloudinary_id;
 
@@ -384,23 +385,6 @@ router.get("/get-bio/:id", async (req, res) => {
     }
   }
 });
-//updates bio using is from the url
-// router.post("/add-bio/:id", async (req, res) => {
-//   try {
-//     let id = req.params.id;
-//     let updatedBio = req.body;
-//     console.log(`updating bio ${id}: ${updatedBio}`);
-//     let bio = await updateBio(id, updatedBio);
-//     res.send(bio);
-//   } catch (error) {
-//     console.log(error);
-//     if (error.code === 11000) {
-//       res.status(409).send("Mentee already exists");
-//     } else {
-//       res.sendStatus(500);
-//     }
-//   }
-// });
 
 router.put("/add-bio/:id", upload.single("image"), async (req, res) => {
   try {
@@ -420,7 +404,7 @@ router.put("/add-bio/:id", upload.single("image"), async (req, res) => {
     }
 
     //update mentor based on new info
-    const data = req.body;
+    const data = JSON.parse(req.body.fileProps);
     data.avatar = result?.secure_url || bio.avatar;
     data.cloudinary_id = result?.public_id || bio.cloudinary_id;
 
