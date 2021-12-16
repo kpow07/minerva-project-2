@@ -33,7 +33,7 @@ function FirstLastNameComponent({ setters, values }) {
       <br />
       <div className="field-area">
         <label className="check-label">
-          <div className="other-desc">
+          <div className="other-desc1">
             <input
               className="check"
               name="canadian"
@@ -41,7 +41,7 @@ function FirstLastNameComponent({ setters, values }) {
               value={canadian}
               onChange={(e) => setCanadian(e.target.checked)}
             />
-            Canadian?:
+            Canadian?
           </div>
         </label>
       </div>

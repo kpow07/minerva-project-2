@@ -9,9 +9,13 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
     <div>
       <div className="field-checkbox-component">
         <h4 className="padding">Which fields are you involved in?</h4>
+
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div
+              className="field-button"
+              style={{ backgroundColor: "orangeRed" }}
+            >
               <input
                 className="check"
                 name="science"
@@ -27,7 +31,10 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div
+              className="field-button"
+              style={{ backgroundColor: "paleVioletRed" }}
+            >
               <input
                 className="check"
                 name="technology"
@@ -43,7 +50,10 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div
+              className="field-button"
+              style={{ backgroundColor: "darkBlue" }}
+            >
               <input
                 className="check"
                 name="engineering"
@@ -59,7 +69,7 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="field-button" style={{ backgroundColor: "gold" }}>
               <input
                 className="check"
                 name="mathematics"
