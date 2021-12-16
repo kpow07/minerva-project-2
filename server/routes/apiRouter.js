@@ -8,6 +8,7 @@ import {
   listMentors,
   updateMentor,
   removeMentor,
+  removeMentee,
 } from "../models/mentors.js";
 import {
   createBio,
@@ -17,7 +18,6 @@ import {
   listBiosFilterField,
   listBiosFilterFieldCanadian,
   listBiosFilterCanadian,
-  //removeMentor
 } from "../models/bios.js";
 import {
   createMentee,
@@ -323,13 +323,15 @@ router.get("/get-favs", async (req, res) => {
 });
 //---------------------------------------------Michelle's Delete Test--------------------------
 
-// router.delete ("/delete-mentee/:id", async (req,res) => {
-//   let id = req.params.id
-//   console.log ('deleting Mentee', id)
-//   let deletedMentee = await mentee.delete(id)
-//   res.send (deletedMentor)
-// })
+ router.delete ("/delete-mentee/:id", async (req,res) => {
+    console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
+  let id = req.params.id;
+    console.log("FROM API ROUTER deleting Mentor:", id);
+    let deletedMentee = await removeMentee(id);
+    res.send (deletedMentee)
+   })
 
+ 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form
 router.post("/add-bio", async (req, res) => {
