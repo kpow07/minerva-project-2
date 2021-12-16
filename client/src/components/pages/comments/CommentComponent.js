@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import CommentForm from "./CommentForm";
 import CommentListItem from "./CommentListItem";
+import "./comments.css";
 
 /////////////////////////////////////////////60
 
@@ -24,10 +25,14 @@ function CommentComponent({ user, mentorId }) {
   //
 
   return (
-    <div style={{ backgroundColor: "white", opacity: "100%" }}>
+    <div
+      className="comment-parent"
+      style={{ backgroundColor: "white", opacity: "100%" }}
+    >
       <CommentForm //JUST FOR THE INITIAL QUESTION, set the parentId to empty string
         user={user}
         commentParentId={""}
+        style={{ justifyContents: "center" }}
         instructions="ASK A QUESTION TO THIS MENTOR!!"
         buttonValue="SUBMIT QUESTION"
       />
