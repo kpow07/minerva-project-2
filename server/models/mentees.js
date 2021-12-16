@@ -21,7 +21,7 @@ const menteeSchema = new mongoose.Schema({
   other7: Boolean,
   other8: Boolean,
   other9: Boolean,
-  other10: Boolean,
+  other10: String,
   other11: Boolean,
   ////////////////////
 });

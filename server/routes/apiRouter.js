@@ -199,9 +199,12 @@ router.get("/filter-mentors-all", async (req, res) => {
 // adds mentee from form information (body) and posts to database
 router.post("/add-mentee", async (req, res) => {
   let mentee = req.body;
+  console.log;("SO FAR THIS IS WORKING")
   try {
     let newMentee = await createMentee(mentee);
     console.log("Added Mentee", newMentee);
+    req.user.userType="mentee";
+    await req.user.save();
     res.send(newMentee);
   } catch (error) {
     console.log(error);
