@@ -64,10 +64,10 @@ const AboutMe = ({
       <p className="about-field-value">{mentor?.otherResources}</p>
       <br />
       <Link to={buttonLink}>
-        <button>EDIT</button>
+        <button className="button-edit-delete">EDIT PROFILE</button>
       </Link>
 
-      <button onClick={() => deleteMentor()}>DELETE</button>
+      <button className="button-edit-delete" onClick={() => deleteMentor()}>DELETE PROFILE</button>
     </div>
   );
 };
