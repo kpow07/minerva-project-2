@@ -1,0 +1,8 @@
+.comment-button {
+  padding: 0px;
+  border: none;
+  background-color: white;
+  color: blue;
+  margin: 2px 5px;
+  text-decoration: underline;
+}

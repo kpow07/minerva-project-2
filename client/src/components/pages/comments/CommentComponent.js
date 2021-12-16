@@ -25,10 +25,7 @@ function CommentComponent({ user, mentorId }) {
   //
 
   return (
-    <div
-      className="comment-parent"
-      style={{ backgroundColor: "white", opacity: "100%" }}
-    >
+    <div className="comment-parent">
       <CommentForm //JUST FOR THE INITIAL QUESTION, set the parentId to empty string
         user={user}
         commentParentId={""}
@@ -52,7 +49,8 @@ function CommentComponent({ user, mentorId }) {
                   comment={comment}
                   commentId={comment._id}
                   commentChildren={comment.commentChildren}
-                  buttonValue="REPLY"
+                  buttonValue="reply"
+                  // updateComment={updateComment}
                 />
               </div>
             );

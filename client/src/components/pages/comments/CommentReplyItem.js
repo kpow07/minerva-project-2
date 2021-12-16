@@ -11,6 +11,7 @@ function CommentReplyItem({
   commentId,
   buttonValue,
   replyBody,
+  updateComment,
 }) {
   //determines whether or not reply box is showing
   const [showing, setShowing] = useState(false);
@@ -39,12 +40,23 @@ function CommentReplyItem({
   return (
     <div style={{ marginLeft: "50px" }}>
       <div>
-        <h4 style={{ textAlign: "left", color: "blue" }}>{replyBody}</h4>
-        <div>
-          <p> on: {postedTime} </p> <p>by:{poster}</p>
-          <CommentButton value={buttonValue} showOrNot={showOrNot} />
-          <CommentButton value="EDIT" showOrNot={showOrNot} />
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <p className="comment-info">
+            on: {postedTime} by:{poster}{" "}
+            <CommentButton
+              className="comment-button"
+              value="reply"
+              showOrNot={showOrNot}
+            />
+            <CommentButton
+              className="comment-button"
+              value="edit"
+              showOrNot={showOrNot}
+            />
+          </p>
         </div>
+        <h4 className="comment-body">{replyBody}</h4>
+
         {grandChildrenArray &&
           grandChildrenArray.map((child, index) => {
             return (
@@ -57,7 +69,7 @@ function CommentReplyItem({
                 replyBody={child.messageBody}
                 comment={child}
                 existingValues={comment}
-                // onSave={UpdateComment}
+                onSave={updateComment}
               />
             );
           })}

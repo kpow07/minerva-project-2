@@ -1,11 +1,13 @@
 import React from "react";
+import "./CommentButton.css";
 
 function CommentButton({ buttonId, showOrNot, value }) {
   return (
     <div>
       <button
+        className="comment-button"
         buttonId={buttonId}
-        style={{ marginLeft: "10px" }}
+        style={{ marginLeft: "3px" }}
         onClick={showOrNot}
       >
         {value}

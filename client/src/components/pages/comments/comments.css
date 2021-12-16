@@ -1,8 +1,18 @@
 .comment-parent {
-  width: full;
+  width: 80%;
   margin: auto;
+  background-color: white;
 }
 
 .comment-multi-line-field-long {
   margin: auto;
+}
+.comment-body {
+  text-align: left;
+  color: blue;
+  margin-bottom: 15px;
+}
+.comment-info {
+  display: flex;
+  flex-direction: row;
 }

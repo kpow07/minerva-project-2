@@ -20,7 +20,7 @@ function MenteeFavPage({ user, setUser }) {
     };
     fetchMenteeFavs();
   }, []);
-
+  ("");
   return (
     <div>
       <TitleComponent title="Mentee Profile Page" />

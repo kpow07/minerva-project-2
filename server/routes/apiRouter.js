@@ -7,7 +7,7 @@ import {
   listMentorsFilterFieldCity,
   listMentors,
   updateMentor,
-  removeMentor, 
+  removeMentor,
 } from "../models/mentors.js";
 import {
   createBio,
@@ -323,15 +323,14 @@ router.get("/get-favs", async (req, res) => {
 });
 //---------------------------------------------Michelle's Delete Test--------------------------
 
- router.delete ("/delete-mentee/:id", async (req,res) => {
-    console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
+router.delete("/delete-mentee/:id", async (req, res) => {
+  console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
   let id = req.params.id;
-    console.log("FROM API ROUTER deleting Mentor:", id);
-    let deletedMentee = await removeMentee(id);
-    res.send (deletedMentee)
-   })
+  console.log("FROM API ROUTER deleting Mentor:", id);
+  let deletedMentee = await removeMentee(id);
+  res.send(deletedMentee);
+});
 
- 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form
 router.post("/add-bio", upload.single("image"), async (req, res) => {

@@ -40,10 +40,9 @@ async function updateMentee(id, newMenteeInfo) {
   await Mentee.findByIdAndUpdate(id, newMenteeInfo);
 }
 
-
 function removeMentee(id) {
   console.log("FROM MENTee.js: trying to delete mentee with id:", id);
-  return Mentor.findByIdAndDelete(id);
+  return Mentee.findByIdAndDelete(id);
 }
 // async function getMenteeInfo(id) {
 //   let menteeInfo = await findMenteeById(id);

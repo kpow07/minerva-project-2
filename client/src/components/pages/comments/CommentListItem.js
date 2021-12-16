@@ -13,7 +13,7 @@ function CommentListItem({
   comment,
   commentId,
   buttonValue,
-  UpdateComment,
+  // UpdateComment,
 }) {
   //determines whether or not reply box is showing
   const [showing, setShowing] = useState(false);
@@ -53,24 +53,31 @@ function CommentListItem({
   return (
     <div className="comment-parent" style={{ border: "1px solid black" }}>
       <div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <p style={{ display: "flex", flexDirection: "row" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            margin: "10px auto 2px auto",
+          }}
+        >
+          <p
+            className="comment-info"
+            style={{ display: "flex", flexDirection: "row" }}
+          >
             on: {postedTime} by:{poster}{" "}
-            <CommentButton value={buttonValue} showOrNot={showOrNot} />
-            <CommentButton value="EDIT" showOrNot={showEditOrNot} />
+            <CommentButton
+              className="comment-button"
+              value={buttonValue}
+              showOrNot={showOrNot}
+            />
+            <CommentButton
+              className="comment-button"
+              value="edit"
+              showOrNot={showEditOrNot}
+            />
           </p>
         </div>
-        <h5 style={{ textAlign: "left", color: "blue" }}>{commentQuestion}</h5>
-        {/* <CommentButton
-          value={buttonValue}
-          showOrNot={showOrNot}
-          style={{ float: "left" }}
-        />
-        <CommentButton
-          value="EDIT"
-          showOrNot={showEditOrNot}
-          style={{ float: "left" }}
-        /> */}
+        <h4 className="comment-body">{commentQuestion}</h4>
 
         {childrenArray &&
           childrenArray.map((child, index) => {
@@ -98,7 +105,7 @@ function CommentListItem({
             instructions="ANSWER THE QUESTION FOR THE MENTEE!!"
             buttonValue="SUBMIT ANSWER"
             existingValues={comment}
-            onSave={UpdateComment}
+            // onSave={updateComment}
           />
         ) : null}
         {showEdit && !!comment ? (
@@ -108,7 +115,7 @@ function CommentListItem({
             instructions="EDIT YOUR COMMENT"
             buttonValue="SUBMIT ANSWER"
             existingValues={comment}
-            onSave={UpdateComment}
+            // onSave={UpdateComment}
           />
         ) : null}
       </div>
