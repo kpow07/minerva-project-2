@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./Filter.css";
+import "../Filter.css";
 
 function MentorsFilterForm({ onSubmit, values, setters }) {
   const [field, setField] = useState("allFields");

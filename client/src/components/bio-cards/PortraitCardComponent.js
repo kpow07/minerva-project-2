@@ -21,11 +21,9 @@ const PortraitCardComponent = ({
 }) => {
   const [like, setLike] = useState(false);
   const mentorId = mentor?._id;
-  console.log("THIS IS THE USER", user);
   useEffect(() => {
     let doesLike = user?.favorites.includes(mentorId);
     setLike(doesLike);
-    console.log("value of button", doesLike);
   }, [mentorId, user?.favorites]);
 
   const favoritesToggle = () => {

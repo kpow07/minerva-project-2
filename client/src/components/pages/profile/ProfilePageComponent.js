@@ -20,15 +20,31 @@ function ProfilePageComponent({ user, setUser }) {
   //
   //
 
+  useEffect(() => {
+    const fetchMentor = async () => {
+      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
+      let fetchedMentor = await fetchResult.json();
+      setMentor(fetchedMentor);
+    };
+    if (mentorId) {
+      fetchMentor();
+    }
+  }, [mentorId]);
   //will the delete function below work?
 
   async function deleteMentor(id) {
+    console.log("FROM DELETE MENTOR FUNCTION");
     await fetch(`/api/delete-mentor/` + id, {
       method: "DELETE",
     });
     console.log("Are you sure you want to DELETE Mentor?", mentorId);
     navigate("/mentor-gallery");
   }
+  // async function deleteMentor(id) {
+  //   await fetch(`/api/delete-mentor/` + id, {
+  //     method: "DELETE",
+  //   });
+  // }
 
   // const addToFavorites = async function () {
   //   await fetch(`/api/add-favorite?mentorId=${mentorId}&id=${userId}`);
@@ -43,17 +59,6 @@ function ProfilePageComponent({ user, setUser }) {
   //   setFavoritesToggle(addToFavorites);
   //   setButtonValue("❤️");
   // }
-
-  useEffect(() => {
-    const fetchMentor = async () => {
-      let fetchResult = await fetch("/api/get-mentor/" + mentorId);
-      let fetchedMentor = await fetchResult.json();
-      setMentor(fetchedMentor);
-    };
-    if (mentorId) {
-      fetchMentor();
-    }
-  }, [mentorId]);
 
   return (
     <div className="profile-page-wrapper">
@@ -78,8 +83,8 @@ function ProfilePageComponent({ user, setUser }) {
           mentorId={params.id}
           buttonLink={"/mentor-edit/" + mentorId}
           // existingValues={existingValues}
-          buttonDelete={"/mentor-delete/" + mentorId}
-          removeMentor={() => deleteMentor(mentor._id)}
+          // buttonDelete={"/delete-mentor/" + mentorId}
+          deleteMentor={() => deleteMentor(mentorId)}
         />
       </div>
 

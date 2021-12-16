@@ -11,6 +11,7 @@ const AboutMe = ({
   existingValues,
   editButtonLink,
   deleteButtonLink,
+  deleteMentor,
 }) => {
   const [mentor, setMentor] = useState();
 
@@ -65,9 +66,9 @@ const AboutMe = ({
         <button>EDIT</button>
       </Link> */}
 
-      {/* <Link to={deleteButtonLink}>
-        <button>DELETE</button>
-      </Link> */}
+      {/* <Link to={deleteButtonLink}> */}
+      <button onClick={() => deleteMentor()}>DELETE</button>
+      {/* </Link> */}
     </div>
   );
 };
