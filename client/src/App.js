@@ -135,6 +135,7 @@ function App() {
           element={user ? <Navigate to="/" /> : <LoginPage />}
         />
         <Route path="/landing-page" element={<LandingPageComponent />} />
+        <Route path="*" element={<LandingPageComponent />} />
       </Routes>
       <Footer />
     </div>
