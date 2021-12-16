@@ -137,7 +137,7 @@ function MentorForm(
         values={{ firstName, lastName, email, city, province }}
         setters={{ setFirstName, setLastName, setEmail, setCity, setProvince }}
       />
-
+      <ImageUpload values={{ image }} setters={{ setImage }} />
       <FieldOfStudyCheckboxComponent
         values={{ science, technology, engineering, mathematics }}
         setters={{
@@ -147,7 +147,6 @@ function MentorForm(
           setMathematics,
         }}
       />
-      <ImageUpload values={{ image }} setters={{ setImage }} />
 
       <DescriptionBioResourceComponent
         values={{ description, bio, otherResources }}

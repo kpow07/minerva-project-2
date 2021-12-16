@@ -58,7 +58,7 @@ function PersonalInfoComponent({ setters, values }) {
         <br />
         <label>
           Email Address:
-          <inputs
+          <input
             className="single-line-field-med"
             name="email"
             type="text"
