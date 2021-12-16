@@ -1,0 +1,38 @@
+.filter-component {
+  display: flex;
+  flex-direction: row;
+}
+
+.parent-filter-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #8da47e;
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 15px;
+  color: snow;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.search {
+  margin-top: 1.4rem;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.other-desc {
+  border-radius: 100px;
+  padding: 10px;
+  padding-top: 23px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  box-shadow: 1px 0px 20px 1px grey;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.other-input {
+  margin-top: 35px;
+}

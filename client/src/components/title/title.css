@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One:wght@600&display=swap");
+
+.title {
+  font-family: "Julius Sans One";
+  /* color: #8da47e; */
+  color: black;
+  font-size: 40px;
+  background-color: #d7ecd9;
+  padding: 2%;
+  margin: 30px auto;
+  box-shadow: 1px 0px 20px 1px grey;
+  width: 85%;
+}

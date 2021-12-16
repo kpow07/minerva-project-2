@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "./Filter.css";
 
 function MentorsFilterForm({ onSubmit, values, setters }) {
   const [field, setField] = useState("allFields");
@@ -14,58 +15,71 @@ function MentorsFilterForm({ onSubmit, values, setters }) {
   //   `MentorsFilterForm: filtering for field:${field} and city ${city}`
   // );
   return (
-    <div>
-      <div onChange={(e) => setField(e.target.value)}>
+    <div className="parent-filter-component">
+      <div className="search">FILTER MENTORS:</div>
+      <div
+        className="filter-component"
+        onChange={(e) => setField(e.target.value)}
+      >
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div
+              className="other-desc"
+              style={{ backgroundColor: "orangeRed" }}
+            >
               <input
                 className="check"
                 name="field"
                 type="radio"
                 value={"science"}
+
                 // checked={science === true}
                 //   onChange={(e) => setScience(e.target.checked)}
               />
-              Science
+              SCIENCE
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div
+              className="other-desc"
+              style={{ backgroundColor: "paleVioletRed" }}
+            >
               <input
                 className="check"
                 name="field"
                 type="radio"
                 value={"technology"}
+
                 // checked={technology === true}
 
                 //   onChange={(e) => setTechnology(e.target.checked)}
               />
-              Technology
+              TECHNOLOGY
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc" style={{ backgroundColor: "darkBlue" }}>
               <input
                 className="check"
                 name="field"
                 type="radio"
                 value={"engineering"}
+
                 // checked={engineering === true}
 
                 //   onChange={(e) => setEngineering(e.target.checked)}
               />
-              Engineering
+              ENGINEERING
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc" style={{ backgroundColor: "gold" }}>
               <input
                 className="check"
                 name="field"
@@ -75,13 +89,13 @@ function MentorsFilterForm({ onSubmit, values, setters }) {
 
                 //   onChange={(e) => setMathematics(e.target.checked)}
               />
-              Mathematics
+              MATHEMATICS
             </div>
           </label>
         </div>
         <div className="field-area">
           <label className="check-label">
-            <div className="other-desc">
+            <div className="other-desc" style={{ backgroundColor: "purple" }}>
               <input
                 className="check"
                 name="field"
@@ -91,14 +105,15 @@ function MentorsFilterForm({ onSubmit, values, setters }) {
 
                 //   onChange={(e) => setAllFields(e.target.checked)}
               />
-              All Fields
+              ALL FIELDS
             </div>
           </label>
         </div>
       </div>
-      <div className="field-area">
+      <div className="filter-component">
         <label className="check-label">
-          <div className="other-desc">
+          <div className="other-input">
+            CITY: &nbsp;
             <input
               className=""
               name="city"
@@ -106,7 +121,6 @@ function MentorsFilterForm({ onSubmit, values, setters }) {
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
-            City
           </div>
         </label>
       </div>
