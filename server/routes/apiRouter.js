@@ -40,23 +40,6 @@ import upload from "../utilities/multer.js";
 
 const router = Router();
 
-//@description: Login/Landing Page
-//@routes GET/
-// router.get("/", (req, res) => {
-//   //res.sendFile(__dirname + "/login.html");
-//   res.send("Login page");
-// });
-
-//@description: Main Page
-//@routes GET/
-
-router.get("/mainPage", (req, res) => {
-  res.send("Main Page");
-});
-
-router.get("/minerva", (rer, res) => {
-  res.send("");
-});
 /////////////////////////MENTOR ENDPOINTS //////////////////////////////////////////
 //trying to post data from form input
 router.post("/add-mentor", upload.single("image"), async (req, res) => {
@@ -65,7 +48,6 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
   mentor.avatar = result.secure_url;
   mentor.cloudinary_id = result.public_id;
 
-  // console.log(mentor);
   try {
     let newMentor = await createMentor(mentor);
     res.send(newMentor);
@@ -82,16 +64,34 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
 
 //gets a list of all mentors from all fields
 router.get("/get-mentors", async (req, res) => {
-  let mentorsList = await listMentors();
-  // console.log(`FROM API's ${mentorsList}`);
-  res.json(mentorsList);
+  try {
+    let mentorsList = await listMentors();
+    // console.log(`FROM API's ${mentorsList}`);
+    res.json(mentorsList);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 //gets a mentor using the mentor id from the request
 router.get("/get-mentor/:id", async (req, res) => {
-  let id = req.params.id;
-  let foundInfo = await findMentorById(id);
-  // console.log(`FOUND INFO FROM API ROUTER ${foundInfo}`);
-  res.send(foundInfo);
+  try {
+    let id = req.params.id;
+    let foundInfo = await findMentorById(id);
+    // console.log(`FOUND INFO FROM API ROUTER ${foundInfo}`);
+    res.send(foundInfo);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 // updates a mentor using id from the url
 router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
@@ -151,30 +151,45 @@ router.delete("/delete-mentor/:id", async (req, res) => {
 
 //filter mentors based on the field
 router.get("/filter-mentors-field", async (req, res) => {
-  let field = req.query.field;
-  let mentorsList = await listMentorsFilterField(field);
-  console.log(`Filtering Mentors in the ${field} field`);
-  res.json(mentorsList);
+  try {
+    let field = req.query.field;
+    let mentorsList = await listMentorsFilterField(field);
+    console.log(`Filtering Mentors in the ${field} field`);
+    res.json(mentorsList);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 
 router.get("/filter-mentors-all", async (req, res) => {
-  let mentorsList;
-  let field = req.query.field;
-  let city = req.query.city;
-  if ((field !== "allFields" && city === "nothing") || city === "") {
-    mentorsList = await listMentorsFilterField(field);
-  } else if (field !== "allFields" && city !== "nothing") {
-    mentorsList = await listMentorsFilterFieldCity(field, city);
-  } else if (field === "allFields" && city === "nothing") {
-    mentorsList = await listMentors();
-  } else if (field === "allFields" && city !== "nothing") {
-    mentorsList = await listMentorsFilterCity(city);
+  try {
+    let mentorsList;
+    let field = req.query.field;
+    let city = req.query.city;
+    if ((field !== "allFields" && city === "nothing") || city === "") {
+      mentorsList = await listMentorsFilterField(field);
+    } else if (field !== "allFields" && city !== "nothing") {
+      mentorsList = await listMentorsFilterFieldCity(field, city);
+    } else if (field === "allFields" && city === "nothing") {
+      mentorsList = await listMentors();
+    } else if (field === "allFields" && city !== "nothing") {
+      mentorsList = await listMentorsFilterCity(city);
+    }
+
+    res.json(mentorsList);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
   }
-  // console.log(
-  //   `FROM API ROUTER: filtering Mentors where city = ${city} who are in the ${field} field }`
-  // );
-  // console.log(mentorsList);
-  res.json(mentorsList);
 });
 //////////////////////////////////MENTEE ENDPOINTS /////////////////////////////////
 
@@ -209,11 +224,20 @@ router.post("/add-mentee", async (req, res) => {
 // });
 //updates mentee using id from the url
 router.post("/update-mentee/:id", async (req, res) => {
-  let id = req.params.id;
-  let updatedMentee = req.body;
-  console.log(`updating mentee ${id}: ${updatedMentee}`);
-  let mentee = await updateMentee(id, updatedMentee);
-  res.send(mentee);
+  try {
+    let id = req.params.id;
+    let updatedMentee = req.body;
+    console.log(`updating mentee ${id}: ${updatedMentee}`);
+    let mentee = await updateMentee(id, updatedMentee);
+    res.send(mentee);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 
 // router.get("/add-favorite", async (req,res)=>{
@@ -225,9 +249,18 @@ router.post("/update-mentee/:id", async (req, res) => {
 // })
 
 router.post("/update-favorite", async (req, res) => {
-  let newUser = req.body;
-  await User.findOneAndUpdate({ _id: newUser._id }, newUser);
-  res.send("SUCCESS ADDING TO USER FAVOURITES");
+  try {
+    let newUser = req.body;
+    await User.findOneAndUpdate({ _id: newUser._id }, newUser);
+    res.send("SUCCESS ADDING TO USER FAVOURITES");
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 
 // router.get("/remove-favorite", async (req, res) => {
@@ -249,26 +282,44 @@ router.post("/update-favorite", async (req, res) => {
 // });
 
 router.get("/get-user", async (req, res) => {
-  let favouriteAnswer;
-  let userId = req.query.userId;
-  let mentorId = req.query.mentorId;
-  // console.log("from API ROUTER", userId);
-  let user = await User.findOne({ _id: userId });
-  let answer = await user.favorites.indexOf(mentorId);
-  if (answer > -1) {
-    favouriteAnswer = "true";
-  } else {
-    favouriteAnswer = "false";
+  try {
+    let favouriteAnswer;
+    let userId = req.query.userId;
+    let mentorId = req.query.mentorId;
+    // console.log("from API ROUTER", userId);
+    let user = await User.findOne({ _id: userId });
+    let answer = await user.favorites.indexOf(mentorId);
+    if (answer > -1) {
+      favouriteAnswer = "true";
+    } else {
+      favouriteAnswer = "false";
+    }
+    console.log("from the API ROUTER FAVORITES", answer);
+    res.send(favouriteAnswer);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
   }
-  console.log("from the API ROUTER FAVORITES", answer);
-  res.send(favouriteAnswer);
 });
 
 router.get("/get-favs", async (req, res) => {
-  let user = req.user;
-  // console.log(user)
-  let favs = user.favorites;
-  res.json(favs);
+  try {
+    let user = req.user;
+    // console.log(user)
+    let favs = user.favorites;
+    res.json(favs);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 //---------------------------------------------Michelle's Delete Test--------------------------
 
@@ -298,22 +349,50 @@ router.post("/add-bio", async (req, res) => {
 });
 //gets a list of ALL bios from the encyclopedia of women
 router.get("/get-bios", async (req, res) => {
-  let biosList = await listBios();
-  res.send(biosList);
+  try {
+    let biosList = await listBios();
+    res.send(biosList);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
+
 // get a bio from the id in the server request
 router.get("/get-bio/:id", async (req, res) => {
-  let id = req.params.id;
-  let foundBio = await findBioById(id);
-  res.send(foundBio);
+  try {
+    let id = req.params.id;
+    let foundBio = await findBioById(id);
+    res.send(foundBio);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 //updates bio using is from the url
 router.post("/add-bio/:id", async (req, res) => {
-  let id = req.params.id;
-  let updatedBio = req.body;
-  console.log(`updating bio ${id}: ${updatedBio}`);
-  let bio = await updateBio(id, updatedBio);
-  res.send(bio);
+  try {
+    let id = req.params.id;
+    let updatedBio = req.body;
+    console.log(`updating bio ${id}: ${updatedBio}`);
+    let bio = await updateBio(id, updatedBio);
+    res.send(bio);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 //filter mentors based on the field
 router.get("/filter-bios-field", async (req, res) => {
