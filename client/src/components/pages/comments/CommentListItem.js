@@ -75,7 +75,7 @@ function CommentListItem({
         {childrenArray &&
           childrenArray.map((child, index) => {
             return (
-              <CommentListItem
+              <CommentReplyItem
                 style={{ marginLeft: "100px" }}
                 key={index}
                 postedTime={child.createdAt}
