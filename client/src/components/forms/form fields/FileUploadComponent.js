@@ -16,17 +16,20 @@ function ImageUpload({ setters, values }) {
   // }
   return (
     <div className="ImageUpload">
-      <input
-        type="file"
-        /*value={image}*/
-        name="image"
-        accept="image/*"
-        /*multiple={false}*/
-        onChange={(e) => {
-          setImage(e.target.files[0]);
-        }}
-      />
-      {/* <button onClick={onSubmit}>Submit Image</button> */}
+      <label>
+        Upload Photo:
+        <input
+          type="file"
+          /*value={image}*/
+          name="image"
+          accept="image/*"
+          /*multiple={false}*/
+          onChange={(e) => {
+            setImage(e.target.files[0]);
+          }}
+        />
+        {/* <button onClick={onSubmit}>Submit Image</button> */}
+      </label>
     </div>
   );
 }
