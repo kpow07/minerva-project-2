@@ -332,8 +332,12 @@ router.get("/get-favs", async (req, res) => {
 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form
-router.post("/add-bio", async (req, res) => {
-  let bio = req.body;
+router.post("/add-bio", upload.single("image"), async (req, res) => {
+  const result = await cloudinary.uploader.upload(req.file.path);
+  let bio = JSON.parse(req.body.fileProps);
+  bio.avatar = result.secure_url;
+  bio.cloudinary_id = result.public_id;
+
   try {
     let newBio = await createBio(bio);
     console.log("Added Library Bio: ", newBio);
@@ -347,6 +351,7 @@ router.post("/add-bio", async (req, res) => {
     }
   }
 });
+
 //gets a list of ALL bios from the encyclopedia of women
 router.get("/get-bios", async (req, res) => {
   try {
