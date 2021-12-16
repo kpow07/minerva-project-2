@@ -58,27 +58,7 @@ function ProfilePageComponent({ user, setUser }) {
             buttonLink={"/mentor-edit/" + mentorId}
             // existingValues={existingValues}
             buttonDelete={"/mentor-delete/" + mentorId}
-            removeMentor={() => deleteMentor(mentorId)}
-          />
-        </div>
-
-        <div className="sidebar">
-          <ProfilePageCardDiv
-            mentor={mentor}
-            mentorId={mentorId}
-            userId={userId}
-            user={user}
-            setUser={setUser}
-            buttonValue={buttonValue}
-            buttonLink={"/mentor-edit/" + mentorId}
-            existingValues={mentor}
-          />
-        </div>
-        <div className="content">
-          <AboutMe
-            mentorId={params.id}
             deleteMentor={() => deleteMentor(mentorId)}
-            buttonLink={"/mentor-edit/" + mentorId}
           />
         </div>
       </div>
