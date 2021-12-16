@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./FormStyles.css";
 import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
 import DescriptionBioResourceComponent from "../form fields/DescriptionBioResourceComponent";
 import FormTitleComponent from "../form fields/FormTitleComponent";
 import FirstLastNameComponent from "../form fields/FirstLastNameFormComponent";
+import ImageUpload from "../form fields/FileUploadComponent";
 
 function BioForm({
   existingValues,
@@ -17,7 +19,6 @@ function BioForm({
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [canadian, setCanadian] = useState(false);
-  const [imageURL, setImageURL] = useState("");
   const [science, setScience] = useState(false);
   const [technology, setTechnology] = useState(false);
   const [engineering, setEngineering] = useState(false);
@@ -26,6 +27,11 @@ function BioForm({
   const [bio, setBio] = useState("");
   const [otherResources, setOtherResources] = useState("");
   const [id, setId] = useState("");
+  const [image, setImage] = useState("");
+  const [avatar, setAvatar] = useState("");
+  const [cloudinary_id, setCloudinary_id] = useState("");
+
+  let navigate = useNavigate();
 
   //prepopulates the form with existing values of current bio
   useEffect(() => {
@@ -33,7 +39,6 @@ function BioForm({
       setFirstName(existingValues.firstName);
       setLastName(existingValues.lastName);
       setCanadian(existingValues.canadian);
-      setImageURL(existingValues.imageURL);
       setScience(existingValues.science);
       setTechnology(existingValues.technology);
       setEngineering(existingValues.engineering);
@@ -46,24 +51,44 @@ function BioForm({
   }, [existingValues]);
 
   async function postData() {
-    let newBio = {
-      firstName,
-      lastName,
-      canadian,
-      imageURL,
-      science,
-      technology,
-      engineering,
-      mathematics,
-      description,
-      bio,
-      otherResources,
-      id,
-    };
+    let newBio = new FormData();
+    try {
+      const personalInfo = {
+        firstName,
+        lastName,
+        canadian,
+        science,
+        technology,
+        engineering,
+        mathematics,
+        description,
+        bio,
+        otherResources,
+        id,
+        avatar,
+        cloudinary_id,
+      };
 
-    await onSave(newBio);
-    console.log(`saving bio ${newBio}`);
+      newBio.append("fileProps", JSON.stringify(personalInfo));
+      newBio.append("image", image);
+
+      const res = await fetch("http://localhost:5001/api/add-bio", {
+        method: "POST",
+        body: newBio,
+      });
+      if (res.ok) {
+        //setName("");
+        //setImage("");
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
+
+  //   await onSave(newBio);
+  //   console.log(`saving bio ${newBio}`);
+  // }
 
   //form title component:  you can set the name of the form here to be what you want
   //personal info component:  values and setters of those values are passed in here
@@ -77,9 +102,10 @@ function BioForm({
       <FormTitleComponent title={titleValue} />
 
       <FirstLastNameComponent
-        values={{ firstName, lastName, canadian, imageURL }}
-        setters={{ setFirstName, setLastName, setCanadian, setImageURL }}
+        values={{ firstName, lastName, canadian }}
+        setters={{ setFirstName, setLastName, setCanadian }}
       />
+      <ImageUpload values={{ image }} setters={{ setImage }} />
       <FieldOfStudyCheckboxComponent
         values={{ science, technology, engineering, mathematics }}
         setters={{

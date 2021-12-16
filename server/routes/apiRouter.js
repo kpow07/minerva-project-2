@@ -99,50 +99,44 @@ router.get("/get-mentor/:id", async (req, res) => {
     }
   }
 });
-// updates a mentor using id from the url
-router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
-  let id = req.params.id;
-  const mentor = await findMentorById(id);
-  // Delete image from cloudinary
-  await cloudinary.uploader.destroy(mentor.cloudinary_id);
-  // Upload image to cloudinary
-  let result;
-  if (req.file) {
-    result = await cloudinary.uploader.upload(req.file.path);
+
+// Updates a mentor using id from the url
+router.put("/update-mentor/:id", upload.single("image"), async (req, res) => {
+  try {
+    const id = req.params.id;
+    let result;
+
+    //get mentor from database
+    const mentor = await findMentorById(id);
+
+    //If there is a new image from mentor
+    if (req.file) {
+      // Delete old image from cloudinary
+      await cloudinary.uploader.destroy(mentor.cloudinary_id);
+
+      // Upload new image to cloudinary
+      result = await cloudinary.uploader.upload(req.file.path);
+    }
+
+    //update mentor based on new info
+    const data = req.body;
+    data.avatar = result?.secure_url || mentor.avatar;
+    data.cloudinary_id = result?.public_id || mentor.cloudinary_id;
+
+    //update mentor
+    const updatedMentor = await updateMentor(id, data, {
+      new: true,
+      useFindAndModify: false,
+    });
+    res.send(updatedMentor);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("Mentee already exists");
+    } else {
+      res.sendStatus(500);
+    }
   }
-  const data = {
-    firstName: req.body.firstName || mentor.firstName,
-    lastName: req.body.lastName || mentor.lastName,
-    city: req.body.city || mentor.city,
-    province: req.body.province || mentor.province,
-    email: req.body.email || mentor.email,
-    science: req.body.science || mentor.science,
-    technology: req.body.technology || mentor.technology,
-    engineering: req.body.engineering || mentor.engineering,
-    mathematics: req.body.mathematics || mentor.mathematics,
-    description: req.body.description || mentor.description,
-    bio: req.body.bio || mentor.bio,
-    otherResources: req.body.otherResources || mentor.otherResources,
-    other1: req.body.other1 || mentor.other1,
-    other2: req.body.other2 || mentor.other2,
-    other3: req.body.other3 || mentor.other3,
-    other4: req.body.other4 || mentor.other4,
-    other5: req.body.other5 || mentor.other5,
-    other6: req.body.other6 || mentor.other6,
-    other7: req.body.other7 || mentor.other7,
-    other8: req.body.other8 || mentor.other8,
-    other9: req.body.other9 || mentor.other9,
-    other10: req.body.other10 || mentor.other10,
-    other11: req.body.other11 || mentor.other11,
-    avatar: result?.secure_url || mentor.avatar,
-    cloudinary_id: result?.public_id || mentor.cloudinary_id,
-  };
-  let updatedMentor = updateMentor(id, data, { new: true });
-  res.send(updatedMentor);
-  // let updatedMentor = req.body;
-  // console.log(`updating mentor ${id}: ${updatedMentor}`);
-  // let mentor = await updateMentor(id, updatedMentor);
-  // res.send(mentor);
 });
 
 //---------------------------------------------Michelle's Delete Test--------------------------
@@ -338,8 +332,12 @@ router.get("/get-favs", async (req, res) => {
 
 //////////////////////////////////////////ENDPOINTS FOR "ENCYCLOPEDIA OF STEM WOMEN"///////////////
 //adds a bio from the Bio form
-router.post("/add-bio", async (req, res) => {
-  let bio = req.body;
+router.post("/add-bio", upload.single("image"), async (req, res) => {
+  const result = await cloudinary.uploader.upload(req.file.path);
+  let bio = JSON.parse(req.body.fileProps);
+  bio.avatar = result.secure_url;
+  bio.cloudinary_id = result.public_id;
+
   try {
     let newBio = await createBio(bio);
     console.log("Added Library Bio: ", newBio);
@@ -353,6 +351,7 @@ router.post("/add-bio", async (req, res) => {
     }
   }
 });
+
 //gets a list of ALL bios from the encyclopedia of women
 router.get("/get-bios", async (req, res) => {
   try {

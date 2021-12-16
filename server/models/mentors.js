@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const mentorSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  // email: { type: String, required: true },
+  email: { type: String, required: true },
   city: String,
   province: String,
   science: Boolean,
@@ -46,11 +46,13 @@ async function findMentorById(id) {
 async function listMentors() {
   return Mentor.find({});
 }
+
 async function updateMentor(id, newMentorInfo, obj) {
-  await Mentor.findByIdAndUpdate(id, newMentorInfo, {
-    returnDocument: "after",
-  });
+  const mentor = await Mentor.findByIdAndUpdate(id, newMentorInfo, obj);
+  await mentor.save();
+  return mentor;
 }
+
 async function listMentorsFilterField(field) {
   console.log(field);
   return Mentor.find({ [field]: true });
