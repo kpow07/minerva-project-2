@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import "../../directories/BioDirectory.style.css"; //This is the styling for the div around the cards.  also used in other files
 import "../../bio-cards/portraitCard.style.css"; //this css is specific to landing page cards
 import PortraitCardComponent from "../../bio-cards/PortraitCardComponent";
+import { useNavigate } from "react-router-dom";
 //
 //
-const LandingPageCardDiv = ({ setSelectedBioId, user, setUser }) => {
+const LandingPageCardDiv = ({ user, setUser }) => {
   const [mentors, setMentors] = useState([]);
+  let navigate = useNavigate();
   const generateRandomIndex = (array) =>
     Math.floor(Math.random() * array.length);
   //
@@ -36,10 +38,13 @@ const LandingPageCardDiv = ({ setSelectedBioId, user, setUser }) => {
     fetchFourMentorsData();
   }, []);
   //replace this later with link to mentorgallery
-  // function selectBio(id) {
-  //   console.log("selectBio called on id: ", id);
-  //   setSelectedBioId(id);s
-  // }
+  function selectMentor(id) {
+    console.log("selectMentor called on id: ", id);
+    setSelectedMentorId(id);
+  }
+  function setSelectedMentorId(id) {
+    navigate("/mentor-detail/" + id);
+  }
 
   return (
     <div>
@@ -52,6 +57,7 @@ const LandingPageCardDiv = ({ setSelectedBioId, user, setUser }) => {
             <PortraitCardComponent
               className="card"
               key={index}
+              onMentorSelected={() => selectMentor(mentor._id)}
               firstName={mentor.firstName}
               lastName={mentor.lastName}
               imageURL={mentor.avatar}
@@ -64,6 +70,7 @@ const LandingPageCardDiv = ({ setSelectedBioId, user, setUser }) => {
               user={user}
               setUser={setUser}
               mentor={mentor}
+              // isStatic={true}
             />
           );
         })}

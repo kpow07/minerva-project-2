@@ -43,6 +43,7 @@ function CommentReplyItem({
         <div>
           <p> on: {postedTime} </p> <p>by:{poster}</p>
           <CommentButton value={buttonValue} showOrNot={showOrNot} />
+          <CommentButton value="EDIT" showOrNot={showOrNot} />
         </div>
         {grandChildrenArray &&
           grandChildrenArray.map((child, index) => {
@@ -54,8 +55,9 @@ function CommentReplyItem({
                 poster={child.firstName}
                 user={user}
                 replyBody={child.messageBody}
-                // buttonValue="comment"
                 comment={child}
+                existingValues={comment}
+                // onSave={UpdateComment}
               />
             );
           })}

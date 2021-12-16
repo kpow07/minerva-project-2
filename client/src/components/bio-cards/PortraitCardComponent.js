@@ -37,7 +37,7 @@ const PortraitCardComponent = ({
     } else {
       fave.push(mentorId);
     }
-    console.log("HELLO THERE THIS IS A BIG OL FAV",fave)
+    console.log("HELLO THERE THIS IS A BIG OL FAV", fave);
     const newUser = { ...user, favorites: fave };
     setUser(newUser);
     fetch(`/api/update-favorite`, {

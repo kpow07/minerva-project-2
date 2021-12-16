@@ -26,15 +26,6 @@ const ProfilePageCardDiv = ({
   return (
     <div>
       <div className="directory-menu button-profile">
-        {/* <HeartButton
-          mentorId={mentorId}
-          userId={userId}
-          like={like}
-          setLike={setLike}
-          favoritesToggle={favoritesToggle}
-          user={user}
-          buttonValue={buttonValue}
-        /> */}
         <PortraitCardComponent
           className="card"
           firstName={mentor?.firstName}
@@ -55,7 +46,6 @@ const ProfilePageCardDiv = ({
           user={user}
           setUser={setUser}
           isStatic={true}
-          // onClick={() => onMentorSelected()}
         />
         {/* <Link to={buttonLink}>
           <button>EDIT</button>

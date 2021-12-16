@@ -6,9 +6,7 @@ function CommentButton({ buttonId, showOrNot, value }) {
       <button
         buttonId={buttonId}
         style={{ marginLeft: "10px" }}
-        onClick={() => {
-          showOrNot();
-        }}
+        onClick={showOrNot}
       >
         {value}
       </button>

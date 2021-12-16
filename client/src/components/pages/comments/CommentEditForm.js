@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import "../../forms/FormStyles.css";
 
 function CommentEditForm({
-  user,
   parentId,
   instructions,
   buttonValue,
   existingValues,
+  comment,
+  fetchedId,
+  onSave,
 }) {
   let params = useParams();
 
@@ -24,23 +26,32 @@ function CommentEditForm({
     if (existingValues) {
       const theDate = Date().toLocaleString();
       setDate(theDate);
-      setMentorId(existingValues.params.id);
+      setMentorId(existingValues.mentorId);
       if (parentId) {
         setCommentParentId(existingValues.parentId);
       } else {
         setCommentParentId("none");
       }
-      if (user) {
-        setFirstName(user.firstName);
-        setLastName(user.lastName);
-        setUserId(user._id);
-      }
+      setFirstName(existingValues.firstName);
+      setLastName(existingValues.lastName);
+      setUserId(existingValues.userId);
     }
-  }, [user, params.id, parentId]);
+  }, [existingValues, parentId]);
 
-  // console.log(firstName, "is the current user", date, "is the date");
-  async function mySubmitFunction() {
-    const commentInfo = {
+  const udateComment = async function (updatedComment) {
+    console.log(`updataing bio with id: ${existingValues.commentId}`);
+    await fetch(`/api/add-bio/${existingValues.commentId}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedComment),
+    });
+  };
+
+  async function postData() {
+    const newComment = {
       firstName,
       lastName,
       date,
@@ -49,23 +60,13 @@ function CommentEditForm({
       messageBody,
       commentParentId,
     };
-    const postData = JSON.stringify(commentInfo);
-    // console.log("COMMENT INFO AND POST DATA", commentInfo, postData);
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: postData,
-    };
-    window.location.reload();
-    const response = await fetch("/api/add-comment", requestOptions);
-    const data = await response.json();
-    console.log("this is the data returned from the form", data);
-
-    /////////////////////////////////////////////////////////////
+    await onSave(newComment);
+    console.log("saving new comment", newComment);
   }
+  // console.log("COMMENT INFO AND POST DATA", commentInfo, postData);
+
+  /////////////////////////////////////////////////////////////
+
   return (
     <div>
       <label>
@@ -79,7 +80,7 @@ function CommentEditForm({
           placeholder="add comment..."
           required={true}
           wrap="hard"
-          value={messageBody}
+          value={existingValues.messageBody}
           onChange={(e) => setMessageBody(e.target.value)}
         />
       </label>
@@ -88,10 +89,9 @@ function CommentEditForm({
         className="submit-button"
         type="button"
         value={buttonValue}
-        onClick={mySubmitFunction}
+        // onClick={updateComment()}
       />
     </div>
   );
 }
-
 export default CommentEditForm;
