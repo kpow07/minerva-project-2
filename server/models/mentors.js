@@ -69,11 +69,10 @@ async function listMentorsFilterCity(city) {
   }
 }
 
-   
-// async function removeMentor (id) {
-//   return Mentor.findByIdAndDelete(id)
-// }
-
+function removeMentor(id) {
+  console.log("FROM MENTOR.js: trying to delete mentor with id:", id);
+  return Mentor.findByIdAndDelete(id);
+}
 
 // async function listMentorsFilterAll(field, city) {
 //   console.log(`filtering ${field} mentors who live in ${city}`);
@@ -105,5 +104,5 @@ export {
   listMentorsFilterCity,
   listMentorsFilterFieldCity,
   updateMentor,
-  // removeMentor,
+  removeMentor,
 };

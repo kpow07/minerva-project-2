@@ -7,6 +7,7 @@ import {
   listMentorsFilterFieldCity,
   listMentors,
   updateMentor,
+  removeMentor,
 } from "../models/mentors.js";
 import {
   createBio,
@@ -140,12 +141,13 @@ router.put("/add-mentor/:id", upload.single("image"), async (req, res) => {
 
 //---------------------------------------------Michelle's Delete Test--------------------------
 
-// router.delete ("/delete-mentor/:id", async (req,res) => {
-//   let id = req.params.id
-//   console.log ('deleting Mentor', id)
-//   let deletedMentor = await mentor.removeMentor(id)
-//   res.send (deletedMentor)
-// })
+router.delete("/delete-mentor/:id", async (req, res) => {
+  console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
+  let id = req.params.id;
+  console.log("FROM API ROUTER deleting Mentor:", id);
+  let deletedMentor = await removeMentor(id);
+  res.send(deletedMentor);
+});
 
 //filter mentors based on the field
 router.get("/filter-mentors-field", async (req, res) => {
@@ -262,22 +264,18 @@ router.get("/get-user", async (req, res) => {
   res.send(favouriteAnswer);
 });
 
-router.get ("/get-favs", async (req, res) => {
-  let user = req.user 
+router.get("/get-favs", async (req, res) => {
+  let user = req.user;
   // console.log(user)
-  let favs = user.favorites
-  res.json(favs)
-
-
-
-
-})
+  let favs = user.favorites;
+  res.json(favs);
+});
 //---------------------------------------------Michelle's Delete Test--------------------------
 
 // router.delete ("/delete-mentee/:id", async (req,res) => {
 //   let id = req.params.id
 //   console.log ('deleting Mentee', id)
-//   let deletedMentee = await mentee.delete(id) <-is this hooking up to the model properly?
+//   let deletedMentee = await mentee.delete(id)
 //   res.send (deletedMentor)
 // })
 
