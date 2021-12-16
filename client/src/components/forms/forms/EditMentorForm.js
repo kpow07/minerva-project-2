@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import "./FormStyles.css";
 import FieldOfStudyCheckboxComponent from "../form fields/FieldOfStudyCheckBoxComponent";
 import PersonalInfoComponent from "../form fields/PersonalInfoComponent";
@@ -222,6 +223,10 @@ function EditMentorForm({
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
   const [image, setImage] = useState(""); //addition
+  const [avatar, setAvatar] = useState(""); //addition
+  const [cloudinary_id, setCloudinaryId] = useState(""); //addition
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (existingValues) {
@@ -250,6 +255,8 @@ function EditMentorForm({
       setOther10(existingValues.other10);
       setOther11(existingValues.other11);
       setImage(existingValues.image);
+      setAvatar(existingValues.avatar);
+      setCloudinaryId(existingValues.cloudinary_id);
     }
   }, [existingValues]); //this is called a guard, it will not touch the existing values unless the existing values are changed
 
@@ -281,15 +288,20 @@ function EditMentorForm({
         other9, //addition
         other10, //addition
         other11, //addition
+        avatar,
+        cloudinary_id,
       };
 
       formData.append("fileProps", JSON.stringify(newMentor));
       formData.append("image", image);
 
-      const res = await fetch(`http://localhost:5001/api/add-mentor/${id}`, {
+      const res = await fetch(`http://localhost:5001/api/update-mentor/${id}`, {
         method: "PUT",
         body: formData,
       });
+      if (res.ok) {
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }
