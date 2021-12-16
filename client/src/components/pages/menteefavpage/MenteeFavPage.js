@@ -35,7 +35,7 @@ function MenteeFavPage({ user, setUser }) {
     <div>
       <TitleComponent title="Mentee Profile Page" />
       {/* <Link to={buttonLink}> */}
-            <button onClick={() => deleteMentee(menteeId)}>Delete Profile</button>
+            {/* <button onClick={() => deleteMentee(menteeId)}>Delete Profile</button> */}
             {/* </Link> */}
       <div className="directory-menu">
         {favList.map((fav) => (
