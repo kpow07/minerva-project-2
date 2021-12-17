@@ -72,7 +72,7 @@ function CommentEditForm({
           name="question"
           type="text"
           rows="4"
-          placeholder="add comment..."
+          placeholder="Edit comment..."
           required={true}
           wrap="hard"
           value={newCommentBody}

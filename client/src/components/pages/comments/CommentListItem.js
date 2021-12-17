@@ -51,7 +51,7 @@ function CommentListItem({
   }
 
   return (
-    <div className="comment-parent" style={{ border: "1px solid black" }}>
+    <div className="comment-parent">
       <div>
         <div
           style={{
@@ -72,7 +72,7 @@ function CommentListItem({
             />
             <CommentButton
               className="comment-button"
-              value="edit"
+              value="EDIT"
               showOrNot={showEditOrNot}
             />
           </p>

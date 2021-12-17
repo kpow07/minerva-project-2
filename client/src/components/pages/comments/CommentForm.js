@@ -59,7 +59,7 @@ function CommentForm({ user, parentId, instructions, buttonValue }) {
     /////////////////////////////////////////////////////////////
   }
   return (
-    <div>
+    <div className="original-question">
       <label>
         {instructions}
         <br />
@@ -68,7 +68,7 @@ function CommentForm({ user, parentId, instructions, buttonValue }) {
           name="question"
           type="text"
           rows="4"
-          placeholder="add comment..."
+          placeholder="Ask a question..."
           required={true}
           wrap="hard"
           value={messageBody}

@@ -20,6 +20,21 @@
   text-align: center;
 }
 
+.original-question {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  height: 60%;
+  width: 70%;
+  border: 2px solid #d7ecd9;
+  background-color: #d7ecd9;
+  opacity: 95%;
+  margin: 20px auto;
+  text-align: center;
+  padding: 3%;
+  box-shadow: 2px 0px 30px 1px grey;
+  border-radius: 15px;
+}
+
 .single-line-field-long {
   height: 1.5rem;
   width: 80%;
@@ -80,6 +95,7 @@ h4 {
   margin: 20px auto;
   display: block;
   padding: 5px;
+  font-family: "Montserrat", sans-serif;
 }
 .submit-button:hover {
   background-color: rgb(13, 63, 228);
