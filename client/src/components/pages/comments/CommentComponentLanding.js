@@ -31,7 +31,7 @@ function CommentComponentLanding({ user, mentorId }) {
         commentParentId={""}
         style={{ justifyContents: "center" }}
         instructions="MESSAGE BOARD"
-        buttonValue="SUBMIT QUESTION"
+        buttonValue="ADD A MESSAGE"
       />
       {commentsList &&
         commentsList
