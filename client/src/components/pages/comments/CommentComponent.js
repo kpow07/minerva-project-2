@@ -30,8 +30,8 @@ function CommentComponent({ user, mentorId }) {
         user={user}
         commentParentId={""}
         style={{ justifyContents: "center" }}
-        instructions="ASK A QUESTION TO THIS MENTOR!!"
-        buttonValue="SUBMIT QUESTION"
+        instructions="ASK A QUESTION OR LEAVE A COMMENT"
+        buttonValue="SUBMIT"
       />
       {commentsList &&
         commentsList
