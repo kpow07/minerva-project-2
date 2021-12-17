@@ -6,7 +6,7 @@ import "./comments.css";
 
 /////////////////////////////////////////////60
 
-function CommentComponent({ user, mentorId }) {
+function CommentComponentLanding({ user, mentorId }) {
   const [commentsList, setCommentsList] = useState([]);
 
   useEffect(() => {
@@ -25,12 +25,12 @@ function CommentComponent({ user, mentorId }) {
   //
 
   return (
-    <div className="comment-main-container">
+    <div className="landing-comment-main-container">
       <CommentForm //JUST FOR THE INITIAL QUESTION, set the parentId to empty string
         user={user}
         commentParentId={""}
         style={{ justifyContents: "center" }}
-        instructions="ASK A QUESTION TO THIS MENTOR!!"
+        instructions="MESSAGE BOARD"
         buttonValue="SUBMIT QUESTION"
       />
       {commentsList &&
@@ -59,4 +59,4 @@ function CommentComponent({ user, mentorId }) {
   );
 }
 
-export default CommentComponent;
+export default CommentComponentLanding;

@@ -33,6 +33,7 @@ import {
   findCommentsByMentorId,
   addToCommentChildren,
   findCommentsById,
+  updateComment,
   // findCommentsByParentId,
   findCommentsByCommentArray,
 } from "../models/comments.js";
@@ -203,8 +204,7 @@ router.get("/filter-mentors-all", async (req, res) => {
 // adds mentee from form information (body) and posts to database
 router.post("/add-mentee", async (req, res) => {
   let mentee = req.body;
-  console.log;
-  ("SO FAR THIS IS WORKING");
+  console.log("SO FAR THIS IS WORKING");
   try {
     let newMentee = await createMentee(mentee);
     console.log("Added Mentee", newMentee);
@@ -517,6 +517,26 @@ router.get("/get-comments", async (req, res) => {
   let id = req.query.id;
   let commentsList = await findCommentsById(id);
   res.json(commentsList);
+});
+
+router.post("/update-comment", async (req, res) => {
+  let comment = req.body;
+  console.log(
+    "THIS IS AN IMPORTANT MESSAGE FROM THE API ROUTER",
+    comment.messageBody
+  );
+  let id = req.query.id;
+  try {
+    let newComment = await updateComment(id, comment.messageBody);
+    res.json(newComment);
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(409).send("something");
+    } else {
+      res.sendStatus(500);
+    }
+  }
 });
 
 router.get("/get-mentor-comments", async (req, res) => {

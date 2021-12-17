@@ -1,4 +1,4 @@
-.comment-parent {
+.comment-main-container {
   text-align: center;
   font-family: "Montserrat", sans-serif;
   height: 200px;
@@ -13,9 +13,12 @@
   box-shadow: 2px 0px 30px 1px grey;
   border-radius: 15px;
 }
+.comment-submit-button {
+  margin-bottom: auto;
+}
 
-.comment-multi-line-field-long {
-  margin: auto;
+#first-question {
+  margin-bottom: auto;
 }
 .comment-body {
   text-align: left;
@@ -30,4 +33,19 @@
 .comment-button {
   background-color: #d7ecd9;
   font-family: "Montserrat", sans-serif;
+}
+.landing-comment-main-container {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  height: 900px;
+  overflow-y: scroll;
+  width: 70%;
+  border: 2px solid #d7ecd9;
+  background-color: #d7ecd9;
+  opacity: 95%;
+  margin: 20px auto;
+  text-align: center;
+  padding: 3%;
+  box-shadow: 2px 0px 30px 1px grey;
+  border-radius: 15px;
 }

@@ -59,12 +59,12 @@ function CommentForm({ user, parentId, instructions, buttonValue }) {
     /////////////////////////////////////////////////////////////
   }
   return (
-    <div className="original-question">
+    <div>
       <label>
         {instructions}
         <br />
         <textarea
-          className="comment-multi-line-field-long"
+          id="first-question"
           name="question"
           type="text"
           rows="4"
@@ -77,7 +77,7 @@ function CommentForm({ user, parentId, instructions, buttonValue }) {
       </label>
       <br />
       <input
-        className="submit-button"
+        className="comment-submit-button"
         type="button"
         value={buttonValue}
         onClick={mySubmitFunction}

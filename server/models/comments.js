@@ -22,11 +22,14 @@ async function createComment(commentToCreate) {
   return newComment.save();
 }
 async function updateComment(id, newMessageBody) {
-  const message = await Comment.findByIdAndUpdate(id, newMessageBody);
-  await Comment.save();
+  const message = await Comment.findOneAndUpdate(
+    { _id: id },
+    { $set: { messageBody: newMessageBody } },
+    { new: true }
+  );
+  await message.save();
   return message;
 }
-
 async function findCommentsByMentorId(mentorId) {
   let commentList = await Comment.find({ mentorId: mentorId });
   console.log("comments by mentor id", commentList);
