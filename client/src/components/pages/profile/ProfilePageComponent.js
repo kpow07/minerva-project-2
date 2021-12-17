@@ -43,7 +43,7 @@ function ProfilePageComponent({ user, setUser }) {
     <div>
       <TitleComponent title="Mentor Profile Page" />
       <div className="profile-page-wrapper">
-        <div className="sidebar">
+        <div className="michelle">
           <ProfilePageCardDiv
             mentor={mentor}
             mentorId={mentorId}
@@ -52,8 +52,6 @@ function ProfilePageComponent({ user, setUser }) {
             setUser={setUser}
             buttonValue={buttonValue}
           />
-        </div>
-        <div className="content">
           <AboutMe
             mentorId={params.id}
             buttonLink={"/mentor-edit/" + mentorId}
@@ -62,10 +60,8 @@ function ProfilePageComponent({ user, setUser }) {
             deleteMentor={() => deleteMentor(mentorId)}
           />
         </div>
-        <div className="original-question">
-          <CommentComponent mentorId={params.id} user={user} />
-        </div>
       </div>
+      <CommentComponent mentorId={params.id} user={user} />
     </div>
   );
 }

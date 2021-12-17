@@ -31,7 +31,7 @@ const BioDetailPage = function ({ user, setUser }) {
     <div>
       <TitleComponent title="Biography Detail" />
       <div className="profile-page-wrapper">
-        <div className="sidebar">
+        <div className="michelle">
           <BioPageCardDiv
             bio={bio}
             bioId={bioId}
@@ -39,8 +39,6 @@ const BioDetailPage = function ({ user, setUser }) {
             user={user}
             setUser={setUser}
           />
-        </div>
-        <div className="content">
           <AnyoneDetail bioId={bioId} buttonLink={"/bio-edit/" + bioId} />
         </div>
       </div>
