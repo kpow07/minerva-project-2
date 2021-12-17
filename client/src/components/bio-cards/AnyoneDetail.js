@@ -23,18 +23,12 @@ const AnyoneDetail = ({ bioId, buttonLink }) => {
     });
     console.log("Are you sure you want to DELETE Bio?", bioId);
     navigate("/bio-gallery");
-  };
+  }
   return (
     <>
       <div className="rendered-bio">
         {bio ? (
           <>
-            <Link to={buttonLink}>
-              <button>EDIT</button>
-            </Link>
-            <Link to={buttonLink}>
-            <button onClick={() => deleteBio(bio._id)}>DELETE</button>
-            </Link>
             <h1>
               {bio.firstName} {bio.lastName}{" "}
               {bio.canadian ? (
@@ -64,6 +58,12 @@ const AnyoneDetail = ({ bioId, buttonLink }) => {
               <div className="field-title">Summary:</div>
               <div className="field-value">{bio.bio}</div>
             </div>
+            <Link to={buttonLink}>
+              <button>EDIT</button>
+            </Link>
+            <Link to={buttonLink}>
+              <button onClick={() => deleteBio(bio._id)}>DELETE</button>
+            </Link>
           </>
         ) : null}
         {/* can add div with loading message  */}

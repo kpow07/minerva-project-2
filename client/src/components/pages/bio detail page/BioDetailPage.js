@@ -1,19 +1,49 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AnyoneDetail from "../../bio-cards/AnyoneDetail";
 import CommentComponent from "../comments/CommentComponent";
 import CommentForm from "../comments/CommentForm";
 import TitleComponent from "../../title/TitleComponent";
+import BioPageCardDiv from "../bio page/BioPageCardDiv";
+import "../../bio-cards/Detail.style.css";
 
-const BioDetailPage = function ({ user }) {
-  // let navigate = useNavigate();
+const BioDetailPage = function ({ user, setUser }) {
+  const [bio, setBio] = useState();
+  let userId = user?._id;
   let params = useParams();
+  let bioId = params.id;
+
+  useEffect(() => {
+    const fetchBio = async () => {
+      let fetchResult = await fetch("/api/get-bio/" + bioId);
+      let fetchedBio = await fetchResult.json();
+      setBio(fetchedBio);
+    };
+    if (bioId) {
+      fetchBio();
+    }
+  }, [bioId]);
+
   // console.log("Loading superhero id: ", { id });
 
   return (
     <div>
       <TitleComponent title="Biography Detail" />
-      <AnyoneDetail bioId={params.id} buttonLink={"/bio-edit/" + params.id} />
+      <div className="profile-page-wrapper">
+        <div className="sidebar">
+          <BioPageCardDiv
+            bio={bio}
+            bioId={bioId}
+            userId={userId}
+            user={user}
+            setUser={setUser}
+          />
+        </div>
+        <div className="content">
+          <AnyoneDetail bioId={bioId} buttonLink={"/bio-edit/" + bioId} />
+        </div>
+      </div>
       <CommentComponent mentorId={params.id} user={user} />
     </div>
   );
