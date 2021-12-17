@@ -25,7 +25,7 @@ function CommentComponentLanding({ user, mentorId }) {
   //
 
   return (
-    <div className="comment-main-container">
+    <div className="landing-comment-main-container">
       <CommentForm //JUST FOR THE INITIAL QUESTION, set the parentId to empty string
         user={user}
         commentParentId={""}
