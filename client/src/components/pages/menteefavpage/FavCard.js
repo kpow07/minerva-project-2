@@ -8,6 +8,7 @@ import "./menteeFavPage.css";
 
 function FavCard({ mentorId, user, setUser }) {
   const [mentor, setMentor] = useState();
+  let navigate = useNavigate();
 
   useEffect(() => {
     const fetchMenteeFavs = async () => {
@@ -18,12 +19,16 @@ function FavCard({ mentorId, user, setUser }) {
     fetchMenteeFavs();
   }, []);
 
+  function setSelectedMentorId(id) {
+    navigate("/mentor-detail/" + id);
+  }
+
   return (
     <div>
       {mentor && (
         <PortraitCardComponent
           className="card"
-          // onMentorSelected={() => selectMentor(mentor._id)}
+          onMentorSelected={() => setSelectedMentorId(mentor._id)}
           firstName={mentor.firstName}
           lastName={mentor.lastName}
           imageURL={mentor.avatar}
@@ -36,7 +41,7 @@ function FavCard({ mentorId, user, setUser }) {
           mentor={mentor}
           user={user}
           setUser={setUser}
-          isStatic={true}
+          // isStatic={true}
         />
       )}
     </div>

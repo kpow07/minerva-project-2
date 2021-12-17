@@ -42,7 +42,13 @@ function CommentReplyItem({
       <div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <p className="comment-info">
-            on: {postedTime} by:{poster}{" "}
+            on:{" "}
+            {new Date(postedTime).toLocaleTimeString("en-ca", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}{" "}
+            by:{poster}{" "}
             <CommentButton
               className="comment-button"
               value="REPLY"
@@ -82,7 +88,7 @@ function CommentReplyItem({
             user={user}
             commentId={comment._id}
             parentId={comment._id}
-            instructions="ADD COMMENT!!"
+            instructions="REPLY TO QUESTION OR COMMENT"
             buttonValue="SUBMIT COMMENT"
           />
         ) : null}
