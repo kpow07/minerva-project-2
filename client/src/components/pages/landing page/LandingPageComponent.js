@@ -10,12 +10,12 @@ import TitleComponent from "../../title/TitleComponent";
 function LandingPageComponent({ user, setUser }) {
   return (
     <div className="page-container">
+      <AboutComponent className="about-component" />
+      <LandingPageCardDiv className="card-div" user={user} setUser={setUser} />
       <div>
         <TitleComponent title="MESSAGES" />
         <CommentComponentLanding mentorId="61a297d5611071030427a57b" />
       </div>
-      <LandingPageCardDiv className="card-div" user={user} setUser={setUser} />
-      <AboutComponent className="about-component" />
     </div>
   );
 }
