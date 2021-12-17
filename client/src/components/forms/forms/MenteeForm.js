@@ -7,8 +7,9 @@ import OtherAreasCheckboxComponent from "../form fields/OtherAreasCheckboxCompon
 import DescriptionBioResourceComponent from "../form fields/DescriptionBioResourceComponent";
 import FormTitle from "../form fields/FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheckboxWithFieldComponent"; //addition
+import { useNavigate } from "react-router-dom";
 
-function MenteeForm({ setGetUser}) {
+function MenteeForm({ setGetUser }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +33,8 @@ function MenteeForm({ setGetUser}) {
   const [other9, setOther9] = useState(false); //addition
   const [other10, setOther10] = useState(""); //addition
   const [other11, setOther11] = useState(false); //addition
+
+  let navigate = useNavigate();
 
   async function mySubmitFunction() {
     const personalInfo = {
@@ -71,7 +74,7 @@ function MenteeForm({ setGetUser}) {
     };
     const response = await fetch("/api/add-mentee", requestOptions);
     const data = await response.json();
-
+    navigate("/mentor-gallery");
     console.log(data);
     setGetUser(new Date());
     //response.text
