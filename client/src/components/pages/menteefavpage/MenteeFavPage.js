@@ -22,6 +22,9 @@ function MenteeFavPage({ user, setUser }) {
     fetchMenteeFavs();
   }, []);
 
+  function setSelectedMentorId(id) {
+    navigate("/mentor-detail/" + id);
+  }
   // async function deleteMentee(id) {
   //   console.log("FROM DELETE MENTEE FAV PAGE FUNCTION");
   //   await fetch(`/api/delete-mentee/` + id, {
@@ -38,7 +41,12 @@ function MenteeFavPage({ user, setUser }) {
       {/* </Link> */}
       <div className="directory-menu">
         {favList.map((fav) => (
-          <FavCard mentorId={fav} user={user} setUser={setUser} />
+          <FavCard
+            mentorId={fav}
+            user={user}
+            setUser={setUser}
+            setSelectedMentorId={setSelectedMentorId}
+          />
         ))}
       </div>
     </div>
