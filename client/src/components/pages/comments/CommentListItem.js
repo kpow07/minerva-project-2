@@ -64,7 +64,7 @@ function CommentListItem({
             className="comment-info"
             style={{ display: "flex", flexDirection: "row" }}
           >
-            on: {postedTime} by:{poster}{" "}
+            on: {new Date(postedTime).toLocaleTimeString('en-ca',{month: "long", day:"numeric", year:"numeric"})} by:{poster}{" "}
             <CommentButton
               className="comment-button"
               value={buttonValue}

@@ -42,7 +42,7 @@ function CommentReplyItem({
       <div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <p className="comment-info">
-            on: {postedTime} by:{poster}{" "}
+            on: {new Date(postedTime).toLocaleTimeString('en-ca',{month: "long", day:"numeric", year:"numeric"})} by:{poster}{" "}
             <CommentButton
               className="comment-button"
               value="REPLY"
