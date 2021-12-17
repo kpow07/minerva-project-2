@@ -15,6 +15,7 @@ const mentorSchema = new mongoose.Schema({
   avatar: { type: String },
   cloudinary_id: { type: String },
   description: { type: String, required: true },
+  otherResources: String,
   bio: { type: String, required: true },
   other1: Boolean,
   other2: Boolean,

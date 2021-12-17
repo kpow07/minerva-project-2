@@ -11,6 +11,7 @@ const menteeSchema = new mongoose.Schema({
   engineering: Boolean,
   mathematics: Boolean,
   description: { type: String, required: true },
+  otherResources: String,
   bio: { type: String, required: true },
   other1: Boolean,
   other2: Boolean,

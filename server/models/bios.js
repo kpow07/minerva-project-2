@@ -13,7 +13,7 @@ const bioSchema = new mongoose.Schema({
   description: String,
   bio: String,
   // imageURL: String,
-  OtherResources: String,
+  otherResources: String,
   // createdAt: {
   //   type: Date,
   //   default: Date.now,
