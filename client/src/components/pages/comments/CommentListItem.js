@@ -22,10 +22,10 @@ function CommentListItem({
 
   useEffect(() => {
     async function fetchData() {
-      console.log(
-        "Fetching children comments using commentId (parentId of replies",
-        commentId
-      );
+      // console.log(
+      //   "Fetching children comments using commentId (parentId of replies",
+      //   commentId
+      // );
       let fetchResult = await fetch(
         `/api/get-comment-children?parentId=${commentId}`
       );

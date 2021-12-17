@@ -19,7 +19,7 @@ function CommentReplyItem({
 
   useEffect(() => {
     async function fetchData() {
-      console.log("Fetching grandchildren comments using commentId", commentId);
+      // console.log("Fetching grandchildren comments using commentId", commentId);
       let fetchResult = await fetch(
         `/api/get-comment-children?parentId=${commentId}`
       );
@@ -28,7 +28,7 @@ function CommentReplyItem({
     }
     fetchData();
   }, [commentId]);
-  console.log("THIS IS THE GRANDCHILDREN ARRAY", grandChildrenArray);
+  // console.log("THIS IS THE GRANDCHILDREN ARRAY", grandChildrenArray);
   function showOrNot() {
     if (showing === true) {
       setShowing(false);

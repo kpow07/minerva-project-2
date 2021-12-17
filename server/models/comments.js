@@ -21,12 +21,18 @@ async function createComment(commentToCreate) {
   console.log("from COMMENTS.js, new Comment", newComment);
   return newComment.save();
 }
+async function updateComment(id, newMessageBody) {
+  const message = await Comment.findByIdAndUpdate(id, newMessageBody);
+  await Comment.save();
+  return message;
+}
 
 async function findCommentsByMentorId(mentorId) {
   let commentList = await Comment.find({ mentorId: mentorId });
   console.log("comments by mentor id", commentList);
   return commentList;
 }
+
 async function addToCommentChildren(parentId, commentId) {
   console.log("parent ID and comment Id", parentId, commentId.toString());
   let parentComment = await Comment.findOneAndUpdate(
@@ -56,6 +62,7 @@ export {
   findCommentsByMentorId,
   addToCommentChildren,
   findCommentsById,
+  updateComment,
   // findCommentsByParentId,
   findCommentsByCommentArray,
 };

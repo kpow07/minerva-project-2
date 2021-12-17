@@ -19,6 +19,7 @@ function CommentEditForm({
   const [date, setDate] = useState("");
   const [mentorId, setMentorId] = useState("");
   const [userId, setUserId] = useState("");
+  const [commentId, setCommentId] = useState(existingValues._id);
   const [messageBody, setMessageBody] = useState("");
   const [commentParentId, setCommentParentId] = useState("");
   const [newCommentBody, setNewCommentBody] = useState(
@@ -39,34 +40,24 @@ function CommentEditForm({
       setFirstName(existingValues.firstName);
       setLastName(existingValues.lastName);
       setUserId(existingValues.userId);
+      setCommentId(existingValues._id);
     }
   }, [existingValues, parentId]);
 
-  const updateComment = async function (updatedComment) {
-    console.log(`updataing bio with id: ${existingValues.commentId}`);
-    await fetch(`/api/add-bio/${existingValues.commentId}`, {
+  const updateComment = async function () {
+    const newComment = {
+      messageBody,
+    };
+    console.log(`updataing comment with id: ${commentId}`);
+    await fetch(`/api/update-comment/${commentId}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedComment),
+      body: JSON.stringify(newComment),
     });
   };
-
-  async function postData() {
-    const newComment = {
-      firstName,
-      lastName,
-      date,
-      mentorId,
-      userId,
-      messageBody,
-      commentParentId,
-    };
-    await onSave(newComment);
-    console.log("saving new comment", newComment);
-  }
   // console.log("COMMENT INFO AND POST DATA", commentInfo, postData);
 
   /////////////////////////////////////////////////////////////
@@ -93,7 +84,7 @@ function CommentEditForm({
         className="submit-button"
         type="button"
         value={buttonValue}
-        // onClick={updateComment()}
+        onClick={() => updateComment()}
       />
     </div>
   );
