@@ -8,14 +8,12 @@ import "./menteeFavPage.css";
 
 function FavCard({ mentorId, user, setUser }) {
   const [mentor, setMentor] = useState();
-  
 
   useEffect(() => {
     const fetchMenteeFavs = async () => {
       const response = await fetch("/api/get-mentor/" + mentorId);
       const fetchedMentor = await response.json();
       setMentor(fetchedMentor);
-      
     };
     fetchMenteeFavs();
   }, []);
@@ -38,11 +36,10 @@ function FavCard({ mentorId, user, setUser }) {
           mentor={mentor}
           user={user}
           setUser={setUser}
+          isStatic={true}
         />
       )}
     </div>
   );
 }
 export default FavCard;
-
-
