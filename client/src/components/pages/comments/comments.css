@@ -1,7 +1,17 @@
 .comment-parent {
-  width: 80%;
-  margin: auto;
-  background-color: white;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  height: 200px;
+  overflow-y: scroll;
+  width: 70%;
+  border: 2px solid #d7ecd9;
+  background-color: #d7ecd9;
+  opacity: 95%;
+  margin: 20px auto;
+  text-align: center;
+  padding: 3%;
+  box-shadow: 2px 0px 30px 1px grey;
+  border-radius: 15px;
 }
 
 .comment-multi-line-field-long {
@@ -9,10 +19,15 @@
 }
 .comment-body {
   text-align: left;
-  color: blue;
+  color: black;
   margin-bottom: 15px;
 }
 .comment-info {
   display: flex;
   flex-direction: row;
+}
+
+.comment-button {
+  background-color: #d7ecd9;
+  font-family: "Montserrat", sans-serif;
 }

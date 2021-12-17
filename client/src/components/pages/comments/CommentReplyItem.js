@@ -45,12 +45,12 @@ function CommentReplyItem({
             on: {postedTime} by:{poster}{" "}
             <CommentButton
               className="comment-button"
-              value="reply"
+              value="REPLY"
               showOrNot={showOrNot}
             />
             <CommentButton
               className="comment-button"
-              value="edit"
+              value="EDIT"
               showOrNot={showOrNot}
             />
           </p>
