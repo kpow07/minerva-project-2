@@ -54,13 +54,23 @@ const Header = ({ user }) => {
             </ul>
           </nav>
           <nav className="navMenu">
-            <ul>
-              <Link to="/mentee-fav">
-                <button id="smallButton" className="button">
-                  PROFILE
-                </button>
-              </Link>
-            </ul>
+            {user?.userType === "mentee" ? (
+              <ul>
+                <Link to="/mentee-fav">
+                  <button id="smallButton" className="button">
+                    PROFILE
+                  </button>
+                </Link>
+              </ul>
+            ) : (
+              <ul>
+                <Link to="/mentor-detail/:id">
+                  <button id="smallButton" className="button">
+                    PROFILE
+                  </button>
+                </Link>
+              </ul>
+            )}
             <ul>
               <Link to="/bio-create">
                 <button id="smallButton" className="button">

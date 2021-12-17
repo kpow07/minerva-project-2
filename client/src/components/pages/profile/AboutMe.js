@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router"; //add this
 
 import "./AboutMe.css";
+import userEvent from "@testing-library/user-event";
 
 // click on bio card to render profile  w/ About Me component
 const AboutMe = ({
   mentorId,
+  user,
   existingValues,
   editButtonLink,
   deleteButtonLink,
@@ -63,11 +65,17 @@ const AboutMe = ({
       <h2 className="about-field-title"> Here are some resources: </h2>
       <p className="about-field-value">{mentor?.otherResources}</p>
       <br />
-      <Link to={buttonLink}>
-        <button className="button-edit-delete">EDIT PROFILE</button>
-      </Link>
-
-      <button className="button-edit-delete" onClick={() => deleteMentor()}>DELETE PROFILE</button>
+      {user?.firstName === mentor?.firstName &&
+      user?.lastName === mentor?.lastName ? (
+        <div>
+          <Link to={buttonLink}>
+            <button className="button-edit-delete">EDIT PROFILE</button>
+          </Link>
+          <button className="button-edit-delete" onClick={() => deleteMentor()}>
+            DELETE PROFILE
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };

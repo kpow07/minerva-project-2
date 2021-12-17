@@ -77,7 +77,7 @@ function App() {
         {/* MENTOR ROUTES */}
         <Route
           path="/mentor-add"
-          element={user ? <MentorSignUpPage/> : <LoginPage />}
+          element={user ? <MentorSignUpPage /> : <LoginPage />}
         />
         <Route
           path="/mentor-gallery"

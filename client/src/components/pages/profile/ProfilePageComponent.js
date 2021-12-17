@@ -53,6 +53,7 @@ function ProfilePageComponent({ user, setUser }) {
             buttonValue={buttonValue}
           />
           <AboutMe
+            user={user}
             mentorId={params.id}
             buttonLink={"/mentor-edit/" + mentorId}
             // existingValues={existingValues}
