@@ -57,6 +57,8 @@ const AnyoneDetail = ({ bioId, buttonLink }) => {
               <h3 className="field-value">{bio.description}</h3>
               <div className="field-title">Summary:</div>
               <div className="field-value">{bio.bio}</div>
+              <div className="field-title">Other Resources:</div>
+              <div className="field-value">{bio.otherResources}</div>
             </div>
             <Link to={buttonLink}>
               <button>EDIT</button>

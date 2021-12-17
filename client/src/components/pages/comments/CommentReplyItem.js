@@ -48,11 +48,13 @@ function CommentReplyItem({
               value="REPLY"
               showOrNot={showOrNot}
             />
-            <CommentButton
-              className="comment-button"
-              value="EDIT"
-              showOrNot={showOrNot}
-            />
+            {user?._id === comment.userId ? (
+              <CommentButton
+                className="comment-button"
+                value="EDIT"
+                showOrNot={showOrNot}
+              />
+            ) : null}
           </p>
         </div>
         <h4 className="comment-body">{replyBody}</h4>

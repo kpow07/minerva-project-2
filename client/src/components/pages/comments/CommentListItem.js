@@ -70,11 +70,13 @@ function CommentListItem({
               value={buttonValue}
               showOrNot={showOrNot}
             />
-            <CommentButton
-              className="comment-button"
-              value="EDIT"
-              showOrNot={showEditOrNot}
-            />
+            {user?._id === comment.userId ? (
+              <CommentButton
+                className="comment-button"
+                value="EDIT"
+                showOrNot={showEditOrNot}
+              />
+            ) : null}
           </p>
         </div>
         <h4 className="comment-body">{commentQuestion}</h4>
