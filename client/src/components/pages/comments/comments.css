@@ -1,4 +1,4 @@
-.comment-parent {
+.comment-main-container {
   text-align: center;
   font-family: "Montserrat", sans-serif;
   height: 200px;
@@ -13,9 +13,12 @@
   box-shadow: 2px 0px 30px 1px grey;
   border-radius: 15px;
 }
+.comment-submit-button {
+  margin-bottom: auto;
+}
 
-.comment-multi-line-field-long {
-  margin: auto;
+#first-question {
+  margin-bottom: auto;
 }
 .comment-body {
   text-align: left;

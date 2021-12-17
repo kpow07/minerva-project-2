@@ -44,12 +44,14 @@ function CommentEditForm({
     }
   }, [existingValues, parentId]);
 
+  console.log("THIS IS THE COMMENT ID", commentId);
+
   const updateComment = async function () {
-    const newComment = {
-      messageBody,
-    };
+    const newComment = { messageBody };
+
+    console.log("THIS IS THE NEW COMMENT", newComment);
     console.log(`updataing comment with id: ${commentId}`);
-    await fetch(`/api/update-comment/${commentId}`, {
+    await fetch(`/api/update-comment?id=${commentId}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
