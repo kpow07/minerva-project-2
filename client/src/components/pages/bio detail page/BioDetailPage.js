@@ -6,6 +6,7 @@ import CommentComponent from "../comments/CommentComponent";
 import CommentForm from "../comments/CommentForm";
 import TitleComponent from "../../title/TitleComponent";
 import BioPageCardDiv from "../bio page/BioPageCardDiv";
+import "../../bio-cards/Detail.style.css";
 
 const BioDetailPage = function ({ user, setUser }) {
   const [bio, setBio] = useState();
@@ -29,14 +30,20 @@ const BioDetailPage = function ({ user, setUser }) {
   return (
     <div>
       <TitleComponent title="Biography Detail" />
-      <BioPageCardDiv
-        bio={bio}
-        bioId={bioId}
-        userId={userId}
-        user={user}
-        setUser={setUser}
-      />
-      <AnyoneDetail bioId={bioId} buttonLink={"/bio-edit/" + bioId} />
+      <div className="profile-page-wrapper">
+        <div className="sidebar">
+          <BioPageCardDiv
+            bio={bio}
+            bioId={bioId}
+            userId={userId}
+            user={user}
+            setUser={setUser}
+          />
+        </div>
+        <div className="content">
+          <AnyoneDetail bioId={bioId} buttonLink={"/bio-edit/" + bioId} />
+        </div>
+      </div>
       <CommentComponent mentorId={params.id} user={user} />
     </div>
   );
