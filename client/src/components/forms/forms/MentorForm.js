@@ -12,11 +12,11 @@ import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheck
 import ImageUpload from "../form fields/FileUploadComponent"; //addition
 
 function MentorForm(
-  existingValues,
-  fetchedId,
-  titleValue,
-  buttonValue,
-  onSave
+  // existingValues,
+  // fetchedId,
+  // titleValue,
+  // buttonValue,
+  // onSave,
 ) {
   //set the beginning state for all variables
   const [firstName, setFirstName] = useState("");
@@ -81,7 +81,7 @@ function MentorForm(
       formData.append("fileProps", JSON.stringify(personalInfo));
       formData.append("image", image);
 
-      const res = await fetch("http://localhost:5001/api/add-mentor", {
+      const res = await fetch("/api/add-mentor", {
         method: "POST",
         body: formData,
       });
