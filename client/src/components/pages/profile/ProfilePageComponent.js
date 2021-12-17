@@ -5,6 +5,7 @@ import ProfilePageCardDiv from "./ProfilePageCardDiv";
 import "./ProfilePage.css";
 import { useNavigate } from "react-router"; //add this
 import TitleComponent from "../../title/TitleComponent";
+import CommentComponent from "../comments/CommentComponent";
 
 // this will render the Mentor Card, About Me & Q&A and like button
 
@@ -18,7 +19,7 @@ function ProfilePageComponent({ user, setUser }) {
   const navigate = useNavigate();
 
   console.log("user favorites", user?.favorites);
-  
+
   useEffect(() => {
     const fetchMentor = async () => {
       let fetchResult = await fetch("/api/get-mentor/" + mentorId);
@@ -42,7 +43,7 @@ function ProfilePageComponent({ user, setUser }) {
     <div>
       <TitleComponent title="Mentor Profile Page" />
       <div className="profile-page-wrapper">
-        <div className="sidebar">
+        <div className="michelle">
           <ProfilePageCardDiv
             mentor={mentor}
             mentorId={mentorId}
@@ -51,8 +52,6 @@ function ProfilePageComponent({ user, setUser }) {
             setUser={setUser}
             buttonValue={buttonValue}
           />
-        </div>
-        <div className="content">
           <AboutMe
             mentorId={params.id}
             buttonLink={"/mentor-edit/" + mentorId}
@@ -62,6 +61,7 @@ function ProfilePageComponent({ user, setUser }) {
           />
         </div>
       </div>
+      <CommentComponent mentorId={params.id} user={user} />
     </div>
   );
 }

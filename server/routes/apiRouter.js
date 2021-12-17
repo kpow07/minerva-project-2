@@ -49,6 +49,11 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
   let mentor = JSON.parse(req.body.fileProps);
   mentor.avatar = result.secure_url;
   mentor.cloudinary_id = result.public_id;
+  console.log(req.user)
+  req.user.userType = "mentor";
+  
+    await req.user.save();
+
 
   try {
     let newMentor = await createMentor(mentor);
@@ -196,7 +201,6 @@ router.get("/filter-mentors-all", async (req, res) => {
 });
 //////////////////////////////////MENTEE ENDPOINTS /////////////////////////////////
 
-// });
 // adds mentee from form information (body) and posts to database
 router.post("/add-mentee", async (req, res) => {
   let mentee = req.body;

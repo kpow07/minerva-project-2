@@ -8,7 +8,7 @@ import DescriptionBioResourceComponent from "../form fields/DescriptionBioResour
 import FormTitle from "../form fields/FormTitleComponent";
 import AdditionalCheckboxWithFieldComponent from "../form fields/AdditionalCheckboxWithFieldComponent"; //addition
 
-function MenteeForm({ setGetUser }) {
+function MenteeForm({ setGetUser}) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

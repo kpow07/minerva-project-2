@@ -16,16 +16,30 @@ h2 {
   margin: 0em;
 }
 .rendered-bio {
-  height: 60%;
+  height: 80%;
   width: 50%;
   border: 2px solid white;
   background-color: white;
   opacity: 95%;
-  margin: 20px auto;
   text-align: center;
   padding: 3%;
   box-shadow: 2px 0px 30px 1px grey;
 }
 h2 {
   margin-top: 0px;
+}
+.rendered-bio button {
+  font-family: "Montserrat", sans-serif;
+  flex: 0 auto;
+  min-width: 170px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  background-color: #8da47e;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 100px;
+  border: none;
 }

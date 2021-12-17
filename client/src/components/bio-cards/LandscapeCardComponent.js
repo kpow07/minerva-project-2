@@ -1,6 +1,7 @@
 import "./LandscapeBioCard.style.css";
 
 const LandscapeCardComponent = ({
+  bio,
   firstName,
   lastName,
   description,
@@ -28,7 +29,7 @@ const LandscapeCardComponent = ({
             <div className="image-container" id="science-image-container">
               <img
                 id="science-landing-card"
-                src="images/logos/beaker.png"
+                src="/images/logos/beaker.png"
                 alt="logo"
                 style={{ width: "35px", height: "35px" }}
               />
@@ -38,7 +39,7 @@ const LandscapeCardComponent = ({
             <div className="image-container" id="technology-image-container">
               <img
                 id="technology-landing-card"
-                src="images/logos/computer.png"
+                src="/images/logos/computer.png"
                 alt="logo"
                 style={{
                   width: "40px",
@@ -51,7 +52,7 @@ const LandscapeCardComponent = ({
             <div className="image-container" id="engineering-image-container">
               <img
                 id="engineering-landing-card"
-                src="images/logos/gears.png"
+                src="/images/logos/gears.png"
                 alt="logo"
                 style={{ width: "44px", height: "44px" }}
               />
@@ -61,7 +62,7 @@ const LandscapeCardComponent = ({
             <div className="image-container" id="mathematics-image-container">
               <img
                 id="mathematics-landing-card"
-                src="images/logos/pi-symbol.png"
+                src="/images/logos/pi-symbol.png"
                 alt="logo"
                 style={{ width: "44px", height: "44px" }}
               />
@@ -75,7 +76,7 @@ const LandscapeCardComponent = ({
           {canadian ? (
             <img
               id="mini-flag"
-              src="images/logos/flag.png"
+              src="/images/logos/flag.png"
               style={{
                 height: "20px",
                 width: "30px",
