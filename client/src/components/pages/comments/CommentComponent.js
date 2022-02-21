@@ -36,12 +36,12 @@ function CommentComponent({ user, mentorId }) {
       {commentsList &&
         commentsList
           .filter((comment) => comment.commentParentId === "none")
-          .map((comment, index) => {
+          .map((comment) => {
             return (
               <div>
                 <CommentListItem
                   style={{ marginLeft: "20px" }}
-                  key={index}
+                  key={comment._id}
                   commentQuestion={comment.messageBody}
                   poster={comment.firstName}
                   postedTime={comment.createdAt}

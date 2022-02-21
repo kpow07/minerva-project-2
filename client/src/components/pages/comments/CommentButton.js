@@ -3,7 +3,7 @@ import "./CommentButton.css";
 
 function CommentButton({ buttonId, showOrNot, value }) {
   return (
-    <div>
+    <>
       <button
         className="comment-button"
         buttonId={buttonId}
@@ -12,7 +12,7 @@ function CommentButton({ buttonId, showOrNot, value }) {
       >
         {value}
       </button>
-    </div>
+    </>
   );
 }
 

@@ -12,6 +12,7 @@ const ScienceDirectoryComponent = ({ setSelectedBioId }) => {
       console.log("Fetching bios data");
       let fetchResult = await fetch("/api/get-bios");
       let bioList = await fetchResult.json();
+      // console.log(bioList);
       setBios(bioList);
     }
     fetchData();

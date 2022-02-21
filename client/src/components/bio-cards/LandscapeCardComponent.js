@@ -1,19 +1,31 @@
 import "./LandscapeBioCard.style.css";
 
-const LandscapeCardComponent = ({ props }) => {
+const LandscapeCardComponent = ({
+  bio,
+  firstName,
+  lastName,
+  description,
+  imageURL,
+  canadian,
+  science,
+  technology,
+  engineering,
+  mathematics,
+  onBioSelected,
+}) => {
   return (
-    <div className="science-bio-card" onClick={() => props.onBioSelected()}>
+    <div className="science-bio-card" onClick={() => onBioSelected()}>
       <div className="science-upper-container">
         <img
           className="science-portrait"
-          src={props.imageURL}
-          alt={props.firstName}
+          src={imageURL}
+          alt={firstName}
           height="230px"
           style={{ backgroundPosition: "center" }}
         />
 
         <div className="bio-logo-container">
-          {props.science ? (
+          {science ? (
             <div className="image-container" id="science-image-container">
               <img
                 id="science-landing-card"
@@ -23,7 +35,7 @@ const LandscapeCardComponent = ({ props }) => {
               />
             </div>
           ) : null}
-          {props.technology ? (
+          {technology ? (
             <div className="image-container" id="technology-image-container">
               <img
                 id="technology-landing-card"
@@ -36,7 +48,7 @@ const LandscapeCardComponent = ({ props }) => {
               />
             </div>
           ) : null}
-          {props.engineering ? (
+          {engineering ? (
             <div className="image-container" id="engineering-image-container">
               <img
                 id="engineering-landing-card"
@@ -46,7 +58,7 @@ const LandscapeCardComponent = ({ props }) => {
               />
             </div>
           ) : null}
-          {props.mathematics ? (
+          {mathematics ? (
             <div className="image-container" id="mathematics-image-container">
               <img
                 id="mathematics-landing-card"
@@ -60,8 +72,8 @@ const LandscapeCardComponent = ({ props }) => {
       </div>
       <div className="science-lower-container">
         <h3>
-          {props.firstName} {props.lastName}{" "}
-          {props.canadian ? (
+          {firstName} {lastName}{" "}
+          {canadian ? (
             <img
               id="mini-flag"
               src="/images/logos/flag.png"
@@ -76,18 +88,16 @@ const LandscapeCardComponent = ({ props }) => {
           ) : null}
         </h3>
         <div className="fields">
-          {props.science ? (
-            <h4 style={{ color: "orangeRed" }}>SCIENCE</h4>
-          ) : null}{" "}
-          {props.technology ? (
+          {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}
+          {technology ? (
             <h4 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h4>
           ) : null}{" "}
-          {props.engineering ? (
+          {engineering ? (
             <h4 style={{ color: "darkBlue" }}>ENGINEERING</h4>
           ) : null}{" "}
-          {props.mathematics ? <h4 style={{ color: "gold" }}>MATH</h4> : null}{" "}
+          {mathematics ? <h4 style={{ color: "gold" }}>MATH</h4> : null}{" "}
         </div>
-        <p>{props.description}</p>
+        <p>{description}</p>
       </div>
     </div>
   );

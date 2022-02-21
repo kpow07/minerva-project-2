@@ -51,7 +51,7 @@ const LandingPageCardDiv = ({ user, setUser }) => {
     <div>
       <TitleComponent title="Meet Our Mentors" />
       <div className="directory-menu">
-        {mentors.map((mentor, index) => {
+        {mentors.map((mentor) => {
           return (
             <PortraitCardComponent
               className="card"

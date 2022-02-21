@@ -88,11 +88,11 @@ function CommentListItem({
         <h4 className="comment-body">{commentQuestion}</h4>
 
         {childrenArray &&
-          childrenArray.map((child, index) => {
+          childrenArray.map((child) => {
             return (
               <CommentReplyItem
                 style={{ marginLeft: "100px" }}
-                key={index}
+                key={child._id}
                 postedTime={child.createdAt}
                 poster={child.firstName}
                 user={user}
