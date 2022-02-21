@@ -40,7 +40,6 @@ async function updateBio(id, newBioInfo, obj) {
 }
 
 async function listBiosFilterField(field) {
-  console.log(field);
   return Bio.find({ [field]: true });
 }
 async function listBiosFilterCanadian(canadian) {
@@ -52,9 +51,6 @@ async function listBiosFilterFieldCanadian(field, canadian) {
   let isCanadian;
   if (canadian === "true") {
     isCanadian = true;
-    console.log(
-      `FROM BIOS.js: Filtering bios where canadian = ${canadian} in the ${field} field`
-    );
     return Bio.find({ [field]: true, canadian: isCanadian });
   } else if (canadian === "nothing") {
     return Bio.find({ [field]: true });
@@ -62,7 +58,6 @@ async function listBiosFilterFieldCanadian(field, canadian) {
 }
 
 function removeBio(id) {
-  console.log("FROM anyone details.js: trying to delete bio with id:", id);
   return Bio.findByIdAndDelete(id);
 }
 /////////////////////

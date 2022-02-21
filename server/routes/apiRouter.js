@@ -49,7 +49,6 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
   let mentor = JSON.parse(req.body.fileProps);
   mentor.avatar = result.secure_url;
   mentor.cloudinary_id = result.public_id;
-  console.log(req.user);
   req.user.userType = "mentor";
 
   await req.user.save();
@@ -57,7 +56,6 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
   try {
     let newMentor = await createMentor(mentor);
     res.send(newMentor);
-    console.log("Added Mentor", newMentor);
   } catch (error) {
     console.log(error);
     if (error.code === 11000) {
@@ -72,7 +70,6 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
 router.get("/get-mentors", async (req, res) => {
   try {
     let mentorsList = await listMentors();
-    // console.log(`FROM API's ${mentorsList}`);
     res.json(mentorsList);
   } catch (error) {
     console.log(error);
@@ -88,7 +85,6 @@ router.get("/get-mentor/:id", async (req, res) => {
   try {
     let id = req.params.id;
     let foundInfo = await findMentorById(id);
-    // console.log(`FOUND INFO FROM API ROUTER ${foundInfo}`);
     res.send(foundInfo);
   } catch (error) {
     console.log(error);
@@ -142,9 +138,7 @@ router.put("/update-mentor/:id", upload.single("image"), async (req, res) => {
 //---------------------------------------------Michelle's Delete Test--------------------------
 
 router.delete("/delete-mentor/:id", async (req, res) => {
-  console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
   let id = req.params.id;
-  console.log("FROM API ROUTER deleting Mentor:", id);
   let deletedMentor = await removeMentor(id);
   res.send(deletedMentor);
 });
@@ -154,7 +148,6 @@ router.get("/filter-mentors-field", async (req, res) => {
   try {
     let field = req.query.field;
     let mentorsList = await listMentorsFilterField(field);
-    console.log(`Filtering Mentors in the ${field} field`);
     res.json(mentorsList);
   } catch (error) {
     console.log(error);
@@ -196,10 +189,8 @@ router.get("/filter-mentors-all", async (req, res) => {
 // adds mentee from form information (body) and posts to database
 router.post("/add-mentee", async (req, res) => {
   let mentee = req.body;
-  console.log("SO FAR THIS IS WORKING");
   try {
     let newMentee = await createMentee(mentee);
-    console.log("Added Mentee", newMentee);
     req.user.userType = "mentee";
     await req.user.save();
     res.send(newMentee);
@@ -212,24 +203,12 @@ router.post("/add-mentee", async (req, res) => {
     }
   }
 });
-//gets a list of all mentees
-// router.get("/get-mentees", async (req, res) => {
-//   let menteeList = await listMentees();
-//   console.log(menteeList);
-//   res.send(menteeList);
-// });
-//gets a mentee using id from the request
-// router.get("/get-mentee/:id", async (req, res) => {
-//   let id = req.params.id;
-//   let foundInfo = await getMentee(id);
-//   res.send(foundInfo);
-// });
+
 //updates mentee using id from the url
 router.post("/update-mentee/:id", async (req, res) => {
   try {
     let id = req.params.id;
     let updatedMentee = req.body;
-    console.log(`updating mentee ${id}: ${updatedMentee}`);
     let mentee = await updateMentee(id, updatedMentee);
     res.send(mentee);
   } catch (error) {
@@ -241,14 +220,6 @@ router.post("/update-mentee/:id", async (req, res) => {
     }
   }
 });
-
-// router.get("/add-favorite", async (req,res)=>{
-//   let mentorId=req.query.mentorId;
-//   let id = req.query.id;
-//   console.log(`trying to add mentor to mentee favs , ${mentorId, id}`)
-//   let updatedUser =  await addToUserFavorites(mentorId, id)
-//   res.send(updatedUser);
-// })
 
 router.post("/update-favorite", async (req, res) => {
   try {
@@ -265,30 +236,11 @@ router.post("/update-favorite", async (req, res) => {
   }
 });
 
-// router.get("/remove-favorite", async (req, res) => {
-//   let mentorId = req.query.mentorId;
-//   let id = req.query.id;
-//   console.log(`trying to remove mentor from user favs , ${mentorId}, ${id}`);
-//   let user = await User.findOne({ _id: id });
-//   let index = await user.favorites.indexOf(mentorId);
-//   console.log("FROM ROUTER INDEX OF REMOVABLE", index);
-//   // let updatedUser = await user.favorites.pull(index);
-//   let updatedUser = await User.findOneAndUpdate(
-//     { _id: id },
-//     { $pull: { favorites: mentorId } }
-//   );
-//   console.log("UPDATED USER", updatedUser);
-//   // console.log("USER", user);
-//   updatedUser.save();
-//   res.send("SUCCESS REMOVING MENTOR FROM USER FAVOURITES");
-// });
-
 router.get("/get-user", async (req, res) => {
   try {
     let favouriteAnswer;
     let userId = req.query.userId;
     let mentorId = req.query.mentorId;
-    // console.log("from API ROUTER", userId);
     let user = await User.findOne({ _id: userId });
     let answer = await user.favorites.indexOf(mentorId);
     if (answer > -1) {
@@ -296,7 +248,6 @@ router.get("/get-user", async (req, res) => {
     } else {
       favouriteAnswer = "false";
     }
-    console.log("from the API ROUTER FAVORITES", answer);
     res.send(favouriteAnswer);
   } catch (error) {
     console.log(error);
@@ -311,7 +262,6 @@ router.get("/get-user", async (req, res) => {
 router.get("/get-favs", async (req, res) => {
   try {
     let user = req.user;
-    // console.log(user)
     let favs = user.favorites;
     res.json(favs);
   } catch (error) {
@@ -343,7 +293,6 @@ router.post("/add-bio", upload.single("image"), async (req, res) => {
 
   try {
     let newBio = await createBio(bio);
-    console.log("Added Library Bio: ", newBio);
     res.send(newBio);
   } catch (error) {
     console.log(error);
@@ -427,16 +376,8 @@ router.put("/add-bio/:id", upload.single("image"), async (req, res) => {
 router.get("/filter-bios-field", async (req, res) => {
   let field = req.query.field;
   let mentorsList = await listBiosFilterField(field);
-  console.log(`Filtering Mentors in the ${field} field`);
   res.send(mentorsList);
 });
-//filter mentors based on city
-// router.get("/filter-bios-canadian", async (req, res) => {
-//   let canadian = req.query.canadian;
-//   let mentorsList = await listBiosFilterCanadian(canadian);
-//   console.log(`Filtering mentors where canadian is ${canadian}`);
-//   res.send(mentorsList);
-// });
 
 router.get("/filter-bios-all", async (req, res) => {
   let biosList;
@@ -454,14 +395,11 @@ router.get("/filter-bios-all", async (req, res) => {
   console.log(
     `FROM API ROUTER: filtering bios where canadian = ${canadian} who are in the ${field} field }`
   );
-  console.log(biosList);
   res.json(biosList);
 });
 
 router.delete("/delete-bio/:id", async (req, res) => {
-  console.log("FROM API ROUTER %%%%%%%%%%%%%%%%%%%%%%%%%%");
   let id = req.params.id;
-  console.log("FROM API ROUTER deleting BIO:", id);
   let deletedBio = await removeBio(id);
   res.send(deletedBio);
 });
@@ -481,27 +419,10 @@ router.post("/add-comment", async (req, res) => {
     }
   }
 });
-// router.get("/add-to-children-array", async (req, res) => {
-//   let parentId = req.query.parentId;
-//   let currentCommentId = req.query.currentCommentId;
-//   let updatedParentComment = await addToCommentChildren(
-//     parentId,
-//     currentCommentId
-//   );
-//   res.send(updatedParentComment);
-// });
-
-// router.get("/get-comment-children", async (req, res) => {
-//   let parentId = req.query.parentId;
-//   let childrenComments = await findCommentsByParentId(parentId);
-//   console.log("AAPPII these are the children of the comment", childrenComments);
-//   res.send(childrenComments);
-// });
 
 router.get("/get-comment-children", async (req, res) => {
   let parentId = req.query.parentId;
   let childrenComments = await findCommentsByCommentArray(parentId);
-  console.log("AAPPII these are the children of the comment", childrenComments);
   res.send(childrenComments);
 });
 
@@ -513,10 +434,6 @@ router.get("/get-comments", async (req, res) => {
 
 router.post("/update-comment", async (req, res) => {
   let comment = req.body;
-  console.log(
-    "THIS IS AN IMPORTANT MESSAGE FROM THE API ROUTER",
-    comment.messageBody
-  );
   let id = req.query.id;
   try {
     let newComment = await updateComment(id, comment.messageBody);
@@ -534,7 +451,6 @@ router.post("/update-comment", async (req, res) => {
 router.get("/get-mentor-comments", async (req, res) => {
   let mentorId = req.query.mentorId;
   let commentList = await findCommentsByMentorId(mentorId);
-  console.log("the comments by mentor id is: >>>>>>>>>>>>>>>>>", commentList);
   res.send(commentList);
 });
 
@@ -544,14 +460,3 @@ router.use("*", (req, res, next) => {
 });
 
 export default router;
-// router.get("/add-favorite", async (req, res) => {
-//   let mentorId = req.query.mentorId;
-//   let id = req.query.id;
-//   console.log(`trying to add mentor to mentee favs , ${(mentorId, id)}`);
-//   let updatedUser = await User.findOneAndUpdate(
-//     { _id: id },
-//     { $push: { favorites: mentorId } }
-//   );
-//   updatedUser.save();
-//   res.send("SUCCESS ADDING TO USER FAVOURITES");
-// });

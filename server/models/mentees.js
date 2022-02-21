@@ -42,7 +42,6 @@ async function updateMentee(id, newMenteeInfo) {
 }
 
 function removeMentee(id) {
-  console.log("FROM MENTee.js: trying to delete mentee with id:", id);
   return Mentee.findByIdAndDelete(id);
 }
 // async function getMenteeInfo(id) {

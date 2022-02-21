@@ -55,16 +55,13 @@ async function updateMentor(id, newMentorInfo, obj) {
 }
 
 async function listMentorsFilterField(field) {
-  console.log(field);
   return Mentor.find({ [field]: true });
 }
 async function listMentorsFilterFieldCity(field, city) {
-  console.log(`Filtering Mentors by Field: ${field} and City: ${city}`);
   return Mentor.find({ [field]: true, city: city });
 }
 
 async function listMentorsFilterCity(city) {
-  console.log(city);
   if (city !== "nothing") {
     return Mentor.find({ city: city });
   } else {
@@ -73,30 +70,8 @@ async function listMentorsFilterCity(city) {
 }
 
 function removeMentor(id) {
-  console.log("FROM MENTOR.js: trying to delete mentor with id:", id);
   return Mentor.findByIdAndDelete(id);
 }
-
-// async function listMentorsFilterAll(field, city) {
-//   console.log(`filtering ${field} mentors who live in ${city}`);
-//   if (field === "" && city === "") {
-//     return await Mentor.find({});
-//   } else if (field === "" && city !== "") {
-//     await Mentor.find({ city: city });
-//   } else if (field === "science" && city !== "") {
-//     return await Mentor.find({ city: city, science: true });
-//   } else if (field === "technology" && city !== "") {
-//     return await Mentor.find({ city: city, technology: true });
-//   } else if (field === "engineering" && city !== "") {
-//     return await Mentor.find({ city: city, engineering: true });
-//   } else if (field === "mathematics" && city !== "") {
-//     return await Mentor.find({ city: city, mathematics: true });
-//   }
-// }
-// async function filterMentors(field, city) {
-//   let mentors = await listMentorsFilterAll(field, city);
-//   console.log(mentors);
-// }
 
 ////////////////////////////////
 export {
