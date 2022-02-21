@@ -1,41 +1,27 @@
-import Button from "@restart/ui/esm/Button";
 import HeartButton from "../navigation/HeartButton";
 import "./portraitCard.style.css";
 
-const PortraitCardComponentStatic = ({
-  firstName,
-  lastName,
-  description,
-  imageURL,
-  science,
-  technology,
-  mathematics,
-  engineering,
-  favoritesToggle,
-  like,
-  setLike,
-  buttonValue,
-}) => {
+const PortraitCardComponentStatic = ({ props }) => {
   return (
     <div className="portrait-bio-card">
       <div className="portrait-upper-container">
         <img
           className="portrait-portrait"
-          src={"/images/" + imageURL}
-          alt={firstName}
+          src={"/images/" + props.imageURL}
+          alt={props.firstName}
           width="210px"
         />
       </div>
       <div className="portrait-lower-container">
         <HeartButton
           className="fav-button"
-          favoritesToggle={favoritesToggle}
-          like={like}
-          setLike={setLike}
-          buttonValue={buttonValue}
+          favoritesToggle={props.favoritesToggle}
+          like={props.like}
+          setLike={props.setLike}
+          buttonValue={props.buttonValue}
         />
         <div className="portrait-logo-container">
-          {science ? (
+          {props.science ? (
             <div
               className="portrait-image-container"
               id="science-image-container"
@@ -48,7 +34,7 @@ const PortraitCardComponentStatic = ({
               />
             </div>
           ) : null}
-          {technology ? (
+          {props.technology ? (
             <div
               className="portrait-image-container"
               id="technology-image-container"
@@ -64,7 +50,7 @@ const PortraitCardComponentStatic = ({
               />
             </div>
           ) : null}
-          {engineering ? (
+          {props.engineering ? (
             <div
               className="portrait-image-container"
               id="engineering-image-container"
@@ -77,7 +63,7 @@ const PortraitCardComponentStatic = ({
               />
             </div>
           ) : null}
-          {mathematics ? (
+          {props.mathematics ? (
             <div
               className="portrait-image-container"
               id="mathematics-image-container"
@@ -92,7 +78,7 @@ const PortraitCardComponentStatic = ({
           ) : null}
         </div>
         <h3 style={{ textAlign: "center" }}>
-          {firstName} {lastName}
+          {props.firstName} {props.lastName}
           {/* {canadian ? (
             <img
               id="mini-flag"
@@ -108,16 +94,18 @@ const PortraitCardComponentStatic = ({
           ) : null} */}
         </h3>
         <div className="fields">
-          {science ? <h4 style={{ color: "orangeRed" }}>SCIENCE</h4> : null}{" "}
-          {technology ? (
+          {props.science ? (
+            <h4 style={{ color: "orangeRed" }}>SCIENCE</h4>
+          ) : null}{" "}
+          {props.technology ? (
             <h4 style={{ color: "paleVioletRed" }}>TECHNOLOGY</h4>
           ) : null}{" "}
-          {engineering ? (
+          {props.engineering ? (
             <h4 style={{ color: "darkBlue" }}>ENGINEERING</h4>
           ) : null}{" "}
-          {mathematics ? <h4 style={{ color: "gold" }}>MATH</h4> : null}{" "}
+          {props.mathematics ? <h4 style={{ color: "gold" }}>MATH</h4> : null}{" "}
         </div>
-        <p>{description}</p>
+        <p>{props.description}</p>
       </div>
     </div>
   );

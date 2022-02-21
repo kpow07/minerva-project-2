@@ -55,7 +55,7 @@ const LandingPageCardDiv = ({ user, setUser }) => {
           return (
             <PortraitCardComponent
               className="card"
-              key={index}
+              key={mentor._id}
               onMentorSelected={() => selectMentor(mentor._id)}
               firstName={mentor.firstName}
               lastName={mentor.lastName}

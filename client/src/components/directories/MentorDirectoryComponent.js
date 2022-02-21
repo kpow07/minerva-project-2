@@ -5,24 +5,18 @@ import PortraitCardComponent from "../bio-cards/PortraitCardComponent";
 
 //
 //
-const MentorDirectoryComponent = ({
-  setSelectedMentorId,
-  mentorsArray,
-  title,
-  user,
-  setUser,
-}) => {
+const MentorDirectoryComponent = ({ props }) => {
   function selectMentor(id) {
     console.log("selectMentor called on id: ", id);
-    setSelectedMentorId(id);
+    props.setSelectedMentorId(id);
   }
 
   return (
     <>
-      <h1>{title}</h1>
+      <h1>{props.title}</h1>
       <div className="directory-menu">
-        {mentorsArray &&
-          mentorsArray.map((mentor, index) => {
+        {props.mentorsArray &&
+          props.mentorsArray.map((mentor, index) => {
             return (
               <PortraitCardComponent
                 className="card"
@@ -38,8 +32,8 @@ const MentorDirectoryComponent = ({
                 engineering={mentor.engineering}
                 mathematics={mentor.mathematics}
                 mentor={mentor}
-                user={user}
-                setUser={setUser}
+                user={props.user}
+                setUser={props.setUser}
               />
             );
           })}

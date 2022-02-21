@@ -8,13 +8,7 @@ import FormTitleComponent from "../form fields/FormTitleComponent";
 import FirstLastNameComponent from "../form fields/FirstLastNameFormComponent";
 import ImageUpload from "../form fields/FileUploadComponent";
 
-function BioForm({
-  existingValues,
-  fetchedId,
-  titleValue,
-  buttonValue,
-  onSave,
-}) {
+function BioForm({ existingValues, titleValue, buttonValue }) {
   //set the beginning state for all variables
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -85,10 +79,6 @@ function BioForm({
       console.log(err);
     }
   }
-
-  //   await onSave(newBio);
-  //   console.log(`saving bio ${newBio}`);
-  // }
 
   //form title component:  you can set the name of the form here to be what you want
   //personal info component:  values and setters of those values are passed in here

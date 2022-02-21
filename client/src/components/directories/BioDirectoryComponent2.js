@@ -5,7 +5,6 @@ import LandscapeCardComponent from "../bio-cards/LandscapeCardComponent";
 
 const BioDirectoryComponent2 = ({ setSelectedBioId, biosArray, title }) => {
   function selectBio(id) {
-    console.log("selectBio called on id: ", id);
     setSelectedBioId(id);
   }
 

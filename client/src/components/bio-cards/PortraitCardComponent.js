@@ -1,43 +1,27 @@
-import Button from "@restart/ui/esm/Button";
 import HeartButton from "../navigation/HeartButton";
 import { useState, useEffect } from "react";
 import "./portraitCard.style.css";
 
-const PortraitCardComponent = ({
-  firstName,
-  lastName,
-  description,
-  imageURL,
-  science,
-  technology,
-  mathematics,
-  engineering,
-  onMentorSelected,
-  user,
-  setUser,
-  buttonValue,
-  mentor,
-  isStatic,
-}) => {
+const PortraitCardComponent = ({ props }) => {
   const [like, setLike] = useState(false);
-  const mentorId = mentor?._id;
+  const mentorId = props.mentor?._id;
   useEffect(() => {
-    let doesLike = user?.favorites.includes(mentorId);
+    let doesLike = props.user?.favorites.includes(mentorId);
     setLike(doesLike);
-  }, [mentorId, user?.favorites]);
+  }, [mentorId, props.user?.favorites]);
 
   const favoritesToggle = () => {
-    let index = user?.favorites.indexOf(mentorId);
+    let index = props.user?.favorites.indexOf(mentorId);
     console.log("running toggle", index);
-    let fave = [...user.favorites];
+    let fave = [...props.user.favorites];
     if (index > -1) {
       fave.splice(index, 1);
     } else {
       fave.push(mentorId);
     }
     console.log("HELLO THERE THIS IS A BIG OL FAV", fave);
-    const newUser = { ...user, favorites: fave };
-    setUser(newUser);
+    const newUser = { ...props.user, favorites: fave };
+    props.setUser(newUser);
     fetch(`/api/update-favorite`, {
       method: "POST",
       headers: {
@@ -51,13 +35,13 @@ const PortraitCardComponent = ({
   return (
     <div
       className="portrait-bio-card"
-      onClick={!isStatic ? () => onMentorSelected() : null}
+      onClick={!props.isStatic ? () => props.onMentorSelected() : null}
     >
       <div className="portrait-upper-container">
         <img
           className="portrait-portrait"
-          src={imageURL}
-          alt={firstName}
+          src={props.imageURL}
+          alt={props.firstName}
           width="210px"
         />
       </div>
@@ -67,10 +51,10 @@ const PortraitCardComponent = ({
           favoritesToggle={favoritesToggle}
           like={like}
           setLike={setLike}
-          buttonValue={buttonValue}
+          buttonValue={props.buttonValue}
         />
         <div className="portrait-logo-container">
-          {science ? (
+          {props.science ? (
             <div
               className="portrait-image-container"
               id="science-image-container"
@@ -83,7 +67,7 @@ const PortraitCardComponent = ({
               />
             </div>
           ) : null}
-          {technology ? (
+          {props.technology ? (
             <div
               className="portrait-image-container"
               id="technology-image-container"
@@ -99,7 +83,7 @@ const PortraitCardComponent = ({
               />
             </div>
           ) : null}
-          {engineering ? (
+          {props.engineering ? (
             <div
               className="portrait-image-container"
               id="engineering-image-container"
@@ -112,7 +96,7 @@ const PortraitCardComponent = ({
               />
             </div>
           ) : null}
-          {mathematics ? (
+          {props.mathematics ? (
             <div
               className="portrait-image-container"
               id="mathematics-image-container"
@@ -128,10 +112,10 @@ const PortraitCardComponent = ({
         </div>
         <div className="content-container">
           <h3>
-            {firstName} {lastName}
+            {props.firstName} {props.lastName}
           </h3>
           <div className="fields">
-            {science ? (
+            {props.science ? (
               <h4
                 className="portrait-lower-container"
                 style={{ color: "orangeRed" }}
@@ -139,7 +123,7 @@ const PortraitCardComponent = ({
                 SCIENCE
               </h4>
             ) : null}{" "}
-            {technology ? (
+            {props.technology ? (
               <h4
                 className="portrait-lower-container"
                 style={{ color: "paleVioletRed" }}
@@ -147,7 +131,7 @@ const PortraitCardComponent = ({
                 TECHNOLOGY
               </h4>
             ) : null}{" "}
-            {engineering ? (
+            {props.engineering ? (
               <h4
                 className="portrait-lower-container"
                 style={{ color: "darkBlue" }}
@@ -155,7 +139,7 @@ const PortraitCardComponent = ({
                 ENGINEERING
               </h4>
             ) : null}{" "}
-            {mathematics ? (
+            {props.mathematics ? (
               <h4
                 className="portrait-lower-container"
                 style={{ color: "gold" }}
@@ -164,7 +148,7 @@ const PortraitCardComponent = ({
               </h4>
             ) : null}{" "}
           </div>
-          <p className="portrait-lower-container">{description}</p>
+          <p className="portrait-lower-container">{props.description}</p>
         </div>
       </div>
     </div>

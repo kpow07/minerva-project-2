@@ -1,24 +1,10 @@
 {
-  "name": "minevra-project-2",
-  "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:5001",
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "bootstrap": "^3.4.1",
-    "cors": "^2.8.5",
-    "multer": "^1.4.3",
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.0.2",
-    "react-dom": "^17.0.2",
-    "react-elastic-carousel": "^0.11.5",
-    "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
-  },
+  "name": "minerva-project-2",
+  "version": "1.0.0",
+  "description": "KP testing push\r   ___\r  {0v0}\r /)o0o).\r  “  “\r # Getting Started with Create React App",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "install": "npm run install-client && npm run install-server",
     "install-client": "cd client && npm install && cd ..",
@@ -28,26 +14,14 @@
     "start": "npm run start-server",
     "start-server": "cd server && npm start && cd .."
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michlovin/minerva-project-2.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michlovin/minerva-project-2/issues"
   },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "nodemon": "^2.0.15"
-  }
+  "homepage": "https://github.com/michlovin/minerva-project-2#readme"
 }

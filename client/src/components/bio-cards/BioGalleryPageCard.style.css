@@ -11,9 +11,7 @@
   margin: 20px;
   cursor: pointer;
 }
-/* .landscape-bio-card:hover {
-  transform: scale(1.15);
-} */
+
 .science-bio-card:hover {
   transform: scale(1.15);
 }

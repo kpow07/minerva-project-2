@@ -49,7 +49,6 @@ const MentorDetail = ({ mentorId }) => {
           </div>
         </>
       ) : null}
-      {/* can add div with loading message  */}
     </div>
   );
 };

@@ -22,7 +22,7 @@ function FieldOfStudyCheckboxComponent({ setters, values }) {
                 type="checkbox"
                 value={science}
                 checked={science === true}
-                unchecked={science === false}
+                // unchecked={science === false}
                 onChange={(e) => setScience(e.target.checked)}
               />{" "}
               Science

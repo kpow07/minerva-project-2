@@ -4,9 +4,6 @@ import React from "react";
 function DescriptionBioResourceComponent({ setters, values }) {
   const { description, bio, otherResources } = values;
   const { setDescription, setBio, setOtherResources } = setters;
-  // console.log(
-  //   `first name: ${firstName} last name: ${lastName} email: ${email} city: ${city}`
-  // );
 
   return (
     <div>

@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import "./FormStyles.css";
-import FieldOfStudyCheckboxComponent from "../../form fields/FieldOfStudyCheckBoxComponent";
-import DescriptionBioResourceComponent from "../../form fields/DescriptionBioResourceComponent";
-import FormTitleComponent from "../../form fields/FormTitleComponent";
-import FirstLastNameComponent from "../../form fields/FirstLastNameFormComponent";
+import FieldOfStudyCheckboxComponent from "../../../components/forms/form fields/FieldOfStudyCheckBoxComponent";
+import DescriptionBioResourceComponent from "../../../components/forms/form fields/DescriptionBioResourceComponent";
+import FormTitleComponent from "../../../components/forms/form fields/FormTitleComponent";
+import FirstLastNameComponent from "../../../components/forms/form fields/FirstLastNameFormComponent";
 
 function LibraryBioForm() {
   //set the beginning state for all variables
