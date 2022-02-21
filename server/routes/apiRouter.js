@@ -49,11 +49,10 @@ router.post("/add-mentor", upload.single("image"), async (req, res) => {
   let mentor = JSON.parse(req.body.fileProps);
   mentor.avatar = result.secure_url;
   mentor.cloudinary_id = result.public_id;
-  console.log(req.user)
+  console.log(req.user);
   req.user.userType = "mentor";
-  
-    await req.user.save();
 
+  await req.user.save();
 
   try {
     let newMentor = await createMentor(mentor);
@@ -101,13 +100,6 @@ router.get("/get-mentor/:id", async (req, res) => {
   }
 });
 
-// router.post("/update-mentor/:id", async (req, res) => {
-//   let id = req.params.id;
-//   let updatedMentor = req.body;
-//   console.log("updating mentor with id:", id, "with", updatedMentor);
-//   let mentor = await updateMentor(id, updatedMentor);
-//   res.send(mentor);
-// });
 // Updates a mentor using id from the url
 router.put("/update-mentor/:id", upload.single("image"), async (req, res) => {
   try {
